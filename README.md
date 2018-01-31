@@ -4,8 +4,8 @@
 
 ## Requirements
 
-    * node 8.1.2 (recommended to use [NVM](https://github.com/creationix/nvm))
-    * Yarn 1.3.2
+* node 8.1.2 (recommended to use [NVM](https://github.com/creationix/nvm))
+* [Yarn](https://yarnpkg.com/lang/en/) 1.3.2
 
 
 ## Development
