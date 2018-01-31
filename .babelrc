@@ -1,0 +1,26 @@
+{
+  "plugins": [
+    "add-react-displayname",
+    [
+      "module-resolver", {
+        "root": ["."],
+        "alias": {
+          "components": "./components",
+          "pages": "./pages",
+          "css": "./css",
+          "services": "./services",
+          "utils": "./utils"
+        }
+    }],
+    [
+      "wrap-in-js",
+      {
+        "extensions": ["css$", "scss$"]
+      }
+    ]
+  ],
+  "presets": [
+    "next/babel"
+  ],
+  "ignore": []
+}
