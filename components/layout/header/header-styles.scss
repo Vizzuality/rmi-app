@@ -1,0 +1,9 @@
+@import 'css/settings';
+
+.c-header {
+  background: $color-7;
+
+  > .header-top {
+    border-bottom: 2px solid $color-6;
+  }
+}

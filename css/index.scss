@@ -1,7 +1,19 @@
-@import 'settings';
+@import 'css/settings';
 
 // Reset
-@import '../node_modules/normalize.css/normalize';
+@import 'node_modules/normalize.css/normalize';
+@import 'css/reset';
+@import 'css/base';
+
+//mixins and helpers
+@import 'css/mixins';
 
 // layout
-@import 'layout';
+@import 'css/layout';
+
+// components
+@import 'components/index';
+
+
+
+

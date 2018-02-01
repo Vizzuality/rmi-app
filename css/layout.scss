@@ -1,5 +1,15 @@
 
-.layout-container {
-  max-width: $layout-max-width;
+.l-layout {
+  max-width: calc(#{$layout-max-width + ($layout-padding * 2)});
+  padding: 0 $layout-padding;
   margin: 0 auto;
 }
+
+.fixed-header-element {
+  width: 100%;
+}
+
+// .content-page {
+//   padding-top: 114px;
+// }
+

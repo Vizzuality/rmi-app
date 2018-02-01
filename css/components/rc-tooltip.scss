@@ -1,0 +1,24 @@
+// This is a CSS reset for RC-tooltip.
+// Please DO NOT use it to custom your tooltip.
+
+.rc-tooltip {
+
+  > .rc-tooltip-content > .rc-tooltip-inner {
+    padding: 0 10px;
+    border-radius: 0;
+    border: 0;
+    background: none;
+
+    color:inherit;
+  }
+
+  &.-no-arrow {
+    > .rc-tooltip-content > .rc-tooltip-inner {
+      padding: 0;
+    }
+
+    > .rc-tooltip-content > .rc-tooltip-arrow {
+      display: none;
+    }
+  }
+}

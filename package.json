@@ -36,18 +36,25 @@
     "react-dom": "16.2.0",
     "react-redux": "5.0.6",
     "react-redux-toastr": "7.2.1",
+    "react-tether": "^0.6.1",
     "redux": "3.7.2",
     "redux-devtools-extension": "2.13.2",
     "redux-thunk": "2.2.0",
+    "redux-tools": "github:vectorsize/redux-tools#v3.2.0",
     "reselect": "3.0.1",
-    "sass-loader": "6.0.6"
+    "sass-loader": "6.0.6",
+    "style-loader": "^0.20.1"
   },
   "devDependencies": {
     "babel-eslint": "8.2.1",
     "eslint": "4.16.0",
     "eslint-config-vizzuality": "1.0.9",
     "eslint-import-resolver-babel-module": "4.0.0",
-    "eslint-plugin-babel": "4.1.2"
+    "eslint-plugin-babel": "4.1.2",
+    "styled-jsx": "^2.0.1",
+    "styled-jsx-css-loader": "0.3.0",
+    "styled-jsx-plugin-sass": "0.2.2",
+    "webpack": "^3.1.0"
   },
   "scripts": {
     "dev": "NODE_ENV=development node index.js",
