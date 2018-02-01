@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 // components
 import Head from 'components/layout/head';
+import Header from 'components/layout/header';
 
 class Layout extends PureComponent {
   static propTypes = {
@@ -26,7 +27,7 @@ class Layout extends PureComponent {
           description={description}
         />
         {/* Header */}
-        <header />
+        <Header />
 
         <div className="content-page">
           {children}

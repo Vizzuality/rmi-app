@@ -40,7 +40,8 @@
     "redux-devtools-extension": "2.13.2",
     "redux-thunk": "2.2.0",
     "reselect": "3.0.1",
-    "sass-loader": "6.0.6"
+    "sass-loader": "6.0.6",
+    "style-loader": "^0.20.1"
   },
   "devDependencies": {
     "babel-eslint": "8.2.1",

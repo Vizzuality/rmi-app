@@ -2,4 +2,8 @@
 .layout-container {
   max-width: $layout-max-width;
   margin: 0 auto;
+
+  .content-layout {
+    padding: 0 100px;
+  }
 }

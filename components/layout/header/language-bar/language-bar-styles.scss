@@ -1,0 +1,16 @@
+.c-language-bar {
+  display: flex;
+  justify-content: flex-end;
+
+  > .language-list {
+
+  }
+
+  > .language-list > .language-item {
+    display: inline-block;
+
+    &:not(:first-child) {
+      margin-left: 15px;
+    }
+  }
+}
