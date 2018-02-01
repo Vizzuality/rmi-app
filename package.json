@@ -48,7 +48,11 @@
     "eslint": "4.16.0",
     "eslint-config-vizzuality": "1.0.9",
     "eslint-import-resolver-babel-module": "4.0.0",
-    "eslint-plugin-babel": "4.1.2"
+    "eslint-plugin-babel": "4.1.2",
+    "styled-jsx": "^2.0.1",
+    "styled-jsx-css-loader": "0.3.0",
+    "styled-jsx-plugin-sass": "0.2.2",
+    "webpack": "^3.1.0"
   },
   "scripts": {
     "dev": "NODE_ENV=development node index.js",

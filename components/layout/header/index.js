@@ -10,7 +10,8 @@ import styles from './header-styles.scss';
 class Header extends PureComponent {
   render() {
     return (
-      <header>
+      <header className="c-header">
+        <style jsx>{styles}</style>
         <div class="content-layout">
           <LanguageBar />
         </div>

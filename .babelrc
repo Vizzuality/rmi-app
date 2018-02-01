@@ -11,16 +11,22 @@
           "services": "./services",
           "utils": "./utils"
         }
-    }],
-    [
-      "wrap-in-js",
-      {
-        "extensions": ["css$", "scss$"]
-      }
-    ]
+    }]
   ],
   "presets": [
-    "next/babel"
+    [
+      "next/babel",
+      {
+        "preset-env": {
+          "modules": "commonjs"
+        },
+        "styled-jsx": {
+          "plugins": [
+            "styled-jsx-plugin-sass"
+          ]
+        }
+      }
+    ]
   ],
   "ignore": []
 }

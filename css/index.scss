@@ -1,9 +1,9 @@
-@import 'settings';
+@import 'css/settings';
 
 // Reset
-@import '../node_modules/normalize.css/normalize';
-@import 'reset';
-@import 'base';
+@import 'node_modules/normalize.css/normalize';
+@import 'css/reset';
+@import 'css/base';
 
 // layout
-@import 'layout';
+@import 'css/layout';

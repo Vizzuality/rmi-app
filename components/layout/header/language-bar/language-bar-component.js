@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 
 // styles
-import styles from './language-bar-styles.scss';
+// import styles from './language-bar-styles.scss';
 
 class LanguageBar extends PureComponent {
   render() {
