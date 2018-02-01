@@ -1,15 +1,18 @@
 import React, { PureComponent } from 'react';
 
 // components
-import Head from 'components/layout/head';
+import Layout from 'components/layout';
 
 class IndexPage extends PureComponent {
   render() {
     return (
-      <div>
-        <Head />
-        Index page here!
-      </div>);
+      <Layout
+        title="Index"
+        description="Welcome to RMI | index"
+      >
+        This is the index content by now
+      </Layout>
+    );
   }
 }
 
