@@ -6,8 +6,6 @@
     "es6": true
   },
   "globals": {
-    "L": true,
-    "config": true,
     "Transifex": true
   },
   "extends": "vizzuality",
