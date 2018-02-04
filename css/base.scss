@@ -4,8 +4,40 @@ body {
   font-size: $font-size-regular;
 }
 
+// titles
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font-family-2;
+  line-height: 40px;
+}
+
+// paragraphs
+p {
+  font-size: $font-size-big;
+  line-height: 26px;
+}
+
 // links
 a {
   color: inherit;
   text-decoration: none;
+}
+
+// inputs & buttons
+input,
+button {
+  padding: 0;
+  margin: 0;
+  border: 0;
+
+  background: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
 }

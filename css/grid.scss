@@ -1,0 +1,10 @@
+@import 'css/settings';
+
+.grid-container {
+  display: grid;
+  grid-gap: $grid-gap;
+
+  &.-columns-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
