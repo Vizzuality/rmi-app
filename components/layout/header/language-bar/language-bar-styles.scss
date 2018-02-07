@@ -1,0 +1,36 @@
+@import 'css/settings';
+
+.c-language-bar {
+  display: flex;
+  justify-content: flex-end;
+  padding: 15px 0;
+
+  > .languages-list {
+    display: flex;
+  }
+
+  > .languages-list > .languages-item {
+    display: inline-block;
+
+    &:not(:first-child) {
+      margin-left: 15px;
+    }
+
+    > a {
+      font-family: $font-family-2;
+      font-size: $font-size-small;
+      color: rgba($color-1, .5);
+      text-transform: uppercase;
+
+      &:hover {
+        color: $color-8;
+      }
+    }
+
+    &.-selected {
+      > a {
+        color: $color-8;
+      }
+    }
+  }
+}

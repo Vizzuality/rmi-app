@@ -1,0 +1,85 @@
+@import 'css/settings';
+@import 'css/mixins';
+
+.c-nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .nav-list {
+    display: flex;
+  }
+
+  .nav-item {
+    &:not(:first-child) {
+      margin-left: 50px;
+    }
+
+    > a, .submenu-literal {
+      display: inline-block;
+      padding: 25px 0;
+      cursor: pointer;
+
+      font-family: $font-family-2;
+      font-size: $font-size-regular;
+      color: $color-1;
+    }
+
+    &.-selected {
+      position: relative;
+      &:before {
+        content: '';
+        display: inline-block;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, 0);
+        width: 21px;
+        height: 4px;
+        background: $color-8;
+      }
+      > a, .submenu-literal {
+        position: relative;
+
+        // &:after {
+        //   content: '';
+        //   display: inline-block;
+        //   position: absolute;
+        //   bottom: 0;
+        //   left: 50%;
+        //   transform: translate(-50%, 0);
+        //   width: 21px;
+        //   height: 4px;
+        //   background: $color-8;
+        // }
+      }
+    }
+
+    &.-submenu {
+      position: relative;
+
+      &:after {
+        @include arrow(9px, 2px, $color-1, 'down');
+        position: absolute;
+        top: calc(50% - 2px);
+        right: 2px;
+        transform: translate(0, -50%) rotate(45deg);
+        pointer-events: none;
+      }
+
+      &.-open {
+        &:after {
+          @include arrow(9px, 2px, $color-1, 'up');
+        }
+      }
+
+      > a, .submenu-literal {
+        padding: 25px 30px 0;
+      }
+    }
+  }
+}
+
+.submenu {
+  background: $color-8;
+}

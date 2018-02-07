@@ -8,14 +8,14 @@ import { initStore } from 'store';
 import Page from 'components/page';
 import Layout from 'components/layout';
 
-class IndexPage extends Page {
+class FoundationAPage extends Page {
   render() {
     return (
       <Layout
-        title="Index"
-        description="Welcome to RMI | index"
+        title="Foundation"
+        description="Welcome to RMI | Foundation A"
       >
-        This is the index content by now
+        This is the foundation A cildren content by now
       </Layout>
     );
   }
@@ -25,4 +25,4 @@ export default withRedux(
   initStore,
   state => state,
   {}
-)(IndexPage);
+)(FoundationAPage);

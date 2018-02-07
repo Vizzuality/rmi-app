@@ -2,8 +2,6 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import HeadNext from 'next/head';
 
-import Package from '../../package.json';
-
 // Styles
 class Head extends PureComponent {
   static propTypes = {
@@ -12,13 +10,9 @@ class Head extends PureComponent {
   }
 
   static getStyles() {
-    if (process.env.NODE_ENV === 'production') {
-      // In production, serve pre-built CSS file from /styles/{version}/main.css
-      return <link rel="stylesheet" media="all" type="text/css" href={`/styles/${Package.version}/index.css`} />;
-    }
-    // In development, serve CSS inline (with live reloading) with webpack
-    // NB: Not using dangerouslySetInnerHTML will cause problems with some CSS
-    return <style dangerouslySetInnerHTML={{ __html: require('css/index.scss') }} />;
+    return (
+      <style dangerouslySetInnerHTML={{ __html: require('css/index.scss') }} />
+    );
   }
 
   render() {
@@ -36,6 +30,9 @@ class Head extends PureComponent {
 
         {/* Styles and scripts */}
         {Head.getStyles()}
+        <link href="https://fonts.googleapis.com/css?family=Yantramanav:300,400,500" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet" />
+
         <script src="https://cdn.polyfill.io/v2/polyfill.min.js" />
       </HeadNext>
     );
