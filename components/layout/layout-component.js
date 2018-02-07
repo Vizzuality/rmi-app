@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import Tether from 'react-tether';
 
 // components
 import Head from 'components/layout/head';
@@ -23,32 +22,27 @@ class Layout extends PureComponent {
     const { title, description, children, footer } = this.props;
 
     return (
-      <div className="layout-container">
+      <div className="app">
         <Head
           title={title}
           description={description}
         />
-        {/* Header */}
-        <Tether
-          attachment="middle left"
-          targetAttachment="top right"
-          classPrefix="fixed-header"
-          constraints={[{
-            to: 'window',
-            pin: true
-          }]}
-        >
-          <Header />
-          <Header />
-        </Tether>
+        {/* header */}
+        <Header />
 
+        {/* content */}
         <div className="content-page">
           <div className="l-layout">
-            {children}
+            <div className="row">
+              <div className="col-xs-12">
+                {children}
+              </div>
+            </div>
+
           </div>
         </div>
 
-        {/* Footer */}
+        {/* footer */}
         {footer && <Footer />}
       </div>);
   }

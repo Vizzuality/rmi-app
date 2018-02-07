@@ -1,6 +1,9 @@
 @import 'css/settings';
 
 .c-header {
+  position: fixed;
+  width: 100%;
+  height: $header-height;
   background: $color-7;
 
   > .header-top {
