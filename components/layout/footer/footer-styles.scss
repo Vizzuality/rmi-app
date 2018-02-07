@@ -37,6 +37,10 @@
     padding: 45px 0 45px 45px;
 
     .footer-section {
+      &:first-child {
+        display: none;
+      }
+
       > .subscribe-title {
         font-size: $font-size-huge;
       }
