@@ -1,0 +1,62 @@
+@import 'css/settings';
+
+.c-footer {
+  background: $color-3;
+
+  color: $color-7;
+
+  .footer-section {
+    &:not(:first-child) {
+      padding: 55px 0 0;
+    }
+  }
+
+  .left-side {
+    padding: 45px 45px 45px 0;
+    border-right: 1px solid $color-2;
+
+
+    .footer-section {
+      &:last-child {
+        padding: 150px 0 45px;
+      }
+
+      > .footer-nav-links-list {
+        column-count: 2;
+      }
+
+      > .footer-nav-links-list > .footer-nav-links-item {
+        &:not(:first-child) {
+          margin: 15px 0 0;
+        }
+      }
+    }
+  }
+
+  .right-side {
+    padding: 45px 0 45px 45px;
+
+    .footer-section {
+      > .subscribe-title {
+        font-size: $font-size-huge;
+      }
+
+      > .subscribe-form {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        margin: 75px 0 0;
+
+        input[type="email"] {
+          padding: 20px;
+          background: $color-1;
+        }
+
+        button[type="submit"] {
+          padding: 20px 0;
+          margin: 0 0 0 5px;
+          background: $color-2;
+        }
+      }
+    }
+  }
+}

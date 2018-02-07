@@ -1,19 +1,16 @@
 @import 'css/settings';
 
-// Reset
+// reset
 @import 'node_modules/normalize.css/normalize';
 @import 'css/reset';
 @import 'css/base';
 
-//mixins and helpers
+// mixins & helpers
 @import 'css/mixins';
 
-// layout
+// layout & grid
 @import 'css/layout';
+@import 'css/grid';
 
 // components
 @import 'components/index';
-
-
-
-

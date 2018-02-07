@@ -5,6 +5,7 @@ import Tether from 'react-tether';
 // components
 import Head from 'components/layout/head';
 import Header from 'components/layout/header';
+import Footer from 'components/layout/footer';
 
 class Layout extends PureComponent {
   static propTypes = {
@@ -16,7 +17,7 @@ class Layout extends PureComponent {
 
   static defaultProps = {
     footer: true
-  };
+  }
 
   render() {
     const { title, description, children, footer } = this.props;
@@ -42,12 +43,15 @@ class Layout extends PureComponent {
         </Tether>
 
         <div className="content-page">
-          {children}
+          <div className="l-layout">
+            {children}
+          </div>
         </div>
 
         {/* Footer */}
-        {footer && <footer />}
+        {footer && <Footer />}
       </div>);
   }
 }
+
 export default Layout;
