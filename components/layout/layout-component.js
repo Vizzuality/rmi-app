@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import ReduxToastr from 'react-redux-toastr';
 
 // components
 import Head from 'components/layout/head';
@@ -31,19 +32,22 @@ class Layout extends PureComponent {
         <Header />
 
         {/* content */}
-        <div className="content-page">
-          <div className="l-layout">
-            <div className="row">
-              <div className="col-xs-12">
-                {children}
-              </div>
+        <div className="layout-content">
+          <div className="row">
+            <div className="col-xs-12">
+              {children}
             </div>
-
           </div>
         </div>
 
         {/* footer */}
         {footer && <Footer />}
+
+        <ReduxToastr
+          preventDuplicates={false}
+          transitionIn="fadeIn"
+          transitionOut="fadeOut"
+        />
       </div>);
   }
 }
