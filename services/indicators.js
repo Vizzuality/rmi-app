@@ -1,15 +1,15 @@
 import * as queryString from 'query-string';
 
-class LeadingPracticesService {
+class IndicatorsService {
   /**
-   * Retrieve all leading-practices
+   * Retrieve all indicators
    * @param {*} options options used as query params
    */
-  static getLeadingPractices(options = {}) {
+  static getIndicators(options = {}) {
     const queryParams = queryString.stringify(options);
 
     return new Promise((resolve, reject) => {
-      fetch(`${process.env.API_URL}/leading-practices?${queryParams}`, {
+      fetch(`${process.env.API_URL}/indicators?${queryParams}`, {
         method: 'GET',
         headers: {
           Authorization: process.env.API_TOKEN
@@ -34,4 +34,4 @@ class LeadingPracticesService {
   }
 }
 
-export default LeadingPracticesService;
+export default IndicatorsService;
