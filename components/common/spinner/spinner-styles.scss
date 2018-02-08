@@ -7,11 +7,8 @@
   bottom: 0;
   left: 0;
   z-index: 998;
-  background: rgba($color-7, 0);
-  // visibility: hidden;
-  // opacity: 0;
+  background: rgba($color-7, 0); //veil color
 
-  // Spinner
   .spinner-box {
     position: absolute;
     top: 50%;
@@ -28,43 +25,9 @@
       border-top-color: $color-8;
       animation: rotate $animation-time infinite $ease-in-out-sine;
     }
-
-    button {
-      margin: 10px 0 0;
-    }
   }
-
-  // &.-loading {
-  //   visibility: visible;
-  //   opacity: 1;
-  // }
-
-  // Position
-  // &.-fixed { position: fixed;}
-  // &.-relative { position: relative;}
-  // &.-inline {
-  //   position: static;
-  //   display: inline-block;
-  //   background: none;
-
-  //   .spinner-box {
-  //     position: static;
-  //     transform: none;
-  //   }
-  // }
-
-  // Sizes
-  // &.-small {
-  //   .spinner-box {
-  //     .icon {
-  //       width: 20px;
-  //       height: 20px;
-  //     }
-  //   }
-  // }
 }
 
- // ROTATE
  @-webkit-keyframes rotate {
    from { transform: rotate(0deg);}
    to { transform: rotate(360deg);}
