@@ -9,8 +9,13 @@
 @import 'css/mixins';
 
 // layout & grid
+@import 'css/grid';
 @import 'css/layout';
 @import 'node_modules/flexboxgrid-sass/flexboxgrid';
+@import 'css/page';
+
+// third-party styles
+@import 'node_modules/react-redux-toastr/src/styles/index';
 
 // components
 @import 'components/index';

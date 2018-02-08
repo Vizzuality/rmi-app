@@ -1,4 +1,4 @@
-import actions from './routes-actions';
+import * as actions from './routes-actions';
 import initialState from './routes-initial-state';
 import * as reducers from './routes-reducers';
 

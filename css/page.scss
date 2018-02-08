@@ -1,0 +1,18 @@
+
+.page-intro {
+  padding: 60px 0;
+
+  .title {
+    font-family: $font-family-2;
+    font-size: $font-size-giant;
+    line-height: 1.33;
+  }
+}
+
+.page-content {
+  padding: 55px 0 75px;
+
+  &.-dark {
+    background: $color-2;
+  }
+}

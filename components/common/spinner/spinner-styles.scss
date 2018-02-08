@@ -1,0 +1,46 @@
+@import 'css/settings';
+
+.c-spinner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 998;
+  background: rgba($color-7, 0); //veil color
+
+  .spinner-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+
+    .icon {
+      position: relative;
+      width: 40px;
+      height: 40px;
+      margin: 0 auto;
+      border-radius: 50%;
+      border: 3px solid transparent;
+      border-top-color: $color-8;
+      animation: rotate $animation-time infinite $ease-in-out-sine;
+    }
+  }
+}
+
+ @-webkit-keyframes rotate {
+   from { transform: rotate(0deg);}
+   to { transform: rotate(360deg);}
+ }
+ @-moz-keyframes rotate {
+   from { transform: rotate(0deg);}
+   to { transform: rotate(360deg);}
+ }
+ @-ms-keyframes rotate {
+   from { transform: rotate(0deg);}
+   to { transform: rotate(360deg);}
+ }
+ @keyframes rotate {
+   from { transform: rotate(0deg);}
+   to { transform: rotate(360deg);}
+ }

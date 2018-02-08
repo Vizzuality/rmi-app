@@ -3,6 +3,8 @@ const path = require('path');
 const webpack = require('webpack');
 
 require('dotenv').load();
+require('es6-promise').polyfill();
+require('isomorphic-fetch');
 
 module.exports = {
   webpack: (config) => {
@@ -64,7 +66,9 @@ module.exports = {
     );
 
     config.plugins.push(new webpack.DefinePlugin({
-      'process.env.PORT': JSON.stringify(process.env.PORT)
+      'process.env.PORT': JSON.stringify(process.env.PORT),
+      'process.env.API_URL': JSON.stringify(process.env.API_URL),
+      'process.env.API_TOKEN': JSON.stringify(process.env.API_TOKEN)
     }));
 
     return config;

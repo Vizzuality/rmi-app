@@ -1,0 +1,11 @@
+.c-leading-practices-page {
+  .leading-practices-container {
+    position: relative;
+
+    .paginator-container {
+      display: flex;
+      justify-content: center;
+      margin: 55px 0 0;
+    }
+  }
+}

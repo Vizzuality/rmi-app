@@ -1,0 +1,17 @@
+@import 'css/settings';
+
+.c-leading-practices-card {
+  .title {
+    font-family: $font-family-2;
+    font-size: $font-size-huge;
+    line-height: 1.43;
+  }
+
+  .company {
+    border-bottom: 1px solid $color-6;
+    padding: 0 0 20px;
+    margin: 25px 0 20px;
+
+    color: $color-8;
+  }
+}

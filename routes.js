@@ -7,8 +7,8 @@ const routes = nextRoutes();
 // Index routes
 routes.add('index', '/:language?', 'index');
 routes.add('results', '/:language?/results/:year?', 'results');
-// routes.add('leading-practices', '/:year/leading-practices', 'leading-practices');
-// routes.add('companies', '/:year/companies', 'companies');
+routes.add('leading-practices', '/:year?/leading-practices', 'leading-practices');
+routes.add('companies', '/:year?/companies/:company?', 'companies');
 // routes.add('mine-sites', '/:year/mine-sites', 'mine-sites');
 
 // Foundation routes

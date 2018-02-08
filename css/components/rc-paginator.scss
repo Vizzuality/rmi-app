@@ -1,0 +1,66 @@
+
+.rc-pagination {
+  display: flex;
+
+  > li {
+    cursor: pointer;
+    outline: 0;
+
+    &.rc-pagination-disabled {
+      visibility: hidden;
+    }
+
+    &.rc-pagination-prev {
+      margin: 0 20px 0 0;
+
+      > .rc-pagination-item-link {
+        &:before {
+          content: '';
+          display: inline-block;
+          @include triangle(5px, $color-7, 'left');
+        }
+      }
+    }
+
+    &.rc-pagination-next {
+      margin: 0 0 0 20px;
+
+      > .rc-pagination-item-link {
+        &:before {
+          content: '';
+          display: inline-block;
+          @include triangle(5px, $color-7, 'right');
+        }
+      }
+    }
+
+    &.rc-pagination-item {
+      padding: 0 5px 10px;
+      color: rgba($color-7, .5);
+
+      &:hover {
+        color: $color-7;
+      }
+
+      &:not(:nth-child(2)) {
+        margin: 0 0 0 10px;
+      }
+
+      &.rc-pagination-item-active {
+        position: relative;
+        color: $color-7;
+
+        &:before {
+          content: '';
+          display: inline-block;
+          height: 2px;
+          width: 100%;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          background: $color-8;
+        }
+      }
+    }
+  }
+}
