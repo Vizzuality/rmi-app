@@ -33,11 +33,7 @@ class Layout extends PureComponent {
 
         {/* content */}
         <div className="layout-content">
-          <div className="row">
-            <div className="col-xs-12">
-              {children}
-            </div>
-          </div>
+          {children}
         </div>
 
         {/* footer */}
