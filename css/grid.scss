@@ -8,4 +8,11 @@
       margin-top: $gutter-width;
     }
   }
+
+  &[class^=center-], &[class*=center-] {
+
+    &.-no-text-align {
+      text-align: left;
+    }
+  }
 }

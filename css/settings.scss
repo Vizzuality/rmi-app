@@ -54,7 +54,8 @@ $font-weight-regular: 400;
 $font-weight-bold: 500;
 
 // typography —— sizes
-$font-size-small: 11px;
+$font-size-smallest: 11px;
+$font-size-small: 14px;
 $font-size-regular: 16px;
 $font-size-big: 18px;
 $font-size-bigger: 26px;
@@ -63,7 +64,3 @@ $font-size-giant: 60px;
 
 $animation-time: .75s;
 $ease-in-out-sine: cubic-bezier(0.445, 0.050, 0.550, 0.950);
-
-
-
-

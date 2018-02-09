@@ -51,7 +51,7 @@ class LeadingPracticesPage extends PureComponent {
           </div>
         </div>
 
-        <div className="page-content -dark">
+        <div className="section -dark">
           <div className="l-layout">
             <div className="leading-practices-container">
               {/* topic selector comes here at some point */}

@@ -8,14 +8,14 @@ import { initStore } from 'store';
 import Page from 'components/page';
 import Layout from 'components/layout';
 
-class FoundationAPage extends Page {
+class ContactPage extends Page {
   render() {
     return (
       <Layout
-        title="Foundation"
-        description="Welcome to RMI | Foundation A"
+        title="Contact"
+        description="Welcome to RMI | Contact"
       >
-        This is the foundation A cildren content by now
+        <h1>Contact</h1>
       </Layout>
     );
   }
@@ -23,6 +23,6 @@ class FoundationAPage extends Page {
 
 export default withRedux(
   initStore,
-  state => state,
+  () => ({}),
   {}
-)(FoundationAPage);
+)(ContactPage);
