@@ -4,9 +4,6 @@ import PropTypes from 'prop-types';
 // components
 import AboutSectionsCardList from './about-sections-card-list';
 
-// styles
-import styles from './about-styles.scss';
-
 class About extends PureComponent {
   static propTypes = {
     content: PropTypes.object.isRequired
@@ -18,7 +15,6 @@ class About extends PureComponent {
 
     return (
       <div className="c-contact">
-        <style jsx>{styles}</style>
         <div className="page-intro">
           <div className="l-layout">
             <div className="row">
