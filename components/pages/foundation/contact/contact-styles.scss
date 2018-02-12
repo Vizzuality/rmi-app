@@ -1,0 +1,32 @@
+@import 'css/settings';
+
+.c-contact {
+
+  .section {
+    border-top: 1px solid $color-6;
+
+    address {
+
+      .location {
+        margin: 45px 0 0;
+      }
+
+      .address-line {
+        display: block;
+
+        &:not(:first-child) {
+          margin: 5px 0 0;
+        }
+      }
+
+      .contact-links {
+        margin: 45px 0 0;
+
+        a {
+          font-weight: $font-weight-bold;
+          color: $color-8;
+        }
+      }
+    }
+  }
+}
