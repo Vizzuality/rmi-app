@@ -1,12 +1,9 @@
 import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import { Link } from 'routes';
 import classnames from 'classnames';
 import Tether from 'react-tether';
 
-// selectors
-import { getNavigation } from './nav-bar-selectors';
 
 // styles
 import styles from './nav-bar-styles.scss';
@@ -71,7 +68,7 @@ class NavBar extends PureComponent {
               >
                 <a>{tab.label}</a>
               </Link>
-          </li>
+            </li>
           </Fragment>);
       }
 
@@ -136,9 +133,4 @@ class NavBar extends PureComponent {
   }
 }
 
-const mapStateToProps = state => ({
-  routes: state.routes,
-  tabs: getNavigation(state)
-});
-
-export default connect(mapStateToProps, {})(NavBar);
+export default NavBar;
