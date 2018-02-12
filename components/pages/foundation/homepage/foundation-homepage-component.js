@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import { Link } from 'routes';
 
 // components
@@ -58,7 +57,7 @@ class FoundationHomepagePage extends PureComponent {
                       route="mining-society"
                     >
                       <a>Show more</a>
-                  </Link>
+                    </Link>
                   </Button>
                 </div>
               </div>

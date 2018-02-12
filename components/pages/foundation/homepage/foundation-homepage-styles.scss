@@ -4,6 +4,7 @@
 
   .section {
     padding: 100px 0;
+
     &.-mining-society {
       .button-box {
         margin: 50px 0 0;
@@ -32,10 +33,6 @@
         }
 
         .sidenote {
-
-          > .sidenote-content {
-            font-weight: $font-weight-light;
-          }
 
           > .button-box {
             margin: 25px 0 0;

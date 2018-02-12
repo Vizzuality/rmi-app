@@ -10,7 +10,7 @@ import Layout from 'components/layout';
 import FoundationHomepage from 'components/pages/foundation/homepage';
 
 // actions
-import { getHomePageContent } from 'components/pages/foundation/homepage/foundation-homepage-actions';
+import { getHomePageContent } from 'modules/static-content/static-content-actions';
 
 class FoundationPage extends Page {
   static async getInitialProps(context) {
