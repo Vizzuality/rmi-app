@@ -30,15 +30,15 @@ class NavBar extends PureComponent {
     this.state = {};
   }
 
-  getTabClass(tab) {
+  getTabClass(linkTab) {
     const { routes } = this.props;
-    const { pathname } = routes;
+    const { tab } = routes;
 
     return classnames({
       'nav-item': true,
-      '-selected': tab.query.route === pathname,
-      '-submenu': tab.children,
-      '-open': this.state[tab.id]
+      '-selected': linkTab.query.route === tab,
+      '-submenu': linkTab.children,
+      '-open': this.state[linkTab.id]
     });
   }
 
@@ -46,6 +46,10 @@ class NavBar extends PureComponent {
     this.setState({
       [key]: this.state[key] ? !this.state[key] : true
     });
+  }
+
+  handleCloseSubMenu(key) {
+    this.setState({ [key]: false })
   }
 
   renderTabs() {
@@ -57,7 +61,6 @@ class NavBar extends PureComponent {
           <Fragment
             key={tab.id}
           >
-            <style jsx>{styles}</style>
             <li
               className={this.getTabClass(tab)}
 
@@ -78,6 +81,7 @@ class NavBar extends PureComponent {
             <li
               className={this.getTabClass(child)}
               key={child.id}
+              onClick={() => this.handleCloseSubMenu(tab.id)}
             >
               <Link
                 route={child.query.route}
@@ -90,28 +94,38 @@ class NavBar extends PureComponent {
       );
 
       return (
-        <Tether
-          attachment="top center"
-          targetAttachment="bottom center"
+        <Fragment
           key={tab.id}
-          constraints={[{
-            to: 'target',
-            attachment: 'together'
-          }]}
         >
-          <li
-            className={this.getTabClass(tab)}
+          <Tether
+            attachment="top center"
+            targetAttachment="bottom center"
+            key={tab.id}
+            classPrefix="nav-submenu"
+            constraints={[{
+              to: 'target',
+              attachment: 'together'
+            }]}
           >
-            <style jsx>{styles}</style>
-            <span
-              className="submenu-literal"
-              onClick={() => this.handleClickTab(tab.id)}
+            <li
+              className={this.getTabClass(tab)}
             >
-              {tab.label}
-            </span>
-          </li>
-          {this.state[tab.id] && submenuContent}
-        </Tether>);
+              <span
+                className="submenu-literal"
+                onClick={() => this.handleClickTab(tab.id)}
+              >
+                {tab.label}
+              </span>
+            </li>
+            {this.state[tab.id] && submenuContent}
+          </Tether>
+          {this.state[tab.id] &&
+            <div
+              className="submenu-veil"
+              onClick={() => this.handleCloseSubMenu(tab.id)}
+            />}
+        </Fragment>
+        );
     });
 
     return (
@@ -125,7 +139,7 @@ class NavBar extends PureComponent {
   render() {
     return (
       <nav className="c-nav-bar">
-        <style jsx>{styles}</style>
+        <style jsx global>{styles}</style>
         <div className="logo" />
         {this.renderTabs()}
       </nav>
