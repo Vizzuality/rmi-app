@@ -62,8 +62,6 @@
   }
 
   .sidenote {
-    > .sidenote-content {
-      font-weight: $font-weight-light;
-    }
+    font-weight: $font-weight-light;
   }
 }

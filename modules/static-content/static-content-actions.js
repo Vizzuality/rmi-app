@@ -5,6 +5,7 @@ import { Deserializer } from 'jsonapi-serializer';
 import FoundationHomepageService from 'services/foundation/homepage';
 import MiningSocietyService from 'services/foundation/mining-society';
 import ContactService from 'services/foundation/contact';
+import AboutService from 'services/foundation/about';
 
 export const setPageContent = createAction('static-content/setPageContent');
 export const setPageContentLoading = createAction('static-content/setPageContentLoading');
@@ -69,11 +70,31 @@ export const getContact = createThunkAction('static-content/getContact', (_optio
     });
   });
 
+export const getAbout = createThunkAction('static-content/getAbout', (_options = {}) =>
+  (dispatch) => {
+    const deserializer = new Deserializer({});
+
+    return new Promise((resolve, reject) => {
+      dispatch(setPageContentLoading(true));
+
+      AboutService.getAbout(_options)
+        .then((data) => {
+          deserializer.deserialize(data)
+            .then((parsedData) => {
+              resolve(parsedData);
+              dispatch(setPageContentLoading(false));
+              dispatch(setPageContent(parsedData));
+            })
+            .catch(errors => reject(errors));
+        });
+    });
+  });
 
 export default {
   setPageContent,
   setPageContentLoading,
   getHomePageContent,
   getMiningSociety,
-  getContact
+  getContact,
+  getAbout
 };
