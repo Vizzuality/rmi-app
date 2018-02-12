@@ -7,15 +7,30 @@ import { initStore } from 'store';
 // components
 import Page from 'components/page';
 import Layout from 'components/layout';
+import FoundationHomepage from 'components/pages/foundation/homepage';
+
+// actions
+import { getHomePageContent } from 'components/pages/foundation/homepage/foundation-homepage-actions';
 
 class FoundationPage extends Page {
+  static async getInitialProps(context) {
+    const props = await super.getInitialProps(context);
+
+    await context.store.dispatch(getHomePageContent({
+      include: ['news'].join(',')
+    }));
+
+    return { ...props };
+  }
+
+
   render() {
     return (
       <Layout
-        title="Foundation"
+        title="The Foundation"
         description="Welcome to RMI | Foundation"
       >
-        This is the foundation content by now
+        <FoundationHomepage />
       </Layout>
     );
   }
@@ -23,6 +38,6 @@ class FoundationPage extends Page {
 
 export default withRedux(
   initStore,
-  state => state,
+  () => ({}),
   {}
 )(FoundationPage);

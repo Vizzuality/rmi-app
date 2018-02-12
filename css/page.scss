@@ -7,12 +7,49 @@
     font-size: $font-size-giant;
     line-height: 1.33;
   }
+
+  .subtitle {
+    margin: 25px 0 0;
+
+    font-family: $font-family-1;
+    font-size: $font-size-huge;
+    font-weight: $font-weight-light;
+    line-height: 1.21;
+  }
 }
 
-.page-content {
+.section {
   padding: 55px 0 75px;
 
   &.-dark {
     background: $color-2;
+  }
+
+  &.-gray {
+    background: $color-6;
+  }
+
+  .title {
+    font-family: $font-family-2;
+    font-size: $font-size-huge;
+    line-height: 1.42;
+  }
+
+  .subtitle {
+    margin: 25px 0 0;
+
+    font-size: $font-size-big;
+    font-family: $font-family-1;
+    font-weight: $font-weight-light;
+    line-height: 1.31;
+  }
+
+  .highlight {
+    margin: 25px 0 0;
+
+    font-family: $font-family-1;
+    font-size: $font-size-bigger;
+    font-weight: $font-weight-light;
+    line-height: 1.66;
   }
 }

@@ -8,14 +8,17 @@ import { initStore } from 'store';
 import Page from 'components/page';
 import Layout from 'components/layout';
 
-class FoundationBPage extends Page {
+// actions
+import { getHomePageContent } from 'components/pages/foundation/homepage/foundation-homepage-actions';
+
+class MiningSocietyPage extends Page {
   render() {
     return (
       <Layout
-        title="Foundation"
-        description="Welcome to RMI | Foundation B"
+        title="Mining and Society"
+        description="Welcome to RMI | Mining and Society"
       >
-        This is the foundation B cildren content by now
+        <h1>Mining and Society</h1>
       </Layout>
     );
   }
@@ -23,6 +26,6 @@ class FoundationBPage extends Page {
 
 export default withRedux(
   initStore,
-  state => state,
+  () => ({}),
   {}
-)(FoundationBPage);
+)(MiningSocietyPage);

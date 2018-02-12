@@ -1,0 +1,36 @@
+@import 'css/settings';
+
+.c-button {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  border: 0;
+
+  background: none;
+  color: inherit;
+
+  font-family: $font-family-1;
+  font-size: $font-size-small;
+  font-weight: $font-weight-light;
+  color: $color-7;
+
+  &.-padding {
+    padding: 10px 35px;
+
+    &.-big {
+      padding: 10px 50px;
+    }
+  }
+
+  &.-round {
+    border-radius: 100px;
+  }
+
+  &.-red {
+    background: $color-8;
+  }
+
+  &.-gray {
+    background: $color-2;
+  }
+}
