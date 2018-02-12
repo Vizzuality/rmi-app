@@ -1,4 +1,4 @@
-import * as actions from './foundation-homepage-actions';
+import * as actions from './static-content-actions';
 
 export default {
   [actions.setPageContent]: (state, { payload }) => ({ ...state, content: payload }),

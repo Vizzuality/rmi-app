@@ -1,16 +1,15 @@
 // redux
 import { connect } from 'react-redux';
 
-import * as actions from './foundation-homepage-actions';
-import * as reducers from './foundation-homepage-reducers';
-import initialState from './foundation-homepage-initial-state';
+import { getHomePageContent } from 'modules/static-content/static-content-actions';
 import FoundationHomepage from './foundation-homepage-component';
 
-export { actions, reducers, initialState };
 
 export default connect(
   state => ({
-    content: state.foundationHomepage.content
+    content: state.staticContent.content
   }),
-  actions
+  {
+    getHomePageContent
+  }
 )(FoundationHomepage);

@@ -1,6 +1,6 @@
 
 .page-intro {
-  padding: 60px 0;
+  padding: 75px 0;
 
   .title {
     font-family: $font-family-2;
@@ -15,6 +15,14 @@
     font-size: $font-size-huge;
     font-weight: $font-weight-light;
     line-height: 1.21;
+  }
+
+  .summary {
+    margin: 75px 0 0;
+
+    font-size: $font-size-bigger;
+    font-weight: $font-weight-light;
+    line-height: 1.66;
   }
 }
 
@@ -51,5 +59,11 @@
     font-size: $font-size-bigger;
     font-weight: $font-weight-light;
     line-height: 1.66;
+  }
+
+  .sidenote {
+    > .sidenote-content {
+      font-weight: $font-weight-light;
+    }
   }
 }
