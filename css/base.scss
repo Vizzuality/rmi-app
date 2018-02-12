@@ -2,6 +2,7 @@
 body {
   font-family: $font-family-1;
   font-size: $font-size-regular;
+  -webkit-font-smoothing: antialiased;
 }
 
 // titles

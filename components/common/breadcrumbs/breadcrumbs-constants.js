@@ -9,5 +9,7 @@ export default {
   documents: 'Documents',
   leadership: 'Leadership',
   team: 'Team',
-  'work-with-us': 'Work with us'
+  'work-with-us': 'Work with us',
+  // media sections
+  'media-releases': 'Media Releases'
 };

@@ -2,32 +2,23 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
 // components
-import Breadcrumbs from 'components/common/breadcrumbs';
+import MediaReleasesCardList from './media-releases-card-list';
 
-// styles
-import styles from './about-section-styles.scss';
-
-class AboutSection extends PureComponent {
+class Media extends PureComponent {
   static propTypes = {
-    content: PropTypes.object
-  }
-
-  static defaultProps = {
-    content: {}
+    content: PropTypes.object.isRequired
   }
 
   render() {
     const { content } = this.props;
-    const { title, summary, text, sidenote } = content;
+    const { title, summary } = content;
 
     return (
       <div className="c-contact">
-        <style jsx>{styles}</style>
         <div className="page-intro">
           <div className="l-layout">
             <div className="row">
               <div className="col-md-6">
-                <Breadcrumbs />
                 <h2 className="title">{title}</h2>
               </div>
               <div className="col-md-6">
@@ -40,14 +31,7 @@ class AboutSection extends PureComponent {
         <div className="page-content">
           <section className="section -gray">
             <div className="l-layout">
-              <div className="row center-xs -no-text-align">
-                <div className="col-md-6">
-                  <div dangerouslySetInnerHTML={{ __html: text }} />
-                </div>
-                <div className="col-md-5 col-md-offset-1 ">
-                  <div className="sidenote" dangerouslySetInnerHTML={{ __html: sidenote }} />
-                </div>
-              </div>
+              <MediaReleasesCardList />
             </div>
           </section>
         </div>
@@ -56,4 +40,4 @@ class AboutSection extends PureComponent {
   }
 }
 
-export default AboutSection;
+export default Media;
