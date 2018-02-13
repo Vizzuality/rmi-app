@@ -4,12 +4,10 @@ services:
     command: "yarn start"
     build:
       context: .
-      dockerfile: Dockerfile
-    env_file: .env
     environment:
       - PORT=3000
       - NODE_ENV=production
     ports:
-      - "3000:3000" 
+      - "3000:3000"
     restart: always
-    container_name: rmi_app
+    container_name: rmi

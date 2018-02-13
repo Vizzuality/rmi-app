@@ -1,6 +1,5 @@
 {
   "plugins": [
-    "add-react-displayname",
     [
       "module-resolver", {
         "root": ["."],
