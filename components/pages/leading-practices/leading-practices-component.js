@@ -2,13 +2,13 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-
 // components
+import Select from 'components/common/select';
 import Paginator from 'components/common/paginator';
 import LeadingPracticesCardList from './leading-practices-card-list';
 
 // actions
-import { setPaginationPage, getLeadingPractices } from './leading-practices-actions';
+import { setPaginationPage, getLeadingPractices, setLeadingPracticesFilters } from './leading-practices-actions';
 
 
 // styles
@@ -16,20 +16,28 @@ import styles from './leading-practices-styles.scss';
 
 class LeadingPracticesPage extends PureComponent {
   static propTypes = {
+    topics: PropTypes.array,
     leadingPracticesPagination: PropTypes.object.isRequired,
     setPaginationPage: PropTypes.func.isRequired,
-    getLeadingPractices: PropTypes.func.isRequired
+    getLeadingPractices: PropTypes.func.isRequired,
+    setLeadingPracticesFilters: PropTypes.func.isRequired
   }
 
   handlePagination = (nextPage) => {
     this.props.setPaginationPage(nextPage);
     this.props.getLeadingPractices({
-      include: ['company'].join(',')
+      include: ['companies'].join(',')
     });
   }
 
+  handleTopic = (selectedTopic) => {
+    this.props.setPaginationPage(1);
+    this.props.setLeadingPracticesFilters({ topic: selectedTopic.value });
+  }
+
   render() {
-    const { size, page, limit } = this.props.leadingPracticesPagination;
+    const { topics, leadingPracticesPagination } = this.props;
+    const { size, page, limit } = leadingPracticesPagination;
 
     return (
       <div className="c-leading-practices-page">
@@ -54,9 +62,16 @@ class LeadingPracticesPage extends PureComponent {
         <div className="section -dark">
           <div className="l-layout">
             <div className="leading-practices-container">
-              {/* topic selector comes here at some point */}
+              <div className="filters-container">
+                <Select
+                  onChange={this.handleTopic}
+                  options={topics}
+                  placeholder="Select a topic"
+                  theme="light"
+                  className="-underline"
+                />
+              </div>
               <LeadingPracticesCardList />
-
               <div className="paginator-container">
                 <Paginator
                   options={{
@@ -81,6 +96,7 @@ export default connect(
   }),
   {
     setPaginationPage,
-    getLeadingPractices
+    getLeadingPractices,
+    setLeadingPracticesFilters
   }
 )(LeadingPracticesPage);

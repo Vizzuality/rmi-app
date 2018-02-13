@@ -10,31 +10,34 @@ class LeadingPracticesCard extends PureComponent {
     leadingPractice: PropTypes.shape({
       id: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
-      company: PropTypes.shape({
+      companies: PropTypes.arrayOf(PropTypes.shape({
         name: PropTypes.string,
         slug: PropTypes.string
-      }),
+      })),
       description: PropTypes.string
     })
   }
 
   render() {
-    const { title, company, description } = this.props.leadingPractice;
+    const { title, companies, description } = this.props.leadingPractice;
 
     return (
       <div className="c-leading-practices-card">
         <style jsx>{styles}</style>
         <h3 className="title">{title}</h3>
-        <h4 className="company">
-          <Link
-            route="companies"
-            params={{
-              company: company.slug
-            }}
-          >
-            <a>{company.name}</a>
-          </Link>
-        </h4>
+        {companies.map(company => (
+          <h4 key={company.id} className="company">
+            <Link
+              route="companies"
+              params={{
+                company: company.slug
+              }}
+            >
+              <a>{company.name}</a>
+            </Link>
+          </h4>
+        ))}
+
         {description &&
           <p>{description}</p>}
       </div>

@@ -1,0 +1,142 @@
+@import 'css/settings';
+
+.c-select {
+
+  &.-underline {
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+
+    &.dark {
+      border-bottom-color: $color-1;
+    }
+
+    &.light {
+      border-bottom-color: $color-7;
+    }
+  }
+
+  .react-selectize {
+    min-width: 150px;
+
+    .react-selectize-control {
+      border: 0;
+      background: none;
+
+      font-family: inherit;
+      font-size: $font-size-regular;
+      font-weight: $font-weight-light;
+    }
+
+    .react-selectize-toggle-button-container {
+      width: auto !important; // I don't like this way...
+      margin: 0 0 0 10px;
+    }
+
+    .react-selectize-reset-button-container {
+      &:hover {
+        stroke: inherit;
+      }
+
+      > .react-selectize-reset-button > path {
+        stroke-width: 2px;
+      }
+    }
+
+    .resizable-input {
+      font-family: inherit;
+      font-size: $font-size-regular !important;
+      font-weight: $font-weight-light;
+    }
+
+    .value-wrapper {
+      margin: 0;
+    }
+
+    // themes
+    &.dark {
+      > .react-selectize-control {
+        > .react-selectize-placeholder {
+          color: $color-1;
+        }
+
+        .react-selectize-toggle-button-container {
+          > .react-selectize-toggle-button > path {
+            fill: $color-1;
+          }
+        }
+
+        .react-selectize-reset-button-container {
+          > .react-selectize-reset-button > path {
+            stroke: $color-1;
+          }
+        }
+
+        .react-selectize-search-field-and-selected-values {
+          color: $color-1;
+        }
+
+        .value-wrapper {
+          color: $color-1;
+        }
+      }
+    }
+
+    &.light {
+      > .react-selectize-control {
+        > .react-selectize-placeholder {
+          color: $color-7;
+        }
+
+        .react-selectize-toggle-button-container {
+          > .react-selectize-toggle-button > path {
+            fill: $color-7;
+          }
+        }
+
+        .react-selectize-reset-button-container {
+          > .react-selectize-reset-button > path {
+            stroke: $color-7;
+          }
+        }
+
+        .react-selectize-search-field-and-selected-values {
+          color: $color-7;
+        }
+
+        .value-wrapper {
+          color: $color-7;
+        }
+      }
+    }
+  }
+
+  .dropdown-menu {
+    padding: 5px 10px;
+    background: $color-7;
+    box-shadow: 0 4px 16px 0 rgba($color-1 ,.1);
+
+    >  .option-wrapper {
+      margin: 0;
+
+      &.highlight {
+        margin: 0;
+        font-size: $font-size-regular;
+        font-weight: $font-weight-regular;
+        line-height: inherit;
+        color: $color-8;
+      }
+
+      &:not(:first-child) {
+        margin: 10px 0 0;
+
+        &.highlight {
+          margin: inherit;
+        }
+      }
+
+      > .simple-option > span {
+        font-size: $font-size-regular;
+      }
+    }
+  }
+}
