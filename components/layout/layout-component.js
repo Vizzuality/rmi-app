@@ -7,6 +7,8 @@ import Head from 'components/layout/head';
 import Header from 'components/layout/header';
 import Footer from 'components/layout/footer';
 
+import styles from 'css/index.scss';
+
 class Layout extends PureComponent {
   static propTypes = {
     title: PropTypes.string.isRequired,
@@ -44,6 +46,8 @@ class Layout extends PureComponent {
           transitionIn="fadeIn"
           transitionOut="fadeOut"
         />
+
+        <style jsx global>{styles}</style>
       </div>);
   }
 }

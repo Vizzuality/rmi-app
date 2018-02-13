@@ -10,19 +10,27 @@
           "css": "./css",
           "services": "./services",
           "utils": "./utils"
-        }
-    }]
+        },
+        "cwd": "babelrc"
+      }
+    ]
   ],
   "presets": [
     [
       "next/babel",
       {
-        "preset-env": {
-          "modules": "commonjs"
-        },
+        "preset-env": { "modules": "commonjs" },
         "styled-jsx": {
           "plugins": [
-            "styled-jsx-plugin-sass"
+            [
+              "styled-jsx-plugin-sass", {
+                "sassOptions": {
+                  "includePaths": ["./css", "node_modules"],
+                  "precision": 2
+                }
+              }
+            ],
+            "styled-jsx-plugin-postcss"
           ]
         }
       }
