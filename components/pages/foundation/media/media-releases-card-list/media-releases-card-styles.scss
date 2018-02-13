@@ -1,0 +1,22 @@
+@import 'css/settings';
+
+.c-media-releases-card {
+  position: relative;
+  flex: 1;
+  padding: 35px;
+  background: $color-7;
+  box-shadow: 0 4px 16px 0 rgba($color-1 ,.1);
+  text-align: center;
+
+  .title {
+    font-family: $font-family-2;
+    font-size: $font-size-huge;
+    line-height: 1.43;
+  }
+
+  .subtitle {
+    border-bottom: 1px solid $color-6;
+    padding: 0 0 20px;
+    margin: 25px 0 20px;
+  }
+}

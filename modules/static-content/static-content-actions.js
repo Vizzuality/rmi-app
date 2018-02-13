@@ -6,6 +6,7 @@ import FoundationHomepageService from 'services/foundation/homepage';
 import MiningSocietyService from 'services/foundation/mining-society';
 import ContactService from 'services/foundation/contact';
 import AboutService from 'services/foundation/about';
+import MediaService from 'services/foundation/media';
 
 export const setPageContent = createAction('static-content/setPageContent');
 export const setPageContentLoading = createAction('static-content/setPageContentLoading');
@@ -90,11 +91,32 @@ export const getAbout = createThunkAction('static-content/getAbout', (_options =
     });
   });
 
+export const getMedia = createThunkAction('static-content/getMedia', (_options = {}) =>
+  (dispatch) => {
+    const deserializer = new Deserializer({});
+
+    return new Promise((resolve, reject) => {
+      dispatch(setPageContentLoading(true));
+
+      MediaService.getMedia(_options)
+        .then((data) => {
+          deserializer.deserialize(data)
+            .then((parsedData) => {
+              resolve(parsedData);
+              dispatch(setPageContentLoading(false));
+              dispatch(setPageContent(parsedData));
+            })
+            .catch(errors => reject(errors));
+        });
+    });
+  });
+
 export default {
   setPageContent,
   setPageContentLoading,
   getHomePageContent,
   getMiningSociety,
   getContact,
-  getAbout
+  getAbout,
+  getMedia
 };
