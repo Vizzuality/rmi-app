@@ -9,6 +9,14 @@ export default {
         list: payload
       }
     }),
+  [actions.setLeadingPracticesFilters]: (state, { payload }) => (
+    {
+      ...state,
+      leadingPractices: {
+        ...state.leadingPractices,
+        filters: payload
+      }
+    }),
   [actions.setLeadingPracticesLoading]: (state, { payload }) => (
     {
       ...state,
@@ -37,6 +45,30 @@ export default {
           ...state.leadingPractices.pagination,
           size: payload
         }
+      }
+    }),
+  [actions.setTopics]: (state, { payload }) => (
+    {
+      ...state,
+      topics: {
+        ...state.topics,
+        list: payload
+      }
+    }),
+  [actions.setTopicsLoading]: (state, { payload }) => (
+    {
+      ...state,
+      topics: {
+        ...state.topics,
+        loading: payload
+      }
+    }),
+  [actions.setTopicsError]: (state, { payload }) => (
+    {
+      ...state,
+      topics: {
+        ...state.topics,
+        error: payload
       }
     })
 };
