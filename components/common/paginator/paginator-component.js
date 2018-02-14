@@ -28,6 +28,7 @@ class Paginator extends PureComponent {
           total={size}
           pageSize={limit}
           onChange={this.handleChangePage}
+          hideOnSinglePage
         />
       </div>
     );
