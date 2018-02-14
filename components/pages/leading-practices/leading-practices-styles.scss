@@ -2,6 +2,12 @@
   .leading-practices-container {
     position: relative;
 
+    .filters-container {
+      display: flex;
+      justify-content: flex-end;
+      margin: 0 0 25px;
+    }
+
     .paginator-container {
       display: flex;
       justify-content: center;

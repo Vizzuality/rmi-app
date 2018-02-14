@@ -3,4 +3,52 @@
 .c-news-slider {
   padding: 50px 90px;
   box-shadow: 0 2px 13px 0 rgba($color-2, .2);
+
+  .news-container {
+    margin: 25px 0 0;
+  }
+
+  .row {
+    margin: 0;
+  }
+
+  .news-card {
+    flex: 1;
+    box-shadow: 0 4px 16px 0 rgba($color-1 ,.1);
+    position: relative;
+    height: 400px;
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    text-align: left;
+
+    .wrapper {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 25px;
+
+      background: $color-8;
+      color: $color-7;
+
+      > .title {
+        font-family: $font-family-2;
+        font-size: $font-size-regular;
+        text-transform: uppercase;
+      }
+
+      > .summary {
+        margin: 10px 0 0;
+
+        line-height: 1.6;
+      }
+    }
+  }
+
+  .date {
+    padding: 10px 0 0;
+    text-align: left;
+  }
 }

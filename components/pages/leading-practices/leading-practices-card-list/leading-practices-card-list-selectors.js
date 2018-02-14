@@ -9,10 +9,11 @@ export const parseLeadingPractices = createSelector(
     id: leadingPractice.id,
     title: leadingPractice.name,
     description: leadingPractice.description,
-    company: {
-      name: leadingPractice.company.name,
-      slug: leadingPractice.company.slug
-    }
+    companies: leadingPractice.companies.map(company => ({
+      id: company.id,
+      name: company.name,
+      slug: company.slug
+    }))
   }))
 );
 

@@ -8,7 +8,7 @@ const routes = nextRoutes();
 routes.add('foundation', '/foundation', 'foundation');
 routes.add('mining-society', '/foundation/mining-society', 'foundation-pages/mining-society');
 routes.add('about', '/about/:section?', 'foundation-pages/about');
-routes.add('media', '/media/:tab?', 'foundation-pages/media');
+routes.add('media', '/media/:section?', 'foundation-pages/media');
 routes.add('contact', '/foundation/contact', 'foundation-pages/contact');
 
 // Index routes

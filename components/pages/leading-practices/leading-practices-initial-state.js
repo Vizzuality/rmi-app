@@ -1,6 +1,7 @@
 export default {
   leadingPractices: {
     list: [],
+    filters: {},
     loading: false,
     error: null,
     pagination: {
@@ -8,5 +9,10 @@ export default {
       limit: 6,
       size: 0
     }
+  },
+  topics: {
+    list: [],
+    loading: false,
+    error: null
   }
 };
