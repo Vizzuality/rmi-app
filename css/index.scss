@@ -3,20 +3,15 @@
 
 // third-party styles
 @import 'react-selectize/dist/index.min';
-@import 'node_modules/react-redux-toastr/src/styles/index';
+@import 'react-redux-toastr/src/styles/index';
 @import 'react-responsive-carousel/lib/styles/carousel.min';
-
-// reset
-@import 'node_modules/normalize.css/normalize';
-@import 'css/reset';
-@import 'css/base';
+@import 'flexboxgrid-sass/flexboxgrid';
 
 // base
 @import 'reset';
 @import 'base';
 
 // layout & grid
-@import 'css/grid';
-@import 'css/layout';
-@import 'node_modules/flexboxgrid-sass/flexboxgrid';
-@import 'css/page';
+@import 'grid';
+@import 'layout';
+@import 'page';
