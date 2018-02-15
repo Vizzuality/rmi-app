@@ -2,10 +2,10 @@
 @import 'mixins';
 
 // third-party styles
-@import 'react-selectize/dist/index.min';
-@import 'react-redux-toastr/src/styles/index';
-@import 'react-responsive-carousel/lib/styles/carousel.min';
-@import 'flexboxgrid-sass/flexboxgrid';
+@import '../node_modules/react-selectize/dist/index.min';
+@import '../node_modules/react-redux-toastr/src/styles/index';
+@import '../node_modules/react-responsive-carousel/lib/styles/carousel.min';
+@import '../node_modules/flexboxgrid-sass/flexboxgrid';
 
 // base
 @import 'reset';

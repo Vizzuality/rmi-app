@@ -10,6 +10,7 @@ const postcssConfig = require('./postcss.config');
 
 // Load environment variables from .env file if present
 require('dotenv').load();
+require('isomorphic-fetch');
 require('es6-promise').polyfill();
 
 const port = process.env.PORT || 3000;
