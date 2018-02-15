@@ -22,7 +22,9 @@ class Layout extends PureComponent {
   }
 
   render() {
-    const { title, description, children, footer } = this.props;
+    const {
+      title, description, children, footer
+    } = this.props;
 
     return (
       <div className="app">

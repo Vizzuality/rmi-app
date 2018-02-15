@@ -11,7 +11,9 @@ class MiningSocietyPage extends PureComponent {
 
   render() {
     const { content } = this.props;
-    const { title, subtitle, summary, text, sidenote } = content;
+    const {
+      title, subtitle, summary, text, sidenote
+    } = content;
 
     return (
       <div className="c-mining-society-page">

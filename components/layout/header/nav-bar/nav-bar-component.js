@@ -49,7 +49,7 @@ class NavBar extends PureComponent {
   }
 
   handleCloseSubMenu(key) {
-    this.setState({ [key]: false })
+    this.setState({ [key]: false });
   }
 
   renderTabs() {
@@ -125,7 +125,7 @@ class NavBar extends PureComponent {
               onClick={() => this.handleCloseSubMenu(tab.id)}
             />}
         </Fragment>
-        );
+      );
     });
 
     return (

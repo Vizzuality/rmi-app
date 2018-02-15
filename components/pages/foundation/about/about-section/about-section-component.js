@@ -18,7 +18,9 @@ class AboutSection extends PureComponent {
 
   render() {
     const { content } = this.props;
-    const { title, summary, text, sidenote } = content;
+    const {
+      title, summary, text, sidenote
+    } = content;
 
     return (
       <div className="c-contact">
