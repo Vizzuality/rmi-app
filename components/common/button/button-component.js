@@ -19,9 +19,7 @@ class Button extends PureComponent {
   }
 
   render() {
-    const {
-      className, children, onClick, padding
-    } = this.props;
+    const { className, children, onClick, padding } = this.props;
     const buttonClassClasses = classnames({
       'c-button': true,
       '-padding': padding,

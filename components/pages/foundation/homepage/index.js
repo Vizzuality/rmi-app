@@ -6,10 +6,6 @@ import FoundationHomepage from './foundation-homepage-component';
 
 
 export default connect(
-  state => ({
-    content: state.staticContent.content
-  }),
-  {
-    getHomePageContent
-  }
+  state => ({ content: state.staticContent.content }),
+  { getHomePageContent }
 )(FoundationHomepage);

@@ -35,6 +35,4 @@ export const getNavigation = createSelector(
   }
 );
 
-export default {
-  getNavigation
-};
+export default { getNavigation };

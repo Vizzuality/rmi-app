@@ -8,19 +8,13 @@ import Breadcrumbs from 'components/common/breadcrumbs';
 import styles from './about-section-styles.scss';
 
 class AboutSection extends PureComponent {
-  static propTypes = {
-    content: PropTypes.object
-  }
+  static propTypes = { content: PropTypes.object }
 
-  static defaultProps = {
-    content: {}
-  }
+  static defaultProps = { content: {} }
 
   render() {
     const { content } = this.props;
-    const {
-      title, summary, text, sidenote
-    } = content;
+    const { title, summary, text, sidenote } = content;
 
     return (
       <div className="c-contact">

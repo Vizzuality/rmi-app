@@ -12,13 +12,9 @@ import styles from './news-slider-styles.scss';
 const NEWS_PER_SLIDE = 3;
 
 class NewsSlider extends PureComponent {
-  static propTypes = {
-    news: PropTypes.array
-  }
+  static propTypes = { news: PropTypes.array }
 
-  static defaultProps = {
-    news: []
-  }
+  static defaultProps = { news: [] }
 
   static parseDate(date) {
     return moment(date).format('MMM.DD.YYYY');

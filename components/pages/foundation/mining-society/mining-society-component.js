@@ -5,15 +5,11 @@ import PropTypes from 'prop-types';
 import styles from './mining-society-styles.scss';
 
 class MiningSocietyPage extends PureComponent {
-  static propTypes = {
-    content: PropTypes.object.isRequired
-  }
+  static propTypes = { content: PropTypes.object.isRequired }
 
   render() {
     const { content } = this.props;
-    const {
-      title, subtitle, summary, text, sidenote
-    } = content;
+    const { title, subtitle, summary, text, sidenote } = content;
 
     return (
       <div className="c-mining-society-page">

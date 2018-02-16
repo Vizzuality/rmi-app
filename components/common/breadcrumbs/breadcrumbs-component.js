@@ -16,9 +16,7 @@ class Breadcrumbs extends PureComponent {
     routes: PropTypes.object.isRequired
   }
 
-  static defaultProps = {
-    links: []
-  }
+  static defaultProps = { links: [] }
 
   getClass(link) {
     const { tab, query } = this.props.routes;

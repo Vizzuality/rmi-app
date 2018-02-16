@@ -16,9 +16,7 @@ class FoundationPage extends Page {
   static async getInitialProps(context) {
     const props = await super.getInitialProps(context);
 
-    await context.store.dispatch(getHomePageContent({
-      include: ['news'].join(',')
-    }));
+    await context.store.dispatch(getHomePageContent({ include: ['news'].join(',') }));
 
     return { ...props };
   }

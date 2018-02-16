@@ -62,7 +62,7 @@
     "babel-eslint": "8.2.1",
     "babel-plugin-module-resolver": "3.0.0",
     "eslint": "4.17.0",
-    "eslint-config-vizzuality": "1.0.12",
+    "eslint-config-vizzuality": "1.0.14",
     "eslint-import-resolver-babel-module": "4.0.0",
     "eslint-plugin-babel": "4.1.2"
   },

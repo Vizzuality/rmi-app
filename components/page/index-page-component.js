@@ -18,9 +18,7 @@ class Page extends PureComponent {
 
     // retrieves about tree to populate navigation
     if (isFoundation) {
-      await store.dispatch(getAboutTree({
-        include: ['about-sections'].join(',')
-      }));
+      await store.dispatch(getAboutTree({ include: ['about-sections'].join(',') }));
     }
 
     // sets page language

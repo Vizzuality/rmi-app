@@ -17,6 +17,4 @@ export const parseLeadingPractices = createSelector(
   }))
 );
 
-export default {
-  parseLeadingPractices
-};
+export default { parseLeadingPractices };

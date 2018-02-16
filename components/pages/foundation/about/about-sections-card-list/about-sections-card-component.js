@@ -23,9 +23,7 @@ class AboutSectionCard extends PureComponent {
         <style jsx>{styles}</style>
         <Link
           route="about"
-          params={{
-            section: slug
-          }}
+          params={{ section: slug }}
         >
           <a href="" className="link-container" />
         </Link>

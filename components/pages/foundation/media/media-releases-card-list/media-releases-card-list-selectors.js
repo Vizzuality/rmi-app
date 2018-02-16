@@ -14,6 +14,4 @@ export const parseMediaReleases = createSelector(
   }))
 );
 
-export default {
-  parseMediaReleases
-};
+export default { parseMediaReleases };

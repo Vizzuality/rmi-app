@@ -2423,9 +2423,9 @@ eslint-config-airbnb@^16.1.0:
   dependencies:
     eslint-config-airbnb-base "^12.1.0"
 
-eslint-config-vizzuality@1.0.12:
-  version "1.0.12"
-  resolved "https://registry.yarnpkg.com/eslint-config-vizzuality/-/eslint-config-vizzuality-1.0.12.tgz#07a1c14f244993bc6b59bf6c07c01b630c3ee426"
+eslint-config-vizzuality@1.0.14:
+  version "1.0.14"
+  resolved "https://registry.yarnpkg.com/eslint-config-vizzuality/-/eslint-config-vizzuality-1.0.14.tgz#76ed6a5e7aa0a747c1d64636ffb3913391cc904f"
   dependencies:
     eslint "^4.9.0"
     eslint-config-airbnb "^16.1.0"

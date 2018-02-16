@@ -26,9 +26,7 @@ class LeadingPracticesPageContainer extends PureComponent {
     const filtersChanged = !isEqual(this.props.filters, nextProps.filters);
 
     if (filtersChanged) {
-      this.props.getLeadingPractices({
-        include: ['companies'].join(',')
-      });
+      this.props.getLeadingPractices({ include: ['companies'].join(',') });
     }
   }
 

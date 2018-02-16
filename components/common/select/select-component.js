@@ -45,9 +45,7 @@ class SelectComponent extends PureComponent {
   }
 
   render() {
-    const {
-      options, className, placeholder, theme
-    } = this.props;
+    const { options, className, placeholder, theme } = this.props;
     const { search } = this.state;
 
     const selectClass = classnames({

@@ -13,6 +13,4 @@ export const parseAboutSections = createSelector(
   }))
 );
 
-export default {
-  parseAboutSections
-};
+export default { parseAboutSections };

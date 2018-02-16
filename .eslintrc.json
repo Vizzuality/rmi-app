@@ -10,8 +10,7 @@
   "extends": "vizzuality",
   "rules": {
     "import/prefer-default-export": 0,
-    "jsx-a11y/anchor-is-valid": 0,
-    "function-paren-newline": ["error", "consistent"]
+    "jsx-a11y/anchor-is-valid": 0
   },
   "parser": "babel-eslint",
   "plugins": [

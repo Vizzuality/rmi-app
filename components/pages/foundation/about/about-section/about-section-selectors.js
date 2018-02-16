@@ -10,6 +10,4 @@ export const getCurrentAboutSection = createSelector(
     aboutSection.slug === _sectionRoute)
 );
 
-export default {
-  getCurrentAboutSection
-};
+export default { getCurrentAboutSection };
