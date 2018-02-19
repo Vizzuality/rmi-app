@@ -14,16 +14,12 @@ import Media from 'components/pages/foundation/media';
 import { getMedia } from 'modules/static-content/static-content-actions';
 
 class MediaPage extends Page {
-  static propTypes = {
-    mediaSection: PropTypes.string
-  }
+  static propTypes = { mediaSection: PropTypes.string }
 
   static async getInitialProps(context) {
     const props = await super.getInitialProps(context);
 
-    await context.store.dispatch(getMedia({
-      include: ['media-releases'].join(',')
-    }));
+    await context.store.dispatch(getMedia({ include: ['media-releases'].join(',') }));
 
     return { ...props };
   }

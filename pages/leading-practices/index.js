@@ -16,9 +16,7 @@ class LeadingPracticesPage extends Page {
   static async getInitialProps(context) {
     const props = await super.getInitialProps(context);
 
-    await context.store.dispatch(getLeadingPractices({
-      include: ['companies'].join(',')
-    }));
+    await context.store.dispatch(getLeadingPractices({ include: ['companies'].join(',') }));
 
     await context.store.dispatch(getTopics({}));
 

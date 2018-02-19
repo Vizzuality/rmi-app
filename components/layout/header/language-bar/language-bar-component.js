@@ -9,9 +9,7 @@ import styles from './language-bar-styles.scss';
 import { LANGUAGES } from './language-bar-constants';
 
 class LanguageBar extends PureComponent {
-  static propTypes = {
-    language: PropTypes.string
-  }
+  static propTypes = { language: PropTypes.string }
 
   getLanguageClass(languageItem) {
     const { language } = this.props;

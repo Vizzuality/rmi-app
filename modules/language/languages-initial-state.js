@@ -1,5 +1,4 @@
-const initialState = {
-  current: 'en' // default language is English
-};
+// default language is English
+const initialState = { current: 'en' };
 
 export default initialState;

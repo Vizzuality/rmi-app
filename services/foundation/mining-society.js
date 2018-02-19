@@ -11,9 +11,7 @@ class MiningSocietyService {
     return new Promise((resolve, reject) => {
       fetch(`${process.env.API_URL}/foundation/mining-society?${queryParams}`, {
         method: 'GET',
-        headers: {
-          Authorization: process.env.API_TOKEN
-        }
+        headers: { Authorization: process.env.API_TOKEN }
       })
         .then((response) => {
           const { status, statusText } = response;

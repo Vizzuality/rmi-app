@@ -10,9 +10,7 @@ module.exports = {
       use: [
         {
           loader: 'emit-file-loader',
-          options: {
-            name: 'dist/[path][name].[ext]'
-          }
+          options: { name: 'dist/[path][name].[ext]' }
         },
         {
           loader: 'babel-loader',
@@ -21,9 +19,7 @@ module.exports = {
             extends: path.resolve(__dirname, './.babelrc')
           }
         },
-        {
-          loader: 'styled-jsx-css-loader'
-        }
+        { loader: 'styled-jsx-css-loader' }
       ]
     });
 

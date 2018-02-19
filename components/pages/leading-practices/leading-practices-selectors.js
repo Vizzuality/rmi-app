@@ -8,6 +8,4 @@ export const parseTopics = createSelector(
   (_topics = []) => _topics.map(topic => ({ label: topic.name, value: topic.id }))
 );
 
-export default {
-  parseTopics
-};
+export default { parseTopics };

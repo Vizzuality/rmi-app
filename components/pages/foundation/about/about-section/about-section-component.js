@@ -8,13 +8,9 @@ import Breadcrumbs from 'components/common/breadcrumbs';
 import styles from './about-section-styles.scss';
 
 class AboutSection extends PureComponent {
-  static propTypes = {
-    content: PropTypes.object
-  }
+  static propTypes = { content: PropTypes.object }
 
-  static defaultProps = {
-    content: {}
-  }
+  static defaultProps = { content: {} }
 
   render() {
     const { content } = this.props;

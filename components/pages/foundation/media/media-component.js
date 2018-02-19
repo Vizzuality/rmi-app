@@ -5,9 +5,7 @@ import PropTypes from 'prop-types';
 import MediaReleasesCardList from './media-releases-card-list';
 
 class Media extends PureComponent {
-  static propTypes = {
-    content: PropTypes.object.isRequired
-  }
+  static propTypes = { content: PropTypes.object.isRequired }
 
   render() {
     const { content } = this.props;

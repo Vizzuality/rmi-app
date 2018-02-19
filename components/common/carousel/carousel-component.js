@@ -8,9 +8,7 @@ import { Carousel } from 'react-responsive-carousel';
 import styles from './carousel-styles.scss';
 
 class CarouselComponent extends PureComponent {
-  static propTypes = {
-    children: PropTypes.any.isRequired
-  };
+  static propTypes = { children: PropTypes.any.isRequired };
 
   static defaultProps = {};
 

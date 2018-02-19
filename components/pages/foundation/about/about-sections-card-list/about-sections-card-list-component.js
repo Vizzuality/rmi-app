@@ -5,9 +5,7 @@ import PropTypes from 'prop-types';
 import AboutSectionsCard from './about-sections-card-component';
 
 class AboutSectionsCardList extends PureComponent {
-  static propTypes = {
-    aboutSections: PropTypes.array
-  };
+  static propTypes = { aboutSections: PropTypes.array };
 
   render() {
     const { aboutSections } = this.props;

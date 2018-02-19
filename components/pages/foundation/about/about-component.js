@@ -5,9 +5,7 @@ import PropTypes from 'prop-types';
 import AboutSectionsCardList from './about-sections-card-list';
 
 class About extends PureComponent {
-  static propTypes = {
-    content: PropTypes.object.isRequired
-  }
+  static propTypes = { content: PropTypes.object.isRequired }
 
   render() {
     const { content } = this.props;

@@ -15,9 +15,7 @@ class MediaReleaseCard extends PureComponent {
     })
   }
 
-  static defaultProps = {
-    mediaRelease: {}
-  }
+  static defaultProps = { mediaRelease: {} }
 
   render() {
     const { title, subtitle, summary } = this.props.mediaRelease;

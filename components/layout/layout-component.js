@@ -17,9 +17,7 @@ class Layout extends PureComponent {
     footer: PropTypes.bool
   }
 
-  static defaultProps = {
-    footer: true
-  }
+  static defaultProps = { footer: true }
 
   render() {
     const { title, description, children, footer } = this.props;

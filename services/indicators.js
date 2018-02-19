@@ -11,9 +11,7 @@ class IndicatorsService {
     return new Promise((resolve, reject) => {
       fetch(`${process.env.API_URL}/indicators?${queryParams}`, {
         method: 'GET',
-        headers: {
-          Authorization: process.env.API_TOKEN
-        }
+        headers: { Authorization: process.env.API_TOKEN }
       })
         .then((response) => {
           const { status, statusText } = response;

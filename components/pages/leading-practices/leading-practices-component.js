@@ -25,9 +25,7 @@ class LeadingPracticesPage extends PureComponent {
 
   handlePagination = (nextPage) => {
     this.props.setPaginationPage(nextPage);
-    this.props.getLeadingPractices({
-      include: ['companies'].join(',')
-    });
+    this.props.getLeadingPractices({ include: ['companies'].join(',') });
   }
 
   handleTopic = (selectedTopic) => {
@@ -91,9 +89,7 @@ class LeadingPracticesPage extends PureComponent {
 }
 
 export default connect(
-  state => ({
-    leadingPracticesPagination: state.leadingPracticesPage.leadingPractices.pagination
-  }),
+  state => ({ leadingPracticesPagination: state.leadingPracticesPage.leadingPractices.pagination }),
   {
     setPaginationPage,
     getLeadingPractices,

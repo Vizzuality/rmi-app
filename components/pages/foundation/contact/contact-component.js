@@ -5,9 +5,7 @@ import PropTypes from 'prop-types';
 import styles from './contact-styles.scss';
 
 class ContactPage extends PureComponent {
-  static propTypes = {
-    content: PropTypes.object.isRequired
-  }
+  static propTypes = { content: PropTypes.object.isRequired }
 
   render() {
     const { content } = this.props;

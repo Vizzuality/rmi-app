@@ -29,9 +29,7 @@ class LeadingPracticesCard extends PureComponent {
           <h4 key={company.id} className="company">
             <Link
               route="companies"
-              params={{
-                company: company.slug
-              }}
+              params={{ company: company.slug }}
             >
               <a>{company.name}</a>
             </Link>

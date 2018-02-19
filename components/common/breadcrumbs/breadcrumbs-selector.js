@@ -40,6 +40,4 @@ export const getBreadcrumbs = createSelector(
   }
 );
 
-export default {
-  getBreadcrumbs
-};
+export default { getBreadcrumbs };
