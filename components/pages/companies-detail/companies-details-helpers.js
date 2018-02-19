@@ -1,4 +1,4 @@
-import { MAP_COLORS } from './companies-constants';
+import { MAP_COLORS } from './companies-details-constants';
 
 export const getCompanyCountryColor = (geographyProperties = {}) => {
   const { isHome, isProducing } = geographyProperties;

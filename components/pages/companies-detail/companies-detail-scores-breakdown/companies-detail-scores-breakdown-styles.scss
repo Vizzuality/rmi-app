@@ -1,0 +1,45 @@
+@import 'css/settings';
+
+.c-companies-detail-scores-breakdown {
+  .score-section {
+    &:not(:first-child) {
+      margin: 35px 0 0;
+    }
+  }
+  .overall-scores-container {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding: 25px 0;
+    border-bottom: 1px solid $color-6;
+  }
+
+  .overall-measurement-container {
+    .barchart-container {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin: 50px 0 0;
+    }
+  }
+
+  .mine-sites-results {
+    :global(.table-container) {
+      margin: 50px 0 0;
+    }
+  }
+
+  .miscellaneous-lists {
+    margin: -35px 0 0;
+  }
+
+  .disclaimer {
+    margin: 100px 0 0;
+
+    > .disclaimer-text {
+      font-size: $font-size-small;
+      font-weight: $font-weight-light;
+      line-height: 1.8;
+    }
+  }
+}

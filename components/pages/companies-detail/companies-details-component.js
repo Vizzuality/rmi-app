@@ -1,0 +1,58 @@
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
+
+// components
+import Map from 'components/common/map';
+import CompanyDetailHeader from './companies-detail-header';
+import CompanyDetailSidebar from './companies-detail-sidebar';
+import CompaniesDetailScoresBreakDown from './companies-detail-scores-breakdown';
+
+// constants
+import { MAP_LEGEND } from './companies-details-constants';
+
+// helpers
+import { getCompanyCountryColor } from './companies-details-helpers';
+
+// styles
+// import styles from './companies-styles.scss';
+
+class CompaniesDetail extends PureComponent {
+  static propTypes = { paths: PropTypes.array.isRequired }
+
+  static setCountryColor = geographyProperties => getCompanyCountryColor(geographyProperties);
+
+  render() {
+    const { paths } = this.props;
+
+    return (
+      <div className="c-companies-page">
+        {/* <style jsx>{styles}</style> */}
+
+        <div className="page-content">
+          <div className="section -dark">
+            <div className="l-layout">
+              <CompanyDetailHeader />
+              <div className="row">
+                <div className="col-md-5">
+                  <CompanyDetailSidebar />
+                </div>
+                <div className="col-md-7">
+                  <div className="map-container">
+                    <Map
+                      paths={paths}
+                      setCountryColor={CompaniesDetail.setCountryColor}
+                      legend={MAP_LEGEND}
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <CompaniesDetailScoresBreakDown />
+        </div>
+      </div>
+    );
+  }
+}
+
+export default CompaniesDetail;
