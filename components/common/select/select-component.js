@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 // components
-import { ReactSelectize, SimpleSelect } from 'react-selectize';
+import { SimpleSelect } from 'react-selectize';
 
 // styles
 import styles from './select-styles.scss';
@@ -19,19 +19,20 @@ class SelectComponent extends PureComponent {
     placeholder: PropTypes.string,
     theme: PropTypes.oneOf([
       'light', 'dark'
-    ])
+    ]),
+    defaultValue: PropTypes.object
   }
 
   static defaultProps = {
     placeholder: 'Select...',
-    theme: 'dark'
+    theme: 'dark',
+    defaultValue: {}
   }
 
   constructor(props) {
     super(props);
 
     this.state = {
-      value: '',
       search: ''
     };
   }
@@ -45,7 +46,9 @@ class SelectComponent extends PureComponent {
   }
 
   render() {
-    const { options, className, placeholder, theme } = this.props;
+    const {
+      options, className, placeholder, theme, defaultValue
+    } = this.props;
     const { search } = this.state;
 
     const selectClass = classnames({
@@ -63,6 +66,7 @@ class SelectComponent extends PureComponent {
           placeholder={placeholder}
           className="selector"
           theme={theme}
+          value={defaultValue}
           search={search}
           onSearchChange={this.handleSearch}
         />

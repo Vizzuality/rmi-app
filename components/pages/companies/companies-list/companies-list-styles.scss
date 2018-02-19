@@ -1,0 +1,34 @@
+@import 'css/settings';
+
+.c-companies-list {
+
+  > ul {
+    column-count: 2;
+
+    > .companies-list-item {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 15px 0;
+
+      &:not(:first-child) {
+        border-top: 1px solid $color-5;
+      }
+
+      > .company-name {
+        font-size: $font-size-regular;
+        color: $color-7;
+        text-align: center;
+      }
+
+      > .toggle {
+        color: $color-5;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.companies-list-tooltip {
+  background: $color-4;
+}

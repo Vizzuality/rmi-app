@@ -1,0 +1,7 @@
+
+import * as actions from './companies-actions';
+
+export default {
+  [actions.setCompanies]: (state, { payload }) => ({ ...state, list: payload }),
+  [actions.setCompaniesError]: (state, { payload }) => ({ ...state, error: payload })
+};

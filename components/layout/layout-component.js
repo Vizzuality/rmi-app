@@ -4,6 +4,7 @@ import ReduxToastr from 'react-redux-toastr';
 
 // components
 import Head from 'components/layout/head';
+import Icons from 'components/layout/icons';
 import Header from 'components/layout/header';
 import Footer from 'components/layout/footer';
 
@@ -28,6 +29,8 @@ class Layout extends PureComponent {
           title={title}
           description={description}
         />
+        {/* Icons */}
+        <Icons />
         {/* header */}
         <Header />
 
