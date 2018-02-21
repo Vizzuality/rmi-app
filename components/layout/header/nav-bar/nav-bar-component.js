@@ -19,7 +19,7 @@ class NavBar extends PureComponent {
         params: PropTypes.object
       })
     })),
-    routes: PropTypes.object
+    routes: PropTypes.object.isRequired
   };
 
   constructor(props) {
@@ -30,11 +30,11 @@ class NavBar extends PureComponent {
 
   getTabClass(linkTab) {
     const { routes } = this.props;
-    const { tab } = routes;
+    const { pathname } = routes;
 
     return classnames({
       'nav-item': true,
-      '-selected': linkTab.query.route === tab,
+      '-selected': linkTab.query.route === pathname,
       '-submenu': linkTab.children,
       '-open': this.state[linkTab.id]
     });

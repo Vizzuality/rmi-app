@@ -1,0 +1,21 @@
+@import 'css/settings';
+
+$bar-height: 15px;
+
+.c-stacked-bars {
+
+  .bar {
+    display: inline-flex;
+    width: 100%;
+    height: $bar-height;
+  }
+
+  .bar > .bar-node {
+    display: inline-block;
+    height: 100%;
+
+    &:not(:first-child) {
+      border-left: 1px solid $color-6;
+    }
+  }
+}

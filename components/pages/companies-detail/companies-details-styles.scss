@@ -1,0 +1,12 @@
+@import 'css/settings';
+
+.c-companies-detail-page {
+
+  .companies-detail-intro {
+    background: $color-3;
+  }
+
+  .companies-detail-preview {
+    padding: calc(#{$header-company-detail-height} + 35px) 0 35px;
+  }
+}
