@@ -15,16 +15,12 @@ import AboutSection from 'components/pages/foundation/about/about-section';
 import { getAbout } from 'modules/static-content/static-content-actions';
 
 class AboutPage extends Page {
-  static propTypes = {
-    aboutSection: PropTypes.string
-  }
+  static propTypes = { aboutSection: PropTypes.string }
 
   static async getInitialProps(context) {
     const props = await super.getInitialProps(context);
 
-    await context.store.dispatch(getAbout({
-      include: ['about-sections'].join(',')
-    }));
+    await context.store.dispatch(getAbout({ include: ['about-sections'].join(',') }));
 
     return { ...props };
   }
@@ -47,8 +43,6 @@ class AboutPage extends Page {
 
 export default withRedux(
   initStore,
-  state => ({
-    aboutSection: state.routes.query.section
-  }),
+  state => ({ aboutSection: state.routes.query.section }),
   {}
 )(AboutPage);

@@ -1,0 +1,32 @@
+@import 'css/settings';
+
+$square-size: 18px;
+
+.c-legend {
+  display: flex;
+  padding: 15px 0;
+
+  > .legend-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &:not(:first-child) {
+      margin: 0 0 0 50px;
+    }
+
+    > .legend-item-color {
+      display: inline-block;
+      width: $square-size;
+      height: $square-size;
+    }
+
+    > .legend-item-name {
+      margin: 0 0 0 15px;
+
+      font-size: $font-size-small;
+      font-weight: $font-weight-light;
+      color: $color-7;
+    }
+  }
+}

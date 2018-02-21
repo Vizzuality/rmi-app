@@ -1,0 +1,47 @@
+@import 'css/settings';
+
+$arrow-size: 70px;
+
+.c-carousel {
+
+  .carousel {
+    .slide {
+      background: none;
+    }
+
+    .slider-wrapper {
+      width: calc(100% - 85px);
+      padding: 5px 0;
+      margin: 0 -10px;
+    }
+
+    .control-arrow {
+      right: 0;
+      left: auto !important;
+      opacity: 1 !important;
+      width: $arrow-size;
+      height: $arrow-size;
+
+      border: 1px solid $color-6 !important;
+
+      &:hover {
+        background: none !important;
+      }
+
+      &.control-prev {
+        top: 80px;
+
+        &:before {
+          border-right-color: $color-8 !important;
+        }
+      }
+      &.control-next {
+        top: 5px;
+
+        &:before {
+          border-left-color: $color-8 !important;
+        }
+      }
+    }
+  }
+}

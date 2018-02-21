@@ -16,9 +16,7 @@ class Breadcrumbs extends PureComponent {
     routes: PropTypes.object.isRequired
   }
 
-  static defaultProps = {
-    links: []
-  }
+  static defaultProps = { links: [] }
 
   getClass(link) {
     const { tab, query } = this.props.routes;
@@ -38,16 +36,16 @@ class Breadcrumbs extends PureComponent {
       <div className="c-breadcrumbs">
         <style jsx>{styles}</style>
         <nav className="breadcrumbs-list">
-          {links.map(link =>
-            (<li key={link.id} className={this.getClass(link)}>
+          {links.map(link => (
+            <li key={link.id} className={this.getClass(link)}>
               <Link
                 route={link.route}
                 params={link.params}
               >
                 <a href="">{link.label}</a>
               </Link>
-            </li>)
-          )}
+            </li>
+          ))}
         </nav>
       </div>
     );

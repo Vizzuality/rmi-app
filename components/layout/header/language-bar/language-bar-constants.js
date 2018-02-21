@@ -24,6 +24,4 @@ export const LANGUAGES = [{
   value: 'rs'
 }];
 
-export default {
-  LANGUAGES
-};
+export default { LANGUAGES };

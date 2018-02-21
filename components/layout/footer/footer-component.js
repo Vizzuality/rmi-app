@@ -8,9 +8,7 @@ class Footer extends PureComponent {
   constructor(props) {
     super(props);
 
-    this.state = {
-      email: undefined
-    };
+    this.state = { email: undefined };
   }
 
   handleEmail = evt => this.setState({ email: evt.target.value })

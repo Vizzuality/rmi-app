@@ -11,9 +11,7 @@ import NewsSlider from './news-slider';
 import styles from './foundation-homepage-styles.scss';
 
 class FoundationHomepagePage extends PureComponent {
-  static propTypes = {
-    content: PropTypes.object.isRequired
-  }
+  static propTypes = { content: PropTypes.object.isRequired }
 
   render() {
     const { content } = this.props;

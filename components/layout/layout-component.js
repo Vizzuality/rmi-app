@@ -4,8 +4,11 @@ import ReduxToastr from 'react-redux-toastr';
 
 // components
 import Head from 'components/layout/head';
+import Icons from 'components/layout/icons';
 import Header from 'components/layout/header';
 import Footer from 'components/layout/footer';
+
+import styles from 'css/index.scss';
 
 class Layout extends PureComponent {
   static propTypes = {
@@ -15,9 +18,7 @@ class Layout extends PureComponent {
     footer: PropTypes.bool
   }
 
-  static defaultProps = {
-    footer: true
-  }
+  static defaultProps = { footer: true }
 
   render() {
     const { title, description, children, footer } = this.props;
@@ -28,6 +29,8 @@ class Layout extends PureComponent {
           title={title}
           description={description}
         />
+        {/* Icons */}
+        <Icons />
         {/* header */}
         <Header />
 
@@ -44,6 +47,8 @@ class Layout extends PureComponent {
           transitionIn="fadeIn"
           transitionOut="fadeOut"
         />
+
+        <style jsx global>{styles}</style>
       </div>);
   }
 }

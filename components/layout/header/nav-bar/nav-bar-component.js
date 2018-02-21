@@ -9,9 +9,7 @@ import Tether from 'react-tether';
 import styles from './nav-bar-styles.scss';
 
 class NavBar extends PureComponent {
-  static defaultProps = {
-    tabs: []
-  };
+  static defaultProps = { tabs: [] };
 
   static propTypes = {
     tabs: PropTypes.arrayOf(PropTypes.shape({
@@ -43,13 +41,11 @@ class NavBar extends PureComponent {
   }
 
   handleClickTab(key) {
-    this.setState({
-      [key]: this.state[key] ? !this.state[key] : true
-    });
+    this.setState({ [key]: this.state[key] ? !this.state[key] : true });
   }
 
   handleCloseSubMenu(key) {
-    this.setState({ [key]: false })
+    this.setState({ [key]: false });
   }
 
   renderTabs() {
@@ -125,7 +121,7 @@ class NavBar extends PureComponent {
               onClick={() => this.handleCloseSubMenu(tab.id)}
             />}
         </Fragment>
-        );
+      );
     });
 
     return (

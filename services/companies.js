@@ -11,9 +11,7 @@ class CompaniesService {
     return new Promise((resolve, reject) => {
       fetch(`${process.env.API_URL}/companies?${queryParams}`, {
         method: 'GET',
-        headers: {
-          Authorization: process.env.API_TOKEN
-        }
+        headers: { Authorization: process.env.API_TOKEN }
       })
         .then((response) => {
           const { status, statusText } = response;
@@ -44,9 +42,7 @@ class CompaniesService {
     return new Promise((resolve, reject) => {
       fetch(`${process.env.API_URL}/companies/${companyId}?${queryParams}`, {
         method: 'GET',
-        headers: {
-          Authorization: process.env.API_TOKEN
-        }
+        headers: { Authorization: process.env.API_TOKEN }
       })
         .then((response) => {
           const { status, statusText } = response;

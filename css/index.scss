@@ -1,18 +1,17 @@
-@import 'css/settings';
-
-// reset
-@import 'node_modules/normalize.css/normalize';
-@import 'css/reset';
-@import 'css/base';
-
-// mixins & helpers
-@import 'css/mixins';
-
-// layout & grid
-@import 'css/grid';
-@import 'css/layout';
-@import 'node_modules/flexboxgrid-sass/flexboxgrid';
-@import 'css/page';
+@import 'settings';
+@import 'mixins';
 
 // third-party styles
-@import 'node_modules/react-redux-toastr/src/styles/index';
+@import '../node_modules/react-selectize/dist/index.min';
+@import '../node_modules/react-redux-toastr/src/styles/index';
+@import '../node_modules/react-responsive-carousel/lib/styles/carousel.min';
+@import '../node_modules/flexboxgrid-sass/flexboxgrid';
+
+// base
+@import 'reset';
+@import 'base';
+
+// layout & grid
+@import 'grid';
+@import 'layout';
+@import 'page';

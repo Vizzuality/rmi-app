@@ -1,5 +1,4 @@
 import { createAction, createThunkAction } from 'redux-tools';
-
 import { Deserializer } from 'jsonapi-serializer';
 
 // services
@@ -17,13 +16,8 @@ export const getAboutTree = createThunkAction('navigation/getAboutTree', (_optio
           deserializer.deserialize(data)
             .then((parsedData) => {
               resolve(parsedData);
-              const aboutSections = (parsedData['about-sections'] || [])
-                .map(aboutSection => ({
-                  id: aboutSection.id,
-                  title: aboutSection.title,
-                  slug: aboutSection.slug
-                }));
-              dispatch(setContent({ aboutChildren: aboutSections }));
+              const aboutChildren = (parsedData['about-sections'] || []);
+              dispatch(setContent({ aboutChildren }));
             })
             .catch(errors => reject(errors));
         });

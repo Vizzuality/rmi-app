@@ -1,8 +1,9 @@
 FROM node:8.1.2
-LABEL maintainer="david.inga@vizzuality.com"
 
+ENV DEBIAN_FRONTEND noninteractive
 ENV NODE_ENV production
-ENV DEBIAN_FRONTEND=noninteractive
+ENV API_URL https://rmi-api-test.herokuapp.com/api
+ENV API_TOKEN token123
 
 RUN apt-get update && apt-get install -y \
       bash git build-essential automake autoconf make g++ libtool apt-transport-https python \

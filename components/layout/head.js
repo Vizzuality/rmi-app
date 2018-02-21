@@ -9,12 +9,6 @@ class Head extends PureComponent {
     description: PropTypes.string.isRequired
   }
 
-  static getStyles() {
-    return (
-      <style dangerouslySetInnerHTML={{ __html: require('css/index.scss') }} />
-    );
-  }
-
   render() {
     const { title, description } = this.props;
 
@@ -29,7 +23,6 @@ class Head extends PureComponent {
         {/* Favicon */}
 
         {/* Styles and scripts */}
-        {Head.getStyles()}
         <link href="https://fonts.googleapis.com/css?family=Yantramanav:300,400,500" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet" />
 
