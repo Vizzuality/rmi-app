@@ -4,18 +4,54 @@ $bar-height: 15px;
 
 .c-stacked-bars {
 
-  .bar {
-    display: inline-flex;
-    width: 100%;
-    height: $bar-height;
+  &:not(:first-child) {
+    margin: 20px 0 0;
   }
 
-  .bar > .bar-node {
-    display: inline-block;
-    height: 100%;
+  > .bar-header {
+    display: flex;
+    align-items: center;
 
-    &:not(:first-child) {
-      border-left: 1px solid $color-6;
+    > .bar-title {
+      margin: 0 0 0 10px;
+      font-size: $font-size-regular;
+    }
+  }
+
+
+  .stacked-bars-container {
+    display: flex;
+    margin: 10px 0 0;
+    justify-content: space-between;
+    padding: 0 0 0 42px;
+
+    .bar {
+      display: inline-flex;
+      flex-grow: 1;
+      height: $bar-height;
+      background: $color-6;
+    }
+
+    .bar > .bar-node {
+      display: inline-block;
+      height: 100%;
+      cursor: pointer;
+
+      &:not(:first-child) {
+        border-left: 1px solid $color-6;
+      }
+    }
+
+    .score {
+      margin: 0 0 0 20px;
+
+      .current-score {
+        font-weight: $font-weight-bold;
+
+        > .total-score {
+          font-weight: $font-weight-regular;
+        }
+      }
     }
   }
 }

@@ -7,6 +7,7 @@
 @import '../node_modules/react-responsive-carousel/lib/styles/carousel.min';
 @import '../node_modules/flexboxgrid-sass/flexboxgrid';
 
+
 // base
 @import 'reset';
 @import 'base';
@@ -15,3 +16,8 @@
 @import 'grid';
 @import 'layout';
 @import 'page';
+
+// components
+@import 'components/tooltip';
+
+
