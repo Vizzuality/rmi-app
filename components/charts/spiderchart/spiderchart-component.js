@@ -9,13 +9,13 @@ class Piechart extends PureComponent {
   static propTypes = { data: PropTypes.array.isRequired }
 
   render() {
-    const { width, height, dataKeyAxis, dataKeyRadar, outerRadius, fill, stroke, domain, gridType } = config;
+    const { width, height, dataKeyAxis, dataKeyRadar, outerRadius, fill, stroke, domain } = config;
     const { data } = this.props;
 
     return (
       <div className="c-spiderchart">
         <RadarChart outerRadius={outerRadius} width={width} height={height} data={data}>
-          <PolarGrid gridType={gridType} />
+          <PolarGrid />
           <PolarAngleAxis dataKey={dataKeyAxis} />
           <Radar dataKey={dataKeyRadar} stroke={stroke} fill={fill} />
           <Tooltip />

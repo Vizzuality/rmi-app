@@ -10,6 +10,5 @@ export default {
   domain: [0, 1],
   // styling
   stroke: '#333',
-  fill: 'none',
-  gridType: 'circle'
+  fill: 'none'
 };

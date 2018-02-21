@@ -1,2 +1,70 @@
+@import 'css/settings';
 
-.c-companies-detail-header {}
+.c-companies-detail-header {
+  z-index: 3;
+  position: fixed;
+  left: 0;
+  width: 100%;
+  height: $header-company-detail-height;
+  padding: 15px 0;
+  background: $color-3;
+
+  border-bottom: 1px solid rgba($color-7, .2);
+
+  .left-side,
+  .right-side {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+
+  .left-side {
+    .go-back-link {
+      font-size: $font-size-huge;
+      font-weight: $font-weight-light;
+      color: $color-7;
+    }
+  }
+
+  .right-side {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-left: 1px solid rgba($color-7, .2);
+
+    > .company-listing {
+      display: flex;
+      margin: 0 0 0 25px;
+
+      .company-listing-item {
+        display: flex;
+        flex-direction: column;
+
+        &:not(:first-child) {
+          margin: 0 0 0 15px;
+        }
+
+        > .company-listing-item-key,
+        > .company-listing-item-value {
+          color: $color-7;
+        }
+
+        > .company-listing-item-value {
+          margin: 5px 0 0;
+          font-weight: $font-weight-bold;
+        }
+      }
+
+    }
+
+    > .pdf-print {
+      display: flex;
+      align-items: center;
+
+      > .print-link {
+        color: $color-7;
+        font-weight: $font-weight-bold;
+      }
+    }
+  }
+}

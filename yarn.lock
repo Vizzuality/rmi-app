@@ -4163,6 +4163,10 @@ json5@^0.5.0, json5@^0.5.1:
   version "0.5.1"
   resolved "https://registry.yarnpkg.com/json5/-/json5-0.5.1.tgz#1eade7acc012034ad84e2396767ead9fa5495821"
 
+jsona@1.1.4:
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/jsona/-/jsona-1.1.4.tgz#aafb27342eee3761165491fd0d992b35c04645ab"
+
 jsonapi-serializer@^3.5.6:
   version "3.5.6"
   resolved "https://registry.yarnpkg.com/jsonapi-serializer/-/jsonapi-serializer-3.5.6.tgz#4b239ee023dd2096f1be474d2d8243747240d8a3"

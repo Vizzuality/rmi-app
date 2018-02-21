@@ -5,13 +5,13 @@ import orderBy from 'lodash/orderBy';
 
 const company = state => state.companies.list[0] || {};
 const scores = state => (state.companies.list[0] || {}).scores;
-const mineSites = state => (state.companies.list[0] || {}).mineSites;
+const mineSites = state => (state.companies.list[0] || {})['mine-sites'];
 const shareholders = state => (state.companies.list[0] || {}).shareholders;
 const subsidiaries = state => (state.companies.list[0] || {}).subsidiaries;
-const beneficialOwners = state => (state.companies.list[0] || {}).beneficialOwners;
-const investmentDisputes = state => (state.companies.list[0] || {}).investmentDisputes;
+const beneficialOwners = state => (state.companies.list[0] || {})['beneficial-owners'];
+const investmentDisputes = state => (state.companies.list[0] || {})['investment-disputes'];
 const knownTaxJurisdictions = state =>
-  (state.companies.list[0] || {}).companyCountryTaxJurisdictions || [];
+  (state.companies.list[0] || {})['company-country-tax-jurisdictions'];
 const companiesScores = state => state.companies.companiesScores;
 
 export const getOverallScores = createSelector(
@@ -47,7 +47,7 @@ export const getMeasurementScores = createSelector(
   [scores],
   (_scores) => {
     const measurementScores = _scores.filter(score => (score || {}).kind === 'measurement_area');
-    const groupedByParent = groupBy(measurementScores, 'parentId');
+    const groupedByParent = groupBy(measurementScores, 'parent-id');
 
     return Object.keys(groupedByParent).map((parentId) => {
       const scoreGroup = groupedByParent[parentId];
@@ -93,7 +93,7 @@ export const parseShareholders = createSelector(
   _shareholders => _shareholders.map(shareholder => ({
     id: shareholder.id,
     name: shareholder.name,
-    value: shareholder.percentShares
+    value: shareholder['percent-shares']
   }))
 );
 
@@ -102,7 +102,7 @@ export const parseSubsidiaries = createSelector(
   _subsidiaries => _subsidiaries.map(subsidiarie => ({
     id: subsidiarie.id,
     name: subsidiarie.name,
-    value: subsidiarie.percentControlledOwnership
+    value: subsidiarie['percent-controlled-ownership']
   }))
 );
 
@@ -111,7 +111,7 @@ export const parseBeneficialOwners = createSelector(
   _beneficialOwners => _beneficialOwners.map(beneficialOwner => ({
     id: beneficialOwner.id,
     name: beneficialOwner.name,
-    value: beneficialOwner.percentOwnership
+    value: beneficialOwner['percent-ownership']
   }))
 );
 
@@ -119,8 +119,8 @@ export const parseInvestmentDisputes = createSelector(
   [investmentDisputes],
   _investmentDisputes => _investmentDisputes.map(investmentDispute => ({
     id: investmentDispute.id,
-    name: investmentDispute.investorStateDisputesCaseNumber,
-    value: investmentDispute.investorStateDisputesCaseStatus
+    name: investmentDispute['investor-state-disputes-case-number'],
+    value: investmentDispute['investor-state-disputes-case-status']
   }))
 );
 

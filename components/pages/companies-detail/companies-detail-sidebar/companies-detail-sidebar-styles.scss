@@ -1,1 +1,48 @@
-.c-companies-detail-sidebar {}
+@import 'css/settings';
+
+.c-companies-detail-sidebar {
+  .definitions-container {
+    margin: -25px 0 0;
+  }
+
+  .definition-item {
+    margin: 25px 0 0;
+
+    > .definition-key,
+    > .definition-value {
+      font-size: $font-size-regular;
+      font-weight: $font-weight-light;
+      color: $color-7;
+    }
+
+    > .definition-value {
+      margin: 5px 0 0;
+      font-weight: $font-weight-bold;
+    }
+  }
+
+  .definition-sublist {
+    margin: 5px 0 0;
+
+    > .definition-sublist-item {
+      color: $color-7;
+      font-weight: $font-weight-bold;
+
+      &:not(:first-child) {
+        margin: 15px 0 0;
+      }
+
+      .definition-sublist-item-container {
+        display: inline-flex;
+        flex-direction: column;
+        margin: 0 0 0 5px;
+
+        > span {
+          &:not(:first-child) {
+            margin: 5px 0 0;
+          }
+        }
+      }
+    }
+  }
+}
