@@ -15,6 +15,7 @@ import CompaniesDetail from 'components/pages/companies-detail';
 import { getCompanies, getCompany, getCompaniesScores } from 'modules/companies/companies-actions';
 import { getCountries } from 'modules/countries/countries-actions';
 import { getCommodities } from 'modules/commodities/commodities-actions';
+import { getIndicators } from 'modules/indicators/indicators-actions';
 
 class CompaniesPage extends Page {
   static propTypes = { companyId: PropTypes.string }
@@ -23,6 +24,7 @@ class CompaniesPage extends Page {
     const props = await super.getInitialProps(context);
 
     if (context.query.company) {
+      // gets company info and relationships
       await context.store.dispatch(getCompany({
         companyId: context.query.company,
         queryParams: {
@@ -34,10 +36,14 @@ class CompaniesPage extends Page {
         }
       }));
 
+      // get all companies scores
       await context.store.dispatch(getCompaniesScores({
         'filter[kind]': ['overall_measurement_commitment', 'overall_measurement_action', 'overall_measurement_effectiveness'].join(','),
         'page[size]': 1000
       }));
+
+      // gets indicators
+      await context.store.dispatch(getIndicators({ 'page[size]': 1000 }));
     } else {
       await context.store.dispatch(getCompanies({ include: ['mine-sites', 'mine-sites.country'].join(',') }));
       await context.store.dispatch(getCommodities({ 'fields[commodities]': ['name'].join(',') }));

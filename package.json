@@ -38,6 +38,7 @@
     "rc-pagination": "^1.15.1",
     "rc-tooltip": "3.7.0",
     "react": "16.2.0",
+    "react-accessible-accordion": "2.0.0",
     "react-addons-css-transition-group": "15.6.2",
     "react-addons-shallow-compare": "15.6.2",
     "react-dom": "16.2.0",

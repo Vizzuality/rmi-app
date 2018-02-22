@@ -1,0 +1,91 @@
+@import 'css/settings';
+@import 'css/mixins';
+
+.accordion__item {
+
+  .accordion__title {
+    padding: 35px 0;
+
+    border-bottom: 1px solid rgba($color-7, .2);
+    cursor: pointer;
+    outline: 0;
+
+    .category-name {
+      position: relative;
+      padding: 0 0 0 50px;
+
+      font-family: $font-family-2;
+      text-transform: uppercase;
+      color: $color-7;
+
+      &:before {
+        content: '';
+        display: inline-block;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        @include arrow(14px, 1px, rgba($color-7, .2), 'right');
+        transform: translate(0, -50%) rotate(45deg);
+      }
+    }
+
+    &[aria-selected=true] {
+      .category-name {
+        &:before {
+          top: calc(50% - 11px);
+          @include arrow(14px, 1px, rgba($color-7, .2), 'down');
+        }
+      }
+    }
+  }
+
+  .accordion__body {
+    display: block;
+    animation: fadein .35s ease-in;
+    padding: 30px 0 30px 50px;
+  }
+
+  .accordion__body--hidden {
+    display: none;
+    opacity: 0;
+    animation: fadein .35s ease-in;
+  }
+
+  &:first-child {
+    .accordion__title {
+      padding: 0 0 35px;
+    }
+  }
+}
+
+
+
+@keyframes fadein {
+  0% {
+      opacity: 0;
+  }
+
+  100% {
+      opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadein {
+  0% {
+      opacity: 0;
+  }
+
+  100% {
+      opacity: 1;
+  }
+}
+
+@-moz-keyframes fadein {
+  0% {
+      opacity: 0;
+  }
+
+  100% {
+      opacity: 1;
+  }
+}

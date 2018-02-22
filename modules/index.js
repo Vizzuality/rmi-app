@@ -9,10 +9,12 @@ import staticContentModule from 'modules/static-content';
 import companiesModules from 'modules/companies';
 import countriesModules from 'modules/countries';
 import commoditiesModules from 'modules/commodities';
+import indicatorsModules from 'modules/indicators';
 
 // pages modules
 import * as LeadingPracticesModule from 'components/pages/leading-practices';
 import * as CompaniesModule from 'components/pages/companies';
+import * as CompaniesDetailModule from 'components/pages/companies-detail';
 
 export default {
   toastr: toastrReducer,
@@ -22,7 +24,9 @@ export default {
   companies: handleModule(companiesModules),
   countries: handleModule(countriesModules),
   commodities: handleModule(commoditiesModules),
+  indicators: handleModule(indicatorsModules),
   leadingPracticesPage: handleModule(LeadingPracticesModule),
   companiesPage: handleModule(CompaniesModule),
+  companiesDetailPage: handleModule(CompaniesDetailModule),
   staticContent: handleModule(staticContentModule)
 };
