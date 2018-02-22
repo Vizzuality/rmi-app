@@ -43,11 +43,11 @@ export const parseMineSitesScores = createSelector(
 );
 
 
-export const getMeasurementScores = createSelector(
+export const getBreakdownScores = createSelector(
   [scores],
   (_scores) => {
-    const measurementScores = _scores.filter(score => (score || {}).kind === 'measurement_area');
-    const groupedByParent = groupBy(measurementScores, 'parent-id');
+    const breakdownScores = _scores.filter(score => (score || {}).kind === 'breakdown');
+    const groupedByParent = groupBy(breakdownScores, 'parent-id');
 
     return Object.keys(groupedByParent).map((parentId) => {
       const scoreGroup = groupedByParent[parentId];
@@ -55,11 +55,11 @@ export const getMeasurementScores = createSelector(
 
       return ({
         id: parentScore.id,
-        name: parentScore.name,
+        name: parentScore.label,
         value: parentScore.value,
         children: scoreGroup.map(scoreChild => ({
           id: scoreChild.id,
-          name: scoreChild.name,
+          name: scoreChild.label,
           value: scoreChild.value
         }))
       });
@@ -136,7 +136,7 @@ export const parseKnownTaxJurisdictions = createSelector(
 
 export default {
   getOverallScores,
-  getMeasurementScores,
+  getBreakdownScores,
   getOverallMeasurementsScores,
   parseMineSitesScores,
   parseShareholders,

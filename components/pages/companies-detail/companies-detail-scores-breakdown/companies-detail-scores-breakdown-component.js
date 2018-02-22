@@ -27,7 +27,7 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
   static propTypes = {
     overallScores: PropTypes.array.isRequired,
     mineSites: PropTypes.array.isRequired,
-    measurementScores: PropTypes.array.isRequired,
+    breakdownScores: PropTypes.array.isRequired,
     overallMeasurementScores: PropTypes.array.isRequired,
     shareholders: PropTypes.array.isRequired,
     subsidiaries: PropTypes.array.isRequired,
@@ -51,7 +51,7 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
 
   render() {
     const {
-      company, overallScores, measurementScores, mineSites,
+      company, overallScores, breakdownScores, mineSites,
       overallMeasurementScores, shareholders, subsidiaries,
       beneficialOwners, investmentDisputes, knownTaxJurisdictions
     } = this.props;
@@ -79,10 +79,10 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
             <div className="row center-md -no-text-align">
               <div className="col-xs-12 col-md-10">
                 <div className="stacked-bars-container">
-                  {measurementScores.map((measurementScore, index) => (
+                  {breakdownScores.map((breakdownScore, index) => (
                     <StackedBars
-                      key={measurementScore.id}
-                      data={measurementScore}
+                      key={breakdownScore.id}
+                      data={breakdownScore}
                       colors={measurementColors[index]}
                     />
                   ))}
