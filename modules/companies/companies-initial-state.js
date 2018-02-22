@@ -1,5 +1,6 @@
 const initialState = {
   list: [],
+  companiesScores: [],
   error: null
 };
 
