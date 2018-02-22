@@ -1,6 +1,9 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
+// components
+import Tooltip from 'rc-tooltip';
+
 // styles
 import styles from './stacked-bars-styles.scss';
 
@@ -20,21 +23,6 @@ class StackedBars extends PureComponent {
     };
   }
 
-  renderBars(bars) {
-    return (
-      <div className="bar">
-        <style jsx>{styles}</style>
-        {bars.map((bar, index) => (
-          <div
-            key={bar.id}
-            className="bar-node"
-            style={this.getBarAttributes(bar, index)}
-          />
-        ))}
-      </div>
-    );
-  }
-
   render() {
     const { data } = this.props;
     const { name, children } = data;
@@ -42,8 +30,36 @@ class StackedBars extends PureComponent {
     return (
       <div className="c-stacked-bars">
         <style jsx>{styles}</style>
-        <h3 className="title">{name}</h3>
-        {this.renderBars(children)}
+        <div className="bar-header">
+          <div className="bar-icon">
+            {/* Replace with proper icons */}
+            <svg width="32" height="32">
+              <rect width="32" height="32" style={{ fill: 'red' }} />
+            </svg>
+          </div>
+          <h3 className="bar-title">{name}</h3>
+        </div>
+        <div className="stacked-bars-container">
+          <div className="bar">
+            {(children).map((bar, index) => (
+              <Tooltip
+                key={bar.id}
+                placement="bottom"
+                trigger={['hover']}
+                overlay={<span>{bar.name}</span>}
+                mouseLeaveDelay={0}
+              >
+                <div
+                  className="bar-node"
+                  style={this.getBarAttributes(bar, index)}
+                />
+              </Tooltip>
+            ))}
+          </div>
+          <div className="score">
+            <span className="current-score">0.3 <span className="total-score"> / 1</span></span>
+          </div>
+        </div>
       </div>
     );
   }

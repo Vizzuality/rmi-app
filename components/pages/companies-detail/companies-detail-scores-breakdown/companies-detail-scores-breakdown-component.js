@@ -75,8 +75,8 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
             </div>
           </div>
           <section className="section measurement-scores-container">
-            <div className="row center-md">
-              <div className="col-md-10">
+            <div className="row center-md -no-text-align">
+              <div className="col-xs-12 col-md-10">
                 <div className="stacked-bars-container">
                   {measurementScores.map((measurementScore, index) => (
                     <StackedBars

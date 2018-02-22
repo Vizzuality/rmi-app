@@ -31,8 +31,8 @@ class CompaniesDetailHeader extends PureComponent {
             <div className="col-md-6">
               <div className="right-side">
                 <div className="company-listing">
-                  {parsedListings.map(list => (
-                    <div className="company-listing-item">
+                  {parsedListings.map((list, index) => (
+                    <div key={`${list[0]}-${index + 1}`} className="company-listing-item">
                       <span className="company-listing-item-key">{list[0]}:</span>
                       <span className="company-listing-item-value">{list[1]}</span>
                     </div>
