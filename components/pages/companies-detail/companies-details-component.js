@@ -17,9 +17,18 @@ import { getCompanyCountryColor } from './companies-details-helpers';
 import styles from './companies-details-styles.scss';
 
 class CompaniesDetail extends PureComponent {
-  static propTypes = { paths: PropTypes.array.isRequired }
+  static propTypes = {
+    paths: PropTypes.array.isRequired,
+    issueAreas: PropTypes.array.isRequired,
+    setIssueArea: PropTypes.func.isRequired
+  }
 
   static setCountryColor = geographyProperties => getCompanyCountryColor(geographyProperties);
+
+  componentWillMount() {
+    const initialIssueArea = (this.props.issueAreas[0] || {}).id;
+    this.props.setIssueArea(initialIssueArea);
+  }
 
   render() {
     const { paths } = this.props;

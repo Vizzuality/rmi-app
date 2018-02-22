@@ -3,6 +3,7 @@ import { createSelector } from 'reselect';
 import paths from 'components/common/map/map-helpers';
 
 const countries = state => state.countries.list;
+const indicators = state => state.indicators.list;
 
 export const getUpdatedPaths = createSelector(
   countries,
@@ -22,6 +23,12 @@ export const getUpdatedPaths = createSelector(
         }
       };
     })
+);
+
+export const getIssueAreas = createSelector(
+  indicators,
+  (_indicators = []) =>
+    _indicators.filter(indicator => indicator.kind === 'issue_areas')
 );
 
 export default { getUpdatedPaths };

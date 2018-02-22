@@ -10,6 +10,7 @@ import StackedBars from 'components/charts/stacked-bars';
 import BarsChart from 'components/charts/barschart';
 import Table from 'components/common/table';
 import ScoresList from './scores-list';
+import CompaniesDetailAccordion from './companies-detail-accordion';
 
 // constants
 import {
@@ -110,6 +111,17 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
             </div>
           </section>
         </div>
+
+        <section className="section -dark indicators-accordion">
+          <div className="l-layout">
+            <div className="row">
+              <div className="col-xs-12">
+                <CompaniesDetailAccordion />
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section className="section -gray mine-sites-results">
           <div className="l-layout">
             <div className="row center-md">

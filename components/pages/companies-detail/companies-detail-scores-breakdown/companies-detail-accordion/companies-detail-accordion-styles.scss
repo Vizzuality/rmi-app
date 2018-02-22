@@ -1,0 +1,23 @@
+@import 'css/settings';
+
+.c-companies-detail-accordion {
+
+  .category-title {
+    margin: 0 0 50px;
+
+    font-family: $font-family-2;
+    font-size: $font-size-bigger;
+    font-weight: $font-weight-light;
+    color: $color-7;
+  }
+
+  .indicator-section {
+    color: $color-7;
+    font-weight: $font-weight-bold;
+    line-height: 1.5;
+
+    &:not(:first-child) {
+      margin: 35px 0 0;
+    }
+  }
+}
