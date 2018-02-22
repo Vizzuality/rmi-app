@@ -26,6 +26,9 @@ class StackedBars extends PureComponent {
   render() {
     const { data } = this.props;
     const { name, children } = data;
+    let totalScore = 0;
+
+    children.forEach((child) => { totalScore += child.value; });
 
     return (
       <div className="c-stacked-bars">
@@ -57,7 +60,7 @@ class StackedBars extends PureComponent {
             ))}
           </div>
           <div className="score">
-            <span className="current-score">0.3 <span className="total-score"> / 1</span></span>
+            <span className="current-score">{totalScore.toFixed(3)} <span className="total-score"> / 1</span></span>
           </div>
         </div>
       </div>
