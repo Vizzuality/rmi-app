@@ -31,9 +31,7 @@ class CompaniesDetailAccordion extends PureComponent {
             <div className="col-md-8">
               <h4 className="indicator-title">{d.name}</h4>
             </div>
-            <div className="col-md-3">
-              indicator drawing
-            </div>
+            <div className="col-md-3" />
           </div>
         </div>
       )));

@@ -19,11 +19,16 @@ class AccordionBar extends PureComponent {
         <ul>
           {issueAreas.map(issueArea => (
             <li key={issueArea.id}>
-              <img
+              <span
+                onClick={() => setIssueArea(issueArea.id)}
+              >
+                {issueArea.code}
+              </span>
+              {/* <img
                 src={`/static/icons/indicators/${issueArea.slug}.png`}
                 alt={issueArea.slug}
                 onClick={() => setIssueArea(issueArea.id)}
-              />
+              /> */}
             </li>
           ))}
         </ul>

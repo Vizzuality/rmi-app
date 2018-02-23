@@ -6,7 +6,19 @@
   max-width: 55px;
   transform: translate(0, -55px);
 
-  ul > li  > img {
-    cursor: pointer;
+  ul > li  {
+    > span {
+      display: inline-block;
+      width: 100%;
+      padding: 10px;
+      font-size: $font-size-big;
+      font-size: $font-weight-bold;
+      color: $color-7;
+      text-align: center;
+      cursor: pointer;
+    }
+    > img {
+      cursor: pointer;
+    }
   }
 }
