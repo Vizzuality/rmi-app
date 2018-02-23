@@ -20,7 +20,7 @@ export const getOverallScores = createSelector(
     const overallScores = _scores.filter(score => (score || {}).kind === 'overall_indicator');
     return overallScores.map(score => ({
       id: score.id,
-      name: score.name,
+      name: score.label,
       value: score.value
     }));
   }
@@ -80,7 +80,7 @@ export const getOverallMeasurementsScores = createSelector(
         name: scoreGroup[0].name,
         children: orderBy(scoreGroup, 'value', 'desc').map(scoreChild => ({
           id: scoreChild.id,
-          currentCompany: scoreChild.companyId === +_company.id,
+          currentCompany: scoreChild['company-id'] === +_company.id,
           value: scoreChild.value
         }))
       });

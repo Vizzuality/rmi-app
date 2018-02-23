@@ -9,6 +9,17 @@
     &:not(:first-child) {
       padding: 55px 0 0;
     }
+
+    &.-vizzuality {
+      span {
+        display: flex;
+        align-items: center;
+
+        > a  {
+          margin: 0 0 0 5px;
+        }
+      }
+    }
   }
 
   .left-side {
@@ -21,13 +32,22 @@
         padding: 150px 0 45px;
       }
 
-      > .footer-nav-links-list {
-        column-count: 2;
-      }
-
       > .footer-nav-links-list > .footer-nav-links-item {
+        > a {
+          font-weight: $font-weight-bold;
+          text-decoration: underline;
+        }
+
         &:not(:first-child) {
           margin: 15px 0 0;
+        }
+
+        &:last-child {
+          margin: 55px 0 0;
+          > a {
+            padding: 10px 0 0;
+            border-top: 2px solid rgba($color-7, .2);
+          }
         }
       }
     }

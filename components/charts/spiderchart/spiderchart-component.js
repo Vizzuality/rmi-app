@@ -18,7 +18,7 @@ class Piechart extends PureComponent {
           <PolarGrid />
           <PolarAngleAxis dataKey={dataKeyAxis} />
           <Radar dataKey={dataKeyRadar} stroke={stroke} fill={fill} />
-          <Tooltip />
+          <Tooltip isAnimationActive={false} />
           <PolarRadiusAxis angle={30} domain={domain} tick={false} />
         </RadarChart>
       </div>

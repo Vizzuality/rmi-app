@@ -46,7 +46,7 @@ class BarsChart extends PureComponent {
               />
             ))}
           </Bar>
-          <Tooltip isAnimationActive={false} />
+          <Tooltip isAnimationActive={false} cursor={false} />
         </BarChart>
       </div>
     );

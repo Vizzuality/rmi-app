@@ -134,6 +134,10 @@ class NavBar extends PureComponent {
     const { routes } = this.props;
     const { root } = routes;
 
+    const logo = root === 'index' ?
+      'RMI_Index_Color' : 'RMI_Foundation_Color';
+
+
     const navBarClass = classnames({
       'c-nav-bar': true,
       '-theme-1': root === 'index',
@@ -145,9 +149,9 @@ class NavBar extends PureComponent {
         <style jsx global>{styles}</style>
         <div className="logo">
           <Link
-            route="index"
+            route={root}
           >
-            <a><img src="/static/logos/RMI_Index_Color.png" alt="RMI logo" /></a>
+            <a><img src={`/static/logos/${logo}.png`} alt="RMI logo" /></a>
           </Link>
         </div>
         {this.renderTabs()}

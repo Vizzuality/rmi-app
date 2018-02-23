@@ -19,22 +19,19 @@ class SelectComponent extends PureComponent {
     placeholder: PropTypes.string,
     theme: PropTypes.oneOf([
       'light', 'dark'
-    ]),
-    defaultValue: PropTypes.object
+    ])
   }
 
   static defaultProps = {
+    className: null,
     placeholder: 'Select...',
-    theme: 'dark',
-    defaultValue: {}
+    theme: 'dark'
   }
 
   constructor(props) {
     super(props);
 
-    this.state = {
-      search: ''
-    };
+    this.state = { search: '' };
   }
 
   handleSearch = (search) => {
@@ -47,7 +44,7 @@ class SelectComponent extends PureComponent {
 
   render() {
     const {
-      options, className, placeholder, theme, defaultValue
+      options, className, placeholder, theme
     } = this.props;
     const { search } = this.state;
 
@@ -66,7 +63,6 @@ class SelectComponent extends PureComponent {
           placeholder={placeholder}
           className="selector"
           theme={theme}
-          value={defaultValue}
           search={search}
           onSearchChange={this.handleSearch}
         />

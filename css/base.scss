@@ -18,6 +18,10 @@ h6 {
 p {
   font-size: $font-size-big;
   line-height: 1.44;
+
+  & + p {
+    margin: 15px 0 0;
+  }
 }
 
 // links

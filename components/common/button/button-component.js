@@ -10,16 +10,19 @@ class Button extends PureComponent {
     className: PropTypes.string,
     children: PropTypes.any.isRequired,
     onClick: PropTypes.func,
-    padding: PropTypes.bool // adds padding to the button
+    padding: PropTypes.bool, // adds padding to the button
+    disabled: PropTypes.bool
   }
 
   static defaultProps = {
     onClick: () => ({}),
-    padding: true
+    className: null,
+    padding: true,
+    disabled: false
   }
 
   render() {
-    const { className, children, onClick, padding } = this.props;
+    const { className, children, onClick, padding, disabled } = this.props;
     const buttonClassClasses = classnames({
       'c-button': true,
       '-padding': padding,
@@ -27,7 +30,11 @@ class Button extends PureComponent {
     });
 
     return (
-      <button className={buttonClassClasses} onClick={onClick}>
+      <button
+        className={buttonClassClasses}
+        onClick={onClick}
+        disabled={disabled}
+      >
         <style jsx>{styles}</style>
         {children}
       </button>
