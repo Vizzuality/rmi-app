@@ -8,7 +8,16 @@
   background: $color-7;
   box-shadow: 0 4px 16px 0 rgba($color-1, .1);
 
-  > .header-top {
-    border-bottom: 2px solid $color-6;
+  &.-theme-1 {
+    background: $color-2;
+  }
+
+  &.-theme-2 {
+    background: $color-7;
+  }
+
+  .header-top {
+    display: flex;
+    justify-content: flex-end;
   }
 }
