@@ -17,5 +17,6 @@ routes.add('results', '/:language?/results/:year?', 'results');
 routes.add('leading-practices', '/:year?/leading-practices', 'leading-practices');
 routes.add('companies', '/:year?/companies/:company?', 'companies');
 routes.add('mine-sites', '/:year?/mine-sites/:mineSite?', 'mine-sites');
+routes.add('library', '/:language?/library', 'library');
 
 module.exports = routes;

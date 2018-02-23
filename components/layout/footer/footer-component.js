@@ -1,10 +1,13 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'routes';
 
 // styles
 import styles from './footer-styles.scss';
 
 class Footer extends PureComponent {
+  static propTypes = { root: PropTypes.string.isRequired }
+
   constructor(props) {
     super(props);
 
@@ -19,7 +22,11 @@ class Footer extends PureComponent {
   }
 
   render() {
+    const { root } = this.props;
     const { email } = this.state;
+
+    const logo = root === 'index' ?
+      'RMI_Index_WHITE' : 'RMF-logo-WHITE';
 
     return (
       <footer className="c-footer">
@@ -29,20 +36,19 @@ class Footer extends PureComponent {
             <div className="col-xs-12 col-lg-6">
               <div className="left-side">
                 <div className="footer-section">
-                  Responsible mining index
+                  <Link
+                    route={root}
+                  >
+                    <a href="">
+                      <img src={`/static/logos/${logo}.png`} alt="Responsible Mining Index" />
+                    </a>
+                  </Link>
                 </div>
                 <div className="footer-section">
                   <ul className="footer-nav-links-list">
                     <li className="footer-nav-links-item">
                       <Link
-                        route="foundation"
-                      >
-                        <a>Foundation</a>
-                      </Link>
-                    </li>
-                    <li className="footer-nav-links-item">
-                      <Link
-                        route="foundation"
+                        route="library"
                       >
                         <a>Document Library</a>
                       </Link>
@@ -51,14 +57,22 @@ class Footer extends PureComponent {
                       <Link
                         route="results"
                       >
-                        <a>Scoring framework</a>
+                        <a>Scoring Framework</a>
                       </Link>
                     </li>
                     <li className="footer-nav-links-item">
                       <Link
                         route="results"
                       >
-                        <a>Application of methodology</a>
+                        <a>Application of Methodology</a>
+                      </Link>
+                    </li>
+
+                    <li className="footer-nav-links-item">
+                      <Link
+                        route="foundation"
+                      >
+                        <a>Responsible Mining Foundation</a>
                       </Link>
                     </li>
                   </ul>
@@ -68,8 +82,16 @@ class Footer extends PureComponent {
                     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                   </p>
                 </div>
-                <div className="footer-section">
-                  <span>Designed by <a href="https://vizzuality.com/" rel="noreferrer noopener" target="_blank">Vizzuality</a></span>
+                <div className="footer-section -vizzuality">
+                  <span>Designed by
+                    <a
+                      href="https://vizzuality.com/"
+                      rel="noreferrer noopener"
+                      target="_blank"
+                    >
+                      <img src="/static/logos/Vizz_Index_WHITE.png" alt="Vizzuality" />
+                    </a>
+                  </span>
                 </div>
               </div>
             </div>

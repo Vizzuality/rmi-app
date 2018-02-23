@@ -7,16 +7,16 @@ import { initStore } from 'store';
 // components
 import Page from 'components/page';
 import Layout from 'components/layout';
-import IndexPageComponent from 'components/pages/index-homepage';
+import LibraryPageComponent from 'components/pages/library';
 
-class IndexPage extends Page {
+class LibraryPage extends Page {
   render() {
     return (
       <Layout
-        title="Index"
-        description="Welcome to RMI | Index"
+        title="Library"
+        description="Welcome to RMI | Library"
       >
-        <IndexPageComponent />
+        <LibraryPageComponent />
       </Layout>
     );
   }
@@ -26,4 +26,4 @@ export default withRedux(
   initStore,
   () => ({}),
   {}
-)(IndexPage);
+)(LibraryPage);
