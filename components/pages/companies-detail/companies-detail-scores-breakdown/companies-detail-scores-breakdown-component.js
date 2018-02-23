@@ -10,6 +10,7 @@ import StackedBars from 'components/charts/stacked-bars';
 import BarsChart from 'components/charts/barschart';
 import Table from 'components/common/table';
 import ScoresList from './scores-list';
+import CompaniesDetailAccordion from './companies-detail-accordion';
 
 // constants
 import {
@@ -26,7 +27,7 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
   static propTypes = {
     overallScores: PropTypes.array.isRequired,
     mineSites: PropTypes.array.isRequired,
-    measurementScores: PropTypes.array.isRequired,
+    breakdownScores: PropTypes.array.isRequired,
     overallMeasurementScores: PropTypes.array.isRequired,
     shareholders: PropTypes.array.isRequired,
     subsidiaries: PropTypes.array.isRequired,
@@ -50,7 +51,7 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
 
   render() {
     const {
-      company, overallScores, measurementScores, mineSites,
+      company, overallScores, breakdownScores, mineSites,
       overallMeasurementScores, shareholders, subsidiaries,
       beneficialOwners, investmentDisputes, knownTaxJurisdictions
     } = this.props;
@@ -78,10 +79,10 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
             <div className="row center-md -no-text-align">
               <div className="col-xs-12 col-md-10">
                 <div className="stacked-bars-container">
-                  {measurementScores.map((measurementScore, index) => (
+                  {breakdownScores.map((breakdownScore, index) => (
                     <StackedBars
-                      key={measurementScore.id}
-                      data={measurementScore}
+                      key={breakdownScore.id}
+                      data={breakdownScore}
                       colors={measurementColors[index]}
                     />
                   ))}
@@ -110,6 +111,17 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
             </div>
           </section>
         </div>
+
+        <section className="section -dark indicators-accordion">
+          <div className="l-layout">
+            <div className="row">
+              <div className="col-xs-12">
+                <CompaniesDetailAccordion />
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section className="section -gray mine-sites-results">
           <div className="l-layout">
             <div className="row center-md">

@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import CompaniesDetailScoresBreakdown from './companies-detail-scores-breakdown-component';
 import {
   getOverallScores,
-  getMeasurementScores,
+  getBreakdownScores,
   getOverallMeasurementsScores,
   parseMineSitesScores,
   parseShareholders,
@@ -15,7 +15,7 @@ import {
 export default connect(
   state => ({
     overallScores: getOverallScores(state),
-    measurementScores: getMeasurementScores(state),
+    breakdownScores: getBreakdownScores(state),
     overallMeasurementScores: getOverallMeasurementsScores(state),
     mineSites: parseMineSitesScores(state),
     shareholders: parseShareholders(state),

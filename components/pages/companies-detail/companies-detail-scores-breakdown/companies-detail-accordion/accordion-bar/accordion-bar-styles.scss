@@ -1,0 +1,12 @@
+@import 'css/settings';
+
+.c-accordion-bar {
+  background: $color-3;
+  height: calc(100% + 130px);
+  max-width: 55px;
+  transform: translate(0, -55px);
+
+  ul > li  > img {
+    cursor: pointer;
+  }
+}
