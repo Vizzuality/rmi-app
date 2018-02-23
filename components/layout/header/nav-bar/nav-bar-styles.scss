@@ -22,7 +22,6 @@
 
       font-family: $font-family-2;
       font-size: $font-size-regular;
-      color: $color-1;
     }
 
     &.-selected {
@@ -44,7 +43,7 @@
       position: relative;
 
       &:after {
-        @include arrow(9px, 2px, $color-1, 'down');
+        @include arrow(9px, 2px, currentColor, 'down');
         position: absolute;
         top: calc(50% - 2px);
         right: 2px;
@@ -54,7 +53,7 @@
 
       &.-open {
         &:after {
-          @include arrow(9px, 2px, $color-1, 'up');
+          @include arrow(9px, 2px, currentColor, 'up');
         }
       }
 
@@ -62,6 +61,14 @@
         padding: 25px 30px 0;
       }
     }
+  }
+
+  &.-theme-1 {
+    color: $color-7;
+  }
+
+  &.-theme-2 {
+    color: $color-1;
   }
 }
 
