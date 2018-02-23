@@ -4,7 +4,6 @@ import { Link } from 'routes';
 import classnames from 'classnames';
 import Tether from 'react-tether';
 
-
 // styles
 import styles from './nav-bar-styles.scss';
 
@@ -126,17 +125,31 @@ class NavBar extends PureComponent {
 
     return (
       <ul className="nav-list">
-        <style jsx>{styles}</style>
         {tabElements}
       </ul>
     );
   }
 
   render() {
+    const { routes } = this.props;
+    const { root } = routes;
+
+    const navBarClass = classnames({
+      'c-nav-bar': true,
+      '-theme-1': root === 'index',
+      '-theme-2': root !== 'index'
+    });
+
     return (
-      <nav className="c-nav-bar">
+      <nav className={navBarClass}>
         <style jsx global>{styles}</style>
-        <div className="logo" />
+        <div className="logo">
+          <Link
+            route="index"
+          >
+            <a><img src="/static/logos/RMI_Index_Color.png" alt="RMI logo" /></a>
+          </Link>
+        </div>
         {this.renderTabs()}
       </nav>
     );
