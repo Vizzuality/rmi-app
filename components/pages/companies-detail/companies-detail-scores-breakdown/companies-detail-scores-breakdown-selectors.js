@@ -20,7 +20,7 @@ export const getOverallScores = createSelector(
     const overallScores = _scores.filter(score => (score || {}).kind === 'overall_indicator');
     return overallScores.map(score => ({
       id: score.id,
-      name: score.name,
+      name: score.label,
       value: score.value
     }));
   }

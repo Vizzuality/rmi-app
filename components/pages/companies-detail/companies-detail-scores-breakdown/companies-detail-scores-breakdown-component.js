@@ -58,13 +58,25 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
     const {
       shareholdersDate,
       subsidiariesDate,
-      beneficialOwnersDate
+      beneficialOwnersDate,
+      summary
     } = company[0] || {};
 
     return (
       <div className="c-companies-detail-scores-breakdown">
         <style jsx>{styles}</style>
         <div className="l-layout">
+          {summary &&
+            <div className="summary-results">
+              <div className="row center-md -no-text-align">
+                <div className="col-xs-12">
+                  <div className="summary">
+                    <h3 className="title">Summary of results</h3>
+                    <p>{summary}</p>
+                  </div>
+                </div>
+              </div>
+            </div>}
           <div className="section overall-scores-container">
             <div className="row center-md">
               <div className="col-md-10">
