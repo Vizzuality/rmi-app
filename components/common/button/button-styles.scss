@@ -10,8 +10,8 @@
   color: inherit;
 
   font-family: $font-family-1;
-  font-size: $font-size-small;
-  font-weight: $font-weight-light;
+  font-size: $font-size-regular;
+  font-weight: $font-weight-bold;
   color: $color-7;
 
   &.-padding {
@@ -31,6 +31,19 @@
   }
 
   &.-gray {
-    background: $color-2;
+    background: $color-5;
+  }
+
+  &.-white {
+    background: $color-7;
+    color: $color-1;
+  }
+
+  & + .c-button {
+    margin: 0 0 0 25px;
+  }
+
+  &[disabled] {
+    cursor: not-allowed;
   }
 }

@@ -1,0 +1,84 @@
+@import 'css/settings';
+
+.c-index-page {
+
+  .splash {
+    padding: 250px 0;
+
+    background-image: url('/static/images/homepage_background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: none;
+
+    .title {
+      font-family: $font-family-2;
+      font-size: $font-size-giant;
+      color: $color-7;
+      line-height: 1.2;
+    }
+
+    .subtitle {
+      color: $color-7;
+    }
+  }
+
+  .download-summary {
+    display: flex;
+    justify-content: center;
+    padding: 50px 0;
+    background: $color-2;
+
+    border-bottom: 1px solid rgba($color-7, .2);
+  }
+
+  .intro {
+
+    .text-section {
+
+      &:first-child {
+        margin: 0 0 20px;
+      }
+
+      .title {
+        font-family: $font-family-2;
+        font-size: $font-size-bigger;
+        color: $color-7;
+
+        & + p {
+          margin: 20px 0 0;
+        }
+      }
+
+      p {
+        color: $color-7;
+
+        & + .title {
+          margin: 20px 0 0;
+        }
+      }
+
+      img {
+        margin: 35px 0 0;
+        width: 100%;
+      }
+    }
+
+    .buttons-container {
+      display: flex;
+      justify-content: space-between;
+      margin: 35px 0 0;
+      padding: 0 25px;
+    }
+  }
+
+  .splash-credits {
+    padding: 10px 0;
+    background: $color-2;
+
+    .credits {
+      font-size: $font-size-smallest;
+      font-style: italic;
+      color: $color-7;
+    }
+  }
+}

@@ -7,15 +7,16 @@ import { initStore } from 'store';
 // components
 import Page from 'components/page';
 import Layout from 'components/layout';
+import IndexPage from 'components/pages/index-homepage';
 
 class FoundationPage extends Page {
   render() {
     return (
       <Layout
-        title="Foundation"
-        description="Welcome to RMI | Foundation"
+        title="Index"
+        description="Welcome to RMI | Index"
       >
-        <h1>Foundation</h1>
+        <IndexPage />
       </Layout>
     );
   }
