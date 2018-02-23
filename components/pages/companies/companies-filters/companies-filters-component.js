@@ -21,11 +21,7 @@ class CompaniesFilters extends PureComponent {
     this.props.setFilters({ commodity: selectedOption.value })
 
   render() {
-    const {
-      countries, commodities
-    } = this.props;
-
-    const defaultCountry = countries.find(country => country.selected) || {};
+    const { countries, commodities } = this.props;
 
     return (
       <div className="c-companies-filters">
@@ -35,7 +31,6 @@ class CompaniesFilters extends PureComponent {
           options={countries}
           theme="light"
           onChange={this.handleCountry}
-          defaultValue={defaultCountry}
         />
         <Select
           placeholder="Select a commodity"
