@@ -12,11 +12,11 @@ routes.add('media', '/media/:section?', 'foundation-pages/media');
 routes.add('contact', '/foundation/contact', 'foundation-pages/contact');
 
 // Index routes
-routes.add('index', '/:language?', 'index');
+routes.add('companies', '/companies/:company?', 'companies');
+routes.add('mine-sites', '/mine-sites/:mineSite?', 'mine-sites');
 routes.add('results', '/:language?/results/:year?', 'results');
 routes.add('leading-practices', '/:year?/leading-practices', 'leading-practices');
-routes.add('companies', '/:year?/companies/:company?', 'companies');
-routes.add('mine-sites', '/:year?/mine-sites/:mineSite?', 'mine-sites');
 routes.add('library', '/:language?/library', 'library');
+routes.add('index', '/:language?', 'index');
 
 module.exports = routes;
