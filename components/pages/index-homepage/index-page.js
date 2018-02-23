@@ -121,9 +121,9 @@ class IndexPage extends PureComponent {
                     Many companies have demonstrated that they are establishing responsible
                     policies and practices on some issues, and examples of leading practice
                     have been found across a wide range of topics. The range of companies that
-                    are among the stronger performers for RMI&apos;s different thematic areas indicates
-                    that performance does not depend on company size, commodity focus,
-                    or geographic presence.
+                    are among the stronger performers for RMI&apos;s different thematic
+                    areas indicates that performance does not depend on company size,
+                    commodity focus, or geographic presence.
                   </p>
                   <p>RMI commends the thoughtful and innovative approaches to leading practice,
                     and the efforts of many companies to address the range of economic,
