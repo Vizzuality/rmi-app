@@ -18,7 +18,7 @@ class StackedBars extends PureComponent {
     const { value } = bar;
 
     return {
-      width: `${(value * 100) / 3}%`,
+      width: `${(value * 100) / 1}%`,
       backgroundColor: colors[index]
     };
   }
