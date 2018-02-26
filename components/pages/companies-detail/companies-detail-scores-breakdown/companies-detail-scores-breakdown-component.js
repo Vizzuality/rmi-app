@@ -7,11 +7,11 @@ import { overallColors, measurementColors } from 'constants/graph-colors';
 // components
 import SpiderChart from 'components/charts/spiderchart';
 import StackedBars from 'components/charts/stacked-bars';
-import BarsChart from 'components/charts/barschart';
 import Table from 'components/common/table';
 import CompaniesDetailMineSitesList from './companies-detail-mine-sites-list';
 import ScoresList from './scores-list';
 import CompaniesDetailAccordion from './companies-detail-accordion';
+import CompaniesDetailOverallMeasurements from './companies-detail-overall-measurements';
 
 // constants
 import {
@@ -29,7 +29,6 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
     overallScores: PropTypes.array.isRequired,
     mineSites: PropTypes.array.isRequired,
     breakdownScores: PropTypes.array.isRequired,
-    overallMeasurementScores: PropTypes.array.isRequired,
     shareholders: PropTypes.array.isRequired,
     subsidiaries: PropTypes.array.isRequired,
     beneficialOwners: PropTypes.array.isRequired,
@@ -53,8 +52,8 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
   render() {
     const {
       company, overallScores, breakdownScores, mineSites,
-      overallMeasurementScores, shareholders, subsidiaries,
-      beneficialOwners, investmentDisputes, knownTaxJurisdictions
+      shareholders, subsidiaries, beneficialOwners,
+      investmentDisputes, knownTaxJurisdictions
     } = this.props;
     const {
       shareholdersDate,
@@ -104,21 +103,11 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
             </div>
           </section>
           <section className="section overall-measurement-container">
-            <div className="row center-md">
-              <div className="col-xs-12">
-                <h3 className="title">Overall measurement area ranking</h3>
-              </div>
 
-              <div className="col-xs-12">
-                <div className="barchart-container">
-                  {overallMeasurementScores.map(overallMesurement => (
-                    <BarsChart
-                      key={overallMesurement.id}
-                      data={overallMesurement.children}
-                      yAxisDataKey="value"
-                      barDataKey="value"
-                    />
-                  ))}
+            <div className="l-layout">
+              <div className="row">
+                <div className="col-xs-12">
+                  <CompaniesDetailOverallMeasurements />
                 </div>
               </div>
             </div>

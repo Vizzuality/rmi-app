@@ -1,0 +1,12 @@
+@import 'css/settings';
+
+.c-mine-sites-detail {
+
+  .mine-sites-detail-intro {
+    background: $color-3;
+  }
+
+  .mine-sites-detail-preview {
+    padding: calc(#{$header-company-detail-height} + 35px) 0 35px;
+  }
+}
