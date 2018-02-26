@@ -28,8 +28,8 @@ class CompaniesPage extends Page {
       await context.store.dispatch(getCompany({
         companyId: context.query.company,
         queryParams: {
-          include: ['country', 'mine-sites', 'mine-sites.country', 'mine-sites.scores', 'scores', 'shareholders',
-            'subsidiaries', 'beneficial-owners', 'company-country-tax-jurisdictions',
+          include: ['country', 'mine-sites', 'mine-sites.country', 'mine-sites.commodities', 'mine-sites.scores',
+            'scores', 'shareholders', 'subsidiaries', 'beneficial-owners', 'company-country-tax-jurisdictions',
             'company-country-tax-jurisdictions.country', 'investment-disputes', 'fatality-reports'
           ].join(','),
           'page[size]': 9999
