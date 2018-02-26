@@ -18,7 +18,7 @@ class CompaniesDetailSidebar extends PureComponent {
       'number-employees': employees,
       'fatality-reports': fatalityReports
     } = company[0] || {};
-    const { name: countryName } = country;
+    const { name: countryName } = country || {};
 
     return (
       <div className="c-companies-detail-sidebar">
@@ -74,7 +74,7 @@ class CompaniesDetailSidebar extends PureComponent {
           </div>
           <div className="row">
             <div className="col-xs-12">
-              {!!fatalityReports.length &&
+              {!!(fatalityReports || []).length &&
                 <div className="definition-item">
                   <div className="definition-key">Company-reported mining worker fatalities:</div>
                   <ul className="definition-sublist">

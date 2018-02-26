@@ -16,7 +16,7 @@ const companiesScores = state => state.companies.companiesScores;
 
 export const getOverallScores = createSelector(
   [scores],
-  (_scores) => {
+  (_scores = []) => {
     const overallScores = _scores.filter(score => (score || {}).kind === 'overall_indicator');
     return overallScores.map(score => ({
       id: score.id,
@@ -28,24 +28,24 @@ export const getOverallScores = createSelector(
 
 export const parseMineSitesScores = createSelector(
   [mineSites],
-  _mineSites =>
+  (_mineSites = []) =>
     _mineSites.map(mineSite => ({
       id: mineSite.id,
       name: mineSite.name,
-      localProcurment: (mineSite.scores.find(score => score.slug.includes('ms-01-1')) || {}).value,
-      localEmployment: (mineSite.scores.find(score => score.slug.includes('ms-02-1')) || {}).value,
-      communityGrievance: (mineSite.scores.find(score => score.slug.includes('ms-03-1')) || {}).value,
-      workersGrievance: (mineSite.scores.find(score => score.slug.includes('ms-04-1')) || {}).value,
-      waterQuality: (mineSite.scores.find(score => score.slug.includes('ms-05-1')) || {}).value,
-      biodiversity: (mineSite.scores.find(score => score.slug.includes('ms-06-1')) || {}).value,
-      overall: (mineSite.scores.find(score => score.kind === 'overal_mine_site') || {}).value
+      localProcurment: ((mineSite.scores || []).find(score => score.slug.includes('ms-01-1')) || {}).value,
+      localEmployment: ((mineSite.scores || []).find(score => score.slug.includes('ms-02-1')) || {}).value,
+      communityGrievance: ((mineSite.scores || []).find(score => score.slug.includes('ms-03-1')) || {}).value,
+      workersGrievance: ((mineSite.scores || []).find(score => score.slug.includes('ms-04-1')) || {}).value,
+      waterQuality: ((mineSite.scores || []).find(score => score.slug.includes('ms-05-1')) || {}).value,
+      biodiversity: ((mineSite.scores || []).find(score => score.slug.includes('ms-06-1')) || {}).value,
+      overall: ((mineSite.scores || []).find(score => score.kind === 'overal_mine_site') || {}).value
     }))
 );
 
 
 export const getBreakdownScores = createSelector(
   [scores],
-  (_scores) => {
+  (_scores = []) => {
     const breakdownScores = _scores.filter(score => (score || {}).kind === 'breakdown');
     const groupedByParent = groupBy(breakdownScores, 'parent-id');
 
@@ -69,7 +69,7 @@ export const getBreakdownScores = createSelector(
 
 export const getOverallMeasurementsScores = createSelector(
   [companiesScores, company],
-  (_companiesScores, _company) => {
+  (_companiesScores = [], _company = {}) => {
     const groupByKind = groupBy(_companiesScores, 'kind');
 
     return Object.keys(groupByKind).map((parentGrpoup, index) => {
@@ -90,7 +90,7 @@ export const getOverallMeasurementsScores = createSelector(
 
 export const parseShareholders = createSelector(
   [shareholders],
-  _shareholders => _shareholders.map(shareholder => ({
+  (_shareholders = []) => _shareholders.map(shareholder => ({
     id: shareholder.id,
     name: shareholder.name,
     value: shareholder['percent-shares']
@@ -99,7 +99,7 @@ export const parseShareholders = createSelector(
 
 export const parseSubsidiaries = createSelector(
   [subsidiaries],
-  _subsidiaries => _subsidiaries.map(subsidiarie => ({
+  (_subsidiaries = []) => _subsidiaries.map(subsidiarie => ({
     id: subsidiarie.id,
     name: subsidiarie.name,
     value: subsidiarie['percent-controlled-ownership']
@@ -108,7 +108,7 @@ export const parseSubsidiaries = createSelector(
 
 export const parseBeneficialOwners = createSelector(
   [beneficialOwners],
-  _beneficialOwners => _beneficialOwners.map(beneficialOwner => ({
+  (_beneficialOwners = []) => _beneficialOwners.map(beneficialOwner => ({
     id: beneficialOwner.id,
     name: beneficialOwner.name,
     value: beneficialOwner['percent-ownership']
@@ -117,7 +117,7 @@ export const parseBeneficialOwners = createSelector(
 
 export const parseInvestmentDisputes = createSelector(
   [investmentDisputes],
-  _investmentDisputes => _investmentDisputes.map(investmentDispute => ({
+  (_investmentDisputes = []) => _investmentDisputes.map(investmentDispute => ({
     id: investmentDispute.id,
     name: investmentDispute['investor-state-disputes-case-number'],
     value: investmentDispute['investor-state-disputes-case-status']
@@ -126,7 +126,7 @@ export const parseInvestmentDisputes = createSelector(
 
 export const parseKnownTaxJurisdictions = createSelector(
   [knownTaxJurisdictions],
-  _knownTaxJurisdictions => _knownTaxJurisdictions.map(knownTaxJurisdiction => ({
+  (_knownTaxJurisdictions = []) => _knownTaxJurisdictions.map(knownTaxJurisdiction => ({
     id: knownTaxJurisdiction.id,
     name: knownTaxJurisdiction.country.name,
     value: knownTaxJurisdiction.disclosure
