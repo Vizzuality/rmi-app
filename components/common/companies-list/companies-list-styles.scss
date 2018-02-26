@@ -1,0 +1,54 @@
+@import 'css/settings';
+
+.c-companies-list {
+
+  .content {
+    margin: -10px 0 0;
+
+    .companies-list-item {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      height: 100%;
+      padding: 10px;
+      margin: 5px 0 0;
+
+      border: 1px solid $color-5;
+      cursor: pointer;
+
+      > .company-name {
+        font-size: $font-size-regular;
+        color: $color-7;
+        text-align: center;
+      }
+    }
+
+    .veil {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 4;
+    }
+  }
+}
+
+:global(.companies-list-tooltip-tether) {
+  z-index: 5;
+}
+
+.companies-list-tooltip {
+  max-width: 385px;
+  background: $color-3;
+
+  .company-link {
+    display: inline-block;
+    width: 100%;
+    background: $color-7;
+    padding: 25px 0;
+
+    font-size: $font-size-big;
+    text-align: center;
+  }
+}

@@ -10,9 +10,9 @@
       vertical-align: middle;
       font-weight: $font-weight-light;
 
-      &:first-child {
-        padding-left: 0;
-      }
+      // &:first-child {
+      //   padding-left: 0;
+      // }
     }
   }
 
@@ -27,9 +27,9 @@
         font-size: $font-size-regular;
         text-align: left;
 
-        &:first-child {
-          padding-left: 0;
-        }
+        // &:first-child {
+        //   padding-left: 0;
+        // }
       }
 
       :global(> td > a) {
