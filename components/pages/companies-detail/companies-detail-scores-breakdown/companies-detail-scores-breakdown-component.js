@@ -9,6 +9,7 @@ import SpiderChart from 'components/charts/spiderchart';
 import StackedBars from 'components/charts/stacked-bars';
 import BarsChart from 'components/charts/barschart';
 import Table from 'components/common/table';
+import CompaniesDetailMineSitesList from './companies-detail-mine-sites-list';
 import ScoresList from './scores-list';
 import CompaniesDetailAccordion from './companies-detail-accordion';
 
@@ -144,6 +145,15 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
                   columns={MINE_SITE_TABLE_COLUMNS}
                   rows={mineSites}
                 />
+              </div>
+            </div>
+          </div>
+        </section>
+        <section className="section -dark">
+          <div className="l-layout">
+            <div className="row">
+              <div className="col-xs-12">
+                <CompaniesDetailMineSitesList />
               </div>
             </div>
           </div>
