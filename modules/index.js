@@ -15,6 +15,7 @@ import indicatorsModules from 'modules/indicators';
 import * as LeadingPracticesModule from 'components/pages/leading-practices';
 import * as CompaniesModule from 'components/pages/companies';
 import * as CompaniesDetailModule from 'components/pages/companies-detail';
+import * as MineSitesModule from 'components/pages/mine-sites';
 
 export default {
   toastr: toastrReducer,
@@ -28,5 +29,6 @@ export default {
   leadingPracticesPage: handleModule(LeadingPracticesModule),
   companiesPage: handleModule(CompaniesModule),
   companiesDetailPage: handleModule(CompaniesDetailModule),
+  mineSitesPage: handleModule(MineSitesModule),
   staticContent: handleModule(staticContentModule)
 };

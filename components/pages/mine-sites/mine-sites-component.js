@@ -1,21 +1,18 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-
 // components
 import Map from 'components/common/map';
 import CompaniesList from 'components/common/companies-list';
-import CompaniesFilters from './companies-filters';
 
 // constants
-import { MAP_LEGEND } from './companies-constants';
-
+import { MAP_LEGEND } from './mine-sites-constants';
 // helpers
-import { getCompanyCountryColor } from './companies-helpers';
+import { getCompanyCountryColor } from './mine-sites-helpers';
 
 // styles
-import styles from './companies-styles.scss';
+import styles from './mine-sites-styles.scss';
 
-class Companies extends PureComponent {
+class MineSite extends PureComponent {
   static propTypes = {
     paths: PropTypes.array.isRequired,
     setFilters: PropTypes.func.isRequired
@@ -32,16 +29,16 @@ class Companies extends PureComponent {
     const { paths } = this.props;
 
     return (
-      <div className="c-companies-page">
+      <div className="c-mine-site-page">
         <style jsx>{styles}</style>
         <div className="page-intro">
           <div className="l-layout">
             <div className="row">
-              <div className="col-lg-5">
-                <h2 className="title">Companies</h2>
+              <div className="col-md-6">
+                <h2 className="title">Mine Sites</h2>
               </div>
-              <div className="col-lg-7">
-                <p>Lorem ipsum companies</p>
+              <div className="col-md-6">
+                <p>Lorem ipsum mine sites</p>
               </div>
             </div>
           </div>
@@ -55,11 +52,10 @@ class Companies extends PureComponent {
                   <CompaniesList />
                 </div>
                 <div className="col-md-7">
-                  <CompaniesFilters />
                   <div className="map-container">
                     <Map
                       paths={paths}
-                      setCountryColor={Companies.setCountryColor}
+                      setCountryColor={MineSite.setCountryColor}
                       legend={MAP_LEGEND}
                       onClickGeography={this.handleClickGeography}
                     />
@@ -74,4 +70,4 @@ class Companies extends PureComponent {
   }
 }
 
-export default Companies;
+export default MineSite;

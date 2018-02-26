@@ -45,7 +45,7 @@ class CompaniesPage extends Page {
       // gets indicators
       await context.store.dispatch(getIndicators({ 'page[size]': 1000 }));
     } else {
-      await context.store.dispatch(getCompanies({ include: ['mine-sites', 'mine-sites.country'].join(',') }));
+      await context.store.dispatch(getCompanies({ include: ['mine-sites', 'mine-sites.country', 'mine-sites.commodities'].join(',') }));
       await context.store.dispatch(getCommodities({ 'fields[commodities]': ['name'].join(',') }));
     }
 
