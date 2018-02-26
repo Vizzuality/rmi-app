@@ -1,6 +1,7 @@
 @import 'css/settings';
 
 .c-table {
+  width: 100%;
 
   > :global(thead) {
     :global(th) {
@@ -8,6 +9,10 @@
       text-align: left;
       vertical-align: middle;
       font-weight: $font-weight-light;
+
+      // &:first-child {
+      //   padding-left: 0;
+      // }
     }
   }
 
@@ -21,11 +26,27 @@
         padding: 20px 15px;
         font-size: $font-size-regular;
         text-align: left;
+
+        // &:first-child {
+        //   padding-left: 0;
+        // }
       }
 
       :global(> td > a) {
         font-weight: $font-weight-bold;
         text-decoration: underline;
+      }
+    }
+  }
+
+  &.-theme-2 {
+    color: $color-7;
+
+    :global(> tbody) {
+      :global(> tr) {
+        &:not(:last-child) {
+          border-bottom: 1px solid rgba($color-7, .2)
+        }
       }
     }
   }
