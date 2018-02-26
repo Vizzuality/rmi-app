@@ -1,14 +1,10 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 
 // components
 import Map from 'components/common/map';
 import CompaniesList from './companies-list';
 import CompaniesFilters from './companies-filters';
-
-// selectors
-import { getUpdatedPaths } from './companies-selectors';
 
 // constants
 import { MAP_LEGEND } from './companies-constants';
@@ -22,8 +18,7 @@ import styles from './companies-styles.scss';
 class Companies extends PureComponent {
   static propTypes = {
     paths: PropTypes.array.isRequired,
-    setFilters: PropTypes.func,
-    resetFilters: PropTypes.func
+    setFilters: PropTypes.func.isRequired
   }
 
   static setCountryColor = geographyProperties => getCompanyCountryColor(geographyProperties);
@@ -79,9 +74,4 @@ class Companies extends PureComponent {
   }
 }
 
-export default connect(
-  state => ({
-    paths: getUpdatedPaths(state)
-  }),
-  {}
-)(Companies);
+export default Companies;
