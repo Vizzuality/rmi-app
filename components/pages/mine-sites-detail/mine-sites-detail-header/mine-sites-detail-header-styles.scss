@@ -1,0 +1,63 @@
+@import 'css/settings';
+
+.c-mine-sites-detail-header {
+  z-index: 3;
+  position: fixed;
+  left: 0;
+  width: 100%;
+  padding: 20px 0;
+  background: $color-3;
+
+  border-bottom: 1px solid rgba($color-7, .2);
+  box-shadow: 0 4px 16px 0 rgba($color-1, .1);
+
+  .left-side,
+  .right-side {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+
+  .left-side {
+
+    font-weight: $font-weight-light;
+    color: $color-7;
+    .go-back-link {
+      font-size: $font-size-huge;
+
+      > :global(svg) {
+        margin: 0 35px 0 0;
+      }
+    }
+
+    .country-name {
+      padding: 0 0 0 15px;
+      margin: 0 0 0 35px;
+      border-left: 1px solid rgba($color-7, .2);
+      font-size: $font-size-huge;
+    }
+  }
+
+  .right-side {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    > .pdf-print {
+      display: flex;
+      align-items: center;
+
+      > .print-link {
+        display: flex;
+        align-items: center;
+
+        color: $color-7;
+        font-weight: $font-weight-bold;
+
+        > :global(.c-icon) {
+          margin: 0 15px 0 0;
+        }
+      }
+    }
+  }
+}

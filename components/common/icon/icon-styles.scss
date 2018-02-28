@@ -1,0 +1,27 @@
+@import 'css/settings';
+
+.c-icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+
+  &.-big {
+    width: 32px;
+    height: 32px;
+  }
+
+  &.-large-arrow {
+    width: 53px;
+    height: 16px;
+  }
+
+  &.-download {
+
+    &.-reverse {
+      fill: $color-7;
+    }
+  }
+}

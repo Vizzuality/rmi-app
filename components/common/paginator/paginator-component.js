@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import Pagination from 'rc-pagination';
 
 // styles
@@ -12,16 +13,25 @@ class Paginator extends PureComponent {
       page: PropTypes.number,
       limit: PropTypes.number
     }).isRequired,
-    onChange: PropTypes.func.isRequired
+    onChange: PropTypes.func.isRequired,
+    className: PropTypes.string
   }
+
+  static defaultProps = { className: null }
 
   handleChangePage = nextPage => this.props.onChange(nextPage);
 
   render() {
-    const { size, page, limit } = this.props.options;
+    const { options, className } = this.props;
+    const { size, page, limit } = options;
+
+    const paginatorClasses = classnames({
+      'c-paginator': true,
+      [className]: !!className
+    });
 
     return (
-      <div className="c-paginator">
+      <div className={paginatorClasses}>
         <style jsx global>{styles}</style>
         <Pagination
           current={page}

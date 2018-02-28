@@ -1,0 +1,33 @@
+@import 'css/settings';
+
+.c-mine-sites-detail-bars {
+
+  .overall-core-score-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    > .overall-score-title,
+    > .overall-score-value {
+      font-size: $font-size-big;
+      color: $color-7;
+    }
+
+    > .overall-score-title {
+      font-weight: $font-weight-bold;
+    }
+
+    > .overall-score-value {
+      margin: 5px 0 0;
+      font-weight: $font-weight-light;
+
+      > .current {
+        font-weight: $font-weight-bold;
+      }
+    }
+  }
+
+  .score-bars-container {
+    margin: 25px 0 0;
+  }
+}

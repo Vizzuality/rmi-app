@@ -1,9 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-// styles
-import styles from './companies-detail-sidebar-styles.scss';
-
 class CompaniesDetailSidebar extends PureComponent {
   static propTypes = { company: PropTypes.array.isRequired }
 
@@ -21,8 +18,7 @@ class CompaniesDetailSidebar extends PureComponent {
     const { name: countryName } = country || {};
 
     return (
-      <div className="c-companies-detail-sidebar">
-        <style jsx>{styles}</style>
+      <div className="c-detail-sidebar">
         <div className="definitions-container">
           <div className="row">
             <div className="col-xs-12 col-md-6">

@@ -12,10 +12,6 @@
   }
 
   .indicator-section {
-    color: $color-7;
-    font-weight: $font-weight-bold;
-    line-height: 1.5;
-
     &:not(:first-child) {
       margin: 35px 0 0;
     }
