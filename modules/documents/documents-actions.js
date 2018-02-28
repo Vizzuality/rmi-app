@@ -8,8 +8,13 @@ export const setDocuments = createAction('documents/setDocuments');
 export const setLoading = createAction('documents/setLoading');
 
 // search
-export const setSearch = createAction('mine-sites-detail-page/setSearch');
-export const resetSearch = createAction('mine-sites-detail-page/resetSearch');
+export const setSearch = createAction('documents/setSearch');
+export const resetSearch = createAction('documents/resetSearch');
+
+// filters
+export const setFilters = createAction('documents/setFilters');
+export const resetFilters = createAction('documents/resetFilters');
+
 // pagination
 export const setPaginationPage = createAction('documents/setPaginationPage');
 export const setPaginationSize = createAction('documents/setPaginationSize');
@@ -18,14 +23,16 @@ export const resetPagination = createAction('documents/resetPagination');
 export const getDocuments = createThunkAction('documents/getDocuments', _options =>
   (dispatch, getState) => {
     const { documents } = getState();
-    const { pagination, search } = documents;
+    const { pagination, search, filters } = documents;
     const { page, limit } = pagination;
 
     const options = {
       ..._options,
       'page[number]': page,
       'page[size]': limit,
-      'filter[name]': search === '' || !search ? undefined : search
+      'filter[name]': search === '' || !search ? undefined : search,
+      'filter[company]': filters.company || undefined,
+      'filter[mine-site]': filters.mineSite || undefined
     };
 
     dispatch(setLoading(true));

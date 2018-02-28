@@ -1,3 +1,3 @@
-import LibraryPage from './library-page';
+import Library from './library-component';
 
-export default LibraryPage;
+export default Library;
