@@ -60,6 +60,7 @@ class CompaniesPage extends Page {
 
   render() {
     const { companyId } = this.props;
+
     return (
       <Layout
         title="Companies"

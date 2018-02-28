@@ -1,6 +1,4 @@
-@import 'css/settings';
-
-.c-companies-detail-sidebar {
+.c-detail-sidebar {
   .definitions-container {
     margin: -25px 0 0;
   }
@@ -18,6 +16,7 @@
     > .definition-value {
       margin: 5px 0 0;
       font-weight: $font-weight-bold;
+      line-height: 1.2;
     }
   }
 

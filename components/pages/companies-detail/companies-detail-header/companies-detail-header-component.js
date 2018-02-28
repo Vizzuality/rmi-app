@@ -2,6 +2,9 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'routes';
 
+// components
+import Icon from 'components/common/icon';
+
 // styles
 import styles from './companies-detail-header-styles.scss';
 
@@ -24,7 +27,13 @@ class CompaniesDetailHeader extends PureComponent {
                 <Link
                   route="companies"
                 >
-                  <a className="go-back-link">{name}</a>
+                  <a className="go-back-link">
+                    <Icon
+                      name="large-arrow"
+                      className="-large-arrow"
+                    />
+                    {name}
+                  </a>
                 </Link>
               </div>
             </div>
@@ -40,8 +49,13 @@ class CompaniesDetailHeader extends PureComponent {
                 </div>
 
                 <div className="pdf-print">
-                  {/* icon here */}
-                  <a href="#" className="print-link">Download in PDF</a>
+                  <a href="#" className="print-link">
+                    <Icon
+                      name="download"
+                      className="-big -download -reverse"
+                    />
+                    Download in PDF
+                  </a>
                 </div>
               </div>
             </div>

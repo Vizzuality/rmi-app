@@ -58,7 +58,6 @@ class CompaniesDetail extends PureComponent {
                   </div>
                 </div>
               </div>
-
             </div>
           </div>
           <CompaniesDetailScoresBreakDown />

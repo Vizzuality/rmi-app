@@ -3,7 +3,6 @@ import CompaniesDetailScoresBreakdown from './companies-detail-scores-breakdown-
 import {
   getOverallScores,
   getBreakdownScores,
-  getOverallMeasurementsScores,
   parseMineSitesScores,
   parseShareholders,
   parseSubsidiaries,
@@ -16,7 +15,6 @@ export default connect(
   state => ({
     overallScores: getOverallScores(state),
     breakdownScores: getBreakdownScores(state),
-    overallMeasurementScores: getOverallMeasurementsScores(state),
     mineSites: parseMineSitesScores(state),
     shareholders: parseShareholders(state),
     subsidiaries: parseSubsidiaries(state),

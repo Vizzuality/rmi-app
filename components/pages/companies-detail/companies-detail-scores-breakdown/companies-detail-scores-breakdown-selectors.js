@@ -1,9 +1,7 @@
 
 import { createSelector } from 'reselect';
 import groupBy from 'lodash/groupBy';
-import orderBy from 'lodash/orderBy';
 
-const company = state => state.companies.list[0] || {};
 const scores = state => (state.companies.list[0] || {}).scores;
 const mineSites = state => (state.companies.list[0] || {})['mine-sites'];
 const shareholders = state => (state.companies.list[0] || {}).shareholders;
@@ -12,7 +10,6 @@ const beneficialOwners = state => (state.companies.list[0] || {})['beneficial-ow
 const investmentDisputes = state => (state.companies.list[0] || {})['investment-disputes'];
 const knownTaxJurisdictions = state =>
   (state.companies.list[0] || {})['company-country-tax-jurisdictions'];
-const companiesScores = state => state.companies.companiesScores;
 
 export const getOverallScores = createSelector(
   [scores],
@@ -67,27 +64,6 @@ export const getBreakdownScores = createSelector(
   }
 );
 
-export const getOverallMeasurementsScores = createSelector(
-  [companiesScores, company],
-  (_companiesScores = [], _company = {}) => {
-    const groupByKind = groupBy(_companiesScores, 'kind');
-
-    return Object.keys(groupByKind).map((parentGrpoup, index) => {
-      const scoreGroup = groupByKind[parentGrpoup];
-
-      return ({
-        id: index,
-        name: scoreGroup[0].name,
-        children: orderBy(scoreGroup, 'value', 'desc').map(scoreChild => ({
-          id: scoreChild.id,
-          currentCompany: scoreChild['company-id'] === +_company.id,
-          value: scoreChild.value
-        }))
-      });
-    });
-  }
-);
-
 export const parseShareholders = createSelector(
   [shareholders],
   (_shareholders = []) => _shareholders.map(shareholder => ({
@@ -133,11 +109,9 @@ export const parseKnownTaxJurisdictions = createSelector(
   }))
 );
 
-
 export default {
   getOverallScores,
   getBreakdownScores,
-  getOverallMeasurementsScores,
   parseMineSitesScores,
   parseShareholders,
   parseSubsidiaries,

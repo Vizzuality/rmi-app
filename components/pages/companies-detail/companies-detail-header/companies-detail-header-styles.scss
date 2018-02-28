@@ -5,8 +5,7 @@
   position: fixed;
   left: 0;
   width: 100%;
-  height: $header-company-detail-height;
-  padding: 15px 0;
+  padding: 20px 0;
   background: $color-3;
 
   border-bottom: 1px solid rgba($color-7, .2);
@@ -24,6 +23,10 @@
       font-size: $font-size-huge;
       font-weight: $font-weight-light;
       color: $color-7;
+
+      > :global(svg) {
+        margin: 0 35px 0 0;
+      }
     }
   }
 
@@ -63,8 +66,15 @@
       align-items: center;
 
       > .print-link {
+        display: flex;
+        align-items: center;
+
         color: $color-7;
         font-weight: $font-weight-bold;
+
+        > :global(.c-icon) {
+          margin: 0 15px 0 0;
+        }
       }
     }
   }
