@@ -6,52 +6,27 @@ export const INDEX_NAVIGATION = [{
     route: 'results',
     params: {}
   },
+  noLink: true,
   children: [{
     id: '1-1',
-    label: 'Overall',
-    query: {
-      route: 'results',
-      params: { issue: 'overall' }
-    }
+    label: 'Overall results',
+    slug: 'overall-results',
+    query: { route: 'results-overall' }
   }, {
     id: '1-2',
-    label: 'Economic Development',
+    label: 'Thematic Areas',
+    slug: 'thematic-areas',
     query: {
       route: 'results',
-      params: { issue: 'economic-development' }
-    }
-  }, {
-    id: '1-3',
-    label: 'Business Conduct',
-    query: {
-      route: 'results',
-      params: { issue: 'business-conduct' }
-    }
-  }, {
-    id: '1-4',
-    label: 'Lifecycle Management',
-    query: {
-      route: 'results',
-      params: { issue: 'lifecycle-management' }
-    }
-  }, {
-    id: '1-5',
-    label: 'Community Wellbeing',
-    query: {
-      route: 'results',
-      params: { issue: 'community-wellbeing' }
-    }
-  }, {
-    id: '1-6',
-    label: 'Environmental Responsability',
-    query: {
-      route: 'results',
-      params: { issue: 'environmental-responsability' }
-    }
+      params: {}
+    },
+    children: [],
+    noLink: true
   }]
 }, {
   id: 2,
   label: 'Leading Practices',
+  slug: 'leading-practices',
   query: {
     route: 'leading-practices',
     params: {}
@@ -59,6 +34,7 @@ export const INDEX_NAVIGATION = [{
 }, {
   id: 3,
   label: 'Companies',
+  slug: 'companies',
   query: {
     route: 'companies',
     params: {}
@@ -66,6 +42,7 @@ export const INDEX_NAVIGATION = [{
 }, {
   id: 4,
   label: 'Mine Sites',
+  slug: 'mine-sites',
   query: {
     route: 'mine-sites',
     params: {}
@@ -75,6 +52,7 @@ export const INDEX_NAVIGATION = [{
 export const FOUNDATION_NAVIGATION = [{
   id: 5,
   label: 'Mining and Society',
+  slug: 'mining-society',
   query: {
     route: 'mining-society',
     params: {}
@@ -82,6 +60,7 @@ export const FOUNDATION_NAVIGATION = [{
 }, {
   id: 6,
   label: 'About',
+  slug: 'about',
   query: {
     route: 'about',
     params: {}
@@ -89,6 +68,7 @@ export const FOUNDATION_NAVIGATION = [{
 }, {
   id: 7,
   label: 'Media',
+  slug: 'media',
   query: {
     route: 'media',
     params: {}
@@ -96,6 +76,7 @@ export const FOUNDATION_NAVIGATION = [{
 }, {
   id: 8,
   label: 'Contact',
+  slug: 'contact',
   query: {
     route: 'contact',
     params: {}
@@ -103,6 +84,7 @@ export const FOUNDATION_NAVIGATION = [{
 }, {
   id: 9,
   label: 'Index',
+  slug: 'index',
   query: {
     route: 'contact',
     params: {}
