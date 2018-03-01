@@ -1,0 +1,27 @@
+@import 'css/settings';
+
+
+.c-overall-graphs {
+
+  .explanation {
+    margin: 55px 0 0;
+
+    > p {
+      font-style: italic;
+      color: $color-7;
+    }
+  }
+}
+
+.graph-item {
+  margin: 25px 0 0;
+
+  .chart-legend {
+    > .title {
+      font-family: $font-family-1;
+      font-size: $font-size-big;
+      font-weight: $font-weight-light;
+      color: $color-7;
+    }
+  }
+}

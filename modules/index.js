@@ -12,6 +12,7 @@ import commoditiesModule from 'modules/commodities';
 import indicatorsModule from 'modules/indicators';
 import mineSitesModule from 'modules/mine-sites';
 import documentsModule from 'modules/documents';
+import scoresModule from 'modules/scores';
 
 // pages modules
 import * as LeadingPracticesModule from 'components/pages/leading-practices';
@@ -30,6 +31,7 @@ export default {
   indicators: handleModule(indicatorsModule),
   mineSites: handleModule(mineSitesModule),
   documents: handleModule(documentsModule),
+  scores: handleModule(scoresModule),
   leadingPracticesPage: handleModule(LeadingPracticesModule),
   companiesPage: handleModule(CompaniesModule),
   companiesDetailPage: handleModule(CompaniesDetailModule),

@@ -1,0 +1,52 @@
+@import 'css/settings';
+
+
+.c-top-companies {
+  margin: -55px 0 0;
+}
+
+.c-top-item {
+  margin: 55px 0 0;
+
+  > .top-header {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    padding: 0 30px;
+
+    >.top-name {
+      margin: 0 0 0 5px;
+
+      font-family: $font-family-2;
+      font-size: $font-size-big;
+      color: $color-7;
+    }
+  }
+
+  > .top-list {
+    margin: 25px 0 0;
+
+    > .top-item {
+      display: flex;
+
+      .position {
+        width: 20px;
+        padding: 5px 0;
+
+        color: $color-5;
+        text-align: right;
+     }
+
+     .company-container {
+       flex-grow: 1;
+       margin: 0 0 0 10px;
+
+       > .company-name {
+         display: block;
+         padding: 5px 10px;
+         color: $color-7;
+       }
+     }
+    }
+  }
+}
