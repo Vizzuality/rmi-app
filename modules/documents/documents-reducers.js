@@ -6,6 +6,14 @@ export default {
   [actions.setLoading]: (state, { payload }) => ({ ...state, loading: payload }),
   [actions.setSearch]: (state, { payload }) => ({ ...state, search: payload }),
   [actions.resetSearch]: state => ({ ...state, search: initialState.search }),
+  [actions.setFilters]: (state, { payload }) => ({
+    ...state,
+    filters: {
+      ...state.filters,
+      ...payload
+    }
+  }),
+  [actions.resetFilters]: state => ({ ...state, filters: initialState.filters }),
   [actions.setPaginationPage]: (state, { payload }) => ({
     ...state,
     pagination: {

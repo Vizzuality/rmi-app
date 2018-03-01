@@ -1,6 +1,7 @@
 @import 'css/settings';
 
 .c-select {
+  width: 185px;
 
   &.-underline {
     border-bottom-width: 1px;
@@ -16,7 +17,10 @@
   }
 
   .react-selectize {
-    min-width: 150px;
+
+    &.root-node {
+      width: auto;
+    }
 
     .react-selectize-control {
       border: 0;
@@ -24,7 +28,7 @@
 
       font-family: inherit;
       font-size: $font-size-regular;
-      font-weight: $font-weight-light;
+      font-weight: $font-weight-bold;
     }
 
     .react-selectize-toggle-button-container {
