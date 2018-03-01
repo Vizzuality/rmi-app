@@ -80,13 +80,17 @@
         &.rc-pagination-prev {
 
           > .rc-pagination-item-link {
-            @include triangle(5px, $color-1, 'left');
+            &:before {
+              @include triangle(5px, $color-1, 'left');
+            }
           }
         }
 
         &.rc-pagination-next {
           > .rc-pagination-item-link {
-            @include triangle(5px, $color-1, 'right');
+            &:before {
+              @include triangle(5px, $color-1, 'right');
+            }
           }
         }
       }
