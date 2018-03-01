@@ -15,8 +15,9 @@
       margin-left: 50px;
     }
 
-    > a, .submenu-literal {
+    > a, > .submenu-literal {
       display: inline-block;
+      width: 100%;
       padding: 25px 0;
       cursor: pointer;
 
@@ -91,7 +92,9 @@
 
     > a {
       display: inline-block;
+      width: 100%;
       padding: 15px 25px;
+      cursor: pointer;
     }
   }
 }

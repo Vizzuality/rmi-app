@@ -8,8 +8,6 @@ import Tether from 'react-tether';
 import styles from './nav-bar-styles.scss';
 
 class NavBar extends PureComponent {
-  static defaultProps = { tabs: [] };
-
   static propTypes = {
     tabs: PropTypes.arrayOf(PropTypes.shape({
       label: PropTypes.string.isRequired,
@@ -17,7 +15,7 @@ class NavBar extends PureComponent {
         route: PropTypes.string.isRequired,
         params: PropTypes.object
       })
-    })),
+    })).isRequired,
     routes: PropTypes.object.isRequired
   };
 
@@ -76,14 +74,19 @@ class NavBar extends PureComponent {
             <li
               className={this.getTabClass(child)}
               key={child.id}
-              onClick={() => this.handleCloseSubMenu(tab.id)}
+              onClick={() => this.handleCloseSubMenu(child.id)}
             >
+              {child.noLink ?
+                <a>{child.label}</a> :
               <Link
                 route={child.query.route}
                 params={child.query.params}
               >
                 <a>{child.label}</a>
               </Link>
+              }
+
+
             </li>))}
         </ul>
       );
