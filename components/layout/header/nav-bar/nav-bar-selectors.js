@@ -49,7 +49,7 @@ export const getNavigation = createSelector(
         id: indicatorChild.id,
         label: indicatorChild.label,
         query: {
-          route: 'results-thematic',
+          route: 'results-detail',
           params: { id: indicatorChild.slug }
         }
       }));

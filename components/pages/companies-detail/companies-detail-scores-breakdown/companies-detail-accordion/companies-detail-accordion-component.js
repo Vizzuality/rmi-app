@@ -16,7 +16,7 @@ class CompaniesDetailAccordion extends PureComponent {
   static renderContent(data = []) {
     if (!data.length) {
       return (
-        <div className="indicator-section">
+        <div className="category-block">
           <style jsx>{styles}</style>
           <span>No data available</span>
         </div>
@@ -25,11 +25,11 @@ class CompaniesDetailAccordion extends PureComponent {
 
     return (
       data.map(d => (
-        <div key={d.slug} className="indicator-section">
+        <div key={d.slug} className="category-block">
           <style jsx>{styles}</style>
           <div className="row between-md">
             <div className="col-md-8">
-              <h4 className="indicator-title">{d.name}</h4>
+              <h4 className="block-title">{d.name}</h4>
             </div>
             <div className="col-md-3" />
           </div>
@@ -48,7 +48,7 @@ class CompaniesDetailAccordion extends PureComponent {
             <AccordionBar />
           </div>
           <div className="col-md-11">
-            <h2 className="category-title">{issueAreaTree.name}</h2>
+            <h2 className="parent-category-title">{issueAreaTree.name}</h2>
             <Accordion
               data={issueAreaTree.data}
               contentRenderer={CompaniesDetailAccordion.renderContent}

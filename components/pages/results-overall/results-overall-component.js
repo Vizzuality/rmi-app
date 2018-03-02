@@ -10,7 +10,7 @@ import TopCompanies from './top-companies';
 // styles
 import styles from './results-overall-styles.scss';
 
-class Library extends PureComponent {
+class ResultsOverall extends PureComponent {
   static propTypes = { issueAreas: PropTypes.array.isRequired }
 
   handleAreaSelection = ({ query }) => {
@@ -77,4 +77,4 @@ class Library extends PureComponent {
   }
 }
 
-export default Library;
+export default ResultsOverall;

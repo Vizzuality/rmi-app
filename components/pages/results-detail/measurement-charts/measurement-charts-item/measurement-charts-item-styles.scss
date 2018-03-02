@@ -1,0 +1,14 @@
+@import 'css/settings';
+
+.c-measurement-chart-item {
+  .legend-chart {
+    margin: 10px 0 0;
+    text-align: center;
+
+    > .legend-title {
+      font-size: $font-size-bigger;
+      font-weight: $font-weight-light;
+      color: $color-7;
+    }
+  }
+}

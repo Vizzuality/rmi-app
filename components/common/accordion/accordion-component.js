@@ -7,6 +7,9 @@ import {
   AccordionItemBody
 } from 'react-accessible-accordion';
 
+// styles
+import styles from './accordion-styles.scss';
+
 class CompaniesDetailAccordion extends PureComponent {
   static propTypes = {
     data: PropTypes.array.isRequired,
@@ -19,6 +22,7 @@ class CompaniesDetailAccordion extends PureComponent {
 
     return (
       <AccordionItem key={id}>
+        <style jsx>{styles}</style>
         <AccordionItemTitle>
           <h3 className="category-name">{name}</h3>
         </AccordionItemTitle>
@@ -33,6 +37,7 @@ class CompaniesDetailAccordion extends PureComponent {
 
     return (
       <div className="c-accordion">
+        <style jsx>{styles}</style>
         <Accordion>
           {data.map(d => this.renderAccordionItem(d))}
         </Accordion>

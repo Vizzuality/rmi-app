@@ -19,6 +19,7 @@ import * as LeadingPracticesModule from 'components/pages/leading-practices';
 import * as CompaniesModule from 'components/pages/companies';
 import * as CompaniesDetailModule from 'components/pages/companies-detail';
 import * as MineSitesPageModule from 'components/pages/mine-sites';
+import * as ResultsDetailPageModule from 'components/pages/results-detail';
 
 export default {
   toastr: toastrReducer,
@@ -36,5 +37,6 @@ export default {
   companiesPage: handleModule(CompaniesModule),
   companiesDetailPage: handleModule(CompaniesDetailModule),
   mineSitesPage: handleModule(MineSitesPageModule),
+  resultsDetailPage: handleModule(ResultsDetailPageModule),
   staticContent: handleModule(staticContentModule)
 };

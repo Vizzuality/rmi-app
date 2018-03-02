@@ -1,22 +1,23 @@
 export default {
+  barChartOnMouseLeave: undefined,
   // dimensions
-  width: '100%',
   height: 195,
   // xAxis
-  xAxis: true,
+  xAxisTickLine: false,
+  xAxisTick: false,
   xAxisKey: 'name',
+  xAxisHeight: 10,
+  xAxisTicks: [],
   // yAxis
   YaxisLine: false,
-  // dataKeyRadar: 'value',
-  // radius
-  outerRadius: 85,
   domain: [0, 1],
   // styling
   strokeDasharray: '3',
   fill: 'none',
-  ticks: ['0', '0.2', '0.4', '0.6', '0.8', '1'],
+  YAxisTicks: ['0', '0.200', '0.400', '0.600', '0.800', '1'],
   // bar
   barDataKey: 'value',
   setBarFill: () => '#ddd',
-  barSize: undefined
+  barSize: undefined,
+  barOnMouseOver: undefined
 };
