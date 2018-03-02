@@ -55,20 +55,22 @@ class BarsChart extends PureComponent {
       <div className="c-barchart">
         <style jsx>{styles}</style>
         <ResponsiveContainer width={width} height={height}>
-          <BarChart data={data}>
+          <BarChart data={data} margin={{ left: -30 }}>
             <YAxis
               domain={domain}
               ticks={ticks}
               tickLine={false}
-              interval={0}
               axisLine={YaxisLine}
             />
-            {xAxis &&
-              <XAxis dataKey={xAxisKey} />}
+            <XAxis
+              dataKey={xAxisKey}
+              height={10}
+              tickLine={false}
+              tick={false}
+            />
             <CartesianGrid
               vertical={false}
               strokeDasharray={strokeDasharray}
-
             />
             <Bar
               dataKey={barDataKey}
