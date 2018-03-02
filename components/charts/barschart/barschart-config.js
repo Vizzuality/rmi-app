@@ -2,8 +2,6 @@ export default {
   // dimensions
   width: '100%',
   height: 195,
-  // data
-
   // xAxis
   xAxis: true,
   xAxisKey: 'name',
