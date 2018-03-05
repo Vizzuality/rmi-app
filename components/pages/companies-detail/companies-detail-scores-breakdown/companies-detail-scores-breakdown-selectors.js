@@ -95,8 +95,8 @@ export const parseInvestmentDisputes = createSelector(
   [investmentDisputes],
   (_investmentDisputes = []) => _investmentDisputes.map(investmentDispute => ({
     id: investmentDispute.id,
-    name: investmentDispute['investor-state-disputes-case-number'],
-    value: investmentDispute['investor-state-disputes-case-status']
+    name: investmentDispute.number,
+    value: investmentDispute.status
   }))
 );
 
