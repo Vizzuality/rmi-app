@@ -28,5 +28,13 @@ export default {
       size: payload
     }
   }),
-  [actions.resetPagination]: state => ({ ...state, pagination: initialState.pagination })
+  [actions.setPaginationLimit]: (state, { payload }) => ({
+    ...state,
+    pagination: {
+      ...state.pagination,
+      limit: payload
+    }
+  }),
+  [actions.resetPagination]: state => ({ ...state, pagination: initialState.pagination }),
+  [actions.resetPaginationLimit]: state => ({ ...state, pagination: { ...state.pagination, limit: initialState.pagination.limit } })
 };

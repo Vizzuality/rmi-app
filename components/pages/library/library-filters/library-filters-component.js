@@ -5,6 +5,9 @@ import PropTypes from 'prop-types';
 import Search from 'components/common/search';
 import Select from 'components/common/select';
 
+// constants
+import { TABLE_SIZE_VALUES } from './library-filters-constants';
+
 // styles
 import styles from './library-filters-styles.scss';
 
@@ -26,6 +29,14 @@ class LibraryFilters extends PureComponent {
     this.props.setFilters({ company: value });
   }
 
+  handleSize = ({ value }) => {
+    if (value == null) {
+      this.props.resetPaginationLimit();
+    } else {
+      this.props.setPaginationLimit(value);
+    }
+  }
+
   render() {
     const { companies } = this.props;
 
@@ -43,6 +54,12 @@ class LibraryFilters extends PureComponent {
                 placeholder="Select a Company"
                 options={companies}
                 onChange={this.handleCompany}
+              />
+
+              <Select
+                placeholder="Select quantity"
+                options={TABLE_SIZE_VALUES}
+                onChange={this.handleSize}
               />
             </div>
           </div>
