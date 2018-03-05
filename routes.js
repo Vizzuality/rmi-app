@@ -16,7 +16,7 @@ routes.add('companies', '/companies/:company?', 'companies');
 routes.add('mine-sites', '/mine-sites/:mineSite?', 'mine-sites');
 routes.add('results-overall', '/:language?/results/overall', 'results-overall');
 routes.add('results-detail', '/:language?/results/thematic/:id', 'results-detail');
-routes.add('results', '/:language?/results/:section?', 'results');
+routes.add('static-results', '/:language?/results/:id?', 'static-results');
 routes.add('leading-practices', '/:year?/leading-practices', 'leading-practices');
 routes.add('library', '/:language?/library', 'library');
 routes.add('index', '/:language?', 'index');
