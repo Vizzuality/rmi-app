@@ -1,6 +1,9 @@
-
 import { createSelector } from 'reselect';
 
+// constants
+import { SCORE_COMPARISON_CONFIG } from 'components/common/score-comparison/score-comparison-constants';
+
+// selectors
 import { getIssueArea } from '../results-detail-selectors';
 
 export const parseIndicators = createSelector(
@@ -11,10 +14,12 @@ export const parseIndicators = createSelector(
     children: indicator.children.map(child => ({
       id: child.id,
       name: child.name,
-      observation: child.observation,
+      observation: (child || {}).observation,
       avg: child.avg,
       min: child.min,
-      max: child.max
+      max: child.max,
+      value: ((child.scores || [])[0] || {}).value,
+      color: SCORE_COMPARISON_CONFIG[_issueArea.slug]
     }))
   }))
 );

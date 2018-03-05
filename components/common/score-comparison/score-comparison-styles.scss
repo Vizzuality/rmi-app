@@ -1,0 +1,76 @@
+@import 'css/settings';
+
+$bar-height: 40px;
+
+.c-score-comparison {
+
+  > .score-bar {
+    position: relative;
+    width: 100%;
+    height: $bar-height;
+    border: 1px solid $color-5;
+  }
+
+  > .score-bar > .score-value {
+    position: relative;
+    top: -1px;
+    left: -1px;
+    width: 0;
+    height: calc(100% + 2px);
+  }
+
+  > .score-bar > .score-avg {
+    position: absolute;
+    top: -#{$bar-height - 1px};
+    height: 100%;
+    border-left: 1px solid $color-7;
+  }
+
+  > .score-bar > .score-avg,
+  > .score-bar > .score-min,
+  > .score-bar > .score-max {
+    > .legend {
+      position: absolute;
+      bottom: 0;
+      padding: 0 0 0 10px;
+
+      span {
+        display: block;
+        line-height: 1.1;
+
+        &:last-child {
+          text-align: right;
+        }
+      }
+    }
+  }
+
+  > .score-bar > .score-avg {
+    > .legend {
+      top: 0;
+    }
+  }
+
+  > .score-bar > .score-min,
+  > .score-bar > .score-max,
+  > .score-bar > .score-avg {
+    transform: translate(-1px, 0);
+  }
+
+  > .score-bar > .score-min,
+  > .score-bar > .score-max {
+    position: absolute;
+    top: 0;
+    height: #{(($bar-height * 2) - 1px)};
+    border-left: 1px dashed $color-7;
+  }
+
+  > .score-bar > .score-max {
+    height: #{(($bar-height * 3) - 1px)};
+
+    > .legend {
+      padding: 0 10px 0 0;
+      transform: translate(-100%, 0)
+    }
+  }
+}
