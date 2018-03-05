@@ -1,10 +1,9 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-// components
 import Accordion from 'components/common/accordion';
 
-class MineSitesDetailAccordion extends PureComponent {
+class ResultsDetailAccordion extends PureComponent {
   static propTypes = { data: PropTypes.array.isRequired }
 
   static renderContent(data = []) {
@@ -18,10 +17,15 @@ class MineSitesDetailAccordion extends PureComponent {
 
     return (
       data.map(d => (
-        <div key={d.slug} className="category-block">
+        <div key={d.id} className="category-block">
           <div className="row between-md">
             <div className="col-md-8">
               <h4 className="block-title">{d.name}</h4>
+              {d.observation &&
+                <div className="block-section">
+                  <h5 className="block-section-name">Observation</h5>
+                  <p>{d.observation}</p>
+                </div>}
             </div>
             <div className="col-md-3" />
           </div>
@@ -32,14 +36,14 @@ class MineSitesDetailAccordion extends PureComponent {
   render() {
     const { data } = this.props;
     return (
-      <div className="c-mine-sites-detail-accordion">
+      <div className="c-results-detail-accordion">
         <Accordion
           data={data}
-          contentRenderer={MineSitesDetailAccordion.renderContent}
+          contentRenderer={ResultsDetailAccordion.renderContent}
         />
       </div>
     );
   }
 }
 
-export default MineSitesDetailAccordion;
+export default ResultsDetailAccordion;
