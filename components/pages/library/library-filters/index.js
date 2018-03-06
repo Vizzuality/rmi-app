@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 // actions
-import { setSearch, setFilters, setPaginationPage } from 'modules/documents/documents-actions';
+import { setSearch, setFilters, setPaginationPage, setPaginationLimit, resetPagination } from 'modules/documents/documents-actions';
 
 // selectors
 import { parseCompanies } from './library-filters-selectors';
@@ -14,6 +14,8 @@ export default connect(
   {
     setSearch,
     setFilters,
-    setPaginationPage
+    setPaginationPage,
+    setPaginationLimit,
+    resetPagination
   }
 )(LibraryFilters);

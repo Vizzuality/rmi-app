@@ -9,8 +9,8 @@ export const parseAssessments = createSelector(
     id: document.id,
     title: document.name,
     url: {
-      original: document.url,
-      title: (document.url || '').length > 100 ? `${document.url.slice(0, 100)}...` : document.url
+      label: document.url ? `${document.url.substring(0, 50)}...` : null,
+      value: document.url
     },
     downloadLink: document['download-link']
   }))

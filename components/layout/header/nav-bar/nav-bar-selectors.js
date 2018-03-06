@@ -21,8 +21,8 @@ export const getNavigation = createSelector(
         id: resultChildren.id,
         label: resultChildren.title,
         query: {
-          route: 'results',
-          params: { section: resultChildren.slug }
+          route: 'static-results',
+          params: { id: resultChildren.slug }
         }
       }));
 
@@ -49,7 +49,7 @@ export const getNavigation = createSelector(
         id: indicatorChild.id,
         label: indicatorChild.label,
         query: {
-          route: 'results-thematic',
+          route: 'results-detail',
           params: { id: indicatorChild.slug }
         }
       }));

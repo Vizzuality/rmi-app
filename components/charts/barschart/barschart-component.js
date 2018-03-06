@@ -40,14 +40,19 @@ class BarsChart extends PureComponent {
     const { data } = this.props;
     const {
       domain,
-      xAxis,
+      barChartOnMouseLeave,
       xAxisKey,
+      xAxisTickLine,
+      xAxisTick,
+      xAxisHeight,
+      xAxisTicks,
       width,
       height,
       barDataKey,
-      ticks,
+      YAxisTicks,
       strokeDasharray,
       barSize,
+      barOnMouseOver,
       YaxisLine
     } = this.config;
 
@@ -55,18 +60,23 @@ class BarsChart extends PureComponent {
       <div className="c-barchart">
         <style jsx>{styles}</style>
         <ResponsiveContainer width={width} height={height}>
-          <BarChart data={data} margin={{ left: -30 }}>
+          <BarChart
+            data={data}
+            margin={{ left: -15 }}
+            onMouseLeave={barChartOnMouseLeave}
+          >
             <YAxis
               domain={domain}
-              ticks={ticks}
+              ticks={YAxisTicks}
               tickLine={false}
               axisLine={YaxisLine}
             />
             <XAxis
               dataKey={xAxisKey}
-              height={10}
-              tickLine={false}
-              tick={false}
+              height={xAxisHeight}
+              tickLine={xAxisTickLine}
+              tick={xAxisTick}
+              ticks={xAxisTicks}
             />
             <CartesianGrid
               vertical={false}
@@ -75,6 +85,7 @@ class BarsChart extends PureComponent {
             <Bar
               dataKey={barDataKey}
               barSize={barSize}
+              onMouseOver={barOnMouseOver}
             >
               {data.map(item => (
                 <Cell

@@ -9,6 +9,8 @@ export const green = ['#69a820', '#83c13A', '#9ccd63', '#bbdf92'];
 export const overallColors = [red[0], blue[0], yellow[0], green[0], pink[0], brown[0]];
 export const measurementColors = [blue, brown, yellow, pink, red, green];
 
+export const HOVER_COLOUR = '#000';
+
 export default {
   blue,
   brown,
@@ -17,5 +19,6 @@ export default {
   red,
   green,
   overallColors,
-  measurementColors
+  measurementColors,
+  HOVER_COLOUR
 };

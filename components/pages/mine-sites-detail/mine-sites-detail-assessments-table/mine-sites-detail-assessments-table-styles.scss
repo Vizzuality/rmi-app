@@ -2,8 +2,9 @@
 .c-mine-sites-detail-assessments-table {
   position: relative;
 
-  .search-container {
+  .filters-container {
     display: flex;
+    justify-content: space-between;
     margin: 35px 0 25px;
   }
 

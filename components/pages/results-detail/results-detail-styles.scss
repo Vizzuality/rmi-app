@@ -1,0 +1,36 @@
+@import 'css/settings';
+
+.c-results-detail-page {
+  .explanation {
+    margin: 35px 0 0;
+
+    > p {
+      color: $color-7;
+      font-style: italic;
+    }
+  }
+
+  .summary {
+    padding: 40px;
+    margin: 35px 0 0;
+    border-radius: 10px;
+    background: $color-4;
+
+    .summary-title {
+      text-transform: uppercase;
+      color: $color-7;
+    }
+
+    p {
+      color: $color-7;
+
+      &:first-of-type {
+        margin: 25px 0 0;
+      }
+    }
+  }
+
+  :global(.c-accordion) {
+    margin: 55px 0 0;
+  }
+}

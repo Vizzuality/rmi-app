@@ -1,0 +1,34 @@
+@import 'css/settings';
+
+.c-accordion {
+  .category-title {
+    margin: 0 0 50px;
+
+    font-family: $font-family-2;
+    font-size: $font-size-bigger;
+    font-weight: $font-weight-light;
+    color: $color-7;
+  }
+
+  :global(.category-block) {
+    &:not(:first-child) {
+      margin: 155px 0 0;
+    }
+  }
+
+  :global(.block-section) {
+    color: $color-5;
+
+    &:not(:first-child) {
+      margin: 25px 0 0;
+    }
+
+    :global(.block-section-name) {
+      margin: 0 0 10px;
+
+      color: $color-7;
+      font-weight: $font-weight-bold;
+      font-style: italic;
+    }
+  }
+}

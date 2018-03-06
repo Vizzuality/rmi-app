@@ -7,6 +7,7 @@ import isEqual from 'lodash/isEqual';
 import {
   getDocuments,
   setPaginationPage,
+  setPaginationLimit,
   resetPagination,
   setSearch,
   resetSearch
@@ -68,6 +69,7 @@ export default connect(
   {
     getDocuments,
     setPaginationPage,
+    setPaginationLimit,
     resetPagination,
     setSearch,
     resetSearch
