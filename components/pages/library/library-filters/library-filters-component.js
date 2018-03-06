@@ -31,9 +31,10 @@ class LibraryFilters extends PureComponent {
 
   handleSize = ({ value }) => {
     if (value == null) {
-      this.props.resetPaginationLimit();
+      this.props.resetPagination();
     } else {
       this.props.setPaginationLimit(value);
+      this.props.setPaginationPage(1);
     }
   }
 

@@ -20,7 +20,6 @@ export const setPaginationPage = createAction('documents/setPaginationPage');
 export const setPaginationSize = createAction('documents/setPaginationSize');
 export const setPaginationLimit = createAction('documents/setPaginationLimit');
 export const resetPagination = createAction('documents/resetPagination');
-export const resetPaginationLimit = createAction('documents/resetPaginationLimit');
 
 export const getDocuments = createThunkAction('documents/getDocuments', _options =>
   (dispatch, getState) => {
