@@ -17,7 +17,7 @@ export const DOCUMENTS_TABLE_COLUMNS = [
     header: { label: 'URL Address' },
     cell: {
       formatters: [
-        url => (url ? <a href={url} rel="noopener noreferrer">{url}</a> : '-')
+        url => (url.label ? <a href={url.value} rel="noopener noreferrer">{url.label}</a> : '-')
       ]
     }
   },

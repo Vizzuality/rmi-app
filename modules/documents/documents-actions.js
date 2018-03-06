@@ -18,6 +18,7 @@ export const resetFilters = createAction('documents/resetFilters');
 // pagination
 export const setPaginationPage = createAction('documents/setPaginationPage');
 export const setPaginationSize = createAction('documents/setPaginationSize');
+export const setPaginationLimit = createAction('documents/setPaginationLimit');
 export const resetPagination = createAction('documents/resetPagination');
 
 export const getDocuments = createThunkAction('documents/getDocuments', _options =>

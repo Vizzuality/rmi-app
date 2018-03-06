@@ -13,7 +13,9 @@ class SelectComponent extends PureComponent {
     onChange: PropTypes.func.isRequired,
     options: PropTypes.arrayOf(PropTypes.shape({
       label: PropTypes.string.isRequired,
-      value: PropTypes.string.isRequired
+      value: PropTypes.oneOfType([
+        PropTypes.string, PropTypes.number
+      ])
     })).isRequired,
     className: PropTypes.string,
     placeholder: PropTypes.string,
