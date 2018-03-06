@@ -15,8 +15,7 @@ export const ASSESSMENTS_TABLE_COLUMNS = [
     header: { label: 'URL Address' },
     cell: {
       formatters: [
-        ({ original, title }) => original ?
-          <a href={original} target="_blank" rel="noreferrer noopener">{title}</a> : '-'
+        url => (url.label ? <a href={url.value} rel="noopener noreferrer">{url.label}</a> : '-')
       ]
     }
   },

@@ -9,7 +9,10 @@ export const parseDocuments = createSelector(
     id: document.id,
     name: document.name,
     company: (document.company || {}).name || '-',
-    url: document.url,
+    url: {
+      label: document.url ? document.url.substring(0, 50) + '...' : null,
+      value: document.url
+    },
     downloadLink: document['download-link']
   }))
 );
