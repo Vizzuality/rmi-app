@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
 import Accordion from 'components/common/accordion';
+import ScoreComparison from 'components/common/score-comparison';
 
 class ResultsDetailAccordion extends PureComponent {
   static propTypes = { data: PropTypes.array.isRequired }
@@ -27,7 +28,17 @@ class ResultsDetailAccordion extends PureComponent {
                   <p>{d.observation}</p>
                 </div>}
             </div>
-            <div className="col-md-3" />
+            <div className="col-md-3">
+              <ScoreComparison
+                data={{
+                  avg: d.avg,
+                  min: d.min,
+                  max: d.max,
+                  value: d.value
+                }}
+                config={{ color: d.color }}
+              />
+            </div>
           </div>
         </div>
       )));

@@ -3,12 +3,11 @@ import PropTypes from 'prop-types';
 import Accordion from 'components/common/accordion';
 
 // components
+import ScoreComparison from 'components/common/score-comparison';
 import AccordionBar from './accordion-bar';
-
 
 // styles
 import styles from './companies-detail-accordion-styles.scss';
-
 
 class CompaniesDetailAccordion extends PureComponent {
   static propTypes = { issueAreaTree: PropTypes.object.isRequired }
@@ -31,7 +30,17 @@ class CompaniesDetailAccordion extends PureComponent {
             <div className="col-md-8">
               <h4 className="block-title">{d.name}</h4>
             </div>
-            <div className="col-md-3" />
+            <div className="col-md-3">
+              <ScoreComparison
+                data={{
+                  avg: d.avg,
+                  min: d.min,
+                  max: d.max,
+                  value: d.value
+                }}
+                config={{ color: d.color }}
+              />
+            </div>
           </div>
         </div>
       )));
