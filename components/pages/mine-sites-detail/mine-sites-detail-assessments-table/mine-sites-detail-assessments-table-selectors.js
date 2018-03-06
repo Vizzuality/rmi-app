@@ -9,7 +9,7 @@ export const parseAssessments = createSelector(
     id: document.id,
     title: document.name,
     url: {
-      label: document.url ? document.url.substring(0, 50) + '...' : null,
+      label: document.url ? `${document.url.substring(0, 50)}...` : null,
       value: document.url
     },
     downloadLink: document['download-link']
