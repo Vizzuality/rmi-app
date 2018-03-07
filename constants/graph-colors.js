@@ -11,6 +11,15 @@ export const measurementColors = [blue, brown, yellow, pink, red, green];
 
 export const HOVER_COLOUR = '#000';
 
+export const AREA_ISSUE_COLOURS = {
+  'a-economic-development': overallColors[1],
+  'b-business-conduct': overallColors[5],
+  'c-lifecycle-management': overallColors[4],
+  'd-community-wellbeing': overallColors[2],
+  'e-working-conditions': overallColors[0],
+  'f-environmental-responsibility': overallColors[3]
+};
+
 export default {
   blue,
   brown,
@@ -20,5 +29,6 @@ export default {
   green,
   overallColors,
   measurementColors,
-  HOVER_COLOUR
+  HOVER_COLOUR,
+  AREA_ISSUE_COLOURS
 };

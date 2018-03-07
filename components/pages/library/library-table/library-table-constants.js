@@ -26,7 +26,7 @@ export const DOCUMENTS_TABLE_COLUMNS = [
     header: { label: 'Download' },
     cell: {
       formatters: [
-        downloadLink => (downloadLink ? <a href={downloadLink}><Icon name="download" /></a> : '-')
+        downloadLink => (downloadLink ? <a href={downloadLink}><Icon name="download-file" /></a> : '-')
       ]
     },
     props: { style: { textAlign: 'center' } }

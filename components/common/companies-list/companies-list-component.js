@@ -2,6 +2,7 @@ import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 // components
+import Spinner from 'components/common/spinner';
 import CompaniesListItem from './companies-list-item';
 
 // constants
@@ -11,16 +12,28 @@ import { COMPANIES_PER_ROW } from './companies-list-constants';
 import styles from './companies-list-styles.scss';
 
 class CompaniesList extends PureComponent {
-  static propTypes = { companies: PropTypes.array.isRequired }
+  static propTypes = {
+    companies: PropTypes.array.isRequired,
+    loading: PropTypes.bool.isRequired,
+    isCompanyPage: PropTypes.bool
+  }
 
-  static renderCompaniesRow(companies, key) {
+  static defaultProps = { isCompanyPage: true };
+
+  renderCompaniesRow(companies, key) {
+    const { isCompanyPage } = this.props;
+
     return (
       <Fragment key={key} >
         <style jsx>{styles}</style>
         <div className="row -equal-height">
           {companies.map(_company => (
             <div key={_company.id} className="col-md-4">
-              <CompaniesListItem key={_company.id} company={_company} />
+              <CompaniesListItem
+                key={_company.id}
+                company={_company}
+                isCompanyPage={isCompanyPage}
+              />
             </div>
           ))}
         </div>
@@ -37,19 +50,27 @@ class CompaniesList extends PureComponent {
     for (let i = 0; i < totalRows; i++) {
       const limit = ((i * COMPANIES_PER_ROW) + COMPANIES_PER_ROW);
       const slicedcompanies = companies.slice(i * COMPANIES_PER_ROW, limit);
-      slides.push(CompaniesList.renderCompaniesRow(slicedcompanies, i));
+      slides.push(this.renderCompaniesRow(slicedcompanies, i));
     }
 
     return slides;
   }
 
   render() {
+    const { loading } = this.props;
     const companies = this.renderCompanies();
+
 
     return (
       <div className="c-companies-list">
         <style jsx>{styles}</style>
         <div className="content">
+          {loading && <Spinner />}
+
+          {!companies.length &&
+            <div className="not-found">
+              <span>No companies found under this criteria</span>
+            </div>}
           {companies}
         </div>
       </div>

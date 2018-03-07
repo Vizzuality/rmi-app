@@ -7,14 +7,14 @@ import initialState from './mine-sites-initial-state';
 import MineSites from './mine-sites-component';
 
 // selectors
-import { getUpdatedPaths } from './mine-sites-selectors';
+import { getUpdatedPaths, getMarkers } from './mine-sites-selectors';
 
 export { actions, reducers, initialState };
 
 export default connect(
   state => ({
-    countries: state.countries.list,
-    paths: getUpdatedPaths(state)
+    paths: getUpdatedPaths(state),
+    markers: getMarkers(state)
   }),
   { ...actions }
 )(MineSites);

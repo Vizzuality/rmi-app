@@ -3,6 +3,10 @@ import PropTypes from 'prop-types';
 
 // components
 import Tooltip from 'rc-tooltip';
+import Icon from 'components/common/icon';
+
+// constants
+import { AREA_ISSUE_COLOURS } from 'constants/graph-colors';
 
 // styles
 import styles from './stacked-bars-styles.scss';
@@ -25,7 +29,7 @@ class StackedBars extends PureComponent {
 
   render() {
     const { data } = this.props;
-    const { name, children } = data;
+    const { name, slug, children } = data;
     let totalScore = 0;
 
     children.forEach((child) => { totalScore += child.value; });
@@ -34,11 +38,14 @@ class StackedBars extends PureComponent {
       <div className="c-stacked-bars">
         <style jsx>{styles}</style>
         <div className="bar-header">
-          <div className="bar-icon">
-            {/* Replace with proper icons */}
-            <svg width="32" height="32">
-              <rect width="32" height="32" style={{ fill: 'red' }} />
-            </svg>
+          <div
+            className="bar-icon"
+            style={{ background: AREA_ISSUE_COLOURS[slug] }}
+          >
+            <Icon
+              name={slug}
+              className="-big"
+            />
           </div>
           <h3 className="bar-title">{name}</h3>
         </div>

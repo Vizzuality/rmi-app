@@ -15,6 +15,7 @@ import styles from './mine-sites-styles.scss';
 class MineSite extends PureComponent {
   static propTypes = {
     paths: PropTypes.array.isRequired,
+    markers: PropTypes.array.isRequired,
     setFilters: PropTypes.func.isRequired
   }
 
@@ -26,7 +27,7 @@ class MineSite extends PureComponent {
   };
 
   render() {
-    const { paths } = this.props;
+    const { paths, markers } = this.props;
 
     return (
       <div className="c-mine-site-page">
@@ -49,12 +50,15 @@ class MineSite extends PureComponent {
             <div className="l-layout">
               <div className="row">
                 <div className="col-md-5">
-                  <CompaniesList />
+                  <CompaniesList
+                    isCompanyPage={false}
+                  />
                 </div>
                 <div className="col-md-7">
                   <div className="map-container">
                     <Map
                       paths={paths}
+                      markers={markers}
                       setCountryColor={MineSite.setCountryColor}
                       legend={MAP_LEGEND}
                       onClickGeography={this.handleClickGeography}

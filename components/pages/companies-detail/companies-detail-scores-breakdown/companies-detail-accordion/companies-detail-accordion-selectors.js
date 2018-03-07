@@ -40,18 +40,4 @@ export const getIssueAreaTree = createSelector(
   }
 );
 
-export const parseIssueAreas = createSelector(
-  [indicators],
-  _indicators => _indicators.filter(indicator =>
-    indicator.kind === 'issue_areas')
-    .map(indicator => ({
-      id: indicator.id,
-      slug: indicator.slug,
-      code: indicator.code
-    }))
-);
-
-export default {
-  getIssueAreaTree,
-  parseIssueAreas
-};
+export default { getIssueAreaTree };

@@ -1,3 +1,1 @@
-export default {
-  filters: {}
-};
+export default { filters: {} };

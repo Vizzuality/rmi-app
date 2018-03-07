@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 // components
-import { SimpleSelect } from 'react-selectize';
+import { SimpleSelect, MultiSelect } from 'react-selectize';
 
 // styles
 import styles from './select-styles.scss';
@@ -17,8 +17,12 @@ class SelectComponent extends PureComponent {
         PropTypes.string, PropTypes.number
       ])
     })).isRequired,
+    selectedValue: PropTypes.oneOfType([
+      PropTypes.string, PropTypes.number
+    ]),
     className: PropTypes.string,
     placeholder: PropTypes.string,
+    multiple: PropTypes.bool,
     theme: PropTypes.oneOf([
       'light', 'dark'
     ])
@@ -26,7 +30,9 @@ class SelectComponent extends PureComponent {
 
   static defaultProps = {
     className: null,
+    selectedValue: null,
     placeholder: 'Select...',
+    multiple: false,
     theme: 'dark'
   }
 
@@ -45,9 +51,7 @@ class SelectComponent extends PureComponent {
   }
 
   render() {
-    const {
-      options, className, placeholder, theme
-    } = this.props;
+    const { options, className, placeholder, theme, multiple, selectedValue } = this.props;
     const { search } = this.state;
 
     const selectClass = classnames({
@@ -56,18 +60,33 @@ class SelectComponent extends PureComponent {
       [theme]: !!theme
     });
 
+    const selectedOption = options.find(option => option.value === selectedValue);
+
     return (
       <div className={selectClass}>
         <style jsx global>{styles}</style>
-        <SimpleSelect
+        {!multiple && <SimpleSelect
           onValueChange={this.handleChange}
           options={options}
           placeholder={placeholder}
           className="selector"
           theme={theme}
           search={search}
+          value={selectedOption}
           onSearchChange={this.handleSearch}
-        />
+        />}
+
+        {multiple &&
+          <MultiSelect
+            onValuesChange={this.handleChange}
+            options={options}
+            placeholder={placeholder}
+            className="selector"
+            theme={theme}
+            search={search}
+            onSearchChange={this.handleSearch}
+          />
+        }
       </div>
     );
   }

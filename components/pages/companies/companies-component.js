@@ -24,8 +24,8 @@ class Companies extends PureComponent {
   static setCountryColor = geographyProperties => getCompanyCountryColor(geographyProperties);
 
   handleClickGeography = (geography) => {
-    const { ISO_A3 } = geography.properties;
-    this.props.setFilters({ country: ISO_A3 });
+    const { countryId } = geography.properties;
+    this.props.setFilters({ country: countryId });
   };
 
   render() {
