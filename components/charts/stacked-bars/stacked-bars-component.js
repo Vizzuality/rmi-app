@@ -67,7 +67,7 @@ class StackedBars extends PureComponent {
             ))}
           </div>
           <div className="score">
-            <span className="current-score">{totalScore.toFixed(3)} <span className="total-score"> / 1</span></span>
+            <span className="current-score">{totalScore.toFixed(3)} <span className="total-score"> / 1.000</span></span>
           </div>
         </div>
       </div>

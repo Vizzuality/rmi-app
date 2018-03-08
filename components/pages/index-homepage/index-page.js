@@ -90,7 +90,7 @@ class IndexPage extends PureComponent {
                   <img src="/static/images/graph_home.png" alt="RMI Analytical Framwork" />
                 </div>
               </div>
-              <div className="col-xs-12 col-md-5">
+              <div className="col-xs-12 col-md-6">
                 <div className="text-section">
                   <p>This first Index, RMI 2018, covers 30 companies from 16 home countries,
                     including publicly-listed, state-owned and private companies.

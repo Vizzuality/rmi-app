@@ -1,6 +1,6 @@
 export const LANGUAGES = [{
   id: 11,
-  label: 'Bahasa',
+  label: 'Indonesia',
   value: 'ba'
 }, {
   id: 22,
