@@ -15,7 +15,7 @@ import { getCompanies } from 'modules/companies/companies-actions';
 import { getCountries } from 'modules/countries/countries-actions';
 import { getMineSite } from 'modules/mine-sites/mine-sites-actions';
 import { getIndicators } from 'modules/indicators/indicators-actions';
-import { getDocuments } from 'modules/documents/documents-actions';
+import { getDocumentMineSites } from 'modules/document-mine-sites/document-mine-sites-actions';
 
 class MineSitesPage extends Page {
   static async getInitialProps(context) {
@@ -36,7 +36,10 @@ class MineSitesPage extends Page {
       await context.store.dispatch(getIndicators({ 'page[size]': 1000 }));
 
       // gets documents
-      // await context.store.dispatch(getDocuments({ 'filter[mine-site]': context.query.mineSite }));
+      await context.store.dispatch(getDocumentMineSites({
+        'filter[mine-site]': context.query.mineSite,
+        include: ['indicators'].join(',')
+      }));
     } else {
       await context.store.dispatch(getCompanies({ include: ['mine-sites', 'mine-sites.country', 'mine-sites.commodities'].join(',') }));
 

@@ -17,8 +17,6 @@ export const getMineSite = createThunkAction('mine-sites/getMineSite', _options 
       MineSitesService.getMineSite(mineSiteId, queryParams)
         .then((data) => {
           const parsedData = new Jsona().deserialize(data);
-          console.log(parsedData)
-          // dispatch(setPaginationSize(data.meta['record-count']));
 
           resolve([parsedData]);
           dispatch(setMineSites([parsedData]));
