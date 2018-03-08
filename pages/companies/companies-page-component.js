@@ -14,6 +14,7 @@ import CompaniesDetail from 'components/pages/companies-detail';
 // actions
 import { getCompanies, getCompany, getCompaniesScores } from 'modules/companies/companies-actions';
 import { getCountries } from 'modules/countries/countries-actions';
+import { getCountriesWithCompanies } from 'components/pages/companies/companies-filters/companies-filters-actions';
 import { getCommodities } from 'modules/commodities/commodities-actions';
 import { getIndicators } from 'modules/indicators/indicators-actions';
 
@@ -28,9 +29,10 @@ class CompaniesPage extends Page {
       await context.store.dispatch(getCompany({
         companyId: context.query.company,
         queryParams: {
-          include: ['country', 'mine-sites', 'mine-sites.country', 'mine-sites.commodities', 'mine-sites.scores',
-            'scores', 'shareholders', 'subsidiaries', 'beneficial-owners', 'company-country-tax-jurisdictions',
-            'company-country-tax-jurisdictions.country', 'investment-disputes', 'fatality-reports'
+          include: ['country', 'secondary-country', 'producing-countries', 'mine-sites', 'mine-sites.country',
+            'mine-sites.commodities', 'mine-sites.scores', 'scores', 'shareholders', 'subsidiaries',
+            'beneficial-owners', 'company-country-tax-jurisdictions', 'company-country-tax-jurisdictions.country',
+            'investment-disputes', 'fatality-reports'
           ].join(','),
           'page[size]': 9999
         }
@@ -45,13 +47,25 @@ class CompaniesPage extends Page {
       // gets indicators
       await context.store.dispatch(getIndicators({ 'page[size]': 1000 }));
     } else {
-      await context.store.dispatch(getCompanies({ include: ['mine-sites', 'mine-sites.country', 'mine-sites.commodities'].join(',') }));
-      await context.store.dispatch(getCommodities({ 'fields[commodities]': ['name'].join(',') }));
+      await context.store.dispatch(getCompanies({ include: ['country', 'mine-sites', 'mine-sites.country', 'mine-sites.commodities'].join(',') }));
+      await context.store.dispatch(getCommodities({
+        'fields[commodities]': ['name'].join(','),
+        'filter[used]': true,
+        sort: 'name'
+      }));
+
+      // populates country filter
+      await context.store.dispatch(getCountriesWithCompanies({
+        'fields[countries]': ['name', 'code'].join(','),
+        'page[size]': 1000,
+        'filter[hasCompanies]': true
+      }));
     }
 
     await context.store.dispatch(getCountries({
-      include: ['producing-companies', 'companies'].join(','),
-      'fields[countries]': ['name', 'code', 'producing-companies', 'companies'].join(','),
+      include: ['producing-companies', 'companies', 'secondary-companies'].join(','),
+      sort: 'name',
+      'fields[countries]': ['name', 'code', 'producing-companies', 'companies', 'secondary-companies'].join(','),
       'page[size]': 1000
     }));
 

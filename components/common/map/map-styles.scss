@@ -3,4 +3,9 @@
   > :global(.rsm-svg) {
     width: 100%;
   }
+
+  .legend-container {
+    display: flex;
+    justify-content: flex-end;
+  }
 }

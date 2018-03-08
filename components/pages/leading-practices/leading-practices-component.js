@@ -16,7 +16,8 @@ import styles from './leading-practices-styles.scss';
 
 class LeadingPracticesPage extends PureComponent {
   static propTypes = {
-    topics: PropTypes.array,
+    topics: PropTypes.array.isRequired,
+    filters: PropTypes.object.isRequired,
     leadingPracticesPagination: PropTypes.object.isRequired,
     setPaginationPage: PropTypes.func.isRequired,
     getLeadingPractices: PropTypes.func.isRequired,
@@ -34,8 +35,9 @@ class LeadingPracticesPage extends PureComponent {
   }
 
   render() {
-    const { topics, leadingPracticesPagination } = this.props;
+    const { topics, leadingPracticesPagination, filters } = this.props;
     const { size, page, limit } = leadingPracticesPagination;
+    const { topic } = filters;
 
     return (
       <div className="c-leading-practices-page">
@@ -66,6 +68,7 @@ class LeadingPracticesPage extends PureComponent {
                   options={topics}
                   placeholder="Select a topic"
                   theme="light"
+                  selectedValue={topic}
                   className="-underline"
                 />
               </div>

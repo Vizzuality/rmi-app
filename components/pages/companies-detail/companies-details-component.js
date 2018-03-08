@@ -20,6 +20,7 @@ class CompaniesDetail extends PureComponent {
   static propTypes = {
     paths: PropTypes.array.isRequired,
     issueAreas: PropTypes.array.isRequired,
+    mineSites: PropTypes.array.isRequired,
     setIssueArea: PropTypes.func.isRequired
   }
 
@@ -31,7 +32,7 @@ class CompaniesDetail extends PureComponent {
   }
 
   render() {
-    const { paths } = this.props;
+    const { paths, mineSites } = this.props;
 
     return (
       <div className="c-companies-detail-page">
@@ -51,6 +52,7 @@ class CompaniesDetail extends PureComponent {
                     <div className="map-container">
                       <Map
                         paths={paths}
+                        markers={mineSites}
                         setCountryColor={CompaniesDetail.setCountryColor}
                         legend={MAP_LEGEND}
                       />
