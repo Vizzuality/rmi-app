@@ -14,6 +14,9 @@ import mineSitesModule from 'modules/mine-sites';
 import documentsModule from 'modules/documents';
 import scoresModule from 'modules/scores';
 
+// components modules
+import * as CompaniesFiltersModule from 'components/pages/companies/companies-filters';
+
 // pages modules
 import * as LeadingPracticesModule from 'components/pages/leading-practices';
 import * as CompaniesModule from 'components/pages/companies';
@@ -35,6 +38,7 @@ export default {
   scores: handleModule(scoresModule),
   leadingPracticesPage: handleModule(LeadingPracticesModule),
   companiesPage: handleModule(CompaniesModule),
+  companiesFilters: handleModule(CompaniesFiltersModule),
   companiesDetailPage: handleModule(CompaniesDetailModule),
   mineSitesPage: handleModule(MineSitesPageModule),
   resultsDetailPage: handleModule(ResultsDetailPageModule),

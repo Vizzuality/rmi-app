@@ -4,7 +4,7 @@ import { Router } from 'routes';
 
 // components
 import Select from 'components/common/select';
-// import AccordionBar from './accordion-bar';
+import IssueAreasBar from 'components/common/issue-areas-bar';
 import Accordion from './accordion';
 import OverallChart from './overall-chart';
 import MeasurementCharts from './measurement-charts';
@@ -23,9 +23,12 @@ class ResultsDetail extends PureComponent {
     Router.pushRoute(route, params);
   }
 
+  handleArea = areaId => Router.pushRoute('results-detail', { id: areaId })
+
   render() {
     const { issueAreas, selectedArea } = this.props;
-    const { observation } = selectedArea;
+    const { observation, slug, id } = selectedArea || {};
+
 
     return (
       <div className="c-results-detail-page">
@@ -39,6 +42,7 @@ class ResultsDetail extends PureComponent {
                   onChange={this.handleAreaSelection}
                   options={issueAreas}
                   placeholder="Select an issue area"
+                  selectedValue={slug}
                   className="-underline"
                 />
               </div>
@@ -55,7 +59,10 @@ class ResultsDetail extends PureComponent {
             <div className="l-layout">
               <div className="row">
                 <div className="col-md-1">
-                  {/* <AccordionBar /> */}
+                  <IssueAreasBar
+                    selectedissueArea={id}
+                    setIssueArea={this.handleArea}
+                  />
                 </div>
                 <div className="col-md-11">
                   <OverallChart />

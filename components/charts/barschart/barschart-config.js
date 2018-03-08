@@ -1,4 +1,5 @@
 export default {
+  isAnimationActive: false,
   barChartOnMouseLeave: undefined,
   // dimensions
   height: 195,

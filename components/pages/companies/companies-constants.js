@@ -1,18 +1,18 @@
 export const MAP_COLORS = {
-  color1: '#bf3132',
-  color2: '#edcaa8',
-  color3: 'url(#pattern-hex)',
-  defaultColor: '#607d8b'
+  color1: '#4ec1c2',
+  color2: '#4a5972',
+  color3: 'url(#lines)',
+  defaultColor: '#e0e0e2'
 };
 
 export const MAP_LEGEND = [
   {
-    label: 'Home country',
-    color: MAP_COLORS.color2
+    label: 'Home countries, where companies are headquartered',
+    color: MAP_COLORS.color1
   },
   {
     label: 'Producing countries',
-    color: MAP_COLORS.color1
+    color: MAP_COLORS.color2
   }
 ];
 
