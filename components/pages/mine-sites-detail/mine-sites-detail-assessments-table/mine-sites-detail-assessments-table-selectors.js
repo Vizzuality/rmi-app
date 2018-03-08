@@ -1,19 +1,21 @@
 
 import { createSelector } from 'reselect';
 
-const documents = state => state.documents.list;
+const mineSite = state => state.mineSites.list[0]
 
 export const parseAssessments = createSelector(
-  [documents],
-  (_documents = []) => _documents.map(document => ({
-    id: document.id,
-    title: document.name,
-    url: {
-      label: document.url ? `${document.url.substring(0, 50)}...` : null,
-      value: document.url
-    },
-    downloadLink: document['download-link']
-  }))
+  [mineSite],
+  (_mineSite = {}) => (_mineSite['document-mine-sites'] || []).map(doc => ({
+      id: doc.document.id,
+      title: doc.document.name,
+      indicators: doc.indicators.map(indicator => indicator.code).join(', '),
+      url: {
+        label: doc.document.url ? `${doc.document.url.substring(0, 50)}...` : null,
+        value: doc.document.url
+      },
+      downloadLink: doc.document['download-link']
+    })
+  )
 );
 
 export default { parseAssessments };

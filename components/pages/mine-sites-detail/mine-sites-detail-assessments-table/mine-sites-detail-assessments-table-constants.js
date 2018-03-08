@@ -7,7 +7,7 @@ export const ASSESSMENTS_TABLE_COLUMNS = [
     header: { label: 'Source Document' }
   },
   {
-    property: 'title',
+    property: 'indicators',
     header: { label: 'Indicators' }
   },
   {

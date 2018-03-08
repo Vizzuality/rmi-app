@@ -27,7 +27,8 @@ class MineSitesPage extends Page {
         mineSiteId: context.query.mineSite,
         queryParams: {
           include: ['company', 'company.country', 'country',
-            'documents', 'commodities', 'scores', 'scores.indicator'].join(',')
+            'documents', 'commodities', 'scores', 'scores.indicator',
+            'document-mine-sites.indicators', 'document-mine-sites.document'].join(',')
         }
       }));
 
@@ -35,7 +36,7 @@ class MineSitesPage extends Page {
       await context.store.dispatch(getIndicators({ 'page[size]': 1000 }));
 
       // gets documents
-      await context.store.dispatch(getDocuments({ 'filter[mine-site]': context.query.mineSite }));
+      // await context.store.dispatch(getDocuments({ 'filter[mine-site]': context.query.mineSite }));
     } else {
       await context.store.dispatch(getCompanies({ include: ['mine-sites', 'mine-sites.country', 'mine-sites.commodities'].join(',') }));
 
