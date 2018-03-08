@@ -7,54 +7,52 @@ import styles from './scores-list-styles.scss';
 class ScoresList extends PureComponent {
   static propTypes = {
     title: PropTypes.string,
-    headers: PropTypes.array,
     data: PropTypes.array
   }
 
   static defaultProps = {
     title: null,
-    headers: [],
+    startDate: null,
     data: []
   }
 
   render() {
-    const { title, headers, data } = this.props;
+    const { title, startDate, data } = this.props;
 
     return (
       <div className="c-scores-list">
         <style jsx>{styles}</style>
         {title && <h3 className="title">{title}</h3>}
 
-        {!!headers.length &&
-          <div className="list-headers-container">
-            <ul className="list-headers">
-              {headers.map(header => (
-                <li
-                  key={header.id}
-                  className="list-headers-item"
-                >
-                  {header.name}
-                </li>
-              ))}
-            </ul>
-          </div>}
+        {<div className="list-headers-container">
+          <ul className="list-headers">
+            {data.fields.map(field => (
+              <li
+                key={field}
+                className="list-headers-item"
+              >
+                { (startDate != null && field == 'name') ?
+                    `${data.headers[field]} ${startDate}` : `${data.headers[field]}` }
+              </li>
+            ))}
+          </ul>
+        </div>}
 
         <div className="list-content-container">
           <div className="list-content">
-            {data.map(d => (
+            {data.values.map(d => (
               <li
-                key={d.id}
+                key={d['id']}
                 className="list-content-item"
               >
-                <div className="name">
-                  <span>{d.name}</span>
-                </div>
-                <div className="value">
-                  <span>{(d.value || '-').toLocaleString()}</span>
-                </div>
+                {data.fields.map(field => (
+                  <div className="name">
+                    <span>{d[field]}</span>
+                  </div>
+                ))}
               </li>
             ))}
-            {!data.length &&
+            {!data.values.length &&
               <span className="unknown">Unknown</span>
             }
           </div>

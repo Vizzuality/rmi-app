@@ -66,47 +66,86 @@ export const getBreakdownScores = createSelector(
 
 export const parseShareholders = createSelector(
   [shareholders],
-  (_shareholders = []) => _shareholders.map(shareholder => ({
-    id: shareholder.id,
-    name: shareholder.name,
-    value: shareholder['percent-shares']
-  }))
+  (_shareholders = []) => ({
+    fields: ['name', 'value'],
+    headers: {
+      name: 'As of:',
+      value: 'Shares (%)'
+    },
+    values: _shareholders.map(shareholder => ({
+      id: shareholder.id,
+      name: shareholder.name,
+      value: shareholder['percent-shares']
+    }))
+  })
 );
 
 export const parseSubsidiaries = createSelector(
   [subsidiaries],
-  (_subsidiaries = []) => _subsidiaries.map(subsidiarie => ({
-    id: subsidiarie.id,
-    name: subsidiarie.name,
-    value: subsidiarie['percent-controlled-ownership']
-  }))
+  (_subsidiaries = []) => ({
+    fields: ['name', 'value'],
+    headers: {
+      name: 'As of:',
+      value: 'Shares (%)'
+    },
+    values: _subsidiaries.map(subsidiarie => ({
+      id: subsidiarie.id,
+      name: subsidiarie.name,
+      value: subsidiarie['percent-controlled-ownership']
+    }))
+  })
 );
 
 export const parseBeneficialOwners = createSelector(
   [beneficialOwners],
-  (_beneficialOwners = []) => _beneficialOwners.map(beneficialOwner => ({
-    id: beneficialOwner.id,
-    name: beneficialOwner.name,
-    value: beneficialOwner['percent-ownership']
-  }))
+  (_beneficialOwners = []) => ({
+    fields: ['name', 'value'],
+    headers: {
+      name: 'As of:',
+      value: 'Shares (%)'
+    },
+    values: _beneficialOwners.map(beneficialOwner => ({
+      id: beneficialOwner.id,
+      name: beneficialOwner.name,
+      value: beneficialOwner['percent-ownership']
+    }))
+  })
 );
 
 export const parseInvestmentDisputes = createSelector(
   [investmentDisputes],
-  (_investmentDisputes = []) => _investmentDisputes.map(investmentDispute => ({
-    id: investmentDispute.id,
-    name: investmentDispute.number,
-    value: investmentDispute.status
-  }))
+  (_investmentDisputes = []) => ({
+    fields: ['number', 'date', 'description', 'status'],
+    headers: {
+      number: 'Case number',
+      date: 'Case date',
+      description: 'Case description',
+      status: 'Status'
+    },
+    values: _investmentDisputes.map(investmentDispute => ({
+      id: investmentDispute.id,
+      number: investmentDispute.number,
+      date: investmentDispute.date,
+      description: investmentDispute.description,
+      status: investmentDispute.status
+    }))
+  })
 );
 
 export const parseKnownTaxJurisdictions = createSelector(
   [knownTaxJurisdictions],
-  (_knownTaxJurisdictions = []) => _knownTaxJurisdictions.map(knownTaxJurisdiction => ({
-    id: knownTaxJurisdiction.id,
-    name: knownTaxJurisdiction.country.name,
-    value: knownTaxJurisdiction.disclosure
-  }))
+  (_knownTaxJurisdictions = []) => ({
+    fields: ['name', 'value'],
+    headers: {
+      name: 'Country Name',
+      value: 'Type of disclosure'
+    },
+    values: _knownTaxJurisdictions.map(knownTaxJurisdiction => ({
+      id: knownTaxJurisdiction.id,
+      name: knownTaxJurisdiction.country.name,
+      value: knownTaxJurisdiction.disclosure
+    }))
+  })
 );
 
 export default {

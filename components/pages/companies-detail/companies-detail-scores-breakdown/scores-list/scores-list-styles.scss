@@ -13,6 +13,7 @@
   .list-headers {
     display: flex;
     margin: 25px 0 0;
+    justify-content: space-between;
 
     > .list-headers-item {
       font-weight: $font-weight-light;

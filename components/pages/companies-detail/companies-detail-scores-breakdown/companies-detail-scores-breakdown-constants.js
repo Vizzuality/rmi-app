@@ -56,23 +56,4 @@ export const MINE_SITE_TABLE_COLUMNS = [
   }
 ];
 
-export const DEFAULT_LIST_HEADERS = [
-  { id: 1, name: 'As of:' },
-  { id: 2, name: 'Shares (%)' }
-];
-
-export const KNOWN_TAX_JURISDICTIONS_LIST_HEADERS = [
-  { id: 1, name: 'Country Name' },
-  { id: 2, name: 'Type of disclosure' }
-];
-
-export const INVESTMENT_DISPUTES_LIST_HEADERS = [
-  { id: 1, name: 'Case number' },
-  { id: 2, name: 'Case status' }
-];
-
-export default {
-  MINE_SITE_TABLE_COLUMNS,
-  DEFAULT_LIST_HEADERS,
-  KNOWN_TAX_JURISDICTIONS_LIST_HEADERS
-};
+export default { MINE_SITE_TABLE_COLUMNS };

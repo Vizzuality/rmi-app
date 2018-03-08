@@ -15,10 +15,7 @@ import CompaniesDetailOverallMeasurements from './companies-detail-overall-measu
 
 // constants
 import {
-  MINE_SITE_TABLE_COLUMNS,
-  DEFAULT_LIST_HEADERS,
-  KNOWN_TAX_JURISDICTIONS_LIST_HEADERS,
-  INVESTMENT_DISPUTES_LIST_HEADERS
+  MINE_SITE_TABLE_COLUMNS
 } from './companies-detail-scores-breakdown-constants';
 
 // styles
@@ -37,18 +34,6 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
     company: PropTypes.array.isRequired
   }
 
-  static getHeaderList(addedValue) {
-    const headerListHeaders = [...DEFAULT_LIST_HEADERS];
-    const updatedHeaderList = {
-      ...DEFAULT_LIST_HEADERS[0],
-      name: `${DEFAULT_LIST_HEADERS[0].name} ${addedValue || 'unknown'}`
-    };
-
-    headerListHeaders[0] = updatedHeaderList;
-
-    return headerListHeaders;
-  }
-
   render() {
     const {
       company, overallScores, breakdownScores, mineSites,
@@ -56,9 +41,9 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
       investmentDisputes, knownTaxJurisdictions
     } = this.props;
     const {
-      shareholdersDate,
-      subsidiariesDate,
-      beneficialOwnersDate,
+      'shareholders-date': shareholdersDate,
+      'subsidiaries-date': subsidiariesDate,
+      'beneficial-owners-dates': beneficialOwnersDate,
       summary
     } = company[0] || {};
 
@@ -153,14 +138,14 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
               <div className="col-md-5">
                 <ScoresList
                   title="Main Shareholders"
-                  headers={CompaniesDetailScoresBreakDown.getHeaderList(shareholdersDate)}
+                  startDate={shareholdersDate || 'unknown'}
                   data={shareholders}
                 />
               </div>
               <div className="col-md-5">
                 <ScoresList
                   title="Selection of Subisidaries"
-                  headers={CompaniesDetailScoresBreakDown.getHeaderList(subsidiariesDate)}
+                  startDate={subsidiariesDate || 'unknown'}
                   data={subsidiaries}
                 />
               </div>
@@ -169,14 +154,13 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
               <div className="col-md-5">
                 <ScoresList
                   title="Beneficial Owners"
-                  headers={CompaniesDetailScoresBreakDown.getHeaderList(beneficialOwnersDate)}
+                  startDate={beneficialOwnersDate || 'unknown'}
                   data={beneficialOwners}
                 />
               </div>
-              <div className="col-md-5">
+              <div className="col-md-12">
                 <ScoresList
                   title="Recent involvements in Investor/State investment disputes"
-                  headers={INVESTMENT_DISPUTES_LIST_HEADERS}
                   data={investmentDisputes}
                 />
               </div>
@@ -185,7 +169,6 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
               <div className="col-md-5">
                 <ScoresList
                   title="Known Tax Jurisdictions"
-                  headers={KNOWN_TAX_JURISDICTIONS_LIST_HEADERS}
                   data={knownTaxJurisdictions}
                 />
               </div>
