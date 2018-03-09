@@ -21,27 +21,27 @@ export const MINE_SITE_TABLE_COLUMNS = [
   },
   {
     property: 'localProcurment',
-    header: { label: 'Local Procurement (score /1.0)' }
+    header: { label: 'Local Procurement (score /6.0)' }
   },
   {
     property: 'localEmployment',
-    header: { label: 'Local Employment (score /1.0)' }
+    header: { label: 'Local Employment (score /6.0)' }
   },
   {
     property: 'communityGrievance',
-    header: { label: 'Community grievance mechanism (score /1.0)' }
+    header: { label: 'Community grievance mechanism (score /6.0)' }
   },
   {
     property: 'workersGrievance',
-    header: { label: 'Workers grievance mechanism (score /1.0)' }
+    header: { label: 'Workers grievance mechanism (score /6.0)' }
   },
   {
     property: 'waterQuality',
-    header: { label: 'Water quality and quantity (score /1.0)' }
+    header: { label: 'Water quality and quantity (score /6.0)' }
   },
   {
     property: 'biodiversity',
-    header: { label: 'Biodiversity management (score /1.0)' }
+    header: { label: 'Biodiversity management (score /6.0)' }
   },
   {
     property: 'overall',

@@ -44,8 +44,8 @@ class MineSitesPage extends Page {
       await context.store.dispatch(getCompanies({ include: ['mine-sites', 'mine-sites.country', 'mine-sites.commodities'].join(',') }));
 
       await context.store.dispatch(getCountries({
-        include: ['producing-companies', 'companies'].join(','),
-        'fields[countries]': ['name', 'code', 'producing-companies', 'companies'].join(','),
+        include: ['producing-companies', 'companies', 'secondary-companies'].join(','),
+        'fields[countries]': ['name', 'code', 'producing-companies', 'companies', 'secondary-companies'].join(','),
         'page[size]': 1000
       }));
     }
