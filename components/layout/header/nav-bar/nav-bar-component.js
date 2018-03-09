@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'routes';
 import classnames from 'classnames';
 import Tether from 'react-tether';
+import debounce from 'lodash/debounce';
 
 // styles
 import styles from './nav-bar-styles.scss';
@@ -23,6 +24,8 @@ class NavBar extends PureComponent {
     super(props);
 
     this.state = {};
+
+    this.debouncedHandleHoverTab = debounce(this.handleHoverTab, 150);
   }
 
   getTabClass(linkTab) {
@@ -37,12 +40,12 @@ class NavBar extends PureComponent {
     });
   }
 
-  handleClickTab(key) {
-    this.setState({ [key]: this.state[key] ? !this.state[key] : true });
+  handleHoverTab(key, value) {
+    this.setState({ [key]: value });
   }
 
-  handleCloseSubMenu(key) {
-    this.setState({ [key]: false });
+  handleClickTab(key) {
+    this.setState({ [key]: !this.state[key] });
   }
 
   renderTabs() {
@@ -64,24 +67,43 @@ class NavBar extends PureComponent {
       }
 
       const submenuContent = (
-        <ul className="submenu">
+        <ul
+          className="submenu"
+          onMouseEnter={() => this.debouncedHandleHoverTab(tab.id, true)}
+          onMouseLeave={() => this.debouncedHandleHoverTab(tab.id, false)}
+        >
           {tab.children.map(child => (
             <li
               className={this.getTabClass(child)}
               key={child.id}
-              onClick={() => this.handleCloseSubMenu(child.id)}
+              onClick={() => this.handleClickTab(child.id)}
             >
               {child.noLink ?
-                <a>{child.label}</a> :
-              <Link
-                route={child.query.route}
-                params={child.query.params}
-              >
-                <a>{child.label}</a>
-              </Link>
+                <a className="submenu-literal">{child.label}</a> :
+                <Link
+                  route={child.query.route}
+                  params={child.query.params}
+                >
+                  <a>{child.label}</a>
+                </Link>
               }
-
-
+              {!!(child.children || []).length && this.state[child.id] &&
+                <ul className="submenu">
+                  {child.children.map(c => (
+                    <li
+                      className={this.getTabClass(c)}
+                      key={c.id}
+                    >
+                      <Link
+                        route={c.query.route}
+                        params={c.query.params}
+                      >
+                        <a>{c.label}</a>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              }
             </li>))}
         </ul>
       );
@@ -105,18 +127,14 @@ class NavBar extends PureComponent {
             >
               <span
                 className="submenu-literal"
-                onClick={() => this.handleClickTab(tab.id)}
+                onMouseEnter={() => this.debouncedHandleHoverTab(tab.id, true)}
+                onMouseLeave={() => this.debouncedHandleHoverTab(tab.id, false)}
               >
                 {tab.label}
               </span>
             </li>
             {this.state[tab.id] && submenuContent}
           </Tether>
-          {this.state[tab.id] &&
-            <div
-              className="submenu-veil"
-              onClick={() => this.handleCloseSubMenu(tab.id)}
-            />}
         </Fragment>
       );
     });
@@ -134,7 +152,6 @@ class NavBar extends PureComponent {
 
     const logo = root === 'index' ?
       'RMI_Index_Color' : 'RMI_Foundation_Color';
-
 
     const navBarClass = classnames({
       'c-nav-bar': true,
