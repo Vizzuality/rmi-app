@@ -5,13 +5,13 @@ import isEqual from 'lodash/isEqual';
 
 // actions
 import {
-  getDocuments,
+  getDocumentMineSites,
   setPaginationPage,
   setPaginationLimit,
   resetPagination,
   setSearch,
   resetSearch
-} from 'modules/documents/documents-actions';
+} from 'modules/document-mine-sites/document-mine-sites-actions';
 
 // selectors
 import { parseAssessments } from './mine-sites-detail-assessments-table-selectors';
@@ -25,7 +25,7 @@ class MineSitesDetailAssessmentTableContainer extends PureComponent {
     data: PropTypes.array.isRequired,
     pagination: PropTypes.object.isRequired,
     search: PropTypes.string.isRequired,
-    getDocuments: PropTypes.func.isRequired,
+    getDocumentMineSites: PropTypes.func.isRequired,
     resetPagination: PropTypes.func.isRequired,
     resetSearch: PropTypes.func.isRequired
   }
@@ -41,7 +41,10 @@ class MineSitesDetailAssessmentTableContainer extends PureComponent {
     const paginationChanged = !isEqual(pagination, nextPagination);
     const searchChanged = search !== nextSearch;
 
-    if (paginationChanged || searchChanged) this.props.getDocuments({ 'filter[mine-site]': id });
+    if (paginationChanged || searchChanged) this.props.getDocumentMineSites({
+      'filter[mine-site]': id,
+      include: ['indicators', 'document'].join(',')
+    });
   }
 
   componentWillUnmount() {
@@ -62,12 +65,12 @@ export default connect(
   state => ({
     mineSite: state.mineSites.list[0],
     data: parseAssessments(state),
-    pagination: state.documents.pagination,
-    search: state.documents.search,
-    loading: state.documents.loading
+    pagination: state.documentMineSites.pagination,
+    search: state.documentMineSites.search,
+    loading: state.documentMineSites.loading
   }),
   {
-    getDocuments,
+    getDocumentMineSites,
     setPaginationPage,
     setPaginationLimit,
     resetPagination,

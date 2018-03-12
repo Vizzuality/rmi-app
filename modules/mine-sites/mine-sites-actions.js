@@ -1,6 +1,9 @@
 import { createAction, createThunkAction } from 'redux-tools';
 import Jsona from 'jsona';
 
+// actions
+import { setPaginationSize } from 'modules/documents/documents-actions';
+
 // services
 import MineSitesService from 'services/mine-sites';
 

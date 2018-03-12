@@ -8,10 +8,10 @@ import { getIssueArea } from '../results-detail-selectors';
 
 export const parseIndicators = createSelector(
   [getIssueArea],
-  _issueArea => _issueArea.children.map((indicator = {}) => ({
+  _issueArea => (_issueArea.children || []).map((indicator = {}) => ({
     id: indicator.id,
     name: indicator.name,
-    children: indicator.children.map(child => ({
+    children: (indicator.children || []).map(child => ({
       id: child.id,
       name: child.name,
       observation: (child || {}).observation,
