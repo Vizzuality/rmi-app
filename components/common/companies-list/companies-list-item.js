@@ -1,7 +1,10 @@
 import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'routes';
+import { Router } from 'routes';
 import Tether from 'react-tether';
+
+// helpers
+import { trackEvent } from 'helpers/analytics';
 
 // components
 import CompaniesListTooltip from './companies-list-tooltip';
@@ -22,8 +25,18 @@ class CompaniesListItem extends PureComponent {
   }
 
   handleToggle = () => {
+    const { company } = this.props;
     const { visibility } = this.state;
     this.setState({ visibility: !visibility });
+    trackEvent(`Clicks on mine sites of company: ${company.name}`, company);
+  }
+
+  handleClick = (company) => {
+    const { id, name } = company;
+
+    trackEvent(`Clicks on company detail of ${name}`, company, {}, () => {
+      Router.pushRoute('companies', { company: id });
+    });
   }
 
   handleClose = () => this.setState({ visibility: false });
@@ -37,16 +50,13 @@ class CompaniesListItem extends PureComponent {
       return (
         <Fragment>
           <style jsx>{styles}</style>
-          <div
-            className="companies-list-item"
-            onClick={this.handleToggle}
-          >
-            <Link
-              route="companies"
-              params={{ company: id }}
+          <div className="companies-list-item">
+            <a
+              className="company-name"
+              onClick={() => this.handleClick(company)}
             >
-              <a className="company-name">{name}</a>
-            </Link>
+              {name}
+            </a>
           </div>
         </Fragment>
       );
