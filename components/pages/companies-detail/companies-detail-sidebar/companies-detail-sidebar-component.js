@@ -53,7 +53,7 @@ class CompaniesDetailSidebar extends PureComponent {
                   <div className="definition-key">Pre-tax Revenues (in BUSD):</div>
                   <div className="definition-value">
                     {preTaxRevenuesBusd.toLocaleString()}
-                    <span>{revenuesDate ? ` (${revenuesDate})` : ''}</span>
+                    <span>{revenuesDate && ` (${revenuesDate})`}</span>
                   </div>
                 </div>}
             </div>
@@ -65,9 +65,9 @@ class CompaniesDetailSidebar extends PureComponent {
                   <div className="definition-key">Number of workers:</div>
                   <div className="definition-value">
                     {workers.toLocaleString()}
-                    <span>{workersDate ? ` (${workersDate})` : ''}</span>
+                    <span>{workersDate && ` (${workersDate})`}</span>
                   </div>
-                </div>}
+                </div>} 
             </div>
             <div className="col-xs-12 col-md-6">
               {employees !== null &&
@@ -75,7 +75,7 @@ class CompaniesDetailSidebar extends PureComponent {
                   <div className="definition-key">Number of employees:</div>
                   <div className="definition-value">
                     {employees.toLocaleString()}
-                    <span>{employeesDate ? ` (${employeesDate})` : ''}</span>
+                    <span>{employeesDate && ` (${employeesDate})`}</span>
                   </div>
                 </div>}
             </div>
