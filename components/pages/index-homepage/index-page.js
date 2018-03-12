@@ -17,12 +17,12 @@ class IndexPage extends PureComponent {
         {/* splash */}
         <div className="splash">
           <div className="l-layout">
-            <div className="row center-md">
+            <div className="row center-xs">
               <div className="col-xs-12">
                 <h1 className="title">Responsible Mining Index 2018</h1>
               </div>
             </div>
-            <div className="row center-md">
+            <div className="row center-xs">
               <div className="col-xs-12 col-md-8">
                 <p className="subtitle">An evidence-based assessment of mining company policies
                   and practices on economic, environmental, social and governance issues.
@@ -35,13 +35,15 @@ class IndexPage extends PureComponent {
           <div className="l-layout">
             <div className="row">
               <div className="col-xs-12">
-                <Button
-                  className="-white -round -big"
-                  onClick={this.handleDownloadSummary}
-                  disabled
-                >
-                  Download Summary
-                </Button>
+                <div className="download-button-container">
+                  <Button
+                    className="-white -round -big"
+                    onClick={this.handleDownloadSummary}
+                    disabled
+                  >
+                    Download Summary
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
@@ -87,7 +89,7 @@ class IndexPage extends PureComponent {
                     level of individual mining operations.
                   </p>
 
-                  <img src="/static/images/graph_home.png" alt="RMI Analytical Framwork" />
+                  <img src="/static/images/analytical_framework.svg" alt="RMI Analytical Framwork" />
                 </div>
               </div>
               <div className="col-xs-12 col-md-6">

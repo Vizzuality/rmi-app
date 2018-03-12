@@ -33,7 +33,7 @@ class Footer extends PureComponent {
         <style jsx>{styles}</style>
         <div className="l-layout">
           <div className="row">
-            <div className="col-xs-12 col-lg-6">
+            <div className="col-xs-12 col-sm-6">
               <div className="left-side">
                 <div className="footer-section">
                   <Link
@@ -95,7 +95,7 @@ class Footer extends PureComponent {
                 </div>
               </div>
             </div>
-            <div className="col-xs-12 col-lg-6">
+            <div className="col-xs-12 col-sm-6">
               <div className="right-side">
                 <div className="footer-section">
                   Responsible mining index

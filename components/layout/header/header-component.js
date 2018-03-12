@@ -28,9 +28,7 @@ class Header extends PureComponent {
             <LanguageBar />
           </div>
           <div className="header-bottom">
-            {/* <div className="l-layout"> */}
             <NavBar />
-            {/* </div> */}
           </div>
         </div>
 

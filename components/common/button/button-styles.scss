@@ -43,11 +43,13 @@
     box-shadow: 0 2px 3px 0 rgba($color-1, .1);
   }
 
-  & + .c-button {
-    margin: 0 0 0 25px;
-  }
-
   &[disabled] {
     cursor: not-allowed;
+  }
+
+  @media #{$mq-md} {
+    & + .c-button {
+      margin: 0 0 0 25px;
+    }
   }
 }

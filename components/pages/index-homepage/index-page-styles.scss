@@ -24,12 +24,20 @@
   }
 
   .download-summary {
-    display: flex;
-    justify-content: center;
     padding: 50px 0;
     background: $color-2;
 
     border-bottom: 1px solid rgba($color-7, .2);
+
+    .download-button-container {
+      display: flex;
+      flex-direction: column;
+
+      @media #{$mq-md} {
+        flex-direction: row;
+        justify-content: center;
+      }
+    }
   }
 
   .intro {
@@ -66,9 +74,26 @@
 
     .buttons-container {
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
       margin: 35px 0 0;
-      padding: 0 25px;
+
+      > :global(button) {
+        &:not(:first-child) {
+          margin: 15px 0 0;
+        }
+      }
+
+      @media #{$mq-md} {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0 25px;
+
+        > :global(button) {
+          &:not(:first-child) {
+            margin: 0 auto auto;
+          }
+        }
+      }
     }
   }
 

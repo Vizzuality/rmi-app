@@ -1,6 +1,7 @@
 @import 'css/settings';
 
 .c-footer {
+  padding: 25px 0;
   background: $color-3;
 
   color: $color-7;
@@ -23,13 +24,20 @@
   }
 
   .left-side {
-    padding: 45px 45px 45px 0;
-    border-right: 1px solid $color-2;
+    padding: 0;
 
+    @media #{$mq-md} {
+      padding: 45px 45px 45px 0;
+      border-right: 1px solid $color-2;
+    }
 
     .footer-section {
       &:last-child {
-        padding: 150px 0 45px;
+        padding: 25px 0 0;
+
+        @media #{$mq-md} {
+          padding: 150px 0 45px;
+        }
       }
 
       > .footer-nav-links-list > .footer-nav-links-item {
@@ -44,6 +52,7 @@
 
         &:last-child {
           margin: 55px 0 0;
+
           > a {
             padding: 10px 0 0;
             border-top: 2px solid rgba($color-7, .2);
@@ -54,7 +63,6 @@
   }
 
   .right-side {
-    padding: 45px 0 45px 45px;
 
     .footer-section {
       &:first-child {
@@ -66,21 +74,36 @@
       }
 
       > .subscribe-form {
-        display: grid;
-        grid-template-columns: 2fr 1fr;
-        margin: 75px 0 0;
+        display: flex;
+        flex-direction: column;
+        margin: 25px 0 0;
 
         input[type="email"] {
+          flex-grow: 1;
           padding: 20px;
           background: $color-1;
         }
 
         button[type="submit"] {
+          flex-grow: 1;
+          margin: 15px 0 0;
           padding: 20px 0;
-          margin: 0 0 0 5px;
           background: $color-2;
+
+          @media #{$mq-md} {
+            margin: 0 0 0 5px;
+          }
+        }
+
+        @media #{$mq-md} {
+          flex-direction: row;
+          margin: 75px 0 0;
         }
       }
+    }
+
+    @media #{$mq-md} {
+      padding: 45px 0 0 45px;
     }
   }
 }

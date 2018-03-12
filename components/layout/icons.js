@@ -27,6 +27,11 @@ class Icons extends PureComponent {
           <path d="M16 24c0.6 0 1-0.2 1.4-0.6l11.4-11.4-2.8-2.8-8 8v-17.2h-4v17.2l-8-8-2.8 2.8 11.4 11.4c0.4 0.4 0.8 0.6 1.4 0.6z" />
           <path d="M28 28h-24v-6h-4v8c0 1.2 0.8 2 2 2h28c1.2 0 2-0.8 2-2v-8h-4v6z" />
         </symbol>
+        {/* burger menu */}
+        <symbol id="icon-burger-menu" viewBox="0 0 32 32">
+          <title>burger-menu</title>
+          <path d="M4 10h24c1.104 0 2-0.896 2-2s-0.896-2-2-2h-24c-1.104 0-2 0.896-2 2s0.896 2 2 2zM28 14h-24c-1.104 0-2 0.896-2 2s0.896 2 2 2h24c1.104 0 2-0.896 2-2s-0.896-2-2-2zM28 22h-24c-1.104 0-2 0.896-2 2s0.896 2 2 2h24c1.104 0 2-0.896 2-2s-0.896-2-2-2z" />
+        </symbol>
         {/* issue areas icons */}
         <symbol id="icon-a-economic-development" viewBox="0 0 32 32">
           <title>a-economic-development</title>

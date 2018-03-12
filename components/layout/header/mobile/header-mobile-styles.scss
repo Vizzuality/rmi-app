@@ -1,0 +1,40 @@
+@import 'css/settings';
+
+.c-header-mobile {
+  z-index: 3;
+  position: fixed;
+  width: 100%;
+  // height: $header-height-mobile;
+  background: $color-7;
+  box-shadow: 0 4px 16px 0 rgba($color-1, .1);
+
+  .header-mobile-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: $header-height-mobile;
+
+    > .logo {
+
+      > a {
+        display: inline-flex;
+
+        > img {
+          max-height: 24px;
+        }
+      }
+    }
+  }
+
+  &.-theme-1 {
+    background: $color-2;
+
+    :global(.icon-menu) {
+      fill: $color-7;
+    }
+  }
+
+  &.-theme-2 {
+    background: $color-7;
+  }
+}
