@@ -8,7 +8,7 @@ export const parseAssessments = createSelector(
   (_documentMineSites = {}) => (_documentMineSites || []).map((dms = {}) => ({
       id: dms.document.id,
       title: dms.document.name,
-      indicators: (dms.indicators || []).map(indicator => indicator.code).join(', '),
+      indicators: (dms.indicators || []).length ? dms.indicators.map(indicator => indicator.code).join(', ') : '-',
       url: {
         label: dms.document.url ? `${dms.document.url.substring(0, 50)}...` : null,
         value: dms.document.url
