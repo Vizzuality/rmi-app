@@ -27,9 +27,9 @@ class MineSitesDetailCountryComparison extends PureComponent {
         <table className="country-comparison-table">
           <thead>
             <tr>
-              <th className="country-header">Producing Country</th>
-              <th />
               <th className="country-header">Home Country</th>
+              <th />
+              <th className="country-header">Producing Country</th>
             </tr>
             <tr>
               <th className="country-value">{producingCountryName}</th>

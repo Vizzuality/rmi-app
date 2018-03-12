@@ -13,7 +13,10 @@ class CompaniesDetailSidebar extends PureComponent {
       'pretax-revenues-busd': preTaxRevenuesBusd,
       'number-workers': workers,
       'number-employees': employees,
-      'fatality-reports': fatalityReports
+      'fatality-reports': fatalityReports,
+      'revenues-date': revenuesDate,
+      'number-workers-date': workersDate,
+      'number-employees-date': employeesDate
     } = company[0] || {};
     const { name: countryName } = country || {};
 
@@ -48,7 +51,10 @@ class CompaniesDetailSidebar extends PureComponent {
               {preTaxRevenuesBusd !== null &&
                 <div className="definition-item">
                   <div className="definition-key">Pre-tax Revenues (in BUSD):</div>
-                  <div className="definition-value">{preTaxRevenuesBusd.toLocaleString()}</div>
+                  <div className="definition-value">
+                    {preTaxRevenuesBusd.toLocaleString()}
+                    <span>{revenuesDate ? ` (${revenuesDate})` : ''}</span>
+                  </div>
                 </div>}
             </div>
           </div>
@@ -57,14 +63,20 @@ class CompaniesDetailSidebar extends PureComponent {
               {workers !== null &&
                 <div className="definition-item">
                   <div className="definition-key">Number of workers:</div>
-                  <div className="definition-value">{workers.toLocaleString()}</div>
+                  <div className="definition-value">
+                    {workers.toLocaleString()}
+                    <span>{workersDate ? ` (${workersDate})` : ''}</span>
+                  </div>
                 </div>}
             </div>
             <div className="col-xs-12 col-md-6">
               {employees !== null &&
                 <div className="definition-item">
                   <div className="definition-key">Number of employees:</div>
-                  <div className="definition-value">{employees.toLocaleString()}</div>
+                  <div className="definition-value">
+                    {employees.toLocaleString()}
+                    <span>{employeesDate ? ` (${employeesDate})` : ''}</span>
+                  </div>
                 </div>}
             </div>
           </div>
