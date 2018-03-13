@@ -154,7 +154,7 @@ class NavBar extends PureComponent {
           <Link
             route={root}
           >
-            <a><img className="logoImg" src={`/static/logos/${logo}.svg`} alt="RMI logo" /></a>
+            <a><img className="logo-img" src={`/static/logos/${logo}.svg`} alt="RMI logo" /></a>
           </Link>
         </div>
         {this.renderTabs()}
