@@ -48,7 +48,7 @@ export const getIssueAreas = createSelector(
 export const getMarkers = createSelector(
   company,
   (_company = {}) =>
-    (_company['mine-sites'] || []).map(mineSite => ({
+    (_company['selected-mine-sites'] || []).map(mineSite => ({
       id: mineSite.id,
       name: mineSite.name,
       coordinates: [mineSite['coord-y'], mineSite['coord-x']]
