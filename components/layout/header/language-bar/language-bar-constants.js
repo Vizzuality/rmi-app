@@ -1,23 +1,23 @@
 export const LANGUAGES = [{
   id: 11,
-  label: 'Indonesia',
-  value: 'ba'
-}, {
-  id: 22,
   label: '简体中文',
   value: 'chn'
 }, {
-  id: 33,
+  id: 22,
   label: 'English',
   value: 'en'
 }, {
-  id: 44,
+  id: 33,
   label: 'Español',
   value: 'es'
 }, {
-  id: 55,
+  id: 44,
   label: 'Français',
   value: 'fr'
+}, {
+  id: 55,
+  label: 'Indonesia',
+  value: 'id'
 }, {
   id: 66,
   label: 'Русский',
