@@ -3,7 +3,7 @@ import { createSelector } from 'reselect';
 import groupBy from 'lodash/groupBy';
 
 const scores = state => (state.companies.list[0] || {}).scores;
-const mineSites = state => (state.companies.list[0] || {})['mine-sites'];
+const selectedMineSites = state => (state.companies.list[0] || {})['selected-mine-sites'];
 const shareholders = state => (state.companies.list[0] || {}).shareholders;
 const subsidiaries = state => (state.companies.list[0] || {}).subsidiaries;
 const beneficialOwners = state => (state.companies.list[0] || {})['beneficial-owners'];
@@ -24,9 +24,9 @@ export const getOverallScores = createSelector(
 );
 
 export const parseMineSitesScores = createSelector(
-  [mineSites],
-  (_mineSites = []) =>
-    _mineSites.map(mineSite => ({
+  [selectedMineSites],
+  (_selectedMineSites = []) =>
+    _selectedMineSites.map(mineSite => ({
       id: mineSite.id,
       name: mineSite.name,
       localProcurment: ((mineSite.scores || []).find(score => score.slug.includes('ms-01-1')) || {}).value,

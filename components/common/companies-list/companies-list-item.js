@@ -30,7 +30,7 @@ class CompaniesListItem extends PureComponent {
 
   render() {
     const { isCompanyPage, company } = this.props;
-    const { name, id, 'mine-sites': mineSites } = company;
+    const { name, id, 'selected-mine-sites': mineSites } = company;
     const { visibility } = this.state;
 
     if (isCompanyPage) {

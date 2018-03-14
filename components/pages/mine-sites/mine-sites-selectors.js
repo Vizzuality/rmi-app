@@ -36,7 +36,7 @@ export const getMarkers = createSelector(
     const mineSites = [];
 
     _companies.forEach(company =>
-      company['mine-sites'].forEach((mineSite) => {
+      company['selected-mine-sites'].forEach((mineSite) => {
         mineSites.push(({
           id: mineSite.id,
           name: mineSite.name,
