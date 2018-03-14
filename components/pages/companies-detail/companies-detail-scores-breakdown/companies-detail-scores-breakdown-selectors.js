@@ -4,10 +4,6 @@ import groupBy from 'lodash/groupBy';
 
 const scores = state => (state.companies.list[0] || {}).scores;
 const mineSites = state => (state.companies.list[0] || {})['mine-sites'];
-const shareholders = state => (state.companies.list[0] || {}).shareholders;
-const subsidiaries = state => (state.companies.list[0] || {}).subsidiaries;
-const beneficialOwners = state => (state.companies.list[0] || {})['beneficial-owners'];
-const investmentDisputes = state => (state.companies.list[0] || {})['investment-disputes'];
 const knownTaxJurisdictions = state =>
   (state.companies.list[0] || {})['company-country-tax-jurisdictions'];
 
@@ -64,26 +60,6 @@ export const getBreakdownScores = createSelector(
   }
 );
 
-export const parseShareholders = createSelector(
-  [shareholders],
-  (_shareholders = []) => (_shareholders)
-);
-
-export const parseSubsidiaries = createSelector(
-  [subsidiaries],
-  (_subsidiaries = []) => (_subsidiaries)
-);
-
-export const parseBeneficialOwners = createSelector(
-  [beneficialOwners],
-  (_beneficialOwners = []) => (_beneficialOwners)
-);
-
-export const parseInvestmentDisputes = createSelector(
-  [investmentDisputes],
-  (_investmentDisputes = []) => (_investmentDisputes)
-);
-
 export const parseKnownTaxJurisdictions = createSelector(
   [knownTaxJurisdictions],
   (_knownTaxJurisdictions = []) => {
@@ -119,9 +95,5 @@ export default {
   getOverallScores,
   getBreakdownScores,
   parseMineSitesScores,
-  parseShareholders,
-  parseSubsidiaries,
-  parseBeneficialOwners,
-  parseInvestmentDisputes,
   parseKnownTaxJurisdictions
 };
