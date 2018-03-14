@@ -10,10 +10,10 @@ export const getCountries = createSelector(
   [mineSite],
   (_mineSite = {}) => {
     const {
-      country: homeCountry,
+      country: producingCountry,
       company
     } = _mineSite;
-    const { country: producingCountry } = company;
+    const { country: homeCountry } = company;
 
     return {
       producingCountryName: producingCountry.name,
@@ -27,10 +27,10 @@ export const parseCountries = createSelector(
   [mineSite],
   (_mineSite = {}) => {
     const {
-      country: homeCountry,
+      country: producingCountry,
       company
     } = _mineSite;
-    const { country: producingCountry } = company;
+    const { country: homeCountry } = company;
 
     return Object.keys(COMPARISON_COUNTRY_KEYS).map(key => ({
       key: COMPARISON_COUNTRY_KEYS[key](homeCountry),
