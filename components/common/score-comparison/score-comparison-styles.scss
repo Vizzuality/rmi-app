@@ -12,11 +12,18 @@ $bar-height: 40px;
   }
 
   > .score-bar > .score-value {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
     top: -1px;
     left: -1px;
     width: 0;
     height: calc(100% + 2px);
+
+    > .score-value-string {
+      font-size: $font-size-big;
+    }
   }
 
   > .score-bar > .score-avg {
