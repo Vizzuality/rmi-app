@@ -23,7 +23,7 @@ class ResultsDetail extends PureComponent {
     Router.pushRoute(route, params);
   }
 
-  handleArea = areaId => Router.pushRoute('results-detail', { id: areaId })
+  handleArea = areaId => Router.pushRoute('results', { section: 'thematic', id: areaId })
 
   render() {
     const { issueAreas, selectedArea } = this.props;

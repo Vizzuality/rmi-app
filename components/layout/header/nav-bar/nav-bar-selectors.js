@@ -21,7 +21,7 @@ export const getNavigation = createSelector(
         id: resultChildren.id,
         label: resultChildren.title,
         query: {
-          route: 'static-results',
+          route: 'results',
           params: { id: resultChildren.slug }
         }
       }));
@@ -49,10 +49,12 @@ export const getNavigation = createSelector(
         id: indicatorChild.id,
         label: indicatorChild.label,
         query: {
-          route: 'results-detail',
-          params: { id: indicatorChild.slug }
-        },
-        baseQueryRoute: 'results'
+          route: 'results',
+          params: {
+            route: 'results',
+            id: indicatorChild.slug
+          }
+        }
       }));
 
       const currentTreeIndex = mainNav.findIndex(tree => tree.query.route === 'results');

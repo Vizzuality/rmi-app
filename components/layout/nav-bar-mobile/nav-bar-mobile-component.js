@@ -28,11 +28,9 @@ class NavBarMobile extends PureComponent {
     const { routes } = this.props;
     const { pathname } = routes;
 
-    console.log(routes)
-
     return classnames({
       'nav-item': true,
-      '-selected': (linkTab.baseQueryRoute || linkTab.query.route) === pathname,
+      '-selected': linkTab.query.route === pathname,
       '-has-children': linkTab.children,
       '-open': this.state[linkTab.id]
     });

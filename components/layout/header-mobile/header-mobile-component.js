@@ -53,7 +53,7 @@ class HeaderMobile extends PureComponent {
             >
               <Icon
                 name="burger-menu"
-                className="icon-menu"
+                className="-small"
               />
             </Button>
           </div>

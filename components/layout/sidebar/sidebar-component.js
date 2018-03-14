@@ -43,7 +43,10 @@ class Sidebar extends PureComponent {
               padding={false}
               onClick={this.handleClose}
             >
-              <Icon name="cross" />
+              <Icon
+                name="cross"
+                className="-small"
+              />
             </Button>
           </div>
           <div className="nav-bar-mobile-container">
