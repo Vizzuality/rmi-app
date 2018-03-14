@@ -56,4 +56,72 @@ export const MINE_SITE_TABLE_COLUMNS = [
   }
 ];
 
-export default { MINE_SITE_TABLE_COLUMNS };
+export const INVESTMENT_DISPUTES_COLUMNS = [
+  {
+    property: 'date',
+    header: { label: 'Case Date' }
+  },
+  {
+    property: 'number',
+    header: { label: 'Case number' }
+  },
+  {
+    property: 'description',
+    header: { label: 'Case description' }
+  },
+  {
+    property: 'status',
+    header: { label: 'Status' }
+  }
+];
+
+export const TAX_JURISDICTIONS_COLUMNS = [
+  {
+    cell: {
+      formatters: [
+        (countryName, { rowData }) => rowData.jurisdiction1 && rowData.jurisdiction1.country.name
+      ]
+    }
+  },
+  {
+    cell: {
+      formatters: [
+        (countryName, { rowData }) => rowData.jurisdiction2 && rowData.jurisdiction2.country.name
+      ]
+    }
+  },
+  {
+    cell: {
+      formatters: [
+        (countryName, { rowData }) => rowData.jurisdiction3 && rowData.jurisdiction3.country.name
+      ]
+    }
+  },
+  {
+    cell: {
+      formatters: [
+        (countryName, { rowData }) => rowData.jurisdiction4 && rowData.jurisdiction4.country.name
+      ]
+    }
+  },
+  {
+    cell: {
+      formatters: [
+        (countryName, { rowData }) => rowData.jurisdiction5 && rowData.jurisdiction5.country.name
+      ]
+    }
+  },
+  {
+    cell: {
+      formatters: [
+        (countryName, { rowData }) => rowData.jurisdiction6 && rowData.jurisdiction6.country.name
+      ]
+    }
+  }
+];
+
+export default {
+  MINE_SITE_TABLE_COLUMNS,
+  INVESTMENT_DISPUTES_COLUMNS,
+  TAX_JURISDICTIONS_COLUMNS
+};

@@ -15,7 +15,9 @@ import CompaniesDetailOverallMeasurements from './companies-detail-overall-measu
 
 // constants
 import {
-  MINE_SITE_TABLE_COLUMNS
+  MINE_SITE_TABLE_COLUMNS,
+  INVESTMENT_DISPUTES_COLUMNS,
+  TAX_JURISDICTIONS_COLUMNS
 } from './companies-detail-scores-breakdown-constants';
 
 // styles
@@ -136,42 +138,72 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
           <div className="l-layout">
             <div className="row between-md">
               <div className="col-md-5">
-                <ScoresList
-                  title="Main Shareholders"
-                  startDate={shareholdersDate || 'unknown'}
-                  data={shareholders}
+                <h3 className="title">Main Shareholders</h3>
+                <Table
+                  columns={[
+                    {
+                      property: 'name',
+                      header: { label: `As of: ${shareholdersDate || 'unknown'}` }
+                    },
+                    {
+                      property: 'percent-shares',
+                      header: { label: 'Shares (%)' }
+                    }
+                  ]}
+                  rows={shareholders}
                 />
               </div>
               <div className="col-md-5">
-                <ScoresList
-                  title="Selection of Subisidaries"
-                  startDate={subsidiariesDate || 'unknown'}
-                  data={subsidiaries}
+                <h3 className="title">Selection of Subisidaries</h3>
+                <Table
+                  columns={[
+                    {
+                      property: 'name',
+                      header: { label: `As of: ${subsidiariesDate || 'unknown'}` }
+                    },
+                    {
+                      property: 'percent-controlled-ownership',
+                      header: { label: 'Shares (%)' }
+                    }
+                  ]}
+                  rows={subsidiaries}
                 />
               </div>
             </div>
             <div className="row between-md">
               <div className="col-md-5">
-                <ScoresList
-                  title="Beneficial Owners"
-                  startDate={beneficialOwnersDate || 'unknown'}
-                  data={beneficialOwners}
-                />
-              </div>
-              <div className="col-md-12">
-                <ScoresList
-                  title="Recent involvements in Investor/State investment disputes"
-                  data={investmentDisputes}
-                />
+                <h3 className="title">Beneficial Owners</h3>
+                {beneficialOwners.length ? <Table
+                  columns={[
+                    {
+                      property: 'name',
+                      header: { label: `As of: ${beneficialOwnersDate || 'unknown'}` }
+                    },
+                    {
+                      property: 'percent-ownership',
+                      header: { label: 'Shares (%)' }
+                    }
+                  ]}
+                  rows={beneficialOwners}
+                /> :
+                <span>unknown</span>}
               </div>
             </div>
             <div className="row">
-              <div className="col-md-5">
-                <ScoresList
-                  title="Known Tax Jurisdictions"
-                  data={knownTaxJurisdictions}
+              <div className="col-sm-12">
+                <h3 className="title">Known Tax Jurisdictions</h3>
+                <Table
+                  columns={TAX_JURISDICTIONS_COLUMNS}
+                  rows={knownTaxJurisdictions}
                 />
               </div>
+            </div>
+            <div className="col-md-12">
+              <h3 className="title">Recent involvements in Investor/State investment disputes</h3>
+              <Table
+                columns={INVESTMENT_DISPUTES_COLUMNS}
+                rows={investmentDisputes}
+              />
             </div>
             <div className="disclaimer">
               <p className="disclaimer-text">Disclaimer. Lorem ipsum dolor sit amet, consectetur

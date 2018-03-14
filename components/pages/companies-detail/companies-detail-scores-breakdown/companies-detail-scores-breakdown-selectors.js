@@ -66,86 +66,53 @@ export const getBreakdownScores = createSelector(
 
 export const parseShareholders = createSelector(
   [shareholders],
-  (_shareholders = []) => ({
-    fields: ['name', 'value'],
-    headers: {
-      name: 'As of:',
-      value: 'Shares (%)'
-    },
-    values: _shareholders.map(shareholder => ({
-      id: shareholder.id,
-      name: shareholder.name,
-      value: shareholder['percent-shares']
-    }))
-  })
+  (_shareholders = []) => (_shareholders)
 );
 
 export const parseSubsidiaries = createSelector(
   [subsidiaries],
-  (_subsidiaries = []) => ({
-    fields: ['name', 'value'],
-    headers: {
-      name: 'As of:',
-      value: 'Shares (%)'
-    },
-    values: _subsidiaries.map(subsidiarie => ({
-      id: subsidiarie.id,
-      name: subsidiarie.name,
-      value: subsidiarie['percent-controlled-ownership']
-    }))
-  })
+  (_subsidiaries = []) => (_subsidiaries)
 );
 
 export const parseBeneficialOwners = createSelector(
   [beneficialOwners],
-  (_beneficialOwners = []) => ({
-    fields: ['name', 'value'],
-    headers: {
-      name: 'As of:',
-      value: 'Shares (%)'
-    },
-    values: _beneficialOwners.map(beneficialOwner => ({
-      id: beneficialOwner.id,
-      name: beneficialOwner.name,
-      value: beneficialOwner['percent-ownership']
-    }))
-  })
+  (_beneficialOwners = []) => (_beneficialOwners)
 );
 
 export const parseInvestmentDisputes = createSelector(
   [investmentDisputes],
-  (_investmentDisputes = []) => ({
-    fields: ['number', 'date', 'description', 'status'],
-    headers: {
-      number: 'Case number',
-      date: 'Case date',
-      description: 'Case description',
-      status: 'Status'
-    },
-    values: _investmentDisputes.map(investmentDispute => ({
-      id: investmentDispute.id,
-      number: investmentDispute.number,
-      date: investmentDispute.date,
-      description: investmentDispute.description,
-      status: investmentDispute.status
-    }))
-  })
+  (_investmentDisputes = []) => (_investmentDisputes)
 );
 
 export const parseKnownTaxJurisdictions = createSelector(
   [knownTaxJurisdictions],
-  (_knownTaxJurisdictions = []) => ({
-    fields: ['name', 'value'],
-    headers: {
-      name: 'Country Name',
-      value: 'Type of disclosure'
-    },
-    values: _knownTaxJurisdictions.map(knownTaxJurisdiction => ({
-      id: knownTaxJurisdiction.id,
-      name: knownTaxJurisdiction.country.name,
-      value: knownTaxJurisdiction.disclosure
-    }))
-  })
+  (_knownTaxJurisdictions = []) => {
+    const numberRows = 6;
+    const totalRows = (_knownTaxJurisdictions.length / numberRows) > parseInt(_knownTaxJurisdictions.length / numberRows, 10) ?
+      parseInt(_knownTaxJurisdictions.length / numberRows, 10) + 1 : parseInt(_knownTaxJurisdictions.length / numberRows, 10);
+    const slides = [];
+    const parsed = [];
+
+    for (let i = 0; i < totalRows; i++) {
+      const limit = ((i * numberRows) + numberRows);
+      const slicedJurisdictions = _knownTaxJurisdictions.slice(i * numberRows, limit);
+      slides.push(slicedJurisdictions);
+    }
+
+    for (let i = 0; i < slides.length; i++) {
+      const jurisdictions = slides[i];
+      parsed.push({
+        jurisdiction1: jurisdictions[0],
+        jurisdiction2: jurisdictions[1],
+        jurisdiction3: jurisdictions[2],
+        jurisdiction4: jurisdictions[3],
+        jurisdiction5: jurisdictions[4],
+        jurisdiction6: jurisdictions[5]
+      });
+    }
+
+    return parsed;
+  }
 );
 
 export default {
