@@ -21,31 +21,31 @@ export const MINE_SITE_TABLE_COLUMNS = [
   },
   {
     property: 'localProcurment',
-    header: { label: 'Local Procurement (score /6.0)' }
+    header: { label: 'Local Procurement (score /6.00)' }
   },
   {
     property: 'localEmployment',
-    header: { label: 'Local Employment (score /6.0)' }
+    header: { label: 'Local Employment (score /6.00)' }
   },
   {
     property: 'communityGrievance',
-    header: { label: 'Community grievance mechanism (score /6.0)' }
+    header: { label: 'Community grievance mechanism (score /6.00)' }
   },
   {
     property: 'workersGrievance',
-    header: { label: 'Workers grievance mechanism (score /6.0)' }
+    header: { label: 'Workers grievance mechanism (score /6.00)' }
   },
   {
     property: 'waterQuality',
-    header: { label: 'Water quality and quantity (score /6.0)' }
+    header: { label: 'Water quality and quantity (score /6.00)' }
   },
   {
     property: 'biodiversity',
-    header: { label: 'Biodiversity management (score /6.0)' }
+    header: { label: 'Biodiversity management (score /6.00)' }
   },
   {
     property: 'overall',
-    header: { label: 'Overall (score /6.0)' },
+    header: { label: 'Overall (score /6.00)' },
     props: {
       style: {
         backgroundColor: '#3b3a40',
