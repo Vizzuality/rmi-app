@@ -3,7 +3,8 @@ import { PureComponent } from 'react';
 // actions
 import { setRoute } from 'modules/routes/routes-actions';
 import { setLanguage } from 'modules/language/languages-actions';
-import { setMobileDetect, mobileParser } from 'react-responsive-redux';
+import { mobileParser } from 'react-responsive-redux';
+import { setMobileDetect } from 'modules/responsive/responsive-actions';
 import { getResultsTree, getAboutTree } from 'modules/navigation/navigation-actions';
 import { getIndicators } from 'modules/indicators/indicators-actions';
 
