@@ -6,8 +6,19 @@
   align-items: center;
   justify-content: space-between;
 
-  .logo-img {
-    height: 50px;
+
+  .logo {
+    display: inline-flex;
+    height: 37px;
+
+    > a {
+      display: inline-block;
+      height: 100%;
+    }
+
+    > a > .logo-img {
+      height: 100%;
+    }
   }
 
   .nav-list {
