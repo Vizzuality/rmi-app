@@ -51,7 +51,8 @@ export const getNavigation = createSelector(
         query: {
           route: 'results-detail',
           params: { id: indicatorChild.slug }
-        }
+        },
+        baseQueryRoute: 'results'
       }));
 
       const currentTreeIndex = mainNav.findIndex(tree => tree.query.route === 'results');

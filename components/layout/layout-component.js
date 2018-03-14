@@ -7,7 +7,8 @@ import MediaQuery from 'react-responsive';
 import Head from 'components/layout/head';
 import Icons from 'components/layout/icons';
 import Header from 'components/layout/header';
-import HeaderMobile from 'components/layout/header/mobile';
+import HeaderMobile from 'components/layout/header-mobile';
+import Sidebar from 'components/layout/sidebar';
 import Footer from 'components/layout/footer';
 
 import styles from 'css/index.scss';
@@ -51,6 +52,14 @@ class Layout extends PureComponent {
           values={{ deviceWidth: responsive.fakeWidth }}
         >
           <Header />
+        </MediaQuery>
+
+        {/* mobile sidebar */}
+        <MediaQuery
+          maxDeviceWidth={breakpoints.md - 1}
+          values={{ deviceWidth: responsive.fakeWidth }}
+        >
+          <Sidebar />
         </MediaQuery>
 
 

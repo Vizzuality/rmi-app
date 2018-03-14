@@ -15,12 +15,14 @@
     height: $header-height-mobile;
 
     > .logo {
+      display: inline-flex;
 
       > a {
         display: inline-flex;
+        max-height: 24px;
 
         > img {
-          max-height: 24px;
+          height: 100%;
         }
       }
     }
@@ -36,5 +38,9 @@
 
   &.-theme-2 {
     background: $color-7;
+
+    :global(.icon-menu) {
+      fill: $color-1;
+    }
   }
 }

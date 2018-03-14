@@ -1,0 +1,34 @@
+@import 'settings';
+
+.c-sidebar {
+  z-index: 999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: calc(100% - 50px);
+  height: 100%;
+  padding: 20px 0;
+  box-shadow: 0 4px 16px 0 rgba($color-1, .1);
+
+  overflow-y: auto;
+  transform: translate(-100%, 0);
+  transition: transform $animation-time-2 $ease-in-out-sine;
+
+  &.-visible {
+    transform: translate(0, 0);
+  }
+
+  .sidebar-menu {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  &.-theme-1 {
+    background: $color-3;
+  }
+
+  &.-theme-2 {
+    background: $color-7;
+  }
+}

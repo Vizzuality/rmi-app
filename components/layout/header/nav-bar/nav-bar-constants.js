@@ -11,7 +11,8 @@ export const INDEX_NAVIGATION = [{
     id: '1-1',
     label: 'Overall results',
     slug: 'overall-results',
-    query: { route: 'results-overall' }
+    query: { route: 'results-overall' },
+    baseQueryRoute: 'results'
   }, {
     id: '1-2',
     label: 'Thematic Areas',
@@ -21,7 +22,8 @@ export const INDEX_NAVIGATION = [{
       params: {}
     },
     children: [],
-    noLink: true
+    noLink: true,
+    baseQueryRoute: 'results'
   }]
 }, {
   id: 2,

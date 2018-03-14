@@ -4,13 +4,24 @@ import classnames from 'classnames';
 import { Link } from 'routes';
 
 // components
+import Button from 'components/common/button';
 import Icon from 'components/common/icon';
 
 // styles
 import styles from './header-mobile-styles.scss';
 
 class HeaderMobile extends PureComponent {
-  static propTypes = { root: PropTypes.string.isRequired }
+  static propTypes = {
+    root: PropTypes.string.isRequired,
+    sidebarVisibility: PropTypes.bool.isRequired,
+    toggleSidebar: PropTypes.func.isRequired
+  }
+
+  handleToggleSidebar = () => {
+    const { toggleSidebar, sidebarVisibility } = this.props;
+
+    toggleSidebar(!sidebarVisibility);
+  }
 
   render() {
     const { root } = this.props;
@@ -33,15 +44,18 @@ class HeaderMobile extends PureComponent {
               <Link
                 route={root}
               >
-                <a><img src={`/static/logos/${logo}.png`} alt="RMI logo" /></a>
+                <a><img src={`/static/logos/${logo}.svg`} alt="RMI logo" /></a>
               </Link>
             </div>
-            <button>
+            <Button
+              padding={false}
+              onClick={this.handleToggleSidebar}
+            >
               <Icon
                 name="burger-menu"
                 className="icon-menu"
               />
-            </button>
+            </Button>
           </div>
         </div>
       </header>

@@ -3,7 +3,7 @@
 .c-index-page {
 
   .splash {
-    padding: 250px 0;
+    padding: 55px 0;
 
     background-image: url('/static/images/homepage_background.jpg');
     background-size: cover;
@@ -20,6 +20,14 @@
     .subtitle {
       color: $color-7;
       margin-top: 25px;
+    }
+
+    @media #{$mq-md} {
+      padding: 150px 0;
+    }
+
+    @media #{$mq-lg} {
+      padding: 250px 0;
     }
   }
 
