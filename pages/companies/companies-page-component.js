@@ -32,7 +32,7 @@ class CompaniesPage extends Page {
           include: ['country', 'secondary-country', 'producing-countries', 'mine-sites', 'mine-sites.country',
             'mine-sites.commodities', 'mine-sites.scores', 'scores', 'shareholders', 'subsidiaries',
             'beneficial-owners', 'company-country-tax-jurisdictions', 'company-country-tax-jurisdictions.country',
-            'investment-disputes', 'fatality-reports'
+            'investment-disputes', 'fatality-reports', 'selected-mine-sites'
           ].join(','),
           'page[size]': 9999
         }
