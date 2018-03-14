@@ -6,9 +6,9 @@ export const getCompanyCountryColor = (geographyProperties = {}) => {
 
   if (isHome && isProducing) return color3;
 
-  if (isProducing) return color1;
+  if (isProducing) return color2;
 
-  if (isHome) return color2;
+  if (isHome) return color1;
 
   return defaultColor;
 };
