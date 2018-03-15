@@ -13,7 +13,6 @@ export default connect(
     breakdownScores: getBreakdownScores(state),
     mineSites: parseMineSitesScores(state),
     shareholders: (state.companies.list[0] || {}).shareholders,
-    subsidiaries: state.subsidiaries,
     beneficialOwners: (state.companies.list[0] || {})['beneficial-owners'],
     investmentDisputes: (state.companies.list[0] || {})['investment-disputes'],
     knownTaxJurisdictions: parseKnownTaxJurisdictions(state),

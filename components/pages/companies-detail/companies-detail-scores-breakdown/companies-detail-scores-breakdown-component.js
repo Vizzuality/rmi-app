@@ -30,7 +30,6 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
     mineSites: PropTypes.array.isRequired,
     breakdownScores: PropTypes.array.isRequired,
     shareholders: PropTypes.array.isRequired,
-    subsidiaries: PropTypes.array.isRequired,
     beneficialOwners: PropTypes.array.isRequired,
     investmentDisputes: PropTypes.array.isRequired,
     knownTaxJurisdictions: PropTypes.array.isRequired,
