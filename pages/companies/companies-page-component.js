@@ -17,6 +17,7 @@ import { getCountries } from 'modules/countries/countries-actions';
 import { getCountriesWithCompanies } from 'components/pages/companies/companies-filters/companies-filters-actions';
 import { getCommodities } from 'modules/commodities/commodities-actions';
 import { getIndicators } from 'modules/indicators/indicators-actions';
+import { getSubsidiaries } from 'modules/subsidiaries/subsidiaries-actions';
 
 class CompaniesPage extends Page {
   static propTypes = { companyId: PropTypes.string }
@@ -46,6 +47,9 @@ class CompaniesPage extends Page {
 
       // gets indicators
       await context.store.dispatch(getIndicators({ 'page[size]': 1000 }));
+
+      // gets subsidiaries
+      await context.store.dispatch(getSubsidiaries({ 'filter[company]': context.query.company }));
     } else {
       await context.store.dispatch(getCompanies({ include: ['country', 'mine-sites', 'mine-sites.country', 'mine-sites.commodities'].join(',') }));
       await context.store.dispatch(getCommodities({

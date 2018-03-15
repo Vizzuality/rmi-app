@@ -41,14 +41,18 @@
     }
   }
 
-  .mine-sites-results {
-    :global(.table-container) {
-      margin: 50px 0 0;
+  .contextual-table {
+    &:not(:first-child) {
+      margin: 35px 0 0;
     }
   }
 
   .miscellaneous-lists {
     margin: -35px 0 0;
+
+    :global(.title) {
+      margin: 35px 0 0;
+    }
   }
 
   .disclaimer {
