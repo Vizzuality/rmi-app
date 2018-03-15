@@ -24,8 +24,8 @@ class IndexPage extends PureComponent {
             </div>
             <div className="row center-md">
               <div className="col-xs-12 col-md-8">
-                <p className="subtitle">...mining should benefit the conomies, improve the lives of people and respect
-                  the environments of producing countries
+                <p className="subtitle">An evidence-based assessment of mining company policies
+                  and practices on economic, environmental, social and governance issues.
                 </p>
               </div>
             </div>
@@ -54,7 +54,7 @@ class IndexPage extends PureComponent {
                   <h3 className="title">RMI assessment</h3>
                 </div>
               </div>
-              <div className="col-xs-12 col-md-6">
+              <div className="col-xs-12 col-md-5">
                 <div className="text-section">
                   <p>The Responsible Mining Foundation shares the position of many organisations and
                     people around the world who support responsible mining but are

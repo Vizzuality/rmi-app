@@ -3,6 +3,8 @@
 .c-companies-list {
 
   .content {
+    position: relative;
+    min-height: 200px;
     margin: -10px 0 0;
 
     .companies-list-item {
@@ -31,6 +33,15 @@
       height: 100%;
       z-index: 4;
     }
+  }
+
+  .not-found {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+
+    color: $color-7;
   }
 }
 

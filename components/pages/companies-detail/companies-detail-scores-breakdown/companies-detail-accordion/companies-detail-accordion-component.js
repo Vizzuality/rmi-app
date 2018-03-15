@@ -4,13 +4,17 @@ import Accordion from 'components/common/accordion';
 
 // components
 import ScoreComparison from 'components/common/score-comparison';
-import AccordionBar from './accordion-bar';
+import IssueAreasBar from 'components/common/issue-areas-bar';
 
 // styles
 import styles from './companies-detail-accordion-styles.scss';
 
 class CompaniesDetailAccordion extends PureComponent {
-  static propTypes = { issueAreaTree: PropTypes.object.isRequired }
+  static propTypes = {
+    issueAreaTree: PropTypes.object.isRequired,
+    selectedIssueArea: PropTypes.string.isRequired,
+    setIssueArea: PropTypes.func.isRequired
+  }
 
   static renderContent(data = []) {
     if (!data.length) {
@@ -47,14 +51,17 @@ class CompaniesDetailAccordion extends PureComponent {
   }
 
   render() {
-    const { issueAreaTree } = this.props;
+    const { issueAreaTree, selectedIssueArea, setIssueArea } = this.props;
 
     return (
       <div className="c-companies-detail-accordion">
         <style jsx>{styles}</style>
         <div className="row">
           <div className="col-md-1">
-            <AccordionBar />
+            <IssueAreasBar
+              selectedissueArea={selectedIssueArea}
+              setIssueArea={setIssueArea}
+            />
           </div>
           <div className="col-md-11">
             <h2 className="parent-category-title">{issueAreaTree.name}</h2>

@@ -16,6 +16,16 @@ $bar-height: 15px;
       margin: 0 0 0 10px;
       font-size: $font-size-regular;
     }
+
+    > .bar-icon {
+      width: 32px;
+      height: 32px;
+
+      > :global(svg) {
+        fill: $color-7;
+        stroke: $color-7;
+      }
+    }
   }
 
 

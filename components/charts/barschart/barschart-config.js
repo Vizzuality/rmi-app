@@ -1,4 +1,5 @@
 export default {
+  isAnimationActive: false,
   barChartOnMouseLeave: undefined,
   // dimensions
   height: 195,
@@ -14,7 +15,7 @@ export default {
   // styling
   strokeDasharray: '3',
   fill: 'none',
-  YAxisTicks: ['0', '0.200', '0.400', '0.600', '0.800', '1'],
+  YAxisTicks: ['0.000', '0.200', '0.400', '0.600', '0.800', '1.000'],
   // bar
   barDataKey: 'value',
   setBarFill: () => '#ddd',

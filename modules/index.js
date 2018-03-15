@@ -13,6 +13,10 @@ import indicatorsModule from 'modules/indicators';
 import mineSitesModule from 'modules/mine-sites';
 import documentsModule from 'modules/documents';
 import scoresModule from 'modules/scores';
+import documentMineSitesModule from 'modules/document-mine-sites';
+
+// components modules
+import * as CompaniesFiltersModule from 'components/pages/companies/companies-filters';
 
 // pages modules
 import * as LeadingPracticesModule from 'components/pages/leading-practices';
@@ -32,9 +36,11 @@ export default {
   indicators: handleModule(indicatorsModule),
   mineSites: handleModule(mineSitesModule),
   documents: handleModule(documentsModule),
+  documentMineSites: handleModule(documentMineSitesModule),
   scores: handleModule(scoresModule),
   leadingPracticesPage: handleModule(LeadingPracticesModule),
   companiesPage: handleModule(CompaniesModule),
+  companiesFilters: handleModule(CompaniesFiltersModule),
   companiesDetailPage: handleModule(CompaniesDetailModule),
   mineSitesPage: handleModule(MineSitesPageModule),
   resultsDetailPage: handleModule(ResultsDetailPageModule),

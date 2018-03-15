@@ -40,6 +40,7 @@ class BarsChart extends PureComponent {
     const { data } = this.props;
     const {
       domain,
+      isAnimationActive,
       barChartOnMouseLeave,
       xAxisKey,
       xAxisTickLine,
@@ -83,6 +84,7 @@ class BarsChart extends PureComponent {
               strokeDasharray={strokeDasharray}
             />
             <Bar
+              isAnimationActive={isAnimationActive}
               dataKey={barDataKey}
               barSize={barSize}
               onMouseOver={barOnMouseOver}

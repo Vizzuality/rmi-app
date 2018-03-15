@@ -18,7 +18,7 @@ export { actions, reducers, initialState };
 
 class LeadingPracticesPageContainer extends PureComponent {
   static propTypes = {
-    filters: PropTypes.object,
+    filters: PropTypes.object.isRequired,
     getLeadingPractices: PropTypes.func.isRequired
   }
 

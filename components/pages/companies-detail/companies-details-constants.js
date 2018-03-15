@@ -1,25 +1,27 @@
 export const MAP_COLORS = {
-  color1: '#bb7ce0',
-  color2: '#1077bb',
-  color3: '#bf3132',
-  color4: 'url(#pattern-hex)',
-  defaultColor: '#607d8b'
+  color1: '#4ec1c2',
+  color2: '#4a5972',
+  color3: 'url(#lines)',
+  mineSites: '#bf3132',
+  defaultColor: '#e0e0e2'
 };
 
 export const MAP_LEGEND = [
   {
-    label: 'Producing countries',
+    label: 'Home countries, where companies are headquartered',
     color: MAP_COLORS.color1
   },
   {
-    label: 'Home country',
+    label: 'Producing countries',
     color: MAP_COLORS.color2
   },
   {
-    label: 'Selected mine sites',
-    color: MAP_COLORS.color3
+    label: 'Mine sites selected for mine-site-level assessment',
+    color: MAP_COLORS.mineSites,
+    type: 'circle'
   }
 ];
+
 
 export default {
   MAP_COLORS,

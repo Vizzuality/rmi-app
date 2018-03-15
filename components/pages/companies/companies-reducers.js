@@ -1,6 +1,6 @@
 
 import * as actions from './companies-actions';
-import { initialState } from './companies-initial-state';
+import initialState from './companies-initial-state';
 
 export default {
   [actions.setFilters]: (state, { payload }) => ({

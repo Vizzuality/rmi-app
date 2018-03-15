@@ -1,19 +1,21 @@
 
 import { createSelector } from 'reselect';
 
-const documents = state => state.documents.list;
+const documentMineSites = state => state.documentMineSites.list
 
 export const parseAssessments = createSelector(
-  [documents],
-  (_documents = []) => _documents.map(document => ({
-    id: document.id,
-    title: document.name,
-    url: {
-      label: document.url ? `${document.url.substring(0, 50)}...` : null,
-      value: document.url
-    },
-    downloadLink: document['download-link']
-  }))
+  [documentMineSites],
+  (_documentMineSites = {}) => (_documentMineSites || []).map((dms = {}) => ({
+      id: dms.document.id,
+      title: dms.document.name,
+      indicators: (dms.indicators || []).length ? dms.indicators.map(indicator => indicator.code).join(', ') : '-',
+      url: {
+        label: dms.document.url ? `${dms.document.url.substring(0, 50)}...` : null,
+        value: dms.document.url
+      },
+      downloadLink: dms.document['download-link']
+    })
+  )
 );
 
 export default { parseAssessments };

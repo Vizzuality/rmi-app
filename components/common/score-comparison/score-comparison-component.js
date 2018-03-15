@@ -29,7 +29,9 @@ class ScoreComparison extends PureComponent {
               backgroundColor: color,
               width: `calc(${ScoreComparison.getWidth(value)} + 2px)`
             }}
-          />
+          >
+            {!!value && <span className="score-value-string">{value}</span>}
+          </div>
           <div
             className="score-avg"
             style={{ left: ScoreComparison.getWidth(avg) }}

@@ -11,17 +11,27 @@ class CompaniesFilters extends PureComponent {
   static propTypes = {
     countries: PropTypes.array.isRequired,
     commodities: PropTypes.array.isRequired,
-    setFilters: PropTypes.func.isRequired
+    filters: PropTypes.object.isRequired,
+    setFilters: PropTypes.func.isRequired,
+    resetFilters: PropTypes.func.isRequired
+  }
+
+  componentWillUnmount() {
+    this.props.resetFilters();
   }
 
   handleCountry = (selectedOption = {}) =>
     this.props.setFilters({ country: selectedOption.value })
 
-  handleCommodity = (selectedOption = {}) =>
-    this.props.setFilters({ commodity: selectedOption.value })
+  handleCommodities = (selectedOptions = []) => {
+    const commodities = selectedOptions.length ?
+      selectedOptions.map(option => option.value) : undefined;
+    this.props.setFilters({ commodities });
+  }
 
   render() {
-    const { countries, commodities } = this.props;
+    const { countries, commodities, filters } = this.props;
+    const { country } = filters;
 
     return (
       <div className="c-companies-filters">
@@ -30,13 +40,15 @@ class CompaniesFilters extends PureComponent {
           placeholder="Select a home country"
           options={countries}
           theme="light"
+          selectedValue={country}
           onChange={this.handleCountry}
         />
         <Select
           placeholder="Select a commodity"
           options={commodities}
+          multiple
           theme="light"
-          onChange={this.handleCommodity}
+          onChange={this.handleCommodities}
         />
       </div>
     );
