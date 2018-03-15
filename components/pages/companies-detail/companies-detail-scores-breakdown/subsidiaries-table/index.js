@@ -13,7 +13,7 @@ import {
   resetSearch
 } from 'modules/subsidiaries/subsidiaries-actions';
 
-// Componets
+// Components
 import SubsidiariesTable from './subsidiaries-table-component';
 
 class SubsidiariesTableContainer extends PureComponent {

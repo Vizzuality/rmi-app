@@ -12,6 +12,7 @@ import CompaniesDetailMineSitesList from './companies-detail-mine-sites-list';
 import CompaniesDetailAccordion from './companies-detail-accordion';
 import CompaniesDetailOverallMeasurements from './companies-detail-overall-measurements';
 import SubsidiariesTable from './subsidiaries-table';
+import Unknowndata from './unknown-data';
 
 // constants
 import {
@@ -137,9 +138,9 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
         <section className="section -gray miscellaneous-lists">
           <div className="l-layout">
             <div className="row between-md">
-              <div className="col-md-5">
+              <div className="col-xs-12 col-md-5">
                 <h3 className="title">Main Shareholders</h3>
-                <Table
+                {shareholders.length ? <Table
                   columns={[
                     {
                       property: 'name',
@@ -147,19 +148,23 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
                     },
                     {
                       property: 'percent-shares',
-                      header: { label: 'Shares (%)' }
+                      header: { label: 'Shares (%)' },
+                      props: { style: {
+                          textAlign: 'right',
+                          minWidth: 90
+                      } }
                     }
                   ]}
                   rows={shareholders}
-                />
+                /> : <Unknowndata />}
               </div>
-              <div className="col-md-5">
+              <div className="col-xs-12 col-md-5">
                 <h3 className="title">Selection of Subsidaries</h3>
                 <SubsidiariesTable />
               </div>
             </div>
             <div className="row between-md">
-              <div className="col-md-5">
+              <div className="col-xs-12 col-md-5">
                 <h3 className="title">Beneficial Owners</h3>
                 {beneficialOwners.length ? <Table
                   columns={[
@@ -169,29 +174,32 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
                     },
                     {
                       property: 'percent-ownership',
-                      header: { label: 'Shares (%)' }
+                      header: { label: 'Shares (%)' },
+                      props: { style: { textAlign: 'right' } }
                     }
                   ]}
                   rows={beneficialOwners}
-                /> :
-                <span>unknown</span>}
+                /> : <Unknowndata />}
+              </div>
+            </div>
+
+            <div className="row">
+              <div className="col-sm-12">
+                <h3 className="title">Known Tax Jurisdictions</h3>
+                {knownTaxJurisdictions.length ? <Table
+                  columns={TAX_JURISDICTIONS_COLUMNS}
+                  rows={knownTaxJurisdictions}
+                /> : <Unknowndata asOf={false} />}
               </div>
             </div>
             <div className="row">
               <div className="col-sm-12">
-                <h3 className="title">Known Tax Jurisdictions</h3>
-                <Table
-                  columns={TAX_JURISDICTIONS_COLUMNS}
-                  rows={knownTaxJurisdictions}
-                />
+                <h3 className="title">Recent involvements in Investor/State investment disputes</h3>
+                {investmentDisputes.length ? <Table
+                  columns={INVESTMENT_DISPUTES_COLUMNS}
+                  rows={investmentDisputes}
+                /> : <Unknowndata asOf={false} />}
               </div>
-            </div>
-            <div className="col-md-12">
-              <h3 className="title">Recent involvements in Investor/State investment disputes</h3>
-              <Table
-                columns={INVESTMENT_DISPUTES_COLUMNS}
-                rows={investmentDisputes}
-              />
             </div>
             <div className="disclaimer">
               <p className="disclaimer-text">Disclaimer. Lorem ipsum dolor sit amet, consectetur

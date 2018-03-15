@@ -1,0 +1,21 @@
+@import 'css/settings';
+
+.c-unknown-data {
+  margin: 10px 0 0;
+
+  span {
+    display: block;
+    &:not(:first-child) {
+      margin: 20px 0 0;
+    }
+  }
+
+  > .as-of {
+    font-style: italic;
+    font-weight: $font-weight-light;
+  }
+
+  > .unknown-value {
+    font-weight: $font-weight-bold;
+  }
+}
