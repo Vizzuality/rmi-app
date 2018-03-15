@@ -25,7 +25,7 @@ class IndexPage extends PureComponent {
             <div className="row center-xs">
               <div className="col-xs-12 col-md-8">
                 <p className="subtitle">An evidence-based assessment of mining company policies
-                  and practices on economic, environmental, social and governance issues.
+                  and practices<br /> on economic, environmental, social and governance issues.
                 </p>
               </div>
             </div>
