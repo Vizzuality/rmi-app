@@ -11,8 +11,8 @@ export const parseIssueAreas = createSelector(
       label: 'Overall',
       value: 'overall',
       query: {
-        route: 'results-overall',
-        params: {}
+        route: 'results',
+        params: { section: 'overall' }
       }
     }];
 
@@ -21,8 +21,11 @@ export const parseIssueAreas = createSelector(
       label: issueArea.label,
       value: issueArea.slug,
       query: {
-        route: 'results-detail',
-        params: { id: issueArea.id }
+        route: 'results',
+        params: {
+          section: 'thematic',
+          id: issueArea.id
+        }
       }
     }));
 

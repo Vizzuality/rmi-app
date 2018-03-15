@@ -51,7 +51,7 @@ class Map extends PureComponent {
             />
           }
         >
-          <ZoomableGroup disablePanning>
+          <ZoomableGroup disablePanning zoom={1.13}>
             <Geographies geography={paths}>
               {(geographies, projection) => geographies.map(geography => (
                 <Geography

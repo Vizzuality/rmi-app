@@ -32,14 +32,6 @@ export const ALLMINE_SITE_TABLE_COLUMNS = [
   {
     property: 'mining-type',
     header: { label: 'Mining types' }
-  },
-  {
-    property: 'opening-year',
-    header: { label: 'Opening year' }
-  },
-  {
-    property: 'acquisition-year',
-    header: { label: 'Acquisition year' }
   }
 ];
 

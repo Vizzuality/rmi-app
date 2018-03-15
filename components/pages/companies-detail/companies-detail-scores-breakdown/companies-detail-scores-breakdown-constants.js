@@ -45,7 +45,7 @@ export const MINE_SITE_TABLE_COLUMNS = [
   },
   {
     property: 'overall',
-    header: { label: 'Overall (score /6.00)' },
+    header: { label: 'Mine site (score /6.00)' },
     props: {
       style: {
         backgroundColor: '#3b3a40',

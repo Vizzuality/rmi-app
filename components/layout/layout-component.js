@@ -1,27 +1,42 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import ReduxToastr from 'react-redux-toastr';
+import MediaQuery from 'react-responsive';
+import { Router } from 'routes';
 
 // components
 import Head from 'components/layout/head';
 import Icons from 'components/layout/icons';
 import Header from 'components/layout/header';
+import HeaderMobile from 'components/layout/header-mobile';
+import Sidebar from 'components/layout/sidebar';
 import Footer from 'components/layout/footer';
 
 import styles from 'css/index.scss';
+
+// utils
+import breakpoints from 'utils/responsive';
 
 class Layout extends PureComponent {
   static propTypes = {
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     children: PropTypes.any.isRequired,
-    footer: PropTypes.bool
+    footer: PropTypes.bool,
+    responsive: PropTypes.object.isRequired,
+    toggleSidebar: PropTypes.func.isRequired
   }
 
   static defaultProps = { footer: true }
 
+  componentDidMount() {
+    Router.onRouteChangeStart = () => {
+      this.props.toggleSidebar(false);
+    };
+  }
+
   render() {
-    const { title, description, children, footer } = this.props;
+    const { title, description, children, footer, responsive } = this.props;
 
     return (
       <div className="app">
@@ -31,8 +46,30 @@ class Layout extends PureComponent {
         />
         {/* Icons */}
         <Icons />
+
         {/* header */}
-        <Header />
+        <MediaQuery
+          maxDeviceWidth={breakpoints.md - 1}
+          values={{ deviceWidth: responsive.fakeWidth }}
+        >
+          <HeaderMobile />
+        </MediaQuery>
+
+        <MediaQuery
+          minDeviceWidth={breakpoints.md}
+          values={{ deviceWidth: responsive.fakeWidth }}
+        >
+          <Header />
+        </MediaQuery>
+
+        {/* mobile sidebar */}
+        <MediaQuery
+          maxDeviceWidth={breakpoints.md - 1}
+          values={{ deviceWidth: responsive.fakeWidth }}
+        >
+          <Sidebar />
+        </MediaQuery>
+
 
         {/* content */}
         <div className="layout-content">

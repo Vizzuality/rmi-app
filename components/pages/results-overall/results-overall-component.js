@@ -7,9 +7,6 @@ import Select from 'components/common/select';
 import OverallGraph from './overall-graphs';
 import TopCompanies from './top-companies';
 
-// styles
-import styles from './results-overall-styles.scss';
-
 class ResultsOverall extends PureComponent {
   static propTypes = { issueAreas: PropTypes.array.isRequired }
 
@@ -22,7 +19,6 @@ class ResultsOverall extends PureComponent {
     const { issueAreas } = this.props;
     return (
       <div className="c-results-overall-page">
-        <style jsx>{styles}</style>
         <div className="page-intro">
           <div className="l-layout">
             <div className="row">
