@@ -1,10 +1,12 @@
 import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
-import Paginator from 'components/common/paginator';
 
 // components
 import Table from 'components/common/table';
+import Paginator from 'components/common/paginator';
+import Search from 'components/common/search';
 import Unknowndata from '../unknown-data'
+
 
 // styles
 import styles from './subsidiaries-table-styles.scss';
@@ -33,6 +35,12 @@ class SubsidiariesTable extends PureComponent {
     return (
       <div className="c-subsidiaries-table">
         <style jsx>{styles}</style>
+        <h3 className="title">Selection of Subsidaries</h3>
+        <div className="filters-container">
+          <Search
+            onSearch={this.handleSearch}
+          />
+        </div>
         {subsidiaries.length ?
           <Fragment>
             <Table

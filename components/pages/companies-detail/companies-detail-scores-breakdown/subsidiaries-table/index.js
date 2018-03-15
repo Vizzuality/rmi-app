@@ -29,9 +29,9 @@ class SubsidiariesTableContainer extends PureComponent {
     const paginationChanged = !isEqual(pagination, nextPagination);
     const searchChanged = search !== nextSearch;
 
-    if (paginationChanged || searchChanged) {
-      this.props.getSubsidiaries({ 'filter[company]': id });
-    }
+    if (paginationChanged || searchChanged) this.props.getSubsidiaries({
+      'filter[company]': id
+    });
   }
 
   componentWillUnmount() {
@@ -53,7 +53,8 @@ export default connect(
     subsidiaries: state.subsidiaries.list,
     subsidiariesDate: (state.companies.list[0] || {})['subsidiaries-date'],
     pagination: state.subsidiaries.pagination,
-    company: state.companies.list[0] || {}
+    company: state.companies.list[0] || {},
+    search: state.subsidiaries.search
   }),
   {
     getSubsidiaries,

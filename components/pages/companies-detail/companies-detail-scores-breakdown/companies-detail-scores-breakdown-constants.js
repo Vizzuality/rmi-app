@@ -49,6 +49,7 @@ export const MINE_SITE_TABLE_COLUMNS = [
     props: {
       style: {
         backgroundColor: '#3b3a40',
+        paddingRight: 15,
         color: '#fff',
         textAlign: 'right'
       }
