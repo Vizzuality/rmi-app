@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import ReduxToastr from 'react-redux-toastr';
 import MediaQuery from 'react-responsive';
+import { Router } from 'routes';
 
 // components
 import Head from 'components/layout/head';
@@ -22,10 +23,17 @@ class Layout extends PureComponent {
     description: PropTypes.string.isRequired,
     children: PropTypes.any.isRequired,
     footer: PropTypes.bool,
-    responsive: PropTypes.object.isRequired
+    responsive: PropTypes.object.isRequired,
+    toggleSidebar: PropTypes.func.isRequired
   }
 
   static defaultProps = { footer: true }
+
+  componentDidMount() {
+    Router.onRouteChangeStart = () => {
+      this.props.toggleSidebar(false);
+    };
+  }
 
   render() {
     const { title, description, children, footer, responsive } = this.props;

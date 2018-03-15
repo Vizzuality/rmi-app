@@ -40,13 +40,11 @@ class HeaderMobile extends PureComponent {
         <style jsx>{styles}</style>
         <div className="l-layout">
           <div className="header-mobile-container">
-            <div className="logo">
-              <Link
-                route={root}
-              >
-                <a><img src={`/static/logos/${logo}.svg`} alt="RMI logo" /></a>
-              </Link>
-            </div>
+            <Link
+              route={root}
+            >
+              <a className="app-logo"><img src={`/static/logos/${logo}.svg`} alt="RMI logo" /></a>
+            </Link>
             <Button
               padding={false}
               onClick={this.handleToggleSidebar}

@@ -1,1 +1,1 @@
-export default { sidebar: { open: true } };
+export default { sidebar: { open: false } };

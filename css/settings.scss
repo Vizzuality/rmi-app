@@ -74,5 +74,6 @@ $md: 64rem;
 $lg: 80rem;
 
 // responsive – media queries
+$mq-sm: screen and (min-width: $sm);
 $mq-md: screen and (min-width: $md);
 $mq-lg: screen and (min-width: $lg);

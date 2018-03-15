@@ -14,16 +14,12 @@
     justify-content: space-between;
     height: $header-height-mobile;
 
-    > .logo {
+    .app-logo {
       display: inline-flex;
+      height: 24px;
 
-      > a {
-        display: inline-flex;
-        max-height: 24px;
-
-        > img {
-          height: 100%;
-        }
+      > img {
+        height: 100%;
       }
     }
   }
@@ -31,7 +27,7 @@
   &.-theme-1 {
     background: $color-2;
 
-    :global(.icon-menu) {
+    :global(svg) {
       fill: $color-7;
     }
   }
@@ -39,7 +35,7 @@
   &.-theme-2 {
     background: $color-7;
 
-    :global(.icon-menu) {
+    :global(svg) {
       fill: $color-1;
     }
   }

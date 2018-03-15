@@ -51,8 +51,8 @@ export const getNavigation = createSelector(
         query: {
           route: 'results',
           params: {
-            route: 'results',
-            id: indicatorChild.slug
+            section: 'thematic',
+            id: indicatorChild.id
           }
         }
       }));
