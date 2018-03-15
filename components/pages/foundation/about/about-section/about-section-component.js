@@ -4,9 +4,6 @@ import PropTypes from 'prop-types';
 // components
 import Breadcrumbs from 'components/common/breadcrumbs';
 
-// styles
-import styles from './about-section-styles.scss';
-
 class AboutSection extends PureComponent {
   static propTypes = { content: PropTypes.object }
 
@@ -18,7 +15,6 @@ class AboutSection extends PureComponent {
 
     return (
       <div className="c-contact">
-        <style jsx>{styles}</style>
         <div className="page-intro">
           <div className="l-layout">
             <div className="row">

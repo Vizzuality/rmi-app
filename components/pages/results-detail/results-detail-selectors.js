@@ -36,8 +36,8 @@ export const parseIssueAreas = createSelector(
       label: 'Overall',
       value: 'overall',
       query: {
-        route: 'results-overall',
-        params: {}
+        route: 'results',
+        params: { section: 'overall' }
       }
     }];
 

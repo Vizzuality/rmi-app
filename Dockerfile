@@ -1,4 +1,4 @@
-FROM node:8.1.2
+FROM node:8.10
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV NODE_ENV production
