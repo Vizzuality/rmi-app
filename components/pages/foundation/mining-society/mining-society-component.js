@@ -1,9 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-// styles
-import styles from './mining-society-styles.scss';
-
 class MiningSocietyPage extends PureComponent {
   static propTypes = { content: PropTypes.object.isRequired }
 
@@ -13,7 +10,6 @@ class MiningSocietyPage extends PureComponent {
 
     return (
       <div className="c-mining-society-page">
-        <style jsx>{styles}</style>
         <div className="page-intro">
           <div className="l-layout">
             <div className="row">

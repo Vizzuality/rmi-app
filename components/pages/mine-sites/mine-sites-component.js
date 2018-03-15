@@ -9,9 +9,6 @@ import { MAP_LEGEND } from './mine-sites-constants';
 // helpers
 import { getCompanyCountryColor } from './mine-sites-helpers';
 
-// styles
-import styles from './mine-sites-styles.scss';
-
 class MineSite extends PureComponent {
   static propTypes = {
     paths: PropTypes.array.isRequired,
@@ -31,7 +28,6 @@ class MineSite extends PureComponent {
 
     return (
       <div className="c-mine-site-page">
-        <style jsx>{styles}</style>
         <div className="page-intro">
           <div className="l-layout">
             <div className="row">
