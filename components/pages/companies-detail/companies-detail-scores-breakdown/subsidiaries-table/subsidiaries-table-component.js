@@ -6,6 +6,9 @@ import Table from 'components/common/table';
 import Paginator from 'components/common/paginator';
 import Search from 'components/common/search';
 
+// styles
+import styles from './subsidiaries-table-styles.scss';
+
 class SubsidiariesTable extends PureComponent {
   handlePagination = nextPage => this.props.setPaginationPage(nextPage);
   handleSearch = value => this.props.setSearch(value);
@@ -21,6 +24,7 @@ class SubsidiariesTable extends PureComponent {
 
     return (
       <div className="c-subsidiaries-table">
+        <style jsx>{styles}</style>
         <h3 className="title">Selection of Subsidaries</h3>
         <div className="filters-container">
           <Search
