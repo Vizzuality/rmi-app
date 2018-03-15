@@ -3,10 +3,13 @@ import { connect } from 'react-redux';
 // actions
 import { toggleSidebar } from 'modules/app/app-actions';
 
-// components
-import LayoutComponent from './layout-component';
+// component
+import Sidebar from './sidebar-component';
 
 export default connect(
-  state => ({ responsive: state.responsive }),
+  state => ({
+    open: state.app.sidebar.open,
+    routes: state.routes
+  }),
   { toggleSidebar }
-)(LayoutComponent);
+)(Sidebar);

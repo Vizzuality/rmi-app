@@ -31,7 +31,7 @@
 }
 
 .section {
-  padding: 55px 0 75px;
+  padding: 25px 0 45px;
 
   &.-dark {
     background: $color-2;
@@ -67,5 +67,9 @@
 
   .sidenote {
     font-weight: $font-weight-light;
+  }
+
+  @media #{$mq-md} {
+    padding: 55px 0 75px;
   }
 }

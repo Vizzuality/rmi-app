@@ -10,15 +10,18 @@ export const INDEX_NAVIGATION = [{
   children: [{
     id: '1-1',
     label: 'Overall results',
-    slug: 'overall-results',
-    query: { route: 'results-overall' }
+    slug: 'results-overall',
+    query: {
+      route: 'results',
+      params: { section: 'overall' }
+    }
   }, {
     id: '1-2',
     label: 'Thematic Areas',
     slug: 'thematic-areas',
     query: {
       route: 'results',
-      params: {}
+      params: { route: 'results' }
     },
     children: [],
     noLink: true
