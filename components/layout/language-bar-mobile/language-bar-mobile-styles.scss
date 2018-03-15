@@ -1,0 +1,64 @@
+@import 'css/settings';
+
+.c-language-bar {
+  padding: 20px 0;
+  background: $color-7;
+  box-shadow: 0 4px 16px 0 rgba($color-1, .1);
+
+  > .languages-list {
+    padding: 0 25px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+
+    &:before {
+      content: '';
+      z-index: 2;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      display: inline-block;
+      width: 25px;
+      background: linear-gradient(to left, rgba($color-7, 0), $color-7);
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      display: inline-block;
+      width: 25px;
+      background: linear-gradient(to right, rgba($color-7, 0), $color-7);
+    }
+  }
+
+  > .languages-list > .languages-item {
+    display: inline-block;
+
+    &:not(:first-child) {
+      margin-left: 15px;
+    }
+
+    > a {
+      font-family: $font-family-2;
+      font-size: $font-size-smallest;
+      color: rgba($color-1, .5);
+      text-transform: uppercase;
+
+      @media #{$mq-md} {
+        &:hover {
+          color: $color-8;
+        }
+      }
+    }
+
+    &.-selected {
+      > a {
+        color: $color-8;
+      }
+    }
+  }
+}

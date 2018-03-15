@@ -3,6 +3,7 @@
 $layout-max-width: 1080px;
 $flexboxgrid-grid-columns: 12;
 $gutter-width: 20px;
+$header-height-mobile: 42px;
 $header-height: 102px;
 $header-company-detail-height: 71px;
 
@@ -64,4 +65,15 @@ $font-size-huge: 28px;
 $font-size-giant: 60px;
 
 $animation-time: .75s;
+$animation-time-2: .35s;
 $ease-in-out-sine: cubic-bezier(0.445, 0.050, 0.550, 0.950);
+
+// responsive
+$sm: 48rem;
+$md: 64rem;
+$lg: 80rem;
+
+// responsive – media queries
+$mq-sm: screen and (min-width: $sm);
+$mq-md: screen and (min-width: $md);
+$mq-lg: screen and (min-width: $lg);

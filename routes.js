@@ -14,9 +14,10 @@ routes.add('contact', '/foundation/contact', 'foundation-pages/contact');
 // Index routes
 routes.add('companies', '/companies/:company?', 'companies');
 routes.add('mine-sites', '/mine-sites/:mineSite?', 'mine-sites');
-routes.add('results-overall', '/:language?/results/overall', 'results-overall');
-routes.add('results-detail', '/:language?/results/thematic/:id', 'results-detail');
-routes.add('static-results', '/:language?/results/:id?', 'static-results');
+routes.add('results', '/results/:section?/:id?', 'results');
+// routes.add('results-overall', '/:language?/results/overall', 'results-overall');
+// routes.add('results-detail', '/:language?/results/thematic/:id', 'results-detail');
+// routes.add('static-results', '/:language?/results/:id?', 'static-results');
 routes.add('leading-practices', '/:year?/leading-practices', 'leading-practices');
 routes.add('library', '/:language?/library', 'library');
 routes.add('index', '/:language?', 'index');

@@ -51,13 +51,8 @@ class NavBar extends PureComponent {
     const tabElements = tabs.map((tab) => {
       if (!tab.children) {
         return (
-          <Fragment
-            key={tab.id}
-          >
-            <li
-              className={this.getTabClass(tab)}
-
-            >
+          <Fragment key={tab.id}>
+            <li className={this.getTabClass(tab)}>
               <Link
                 route={tab.query.route}
                 params={tab.query.params}
