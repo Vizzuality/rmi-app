@@ -14,6 +14,7 @@ import mineSitesModule from 'modules/mine-sites';
 import documentsModule from 'modules/documents';
 import scoresModule from 'modules/scores';
 import documentMineSitesModule from 'modules/document-mine-sites';
+import subsidiariesModule from 'modules/subsidiaries';
 
 // components modules
 import * as CompaniesFiltersModule from 'components/pages/companies/companies-filters';
@@ -34,6 +35,7 @@ export default {
   countries: handleModule(countriesModule),
   commodities: handleModule(commoditiesModule),
   indicators: handleModule(indicatorsModule),
+  subsidiaries: handleModule(subsidiariesModule),
   mineSites: handleModule(mineSitesModule),
   documents: handleModule(documentsModule),
   documentMineSites: handleModule(documentMineSitesModule),

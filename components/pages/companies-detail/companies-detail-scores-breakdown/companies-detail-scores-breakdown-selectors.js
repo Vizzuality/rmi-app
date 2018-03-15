@@ -3,15 +3,7 @@ import { createSelector } from 'reselect';
 import groupBy from 'lodash/groupBy';
 
 const scores = state => (state.companies.list[0] || {}).scores;
-<<<<<<< HEAD
-const mineSites = state => (state.companies.list[0] || {})['mine-sites'];
-=======
 const selectedMineSites = state => (state.companies.list[0] || {})['selected-mine-sites'];
-const shareholders = state => (state.companies.list[0] || {}).shareholders;
-const subsidiaries = state => (state.companies.list[0] || {}).subsidiaries;
-const beneficialOwners = state => (state.companies.list[0] || {})['beneficial-owners'];
-const investmentDisputes = state => (state.companies.list[0] || {})['investment-disputes'];
->>>>>>> develop
 const knownTaxJurisdictions = state =>
   (state.companies.list[0] || {})['company-country-tax-jurisdictions'];
 

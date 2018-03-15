@@ -9,9 +9,9 @@ import SpiderChart from 'components/charts/spiderchart';
 import StackedBars from 'components/charts/stacked-bars';
 import Table from 'components/common/table';
 import CompaniesDetailMineSitesList from './companies-detail-mine-sites-list';
-import ScoresList from './scores-list';
 import CompaniesDetailAccordion from './companies-detail-accordion';
 import CompaniesDetailOverallMeasurements from './companies-detail-overall-measurements';
+import SubsidiariesTable from './subsidiaries-table';
 
 // constants
 import {
@@ -39,7 +39,7 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
   render() {
     const {
       company, overallScores, breakdownScores, mineSites,
-      shareholders, subsidiaries, beneficialOwners,
+      shareholders, beneficialOwners,
       investmentDisputes, knownTaxJurisdictions
     } = this.props;
     const {
@@ -154,20 +154,8 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
                 />
               </div>
               <div className="col-md-5">
-                <h3 className="title">Selection of Subisidaries</h3>
-                <Table
-                  columns={[
-                    {
-                      property: 'name',
-                      header: { label: `As of: ${subsidiariesDate || 'unknown'}` }
-                    },
-                    {
-                      property: 'percent-controlled-ownership',
-                      header: { label: 'Shares (%)' }
-                    }
-                  ]}
-                  rows={subsidiaries}
-                />
+                <h3 className="title">Selection of Subsidaries</h3>
+                <SubsidiariesTable />
               </div>
             </div>
             <div className="row between-md">
