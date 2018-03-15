@@ -1,9 +1,10 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import Paginator from 'components/common/paginator';
 
 // components
 import Table from 'components/common/table';
+import Paginator from 'components/common/paginator';
+import Search from 'components/common/search';
 
 class SubsidiariesTable extends PureComponent {
   handlePagination = nextPage => this.props.setPaginationPage(nextPage);
@@ -19,7 +20,13 @@ class SubsidiariesTable extends PureComponent {
     const { size, limit, page } = pagination;
 
     return (
-      <div className="subsidiaries-table">
+      <div className="c-subsidiaries-table">
+        <h3 className="title">Selection of Subsidaries</h3>
+        <div className="filters-container">
+          <Search
+            onSearch={this.handleSearch}
+          />
+        </div>
         <Table
           columns={[
             {

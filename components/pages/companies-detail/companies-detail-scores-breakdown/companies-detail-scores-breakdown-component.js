@@ -154,7 +154,6 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
                 />
               </div>
               <div className="col-md-5">
-                <h3 className="title">Selection of Subsidaries</h3>
                 <SubsidiariesTable />
               </div>
             </div>
