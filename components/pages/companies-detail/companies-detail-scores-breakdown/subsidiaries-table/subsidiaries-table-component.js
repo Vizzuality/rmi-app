@@ -42,6 +42,7 @@ class SubsidiariesTable extends PureComponent {
         <div className="filters-container">
           <Search
             onSearch={this.handleSearch}
+            placeholder='Search for a subsidiary...'
           />
         </div>
         {subsidiaries.length ?
