@@ -22,7 +22,10 @@ class SubsidiariesTable extends PureComponent {
 
   handlePagination = nextPage => this.props.setPaginationPage(nextPage);
 
-  handleSearch = value => this.props.setSearch(value);
+  handleSearch = value => {
+    this.props.setPaginationPage(1);
+    this.props.setSearch(value);
+  }
 
   render() {
     const {
@@ -39,6 +42,7 @@ class SubsidiariesTable extends PureComponent {
         <div className="filters-container">
           <Search
             onSearch={this.handleSearch}
+            placeholder='Search for a subsidiary...'
           />
         </div>
         {subsidiaries.length ?
