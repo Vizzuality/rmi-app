@@ -26,7 +26,10 @@ class MineSitesDetailAssessmentsTable extends PureComponent {
 
   handlePagination = nextPage => this.props.setPaginationPage(nextPage);
 
-  handleSearch = value => this.props.setSearch(value);
+  handleSearch = value => {
+    this.props.setPaginationPage(1);
+    this.props.setSearch(value);
+  }
 
   handleSize = ({ value }) => {
     if (value == null) {
@@ -49,6 +52,7 @@ class MineSitesDetailAssessmentsTable extends PureComponent {
         <div className="filters-container">
           <Search
             onSearch={this.handleSearch}
+            placeholder="Search for a document..."
           />
           <Select
             placeholder="Select quantity"
