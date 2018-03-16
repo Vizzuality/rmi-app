@@ -52,6 +52,7 @@ class MineSitesDetailAssessmentsTable extends PureComponent {
         <div className="filters-container">
           <Search
             onSearch={this.handleSearch}
+            placeholder="Search for a document..."
           />
           <Select
             placeholder="Select quantity"
