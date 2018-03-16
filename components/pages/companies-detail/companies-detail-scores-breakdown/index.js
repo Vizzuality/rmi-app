@@ -4,10 +4,6 @@ import {
   getOverallScores,
   getBreakdownScores,
   parseMineSitesScores,
-  parseShareholders,
-  parseSubsidiaries,
-  parseBeneficialOwners,
-  parseInvestmentDisputes,
   parseKnownTaxJurisdictions
 } from './companies-detail-scores-breakdown-selectors';
 
@@ -16,10 +12,9 @@ export default connect(
     overallScores: getOverallScores(state),
     breakdownScores: getBreakdownScores(state),
     mineSites: parseMineSitesScores(state),
-    shareholders: parseShareholders(state),
-    subsidiaries: parseSubsidiaries(state),
-    beneficialOwners: parseBeneficialOwners(state),
-    investmentDisputes: parseInvestmentDisputes(state),
+    shareholders: (state.companies.list[0] || {}).shareholders,
+    beneficialOwners: (state.companies.list[0] || {})['beneficial-owners'],
+    investmentDisputes: (state.companies.list[0] || {})['investment-disputes'],
     knownTaxJurisdictions: parseKnownTaxJurisdictions(state),
     company: state.companies.list
   }),

@@ -1,0 +1,20 @@
+.c-subsidiaries-table {
+  .filters-container{
+    display: flex;
+    width: 100%;
+    margin: 30px 0 20px;
+
+    :global(.c-search) {
+      width: 100%;
+
+      :global(input) {
+        width: 100%;
+      }
+    }
+  }
+
+  .paginator-container {
+    display: flex;
+    justify-content: center;
+  }
+}

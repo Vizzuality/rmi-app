@@ -9,16 +9,16 @@ import SpiderChart from 'components/charts/spiderchart';
 import StackedBars from 'components/charts/stacked-bars';
 import Table from 'components/common/table';
 import CompaniesDetailMineSitesList from './companies-detail-mine-sites-list';
-import ScoresList from './scores-list';
 import CompaniesDetailAccordion from './companies-detail-accordion';
 import CompaniesDetailOverallMeasurements from './companies-detail-overall-measurements';
+import SubsidiariesTable from './subsidiaries-table';
+import Unknowndata from './unknown-data';
 
 // constants
 import {
   MINE_SITE_TABLE_COLUMNS,
-  DEFAULT_LIST_HEADERS,
-  KNOWN_TAX_JURISDICTIONS_LIST_HEADERS,
-  INVESTMENT_DISPUTES_LIST_HEADERS
+  INVESTMENT_DISPUTES_COLUMNS,
+  TAX_JURISDICTIONS_COLUMNS
 } from './companies-detail-scores-breakdown-constants';
 
 // styles
@@ -30,35 +30,22 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
     mineSites: PropTypes.array.isRequired,
     breakdownScores: PropTypes.array.isRequired,
     shareholders: PropTypes.array.isRequired,
-    subsidiaries: PropTypes.array.isRequired,
     beneficialOwners: PropTypes.array.isRequired,
     investmentDisputes: PropTypes.array.isRequired,
     knownTaxJurisdictions: PropTypes.array.isRequired,
     company: PropTypes.array.isRequired
   }
 
-  static getHeaderList(addedValue) {
-    const headerListHeaders = [...DEFAULT_LIST_HEADERS];
-    const updatedHeaderList = {
-      ...DEFAULT_LIST_HEADERS[0],
-      name: `${DEFAULT_LIST_HEADERS[0].name} ${addedValue || 'unknown'}`
-    };
-
-    headerListHeaders[0] = updatedHeaderList;
-
-    return headerListHeaders;
-  }
-
   render() {
     const {
       company, overallScores, breakdownScores, mineSites,
-      shareholders, subsidiaries, beneficialOwners,
+      shareholders, beneficialOwners,
       investmentDisputes, knownTaxJurisdictions
     } = this.props;
     const {
-      shareholdersDate,
-      subsidiariesDate,
-      beneficialOwnersDate,
+      'shareholders-date': shareholdersDate,
+      'subsidiaries-date': subsidiariesDate,
+      'beneficial-owners-dates': beneficialOwnersDate,
       summary
     } = company[0] || {};
 
@@ -150,44 +137,66 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
         <section className="section -gray miscellaneous-lists">
           <div className="l-layout">
             <div className="row between-md">
-              <div className="col-md-5">
-                <ScoresList
-                  title="Main Shareholders"
-                  headers={CompaniesDetailScoresBreakDown.getHeaderList(shareholdersDate)}
-                  data={shareholders}
-                />
+              <div className="col-xs-12 col-md-5">
+                <h3 className="title">Main Shareholders</h3>
+                {shareholders.length ? <Table
+                  columns={[
+                    {
+                      property: 'name',
+                      header: { label: `As of: ${shareholdersDate || 'unknown'}` }
+                    },
+                    {
+                      property: 'percent-shares',
+                      header: { label: 'Shares (%)' },
+                      props: { style: {
+                          textAlign: 'right',
+                          minWidth: 90
+                      } }
+                    }
+                  ]}
+                  rows={shareholders}
+                /> : <Unknowndata />}
               </div>
-              <div className="col-md-5">
-                <ScoresList
-                  title="Selection of Subisidaries"
-                  headers={CompaniesDetailScoresBreakDown.getHeaderList(subsidiariesDate)}
-                  data={subsidiaries}
-                />
+              <div className="col-xs-12 col-md-5">
+                <SubsidiariesTable />
               </div>
             </div>
             <div className="row between-md">
-              <div className="col-md-5">
-                <ScoresList
-                  title="Beneficial Owners"
-                  headers={CompaniesDetailScoresBreakDown.getHeaderList(beneficialOwnersDate)}
-                  data={beneficialOwners}
-                />
+              <div className="col-xs-12 col-md-5">
+                <h3 className="title">Beneficial Owners</h3>
+                {beneficialOwners.length ? <Table
+                  columns={[
+                    {
+                      property: 'name',
+                      header: { label: `As of: ${beneficialOwnersDate || 'unknown'}` }
+                    },
+                    {
+                      property: 'percent-ownership',
+                      header: { label: 'Shares (%)' },
+                      props: { style: { textAlign: 'right' } }
+                    }
+                  ]}
+                  rows={beneficialOwners}
+                /> : <Unknowndata />}
               </div>
-              <div className="col-md-5">
-                <ScoresList
-                  title="Recent involvements in Investor/State investment disputes"
-                  headers={INVESTMENT_DISPUTES_LIST_HEADERS}
-                  data={investmentDisputes}
-                />
+            </div>
+
+            <div className="row">
+              <div className="col-sm-12">
+                <h3 className="title">Known Tax Jurisdictions</h3>
+                {knownTaxJurisdictions.length ? <Table
+                  columns={TAX_JURISDICTIONS_COLUMNS}
+                  rows={knownTaxJurisdictions}
+                /> : <Unknowndata asOf={false} />}
               </div>
             </div>
             <div className="row">
-              <div className="col-md-5">
-                <ScoresList
-                  title="Known Tax Jurisdictions"
-                  headers={KNOWN_TAX_JURISDICTIONS_LIST_HEADERS}
-                  data={knownTaxJurisdictions}
-                />
+              <div className="col-sm-12">
+                <h3 className="title">Recent involvements in Investor/State investment disputes</h3>
+                {investmentDisputes.length ? <Table
+                  columns={INVESTMENT_DISPUTES_COLUMNS}
+                  rows={investmentDisputes}
+                /> : <Unknowndata asOf={false} />}
               </div>
             </div>
             <div className="disclaimer">

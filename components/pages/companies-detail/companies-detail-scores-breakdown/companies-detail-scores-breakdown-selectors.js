@@ -4,10 +4,6 @@ import groupBy from 'lodash/groupBy';
 
 const scores = state => (state.companies.list[0] || {}).scores;
 const selectedMineSites = state => (state.companies.list[0] || {})['selected-mine-sites'];
-const shareholders = state => (state.companies.list[0] || {}).shareholders;
-const subsidiaries = state => (state.companies.list[0] || {}).subsidiaries;
-const beneficialOwners = state => (state.companies.list[0] || {})['beneficial-owners'];
-const investmentDisputes = state => (state.companies.list[0] || {})['investment-disputes'];
 const knownTaxJurisdictions = state =>
   (state.companies.list[0] || {})['company-country-tax-jurisdictions'];
 
@@ -65,58 +61,40 @@ export const getBreakdownScores = createSelector(
   }
 );
 
-export const parseShareholders = createSelector(
-  [shareholders],
-  (_shareholders = []) => _shareholders.map(shareholder => ({
-    id: shareholder.id,
-    name: shareholder.name,
-    value: shareholder['percent-shares']
-  }))
-);
-
-export const parseSubsidiaries = createSelector(
-  [subsidiaries],
-  (_subsidiaries = []) => _subsidiaries.map(subsidiarie => ({
-    id: subsidiarie.id,
-    name: subsidiarie.name,
-    value: subsidiarie['percent-controlled-ownership']
-  }))
-);
-
-export const parseBeneficialOwners = createSelector(
-  [beneficialOwners],
-  (_beneficialOwners = []) => _beneficialOwners.map(beneficialOwner => ({
-    id: beneficialOwner.id,
-    name: beneficialOwner.name,
-    value: beneficialOwner['percent-ownership']
-  }))
-);
-
-export const parseInvestmentDisputes = createSelector(
-  [investmentDisputes],
-  (_investmentDisputes = []) => _investmentDisputes.map(investmentDispute => ({
-    id: investmentDispute.id,
-    name: investmentDispute.number,
-    value: investmentDispute.status
-  }))
-);
-
 export const parseKnownTaxJurisdictions = createSelector(
   [knownTaxJurisdictions],
-  (_knownTaxJurisdictions = []) => _knownTaxJurisdictions.map(knownTaxJurisdiction => ({
-    id: knownTaxJurisdiction.id,
-    name: knownTaxJurisdiction.country.name,
-    value: knownTaxJurisdiction.disclosure
-  }))
+  (_knownTaxJurisdictions = []) => {
+    const numberRows = 6;
+    const totalRows = (_knownTaxJurisdictions.length / numberRows) > parseInt(_knownTaxJurisdictions.length / numberRows, 10) ?
+      parseInt(_knownTaxJurisdictions.length / numberRows, 10) + 1 : parseInt(_knownTaxJurisdictions.length / numberRows, 10);
+    const slides = [];
+    const parsed = [];
+
+    for (let i = 0; i < totalRows; i++) {
+      const limit = ((i * numberRows) + numberRows);
+      const slicedJurisdictions = _knownTaxJurisdictions.slice(i * numberRows, limit);
+      slides.push(slicedJurisdictions);
+    }
+
+    for (let i = 0; i < slides.length; i++) {
+      const jurisdictions = slides[i];
+      parsed.push({
+        jurisdiction1: jurisdictions[0],
+        jurisdiction2: jurisdictions[1],
+        jurisdiction3: jurisdictions[2],
+        jurisdiction4: jurisdictions[3],
+        jurisdiction5: jurisdictions[4],
+        jurisdiction6: jurisdictions[5]
+      });
+    }
+
+    return parsed;
+  }
 );
 
 export default {
   getOverallScores,
   getBreakdownScores,
   parseMineSitesScores,
-  parseShareholders,
-  parseSubsidiaries,
-  parseBeneficialOwners,
-  parseInvestmentDisputes,
   parseKnownTaxJurisdictions
 };
