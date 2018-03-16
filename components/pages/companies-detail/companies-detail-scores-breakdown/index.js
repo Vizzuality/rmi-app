@@ -1,10 +1,14 @@
 import { connect } from 'react-redux';
+
 import CompaniesDetailScoresBreakdown from './companies-detail-scores-breakdown-component';
 import {
   getOverallScores,
   getBreakdownScores,
   parseMineSitesScores,
-  parseKnownTaxJurisdictions
+  parseKnownTaxJurisdictions,
+  parseShareholders,
+  parseBeneficialOwners,
+  parseInvestmentDisputes
 } from './companies-detail-scores-breakdown-selectors';
 
 export default connect(
@@ -12,9 +16,9 @@ export default connect(
     overallScores: getOverallScores(state),
     breakdownScores: getBreakdownScores(state),
     mineSites: parseMineSitesScores(state),
-    shareholders: (state.companies.list[0] || {}).shareholders,
-    beneficialOwners: (state.companies.list[0] || {})['beneficial-owners'],
-    investmentDisputes: (state.companies.list[0] || {})['investment-disputes'],
+    shareholders: parseShareholders(state),
+    beneficialOwners: parseBeneficialOwners(state),
+    investmentDisputes: parseInvestmentDisputes(state),
     knownTaxJurisdictions: parseKnownTaxJurisdictions(state),
     company: state.companies.list
   }),

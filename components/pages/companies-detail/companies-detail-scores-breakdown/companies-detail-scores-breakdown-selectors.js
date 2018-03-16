@@ -1,9 +1,13 @@
 
 import { createSelector } from 'reselect';
 import groupBy from 'lodash/groupBy';
+import orderBy from 'lodash/orderBy';
 
 const scores = state => (state.companies.list[0] || {}).scores;
 const selectedMineSites = state => (state.companies.list[0] || {})['selected-mine-sites'];
+const shareholders = state => (state.companies.list[0] || {}).shareholders;
+const beneficialOwners = state => (state.companies.list[0] || {})['beneficial-owners'];
+const investmentDisputes = state => (state.companies.list[0] || {})['investment-disputes'];
 const knownTaxJurisdictions = state =>
   (state.companies.list[0] || {})['company-country-tax-jurisdictions'];
 
@@ -19,10 +23,25 @@ export const getOverallScores = createSelector(
   }
 );
 
+export const parseShareholders = createSelector(
+  [shareholders],
+  (_shareholders = []) => orderBy(_shareholders, 'name', ['asc'])
+)
+
+export const parseBeneficialOwners = createSelector(
+  [beneficialOwners],
+  (_beneficialOwners = []) => orderBy(_beneficialOwners, 'name', ['asc'])
+)
+
+export const parseInvestmentDisputes = createSelector(
+  [investmentDisputes],
+  (_investmentDisputes = []) => orderBy(_investmentDisputes, 'name', ['asc'])
+)
+
 export const parseMineSitesScores = createSelector(
   [selectedMineSites],
   (_selectedMineSites = []) =>
-    _selectedMineSites.map(mineSite => ({
+    orderBy(_selectedMineSites.map(mineSite => ({
       id: mineSite.id,
       name: mineSite.name,
       localProcurment: ((mineSite.scores || []).find(score => score.slug.includes('ms-01-1')) || {}).value,
@@ -32,7 +51,7 @@ export const parseMineSitesScores = createSelector(
       waterQuality: ((mineSite.scores || []).find(score => score.slug.includes('ms-05-1')) || {}).value,
       biodiversity: ((mineSite.scores || []).find(score => score.slug.includes('ms-06-1')) || {}).value,
       overall: ((mineSite.scores || []).find(score => score.kind === 'overal_mine_site') || {}).value
-    }))
+    })), 'name', ['asc'])
 );
 
 
@@ -64,15 +83,16 @@ export const getBreakdownScores = createSelector(
 export const parseKnownTaxJurisdictions = createSelector(
   [knownTaxJurisdictions],
   (_knownTaxJurisdictions = []) => {
+    const sorted = orderBy(_knownTaxJurisdictions, 'country.name', ['asc']);
     const numberRows = 6;
-    const totalRows = (_knownTaxJurisdictions.length / numberRows) > parseInt(_knownTaxJurisdictions.length / numberRows, 10) ?
-      parseInt(_knownTaxJurisdictions.length / numberRows, 10) + 1 : parseInt(_knownTaxJurisdictions.length / numberRows, 10);
+    const totalRows = (sorted.length / numberRows) > parseInt(sorted.length / numberRows, 10) ?
+      parseInt(sorted.length / numberRows, 10) + 1 : parseInt(sorted.length / numberRows, 10);
     const slides = [];
     const parsed = [];
 
     for (let i = 0; i < totalRows; i++) {
       const limit = ((i * numberRows) + numberRows);
-      const slicedJurisdictions = _knownTaxJurisdictions.slice(i * numberRows, limit);
+      const slicedJurisdictions = sorted.slice(i * numberRows, limit);
       slides.push(slicedJurisdictions);
     }
 
