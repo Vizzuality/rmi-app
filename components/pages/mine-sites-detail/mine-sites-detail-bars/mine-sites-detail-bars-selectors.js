@@ -12,7 +12,7 @@ export const getOverallScore = createSelector(
 
 export const getScores = createSelector(
   [scores],
-  (_scores = []) => sortBy(_scores.filter(score => score.kind == 'indicator_mine_site'), (score) => score.indicator.code).map(score => ({
+  (_scores = []) => sortBy(_scores.filter(score => score.kind == 'indicator_mine_site'), score => score.indicator.code).map(score => ({
     id: score.id,
     name: (score.indicator || {}).code,
     value: score.value
