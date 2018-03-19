@@ -64,17 +64,17 @@ class CompaniesDetailSidebar extends PureComponent {
                 <div className="definition-item">
                   <div className="definition-key">Number of workers:</div>
                   <div className="definition-value">
-                    {workers.toLocaleString()}
+                    {parseInt(workers) ? (+workers).toLocaleString() : workers}
                     <span>{workersDate && ` (${workersDate})`}</span>
                   </div>
-                </div>} 
+                </div>}
             </div>
             <div className="col-xs-12 col-md-6">
               {employees !== null &&
                 <div className="definition-item">
                   <div className="definition-key">Number of employees:</div>
                   <div className="definition-value">
-                    {employees.toLocaleString()}
+                    {parseInt(employees) ? (+employees).toLocaleString() : employees}
                     <span>{employeesDate && ` (${employeesDate})`}</span>
                   </div>
                 </div>}
