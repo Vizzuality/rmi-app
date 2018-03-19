@@ -1,5 +1,6 @@
 
 import { createSelector } from 'reselect';
+import sortBy from 'lodash/sortBy';
 
 
 const scores = state => (state.mineSites.list[0] || {}).scores;
@@ -11,7 +12,7 @@ export const getOverallScore = createSelector(
 
 export const getScores = createSelector(
   [scores],
-  (_scores = []) => _scores.filter(score => score.kind == 'indicator_mine_site').map(score => ({
+  (_scores = []) => sortBy(_scores.filter(score => score.kind == 'indicator_mine_site'), (score) => score.indicator.code).map(score => ({
     id: score.id,
     name: (score.indicator || {}).code,
     value: score.value
