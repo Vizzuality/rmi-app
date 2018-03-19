@@ -1,6 +1,6 @@
-
 import { createSelector } from 'reselect';
 import { paths } from 'components/common/map/map-helpers';
+import compact from 'lodash/compact';
 
 // constants
 import { EXCLUDED_COUNTRIES } from 'constants/map';
@@ -32,7 +32,7 @@ export const getUpdatedPaths = createSelector(
           properties: {
             ...geography.properties,
             id: index,
-            isHome: homeCountries.includes((country || {}).code),
+            isHome: compact(homeCountries).includes((country || {}).code),
             isProducing: producingCountries.includes((country || {}).code)
           }
         };
