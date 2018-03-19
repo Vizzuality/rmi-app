@@ -11,10 +11,9 @@ export const getOverallScore = createSelector(
 
 export const getScores = createSelector(
   [scores],
-  (_scores = []) => _scores.map(score => ({
+  (_scores = []) => _scores.filter(score => score.kind == 'indicator_mine_site').map(score => ({
     id: score.id,
-    name: score.kind === 'overal_mine_site' ?
-      'MS' : (score.indicator || {}).code,
+    name: (score.indicator || {}).code,
     value: score.value
   }))
 );
