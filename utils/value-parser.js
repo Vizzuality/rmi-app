@@ -8,4 +8,11 @@ export const valueParser = (value, toLocaleString = false) => {
   return value;
 };
 
-export default { valueParser };
+export const fixedValue = (value, decimals = 2) => {
+  return value.toFixed(decimals);
+};
+
+export default {
+  valueParser,
+  fixedValue
+};

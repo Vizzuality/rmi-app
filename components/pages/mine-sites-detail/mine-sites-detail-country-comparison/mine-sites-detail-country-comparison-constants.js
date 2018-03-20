@@ -1,4 +1,5 @@
 import { valueParser } from 'utils/value-parser'
+import { fixedValue } from 'utils/value-parser'
 
 export const COMPARISON_COUNTRY_KEYS = {
   'world-bank-country-classification': {
@@ -27,15 +28,15 @@ export const COMPARISON_COUNTRY_KEYS = {
   },
   'gdp-growth-annual-percent': {
     title: () => 'GDP annual growth (%)',
-    value: value => valueParser(value)
+    value: value => fixedValue(valueParser(value))
   },
   'mining-percent-of-gdp': {
     title: () => 'Mining sector (% of GDP)',
-    value: value => valueParser(value)
+    value: value => fixedValue(valueParser(value))
   },
   'ores-and-metals-percent-of-exports': {
     title: () => 'Ores and metals percent of export',
-    value: value => valueParser(value)
+    value: value => fixedValue(valueParser(value))
   },
   'ilo-169-status': {
     title: () => 'ILO Convention 169 (Indigenous and Tribal Peoples)',
