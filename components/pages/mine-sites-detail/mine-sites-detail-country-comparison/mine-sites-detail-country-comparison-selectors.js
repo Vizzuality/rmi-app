@@ -33,9 +33,9 @@ export const parseCountries = createSelector(
     const { country: homeCountry } = company;
 
     return Object.keys(COMPARISON_COUNTRY_KEYS).map(key => ({
-      key: COMPARISON_COUNTRY_KEYS[key](homeCountry),
-      producingCountry: producingCountry[key] || '-',
-      homeCountry: homeCountry[key] || '-'
+      key: COMPARISON_COUNTRY_KEYS[key]['title'](homeCountry),
+      producingCountry: COMPARISON_COUNTRY_KEYS[key]['value'](producingCountry[key]),
+      homeCountry: COMPARISON_COUNTRY_KEYS[key]['value'](homeCountry[key])
     }));
   }
 );
