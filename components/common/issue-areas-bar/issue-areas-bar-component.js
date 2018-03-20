@@ -39,7 +39,7 @@ class IssueAreasBar extends PureComponent {
               >
                 <Icon
                   name={issueArea.slug}
-                  className="-big"
+                  className="-x-big"
                 />
               </button>
             </li>
