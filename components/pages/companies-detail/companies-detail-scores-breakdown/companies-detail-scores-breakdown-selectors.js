@@ -2,6 +2,8 @@
 import { createSelector } from 'reselect';
 import groupBy from 'lodash/groupBy';
 import orderBy from 'lodash/orderBy';
+import { valueParser } from 'utils/value-parser'
+import { fixedValue } from 'utils/value-parser'
 
 const scores = state => (state.companies.list[0] || {}).scores;
 const selectedMineSites = state => (state.companies.list[0] || {})['selected-mine-sites'];
@@ -50,7 +52,7 @@ export const parseMineSitesScores = createSelector(
       workersGrievance: ((mineSite.scores || []).find(score => score.slug.includes('ms-04-1')) || {}).value,
       waterQuality: ((mineSite.scores || []).find(score => score.slug.includes('ms-05-1')) || {}).value,
       biodiversity: ((mineSite.scores || []).find(score => score.slug.includes('ms-06-1')) || {}).value,
-      overall: ((mineSite.scores || []).find(score => score.kind === 'overal_mine_site') || {}).value
+      overall: fixedValue(valueParser(((mineSite.scores || []).find(score => score.kind === 'overal_mine_site') || {}).value))
     })), 'name', ['asc'])
 );
 
