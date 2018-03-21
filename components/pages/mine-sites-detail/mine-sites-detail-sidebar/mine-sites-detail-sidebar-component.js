@@ -7,10 +7,10 @@ class MineSitesDetailSidebar extends PureComponent {
   render() {
     const {
       aliases,
-      miningTypes,
+      miningType,
       products,
       openingYear,
-      acquistionYear,
+      acquisitionYear,
       company,
       companyShare
     } = this.props.mineSite;
@@ -28,7 +28,7 @@ class MineSitesDetailSidebar extends PureComponent {
             <div className="col-xs-12 col-md-6">
               <div className="definition-item">
                 <div className="definition-key">Mining Type/s:</div>
-                <div className="definition-value">{miningTypes || '-'}</div>
+                <div className="definition-value">{miningType || '-'}</div>
               </div>
             </div>
           </div>
@@ -50,7 +50,7 @@ class MineSitesDetailSidebar extends PureComponent {
             <div className="col-xs-12 col-md-6">
               <div className="definition-item">
                 <div className="definition-key">Acquisition Year:</div>
-                <div className="definition-value">{acquistionYear || '-'}</div>
+                <div className="definition-value">{acquisitionYear || '-'}</div>
               </div>
             </div>
           </div>
