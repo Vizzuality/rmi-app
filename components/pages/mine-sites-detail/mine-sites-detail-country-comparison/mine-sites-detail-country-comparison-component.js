@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 
 // styles
 import styles from './mine-sites-detail-country-comparison-styles.scss';
@@ -8,6 +9,13 @@ class MineSitesDetailCountryComparison extends PureComponent {
   static propTypes = {
     countries: PropTypes.object.isRequired,
     data: PropTypes.array.isRequired
+  }
+
+  static getRowClass(groupSize, currentIndex) {
+    return classnames({
+      'first-from-group': currentIndex === 0,
+      'last-from-group': groupSize === (currentIndex + 1)
+    });
   }
 
   render() {
@@ -38,12 +46,17 @@ class MineSitesDetailCountryComparison extends PureComponent {
             </tr>
           </thead>
           <tbody>
-            {data.map(d => (
-              <tr key={d.key}>
-                <td>{d.producingCountry}</td>
-                <td>{d.key}</td>
-                <td>{d.homeCountry}</td>
-              </tr>
+            {Object.keys(data).map(group => (
+              data[group].map((d, index) => (
+                <tr
+                  key={d.key}
+                  className={MineSitesDetailCountryComparison.getRowClass(data[group].length, index)}
+                >
+                  <td>{d.producingCountry}</td>
+                  <td>{d.key}</td>
+                  <td>{d.homeCountry}</td>
+                </tr>
+              ))
             ))}
           </tbody>
         </table>
