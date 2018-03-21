@@ -35,8 +35,8 @@ export const parseCountries = createSelector(
 
     return (groupBy(Object.keys(COMPARISON_COUNTRY_KEYS).map(key => ({
       key: COMPARISON_COUNTRY_KEYS[key]['title'](homeCountry),
-      producingCountry: COMPARISON_COUNTRY_KEYS[key]['value'](producingCountry[key]),
-      homeCountry: COMPARISON_COUNTRY_KEYS[key]['value'](homeCountry[key]),
+      producingCountry: COMPARISON_COUNTRY_KEYS[key]['value'](producingCountry),
+      homeCountry: COMPARISON_COUNTRY_KEYS[key]['value'](homeCountry),
       group: COMPARISON_COUNTRY_KEYS[key]['group']
     })), 'group'))
   }
