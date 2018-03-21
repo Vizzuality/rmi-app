@@ -38,12 +38,14 @@ class MineSitesDetailCountryComparison extends PureComponent {
             </tr>
           </thead>
           <tbody>
-            {data.map(d => (
-              <tr key={d.key}>
-                <td>{d.producingCountry}</td>
-                <td>{d.key}</td>
-                <td>{d.homeCountry}</td>
-              </tr>
+            {Object.keys(data).map(group => (
+              data[group].map((d, index) => (
+                <tr className={(data[group].length === (index + 1)) ? 'last-from-group' : (index === 0) ? 'first-from-group' : 'group-item' } key={d.key}>
+                  <td>{d.producingCountry}</td>
+                  <td>{d.key}</td>
+                  <td>{d.homeCountry}</td>
+                </tr>
+              ))
             ))}
           </tbody>
         </table>

@@ -1,5 +1,6 @@
 
 import { createSelector } from 'reselect';
+import groupBy from 'lodash/groupBy';
 
 // constants
 import { COMPARISON_COUNTRY_KEYS } from './mine-sites-detail-country-comparison-constants';
@@ -32,11 +33,12 @@ export const parseCountries = createSelector(
     } = _mineSite;
     const { country: homeCountry } = company;
 
-    return Object.keys(COMPARISON_COUNTRY_KEYS).map(key => ({
+    return (groupBy(Object.keys(COMPARISON_COUNTRY_KEYS).map(key => ({
       key: COMPARISON_COUNTRY_KEYS[key]['title'](homeCountry),
       producingCountry: COMPARISON_COUNTRY_KEYS[key]['value'](producingCountry[key]),
-      homeCountry: COMPARISON_COUNTRY_KEYS[key]['value'](homeCountry[key])
-    }));
+      homeCountry: COMPARISON_COUNTRY_KEYS[key]['value'](homeCountry[key]),
+      group: COMPARISON_COUNTRY_KEYS[key]['group']
+    })), 'group'))
   }
 );
 
