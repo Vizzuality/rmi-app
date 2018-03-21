@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import { fixedValue } from 'utils/value-parser'
 
 // components
 import Bars from 'components/charts/barschart';
@@ -26,7 +27,7 @@ class MineSitesDetailBars extends PureComponent {
           <div className="col-xs-12">
             <div className="overall-core-score-container">
               <span className="overall-score-title">Mine Site Score</span>
-              <span className="overall-score-value"><span className="current">{overallScore}</span> / 6.00</span>
+              <span className="overall-score-value"><span className="current">{fixedValue(overallScore)}</span> / 6.00</span>
             </div>
           </div>
         </div>
