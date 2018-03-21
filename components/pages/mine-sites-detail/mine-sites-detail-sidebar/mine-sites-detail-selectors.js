@@ -7,7 +7,7 @@ export const parseMineSite = createSelector(
   mineSite,
   _mineSite => ({
     aliases: _mineSite.aliases,
-    miningTypes: _mineSite['mining-types'],
+    miningType: _mineSite['mining-type'],
     products: _mineSite.commodities.map(commodity => commodity.name).join(', '),
     openingYear: _mineSite['opening-year'],
     acquisitionYear: _mineSite['acquisition-year'],
