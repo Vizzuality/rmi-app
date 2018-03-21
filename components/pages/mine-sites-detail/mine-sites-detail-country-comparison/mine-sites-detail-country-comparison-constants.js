@@ -1,5 +1,4 @@
-import { valueParser } from 'utils/value-parser'
-import { fixedValue } from 'utils/value-parser'
+import { valueParser, fixedValue } from 'utils/value-parser'
 
 export const COMPARISON_COUNTRY_KEYS = {
   'world-bank-country-classification': {

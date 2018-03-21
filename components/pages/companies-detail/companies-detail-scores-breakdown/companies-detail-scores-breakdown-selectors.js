@@ -2,8 +2,7 @@
 import { createSelector } from 'reselect';
 import groupBy from 'lodash/groupBy';
 import orderBy from 'lodash/orderBy';
-import { valueParser } from 'utils/value-parser'
-import { fixedValue } from 'utils/value-parser'
+import { valueParser, fixedValue } from 'utils/value-parser'
 
 const scores = state => (state.companies.list[0] || {}).scores;
 const selectedMineSites = state => (state.companies.list[0] || {})['selected-mine-sites'];
