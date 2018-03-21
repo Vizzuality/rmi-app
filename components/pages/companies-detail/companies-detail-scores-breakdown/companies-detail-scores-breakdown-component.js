@@ -192,7 +192,7 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
             </div>
             <div className="row">
               <div className="col-sm-12">
-                <h3 className="title">Recent involvements in Investor/State investment disputes</h3>
+                <h3 className="title">Recent involvements in Investor/State investment disputes (since 2014)</h3>
                 {investmentDisputes.length ? <Table
                   columns={INVESTMENT_DISPUTES_COLUMNS}
                   rows={investmentDisputes}
