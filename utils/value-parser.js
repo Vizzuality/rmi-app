@@ -9,6 +9,8 @@ export const valueParser = (value, toLocaleString = false) => {
 };
 
 export const fixedValue = (value, decimals = 2) => {
+  if (value === '-') return value;
+
   return value.toFixed(decimals);
 };
 
