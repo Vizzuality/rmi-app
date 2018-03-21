@@ -56,7 +56,7 @@ class CompaniesDetailMineSitesList extends PureComponent {
           </div>}
         {!!assetsSoldAfterMay.length &&
           <div className="table assets-sold-after-may-table">
-            <h3 className="table-title">Assets sold after May 2015</h3>
+          <h3 className="table-title">Assets sold during the assessment period</h3>
             <Table
               columns={ASSETS_SOLD_AFTER_MAY_TABLE_COLUMNS}
               rows={assetsSoldAfterMay}
