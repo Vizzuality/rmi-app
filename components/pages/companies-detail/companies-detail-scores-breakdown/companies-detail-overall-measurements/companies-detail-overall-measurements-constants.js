@@ -3,5 +3,14 @@ export const CHART_CONFIG = {
   setBarFill: item => item.currentCompany ? '#272626' : '#f2f2f2'
 };
 
+export const OVERALL_CHARTS_TITLES = {
+  'Overall commitment': 'Commitment',
+  'Overall action': 'Action',
+  'Overall effectiveness': 'Effectiveness'
+};
 
-export default { CHART_CONFIG };
+
+export default {
+  CHART_CONFIG,
+  OVERALL_CHARTS_TITLES
+};
