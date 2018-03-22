@@ -12,10 +12,10 @@
 
   .chart-legend {
     > .title {
-      text-align: center;
       font-family: $font-family-1;
       font-size: $font-size-bigger;
-      font-weight: $font-weight-regular;
+      font-weight: $font-weight-light;
+      text-align: center;
     }
   }
 }
