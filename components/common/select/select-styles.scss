@@ -3,6 +3,10 @@
 .c-select {
   width: 185px;
 
+  &.-big {
+    width: 80%;
+  }
+
   &.-underline {
     border-bottom-width: 1px;
     border-bottom-style: solid;
