@@ -52,16 +52,6 @@ class ResultsOverall extends PureComponent {
               <div className="row">
                 <div className="col-xs-12">
                   {/* Overall charts */}
-                  <OverallGraph />
-                </div>
-              </div>
-            </div>
-          </section>
-          <section className="section -dark">
-            <div className="l-layout">
-              <div className="row">
-                <div className="col-xs-12">
-                  {/* Overall charts */}
                   <TopCompanies />
                 </div>
               </div>
