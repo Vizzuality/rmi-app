@@ -10,16 +10,27 @@
 
   > .top-header {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     text-align: center;
     padding: 0 30px;
+    align-items: center;
 
     >.top-name {
-      margin: 0 0 0 5px;
+      margin: 0 0 0 10px;
 
       font-family: $font-family-2;
       font-size: $font-size-big;
       color: $color-7;
+    }
+
+    > .top-icon {
+      width: 32px;
+      height: 32px;
+
+      > :global(svg) {
+        fill: $color-7;
+        stroke: $color-7;
+      }
     }
   }
 
