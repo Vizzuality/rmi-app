@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import Bars from 'components/charts/barschart';
 
 // constants
-import { CHART_CONFIG } from './companies-detail-overall-measurements-constants';
+import { CHART_CONFIG, OVERALL_CHARTS_TITLES } from './companies-detail-overall-measurements-constants';
 
 // styles
 import styles from './companies-detail-overall-measurements-styles.scss';
@@ -33,6 +33,9 @@ class CompaniesDetailOverallMeasurements extends PureComponent {
                   config={CHART_CONFIG}
                   data={d.children}
                 />
+                <div className="chart-legend">
+                  <h2 className="title">{OVERALL_CHARTS_TITLES[d.name]}</h2>
+                </div>
               </div>
             ))}
           </div>

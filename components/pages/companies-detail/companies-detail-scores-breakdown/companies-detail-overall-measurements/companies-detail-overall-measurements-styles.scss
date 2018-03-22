@@ -1,7 +1,21 @@
+@import 'css/settings';
 
 .c-companies-detail-overall-measurements {
 
   .charts-container {
     margin: 25px 0 0;
+  }
+
+  .title {
+    text-align: center;
+  }
+
+  .chart-legend {
+    > .title {
+      font-family: $font-family-1;
+      font-size: $font-size-bigger;
+      font-weight: $font-weight-light;
+      text-align: center;
+    }
   }
 }
