@@ -43,7 +43,7 @@ class ResultsDetail extends PureComponent {
                   options={issueAreas}
                   placeholder="Select an issue area"
                   selectedValue={slug}
-                  className="-underline"
+                  className="-underline -big"
                 />
               </div>
               <div className="col-md-6">

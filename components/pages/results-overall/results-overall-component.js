@@ -29,7 +29,7 @@ class ResultsOverall extends PureComponent {
                   onChange={this.handleAreaSelection}
                   options={issueAreas}
                   placeholder="Select an issue area"
-                  className="-underline"
+                  className="-underline -big"
                 />
               </div>
               <div className="col-md-6">
