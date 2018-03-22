@@ -29,7 +29,7 @@ class ResultsOverall extends PureComponent {
                   onChange={this.handleAreaSelection}
                   options={issueAreas}
                   placeholder="Select an issue area"
-                  className="-underline"
+                  className="-underline -big"
                 />
               </div>
               <div className="col-md-6">
@@ -47,16 +47,6 @@ class ResultsOverall extends PureComponent {
         </div>
 
         <div className="page-content">
-          <section className="section -dark">
-            <div className="l-layout">
-              <div className="row">
-                <div className="col-xs-12">
-                  {/* Overall charts */}
-                  <OverallGraph />
-                </div>
-              </div>
-            </div>
-          </section>
           <section className="section -dark">
             <div className="l-layout">
               <div className="row">
