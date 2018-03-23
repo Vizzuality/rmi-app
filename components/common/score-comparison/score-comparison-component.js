@@ -44,7 +44,7 @@ class ScoreComparison extends PureComponent {
           </div>
 
           {
-            (min != undefined) && <div
+            (min !== undefined) && <div
               className="score-min"
               style={{ left: ScoreComparison.getWidth(min) }}
             >
