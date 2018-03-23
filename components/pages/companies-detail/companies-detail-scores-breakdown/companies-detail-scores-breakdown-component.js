@@ -31,7 +31,6 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
     mineSites: PropTypes.array.isRequired,
     breakdownScores: PropTypes.array.isRequired,
     shareholders: PropTypes.array.isRequired,
-    beneficialOwners: PropTypes.array.isRequired,
     investmentDisputes: PropTypes.array.isRequired,
     knownTaxJurisdictions: PropTypes.array.isRequired,
     company: PropTypes.array.isRequired
@@ -40,13 +39,11 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
   render() {
     const {
       company, overallScores, breakdownScores, mineSites,
-      shareholders, beneficialOwners,
-      investmentDisputes, knownTaxJurisdictions
+      shareholders, investmentDisputes, knownTaxJurisdictions
     } = this.props;
     const {
       'shareholders-date': shareholdersDate,
       'subsidiaries-date': subsidiariesDate,
-      'beneficial-owners-dates': beneficialOwnersDate,
       summary
     } = company[0] || {};
 
@@ -160,25 +157,6 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
               </div>
               <div className="col-xs-12 col-md-5">
                 <SubsidiariesTable />
-              </div>
-            </div>
-            <div className="row between-md">
-              <div className="col-xs-12 col-md-5">
-                <h3 className="title">Beneficial Owners</h3>
-                {beneficialOwners.length ? <Table
-                  columns={[
-                    {
-                      property: 'name',
-                      header: { label: `As of: ${beneficialOwnersDate || 'unknown'}` }
-                    },
-                    {
-                      property: 'percent-ownership',
-                      header: { label: 'Shares (%)' },
-                      props: { style: { textAlign: 'right' } }
-                    }
-                  ]}
-                  rows={beneficialOwners}
-                /> : <Unknowndata />}
               </div>
             </div>
 

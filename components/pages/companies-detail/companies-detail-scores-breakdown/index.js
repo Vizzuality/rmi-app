@@ -7,7 +7,6 @@ import {
   parseMineSitesScores,
   parseKnownTaxJurisdictions,
   parseShareholders,
-  parseBeneficialOwners,
   parseInvestmentDisputes
 } from './companies-detail-scores-breakdown-selectors';
 
@@ -17,7 +16,6 @@ export default connect(
     breakdownScores: getBreakdownScores(state),
     mineSites: parseMineSitesScores(state),
     shareholders: parseShareholders(state),
-    beneficialOwners: parseBeneficialOwners(state),
     investmentDisputes: parseInvestmentDisputes(state),
     knownTaxJurisdictions: parseKnownTaxJurisdictions(state),
     company: state.companies.list
