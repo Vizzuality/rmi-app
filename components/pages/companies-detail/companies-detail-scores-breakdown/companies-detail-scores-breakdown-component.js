@@ -102,6 +102,18 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
           </div>
         </section>
 
+        <div className="accordion-header">
+          <div className="l-layout">
+            <div className="row">
+              <div className="col-md-12">
+                <h2>
+                  Indicator-by-indicator results
+                </h2>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <section className="section -dark indicators-accordion">
           <div className="l-layout">
             <div className="row">

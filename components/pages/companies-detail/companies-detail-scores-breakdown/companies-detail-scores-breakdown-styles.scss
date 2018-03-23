@@ -73,4 +73,15 @@
       margin: 35px 0 0;
     }
   }
+
+  .accordion-header {
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 35px 0px;
+    background: $color-3;
+    color: $color-7;
+    font-size: $font-size-bigger;
+    font-family: $font-family-2;
+  }
 }
