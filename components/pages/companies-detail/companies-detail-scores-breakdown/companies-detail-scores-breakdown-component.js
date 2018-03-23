@@ -8,6 +8,7 @@ import { overallColors, measurementColors } from 'constants/graph-colors';
 import SpiderChart from 'components/charts/spiderchart';
 import StackedBars from 'components/charts/stacked-bars';
 import Table from 'components/common/table';
+import Disclaimer from 'components/common/disclaimer';
 import CompaniesDetailMineSitesList from './companies-detail-mine-sites-list';
 import CompaniesDetailAccordion from './companies-detail-accordion';
 import CompaniesDetailOverallMeasurements from './companies-detail-overall-measurements';
@@ -199,16 +200,7 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
                 /> : <Unknowndata asOf={false} />}
               </div>
             </div>
-            <div className="disclaimer">
-              <p className="disclaimer-text">Disclaimer. Lorem ipsum dolor sit amet, consectetur
-                adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
-                qui officia deserunt mollit.
-              </p>
-            </div>
+            <Disclaimer />
           </div>
         </section>
       </div>
