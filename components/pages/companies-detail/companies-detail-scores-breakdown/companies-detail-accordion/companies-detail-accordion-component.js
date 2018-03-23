@@ -38,7 +38,6 @@ class CompaniesDetailAccordion extends PureComponent {
               <ScoreComparison
                 data={{
                   avg: d.avg,
-                  min: d.min,
                   max: d.max,
                   value: d.value
                 }}

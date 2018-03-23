@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import { fixedValue } from 'utils/value-parser';
 
 // styles
 import styles from './score-comparison-styles.scss';
@@ -16,7 +17,7 @@ class ScoreComparison extends PureComponent {
 
   render() {
     const { data, config } = this.props;
-    const { avg, min, max, value } = data;
+    const { avg, min, max, value, hideInnerValue } = data;
     const { color } = config;
 
     return (
@@ -30,7 +31,7 @@ class ScoreComparison extends PureComponent {
               width: `calc(${ScoreComparison.getWidth(value)} + 2px)`
             }}
           >
-            {!!value && <span className="score-value-string">{value}</span>}
+            {!hideInnerValue && <span className={`score-value-string ${(value === 0) && 'zero-value'}`}>{fixedValue(value)}</span>}
           </div>
           <div
             className="score-avg"
@@ -38,25 +39,29 @@ class ScoreComparison extends PureComponent {
           >
             <div className="legend">
               <span>Avg</span>
-              <span>{avg}</span>
+              <span>{fixedValue(avg)}</span>
             </div>
           </div>
-          <div
-            className="score-min"
-            style={{ left: ScoreComparison.getWidth(min) }}
-          >
-            <div className="legend">
-              <span>Min</span>
-              <span>{min}</span>
+
+          {
+            (min != undefined) && <div
+              className="score-min"
+              style={{ left: ScoreComparison.getWidth(min) }}
+            >
+              <div className="legend">
+                <span>Min</span>
+                <span>{fixedValue(min)}</span>
+              </div>
             </div>
-          </div>
+          }
+
           <div
             className="score-max"
             style={{ left: `calc(${ScoreComparison.getWidth(max)} + 1px)` }}
           >
             <div className="legend">
               <span>Max</span>
-              <span>{max}</span>
+              <span>{fixedValue(max)}</span>
             </div>
           </div>
         </div>
