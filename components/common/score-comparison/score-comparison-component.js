@@ -17,8 +17,8 @@ class ScoreComparison extends PureComponent {
 
   render() {
     const { data, config } = this.props;
-    const { avg, min, max, value, hideInnerValue } = data;
-    const { color } = config;
+    const { avg, min, max, value } = data;
+    const { color, hideInnerValue } = config;
 
     return (
       <div className="c-score-comparison">
