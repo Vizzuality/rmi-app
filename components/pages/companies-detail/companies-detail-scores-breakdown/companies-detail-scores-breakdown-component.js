@@ -90,17 +90,17 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
               </div>
             </div>
           </section>
-          <section className="section overall-measurement-container">
+        </div>
 
-            <div className="l-layout">
-              <div className="row">
-                <div className="col-xs-12">
-                  <CompaniesDetailOverallMeasurements />
-                </div>
+        <section className="section overall-measurement-container">
+          <div className="l-layout">
+            <div className="row">
+              <div className="col-xs-12">
+                <CompaniesDetailOverallMeasurements />
               </div>
             </div>
-          </section>
-        </div>
+          </div>
+        </section>
 
         <section className="section -dark indicators-accordion">
           <div className="l-layout">

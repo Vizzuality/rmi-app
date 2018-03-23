@@ -33,11 +33,30 @@
   }
 
   .overall-measurement-container {
+    border-top: 1px solid black;
+    padding: 35px 0 75px;
+
     .barchart-container {
       display: flex;
       justify-content: space-between;
       width: 100%;
       margin: 50px 0 0;
+    }
+  }
+
+  .measurement-scores-container {
+    position: relative;
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, 0);
+      display: inline-block;
+      height: 2px;
+      width: 80%;
+      background-color: $color-6;
     }
   }
 
