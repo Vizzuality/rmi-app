@@ -37,37 +37,41 @@ class StackedBars extends PureComponent {
     return (
       <div className="c-stacked-bars">
         <style jsx>{styles}</style>
-        <div className="bar-header">
-          <div
-            className="bar-icon"
-            style={{ background: AREA_ISSUE_COLOURS[slug] }}
-          >
-            <Icon
-              name={slug}
-              className="-big"
-            />
-          </div>
-          <h3 className="bar-title">{name}</h3>
+
+        <div
+          className="bar-icon"
+          style={{ background: AREA_ISSUE_COLOURS[slug] }}
+        >
+          <Icon
+            name={slug}
+            className="-x-big"
+          />
         </div>
-        <div className="stacked-bars-container">
-          <div className="bar">
-            {(children).map((bar, index) => (
-              <Tooltip
-                key={bar.id}
-                placement="bottom"
-                trigger={['hover']}
-                overlay={<span>{bar.name}</span>}
-                mouseLeaveDelay={0}
-              >
-                <div
-                  className="bar-node"
-                  style={this.getBarAttributes(bar, index)}
-                />
-              </Tooltip>
-            ))}
+
+        <div className="header-container">
+          <div className="bar-header">
+            <h3 className="bar-title">{name}</h3>
           </div>
-          <div className="score">
-            <span className="current-score">{totalScore.toFixed(3)} <span className="total-score"> / 1.000</span></span>
+          <div className="stacked-bars-container">
+            <div className="bar">
+              {(children).map((bar, index) => (
+                <Tooltip
+                  key={bar.id}
+                  placement="bottom"
+                  trigger={['hover']}
+                  overlay={<span>{bar.name}</span>}
+                  mouseLeaveDelay={0}
+                >
+                  <div
+                    className="bar-node"
+                    style={this.getBarAttributes(bar, index)}
+                  />
+                </Tooltip>
+              ))}
+            </div>
+            <div className="score">
+              <span className="current-score">{totalScore.toFixed(3)} <span className="total-score"> / 1.000</span></span>
+            </div>
           </div>
         </div>
       </div>

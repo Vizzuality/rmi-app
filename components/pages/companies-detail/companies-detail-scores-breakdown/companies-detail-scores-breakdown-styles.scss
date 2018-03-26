@@ -44,6 +44,14 @@
     }
   }
 
+  .graph-legend {
+    margin-bottom: 50px;
+    font-size: $font-size-regular ;
+    font-weight: $font-weight-light;
+    line-height: 1.8;
+    font-style: italic;
+  }
+
   .measurement-scores-container {
     position: relative;
 
