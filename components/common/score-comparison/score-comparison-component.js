@@ -1,5 +1,8 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
+
+// utils
 import { fixedValue } from 'utils/value-parser';
 
 // styles
@@ -19,6 +22,10 @@ class ScoreComparison extends PureComponent {
     const { data, config } = this.props;
     const { avg, min, max, value } = data;
     const { color, hideInnerValue } = config;
+    const scoreValueClass = classnames({
+      'score-value-string': true,
+      'zero-value': value === 0
+    });
 
     return (
       <div className="c-score-comparison">
@@ -31,7 +38,10 @@ class ScoreComparison extends PureComponent {
               width: `calc(${ScoreComparison.getWidth(value)} + 2px)`
             }}
           >
-            {!hideInnerValue && <span className={`score-value-string ${(value === 0) && 'zero-value'}`}>{fixedValue(value)}</span>}
+            {!hideInnerValue &&
+              <span className={scoreValueClass}>
+                {fixedValue(value)}
+              </span>}
           </div>
           <div
             className="score-avg"
