@@ -34,9 +34,12 @@ class ResultsDetailAccordion extends PureComponent {
                   avg: d.avg,
                   min: d.min,
                   max: d.max,
-                  value: d.value
+                  value: d.avg
                 }}
-                config={{ color: d.color }}
+                config={{
+                  color: d.color,
+                  hideInnerValue: true
+                }}
               />
             </div>
           </div>
