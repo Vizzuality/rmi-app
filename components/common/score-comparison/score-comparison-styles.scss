@@ -34,8 +34,8 @@ $bar-height: 40px;
   > .score-bar > .score-avg {
     position: absolute;
     top: -#{$bar-height - 1px};
-    height: 100%;
-    border-left: 1px solid $color-7;
+    height: #{(($bar-height * 2) - 1px)};
+    border-left: 1px dashed $color-7;
   }
 
   > .score-bar > .score-avg,
