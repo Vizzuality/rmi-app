@@ -3,65 +3,73 @@
 $bar-height: 15px;
 
 .c-stacked-bars {
+  display: flex;
 
   &:not(:first-child) {
     margin: 20px 0 0;
   }
 
-  > .bar-header {
-    display: flex;
-    align-items: center;
+  > .bar-icon {
+    width: 48px;
+    height: 48px;
 
-    > .bar-title {
-      margin: 0 0 0 10px;
-      font-size: $font-size-regular;
-    }
-
-    > .bar-icon {
-      width: 32px;
-      height: 32px;
-
-      > :global(svg) {
-        fill: $color-7;
-        stroke: $color-7;
-      }
+    > :global(svg) {
+      fill: $color-7;
+      stroke: $color-7;
     }
   }
 
-
-  .stacked-bars-container {
+  > .header-container {
     display: flex;
-    margin: 10px 0 0;
+    flex-direction: column;
     justify-content: space-between;
-    padding: 0 0 0 42px;
+    width: 100%;
+    margin: 0 0 0 10px;
 
-    .bar {
-      display: inline-flex;
-      flex-grow: 1;
-      height: $bar-height;
-      background: $color-6;
-    }
-
-    .bar > .bar-node {
-      display: inline-block;
-      height: 100%;
-      cursor: pointer;
-
-      &:not(:first-child) {
-        border-left: 1px solid $color-6;
+    > .bar-header {
+      > .bar-title {
+        font-size: $font-size-regular;
       }
     }
 
-    .score {
-      margin: 0 0 0 20px;
+    > .stacked-bars-container {
+      display: flex;
+      margin: 10px 0 0;
+      justify-content: space-between;
 
-      .current-score {
-        font-weight: $font-weight-bold;
+      .bar {
+        display: inline-flex;
+        flex-grow: 1;
+        height: $bar-height;
+        background: $color-6;
+      }
 
-        > .total-score {
-          font-weight: $font-weight-regular;
+      .bar > .bar-node {
+        display: inline-block;
+        height: 100%;
+        cursor: pointer;
+
+        &:not(:first-child) {
+          border-left: 1px solid $color-6;
+        }
+      }
+
+      .score {
+        margin: 0 0 0 20px;
+
+        .current-score {
+          font-weight: $font-weight-bold;
+
+          > .total-score {
+            font-weight: $font-weight-regular;
+          }
         }
       }
     }
   }
+
+
+
+
+
 }
