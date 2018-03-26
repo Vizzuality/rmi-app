@@ -24,6 +24,11 @@ $bar-height: 40px;
     > .score-value-string {
       font-size: $font-size-big;
     }
+
+    > .zero-value {
+      position: relative;
+      left: -25px;
+    }
   }
 
   > .score-bar > .score-avg {
