@@ -137,7 +137,7 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
             <div className="row center-md">
               <div className="col-xs-12">
                 <h2 className="title">Selected Mine sites results</h2>
-                <h3 className="subtitle">Mine sites individually assessed but not included in the overall company score</h3>
+                <h3 className="subtitle">Mine sites individually assessed but not included<br/> in the overall company score</h3>
                 <Table
                   columns={MINE_SITE_TABLE_COLUMNS}
                   rows={mineSites}

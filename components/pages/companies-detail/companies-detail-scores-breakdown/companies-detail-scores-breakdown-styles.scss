@@ -1,6 +1,14 @@
 @import 'css/settings';
 
 .c-companies-detail-scores-breakdown {
+
+  .mine-sites-results {
+    .subtitle {
+      font-size: $font-size-bigger;
+      margin-bottom: 40px;
+    }
+  }
+
   .score-section {
     &:not(:first-child) {
       margin: 35px 0 0;

@@ -12,7 +12,7 @@ export const MAP_LEGEND = [
     color: MAP_COLORS.color1
   },
   {
-    label: 'Producing countries',
+    label: 'Producing countries, where companies have mining operations',
     color: MAP_COLORS.color2
   },
   {
