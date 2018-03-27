@@ -16,8 +16,8 @@ export const getTopCompanies = createSelector(
     return Object.keys(scoresByIndicator).map((indicatorId) => {
       const issueArea = _indicators.find(indicator => indicator.id === indicatorId) || {};
       const { slug, label } = issueArea;
-      // removes duplicated scores
-      const scoreValues = [...new Set(scoresByIndicator[indicatorId].map(score => score.value))];
+      // get only score values
+      const scoreValues = scoresByIndicator[indicatorId].map(score => score.value);
       // sorts scores and limits them
       const topScores = orderBy(scoreValues, [], ['desc']).slice(0, 10);
 
@@ -33,14 +33,14 @@ export const getTopCompanies = createSelector(
             const sharesTop = scoresArray[index - 1] &&
               scoresArray[index - 1].value === score.value;
 
-            if (!sharesTop) currentPosition += 1;
+            currentPosition += 1;
 
             return ({
               id: score.company.id,
               name: score.company.name,
               slug: score.company.slug,
               score: score.value,
-              position: `${currentPosition}.`,
+              position: sharesTop ? '-' : `${currentPosition}.`,
               color: COMPANIES_COLOURS[score.company.slug]
             });
           })
