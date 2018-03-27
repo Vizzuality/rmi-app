@@ -41,7 +41,19 @@ class Companies extends PureComponent {
                 <h2 className="title">Companies</h2>
               </div>
               <div className="col-lg-7">
-                <p>Lorem ipsum companies</p>
+                <p>
+                  This first Index, RMI 2018, covers 30 companies
+                  from 16 home countries, including publicly-listed,
+                  state-owned and private companies.
+                </p>
+                <p>
+                  These companies operate in more than 700 sites in
+                  over 40 producing countries. The assessment covers
+                  most mined commodities, excluding oil and gas. The
+                  assessment also focuses on 127 mine sites located
+                  in countries with low-income or lower-middle-income
+                  economies or high levels of inequality.
+                </p>
               </div>
             </div>
           </div>
