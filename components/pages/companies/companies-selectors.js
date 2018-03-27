@@ -1,12 +1,14 @@
 
 import { createSelector } from 'reselect';
 import { paths } from 'components/common/map/map-helpers';
+import flatten from 'lodash/flatten';
 
 // constants
 import { EXCLUDED_COUNTRIES } from 'constants/map';
 
 const countries = state => state.countries.list;
 const countriesWithCompanies = state => state.companiesFilters.countries;
+const companies = state => state.companies.list;
 
 export const getUpdatedPaths = createSelector(
   [countries, countriesWithCompanies],
@@ -32,4 +34,20 @@ export const getUpdatedPaths = createSelector(
       })
 );
 
-export default { getUpdatedPaths };
+export const getMarkers = createSelector(
+  companies,
+  (_companies = []) =>
+    flatten(_companies.map(company =>
+        (company['selected-mine-sites'] || []).map(mineSite => ({
+          id: mineSite.id,
+          name: mineSite.name,
+          coordinates: [mineSite['coord-y'], mineSite['coord-x']]
+        }))
+      )
+    )
+);
+
+export default {
+  getUpdatedPaths,
+  getMarkers
+};
