@@ -36,7 +36,7 @@ export const getUpdatedPaths = createSelector(
 
 export const getMarkers = createSelector(
   companies,
-  (_companies = {}) =>
+  (_companies = []) =>
     flatten(_companies.map(company =>
         (company['selected-mine-sites'] || []).map(mineSite => ({
           id: mineSite.id,
