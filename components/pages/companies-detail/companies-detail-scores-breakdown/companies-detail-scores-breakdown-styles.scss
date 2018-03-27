@@ -1,6 +1,14 @@
 @import 'css/settings';
 
 .c-companies-detail-scores-breakdown {
+
+  .mine-sites-results {
+    .subtitle {
+      font-size: $font-size-bigger;
+      margin-bottom: 40px;
+    }
+  }
+
   .score-section {
     &:not(:first-child) {
       margin: 35px 0 0;
@@ -42,6 +50,14 @@
       width: 100%;
       margin: 50px 0 0;
     }
+  }
+
+  .graph-legend {
+    margin-bottom: 50px;
+    font-size: $font-size-regular ;
+    font-weight: $font-weight-light;
+    line-height: 1.8;
+    font-style: italic;
   }
 
   .measurement-scores-container {

@@ -29,7 +29,7 @@ class Companies extends PureComponent {
   };
 
   render() {
-    const { paths } = this.props;
+    const { paths, mineSites } = this.props;
 
     return (
       <div className="c-companies-page">
@@ -62,6 +62,7 @@ class Companies extends PureComponent {
                       setCountryColor={Companies.setCountryColor}
                       legend={MAP_LEGEND}
                       onClickGeography={this.handleClickGeography}
+                      markers={mineSites}
                     />
                   </div>
                 </div>

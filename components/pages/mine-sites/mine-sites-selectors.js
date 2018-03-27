@@ -1,6 +1,7 @@
 
 import { createSelector } from 'reselect';
 import { paths } from 'components/common/map/map-helpers';
+import flatten from 'lodash/flatten';
 
 // constants
 import { EXCLUDED_COUNTRIES } from 'constants/map';
@@ -29,25 +30,18 @@ export const getUpdatedPaths = createSelector(
       })
 );
 
-
 export const getMarkers = createSelector(
   companies,
-  (_companies = []) => {
-    const mineSites = [];
-
-    _companies.forEach(company =>
-      company['selected-mine-sites'].forEach((mineSite) => {
-        mineSites.push(({
-          id: mineSite.id,
-          name: mineSite.name,
-          coordinates: [mineSite['coord-y'], mineSite['coord-x']]
-        }));
-      }));
-
-    return mineSites;
-  }
+  (_companies = []) =>
+    flatten(_companies.map(company =>
+      (company['selected-mine-sites'] || []).map(mineSite => ({
+        id: mineSite.id,
+        name: mineSite.name,
+        coordinates: [mineSite['coord-y'], mineSite['coord-x']]
+      }))
+    )
+  )
 );
-
 
 export default {
   getUpdatedPaths,

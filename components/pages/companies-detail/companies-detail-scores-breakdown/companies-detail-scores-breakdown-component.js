@@ -89,6 +89,17 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
           </section>
         </div>
 
+        <div className="l-layout">
+          <div className="graph-legend">
+            The radar chart shows how the company&apos;s performance varies across the
+            six thematic areas. The closer the company&apos;s polygon gets to the outer
+            point of the chart, the stronger the company&apos;s performance in that thematic
+            area. The maximum value for each thematic area (i.e. the value at each outer point)
+            represents current best practice by the assessed companies, collectively.
+            This is the aggregate best score achieved for all indicators in the area.
+          </div>
+        </div>
+
         <section className="section overall-measurement-container">
           <div className="l-layout">
             <div className="row">
@@ -126,7 +137,7 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
             <div className="row center-md">
               <div className="col-xs-12">
                 <h2 className="title">Selected Mine sites results</h2>
-                <h3 className="subtitle">Mine sites individually assessed but not included in the overall company score</h3>
+                <h3 className="subtitle">Mine sites individually assessed but not included<br/> in the overall company score</h3>
                 <Table
                   columns={MINE_SITE_TABLE_COLUMNS}
                   rows={mineSites}
