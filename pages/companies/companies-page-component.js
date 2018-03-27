@@ -51,7 +51,7 @@ class CompaniesPage extends Page {
       // gets subsidiaries
       await context.store.dispatch(getSubsidiaries({ 'filter[company]': context.query.company, sort: 'name' }));
     } else {
-      await context.store.dispatch(getCompanies({ include: ['country', 'mine-sites', 'mine-sites.country', 'mine-sites.commodities'].join(',') }));
+      await context.store.dispatch(getCompanies({ include: ['country', 'mine-sites', 'mine-sites.country', 'mine-sites.commodities', 'selected-mine-sites'].join(',') }));
       await context.store.dispatch(getCommodities({
         'fields[commodities]': ['name'].join(','),
         'filter[used]': true,
