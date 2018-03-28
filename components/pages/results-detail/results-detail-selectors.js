@@ -60,7 +60,7 @@ export const parseIssueAreas = createSelector(
 
 export const getIssueArea = createSelector(
   [issueAreas, issueAreaId],
-  (_issueAreas = [], _issueAreaId) => _issueAreas.find(issueArea => issueArea.id === _issueAreaId)
+  (_issueAreas = [], _issueAreaId) => _issueAreas.find(issueArea => issueArea.id === _issueAreaId) || {}
 );
 
 export default {
