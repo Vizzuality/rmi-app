@@ -1,5 +1,5 @@
 export default {
-  issueAreas: {},
+  issueAreas: [],
   loading: false,
   error: null,
   selectedCompany: null

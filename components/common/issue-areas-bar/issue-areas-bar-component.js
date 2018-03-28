@@ -13,9 +13,11 @@ import styles from './issue-areas-bar-styles.scss';
 class IssueAreasBar extends PureComponent {
   static propTypes = {
     issueAreas: PropTypes.array.isRequired,
-    selectedissueArea: PropTypes.string.isRequired,
+    selectedissueArea: PropTypes.string,
     setIssueArea: PropTypes.func.isRequired
   }
+
+  static defaultProps = { selectedissueArea: null }
 
   getBackground(issueArea) {
     const { selectedissueArea } = this.props;
