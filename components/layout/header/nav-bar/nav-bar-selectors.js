@@ -14,7 +14,7 @@ export const getNavigation = createSelector(
     const isFoundation = _routeRoot === 'foundation';
     const { resultsChildren, aboutChildren } = _navChildren;
     const mainNav = isFoundation ? [...FOUNDATION_NAVIGATION] : [...INDEX_NAVIGATION];
-    let firstStaticPage = null;
+    let firstStaticPages = [];
 
     // results tree - other pages
     if (!isFoundation && resultsChildren) {
@@ -27,8 +27,8 @@ export const getNavigation = createSelector(
         }
       }));
 
-      const childrenWithoutFirst = children.slice(1);
-      firstStaticPage = children[0];
+      const childrenWithoutFirst = children.slice(2);
+      firstStaticPages = [children[0], children[1]];
 
       const currentTreeIndex = mainNav.findIndex(tree => tree.query.route === 'results');
       if (currentTreeIndex === -1) return mainNav;
@@ -72,7 +72,9 @@ export const getNavigation = createSelector(
 
       mainNav[currentTreeIndex].children[subTreeIndex] = subtreeWithChildren;
 
-      Object.assign(mainNav[currentTreeIndex].children, { ...mainNav[currentTreeIndex].children.unshift(firstStaticPage) });
+      firstStaticPages.reverse().forEach(sp => {
+        mainNav[currentTreeIndex].children.unshift(sp);
+      });
     }
 
     // about tree
