@@ -58,7 +58,7 @@ export const getBreakdownScores = createSelector(
 
     return Object.keys(groupedByParent).map((parentId) => {
       const scoreGroup = groupedByParent[parentId];
-      const parentScore = _scores.find(score => score.id === parentId);
+      const parentScore = _scores.find(score => score.id === parentId) || {};
 
       return ({
         id: parentScore.id,
