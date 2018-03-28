@@ -24,12 +24,11 @@ class ResultsOverall extends PureComponent {
             <div className="row">
               <div className="col-md-6">
                 <h2 className="title">Results</h2>
-
                 <Select
                   onChange={this.handleAreaSelection}
                   options={issueAreas}
                   placeholder="Select an issue area"
-                  className="-underline -big"
+                  className="-underline"
                 />
               </div>
               <div className="col-md-6">
