@@ -28,7 +28,7 @@ class Page extends PureComponent {
     // retrieve resuls tree to populate navigation
     if (!isFoundation) {
       await store.dispatch(getIndicators({ 'filter[kind]': 'issue_areas' }));
-      await store.dispatch(getResultsTree({}));
+      await store.dispatch(getResultsTree({ sort: 'position' }));
     }
 
     // retrieves about tree to populate navigation
