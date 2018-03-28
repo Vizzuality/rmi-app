@@ -10,24 +10,8 @@
     }
   }
 
-  .summary {
-    padding: 40px;
+  :global(.c-summary) {
     margin: 35px 0 0;
-    border-radius: 10px;
-    background: $color-4;
-
-    .summary-title {
-      text-transform: uppercase;
-      color: $color-7;
-    }
-
-    p {
-      color: $color-7;
-
-      &:first-of-type {
-        margin: 25px 0 0;
-      }
-    }
   }
 
   :global(.c-accordion) {

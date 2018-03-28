@@ -1,0 +1,35 @@
+@import 'css/settings';
+
+.c-summary {
+  padding: 45px 90px;
+  border-radius: 10px;
+
+  .title {
+    font-family: $font-family-2;
+    font-size: $font-size-big;
+    text-transform: uppercase;
+  }
+
+  :global(p) {
+    text-indent: 30px;
+
+    &:first-child {
+      margin: 30px 0 0;
+    }
+  }
+
+  // themes
+  &.light {
+    background: $color-7;
+    box-shadow: 0 4px 16px 0 rgba($color-1, .1);
+  }
+
+  &.dark {
+    background: $color-4;
+
+    .title,
+    :global(p) {
+      color: $color-7;
+    }
+  }
+}

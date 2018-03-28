@@ -14,7 +14,7 @@ export const parseIndicators = createSelector(
     children: (indicator.children || []).map(child => ({
       id: child.id,
       name: child.name,
-      observation: (child || {}).observation,
+      summary: (child || {}).summary,
       avg: child.avg,
       min: child.min,
       max: child.max,
