@@ -8,13 +8,13 @@ import { overallColors, measurementColors } from 'constants/graph-colors';
 import SpiderChart from 'components/charts/spiderchart';
 import StackedBars from 'components/charts/stacked-bars';
 import Table from 'components/common/table';
+import Summary from 'components/common/summary';
 import Disclaimer from 'components/common/disclaimer';
 import CompaniesDetailMineSitesList from './companies-detail-mine-sites-list';
 import CompaniesDetailAccordion from './companies-detail-accordion';
 import CompaniesDetailOverallMeasurements from './companies-detail-overall-measurements';
 import SubsidiariesTable from './subsidiaries-table';
 import Unknowndata from './unknown-data';
-import Summary from './companies-detail-summary';
 
 // constants
 import {
@@ -52,7 +52,7 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
       <div className="c-companies-detail-scores-breakdown">
         <style jsx>{styles}</style>
         <div className="l-layout">
-          {summary && <Summary text={summary}/>}
+          {summary && <Summary content={summary}/>}
           <div className="section overall-scores-container">
             <div className="row center-md">
               <div className="col-md-10">

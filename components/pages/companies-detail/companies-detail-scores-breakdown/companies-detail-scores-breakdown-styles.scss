@@ -2,6 +2,10 @@
 
 .c-companies-detail-scores-breakdown {
 
+  :global(.c-summary) {
+    transform: translate(0, -25px);
+  }
+
   .mine-sites-results {
     .subtitle {
       font-size: $font-size-bigger;
