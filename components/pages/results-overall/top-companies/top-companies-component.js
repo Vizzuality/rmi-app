@@ -51,6 +51,9 @@ class TopCompanies extends PureComponent {
       <div className="c-top-companies">
         <style jsx>{styles}</style>
         <div className="container">
+          <div className="title">
+            <h2>Companies achieving the ten best scores for each thematic area</h2>
+          </div>
           {topCompanies.length ?
             topCompanies : <Spinner />}
         </div>
