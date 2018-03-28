@@ -3,10 +3,11 @@ import { overallColors } from 'constants/graph-colors';
 export const CHART_CONFIG = {
   height: 425,
   // xAxis
-  xAxisTickLine: true,
-  xAxisTick: true,
-  xAxisHeight: 50,
+  xAxisTick: { angle: -45 },
+  xAxisHeight: 125,
   xAxisTickSize: 30,
+  xAxisInterval: 0,
+  xAxisTextAnchor: 'end',
   // bar
   barSize: 15
 };

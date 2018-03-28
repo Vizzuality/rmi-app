@@ -1,7 +1,10 @@
 import { blue, brown, pink, yellow, red, green } from 'constants/graph-colors';
 
 export const CHART_CONFIG = {
-  height: 270,
+  height: 225,
+  // xAxis
+  xAxisTick: false,
+  xAxisHeight: 5,
   // bar
   barSize: 5
 };
