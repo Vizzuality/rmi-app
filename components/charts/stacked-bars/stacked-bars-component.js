@@ -29,7 +29,7 @@ class StackedBars extends PureComponent {
 
   render() {
     const { data } = this.props;
-    const { name, slug, children } = data;
+    const { name, indicatorId, children } = data;
     let totalScore = 0;
 
     children.forEach((child) => { totalScore += child.value; });
@@ -40,10 +40,10 @@ class StackedBars extends PureComponent {
 
         <div
           className="bar-icon"
-          style={{ background: AREA_ISSUE_COLOURS[slug] }}
+          style={{ background: AREA_ISSUE_COLOURS[indicatorId] }}
         >
           <Icon
-            name={slug}
+            name={indicatorId.toString()}
             className="-x-big"
           />
         </div>

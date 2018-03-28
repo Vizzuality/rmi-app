@@ -2,6 +2,7 @@ import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 // components
+import Spinner from 'components/common/spinner';
 import TopCompany from './top-companies-item';
 
 // constants
@@ -49,9 +50,12 @@ class TopCompanies extends PureComponent {
     return (
       <div className="c-top-companies">
         <style jsx>{styles}</style>
-        <div className="container">
-          {topCompanies}
-        </div>
+        {!topCompanies.length && <Spinner />}
+        {!!topCompanies.length &&
+          <div className="container">
+            <h2 className="title">Companies achieving the ten best scores for each thematic area</h2>
+            {topCompanies}
+          </div>}
       </div>
     );
   }

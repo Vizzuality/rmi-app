@@ -13,15 +13,17 @@ import styles from './issue-areas-bar-styles.scss';
 class IssueAreasBar extends PureComponent {
   static propTypes = {
     issueAreas: PropTypes.array.isRequired,
-    selectedissueArea: PropTypes.string.isRequired,
+    selectedissueArea: PropTypes.string,
     setIssueArea: PropTypes.func.isRequired
   }
+
+  static defaultProps = { selectedissueArea: null }
 
   getBackground(issueArea) {
     const { selectedissueArea } = this.props;
 
     return issueArea.id === selectedissueArea ?
-      AREA_ISSUE_COLOURS[issueArea.slug] : 'transparent';
+      AREA_ISSUE_COLOURS[issueArea.id] : 'transparent';
   }
 
   render() {
@@ -38,7 +40,7 @@ class IssueAreasBar extends PureComponent {
                 onClick={() => setIssueArea(issueArea.id)}
               >
                 <Icon
-                  name={issueArea.slug}
+                  name={issueArea.id}
                   className="-x-big"
                 />
               </button>
