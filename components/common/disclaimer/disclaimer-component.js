@@ -47,9 +47,8 @@ class Disclaimer extends PureComponent {
           Although every effort has been made to verify the accuracy of translations, the English
           language version should be taken as the definitive version. The RMI reserves the right to
           publish corrigenda on its web page, and readers of the 2018 RMI report should consult the
-          web page for corrections or clarifications
-                <a href="https://www.responsibleminingindex.org">https://www.responsibleminingindex.org</a>.
-              </p>
+          web page for corrections or clarifications <a href="https://www.responsibleminingindex.org">https://www.responsibleminingindex.org</a>.
+        </p>
       </div>
     );
   }
