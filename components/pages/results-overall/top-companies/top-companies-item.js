@@ -15,7 +15,7 @@ class OverallGraphs extends PureComponent {
 
   render() {
     const { data } = this.props;
-    const { label, companies, slug } = data;
+    const { label, companies, id } = data;
 
     return (
       <div className="c-top-item">
@@ -23,10 +23,10 @@ class OverallGraphs extends PureComponent {
         <div className="top-header">
           <div
             className="top-icon"
-            style={{ background: AREA_ISSUE_COLOURS[slug] }}
+            style={{ background: AREA_ISSUE_COLOURS[id] }}
           >
             <Icon
-              name={slug}
+              name={id}
               className="-big"
             />
           </div>
