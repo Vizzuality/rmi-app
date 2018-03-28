@@ -63,6 +63,7 @@ export const getBreakdownScores = createSelector(
       return ({
         id: parentScore.id,
         name: parentScore.label,
+        indicatorId: parentScore['indicator-id'],
         slug: parentScore.slug,
         value: parentScore.value,
         children: scoreGroup.map(scoreChild => ({

@@ -23,7 +23,7 @@ class IssueAreasBar extends PureComponent {
     const { selectedissueArea } = this.props;
 
     return issueArea.id === selectedissueArea ?
-      AREA_ISSUE_COLOURS[issueArea.slug] : 'transparent';
+      AREA_ISSUE_COLOURS[issueArea.id] : 'transparent';
   }
 
   render() {
@@ -40,7 +40,7 @@ class IssueAreasBar extends PureComponent {
                 onClick={() => setIssueArea(issueArea.id)}
               >
                 <Icon
-                  name={issueArea.slug}
+                  name={issueArea.id}
                   className="-x-big"
                 />
               </button>
