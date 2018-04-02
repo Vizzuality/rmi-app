@@ -1,5 +1,6 @@
 
 import * as actions from './companies-actions';
+import initialState from './companies-initial-state';
 
 export default {
   [actions.setCompanies]: (state, { payload }) => ({ ...state, list: payload }),
