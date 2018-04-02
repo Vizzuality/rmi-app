@@ -15,10 +15,10 @@ class Library extends PureComponent {
         <div className="page-intro">
           <div className="l-layout">
             <div className="row">
-              <div className="col-lg-5">
+              <div className="col-xs-12 col-md-5">
                 <h2 className="title">Document Library</h2>
               </div>
-              <div className="col-lg-7">
+              <div className="col-xs-12 col-md-7">
                 <p>
                   This searchable document library includes
                   approximately 2,000 source documents, which
@@ -27,8 +27,8 @@ class Library extends PureComponent {
                 </p>
               </div>
             </div>
-            <div className="row">
-              <div className="col-md-12">
+            <div className="row end-md">
+              <div className="col-xs-12">
                 <a className="download-link" href="#">Download list of mine sites</a>
               </div>
             </div>
