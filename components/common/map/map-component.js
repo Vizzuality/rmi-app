@@ -52,7 +52,7 @@ class Map extends PureComponent {
           }
         >
           <ZoomableGroup disablePanning zoom={1.13}>
-            <Geographies geography={paths}>
+            <Geographies geography={paths} disableOptimization>
               {(geographies, projection) => geographies.map(geography => (
                 <Geography
                   key={geography.properties.id}
