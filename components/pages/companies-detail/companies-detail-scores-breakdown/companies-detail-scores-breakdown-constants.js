@@ -51,7 +51,8 @@ export const MINE_SITE_TABLE_COLUMNS = [
         backgroundColor: '#3b3a40',
         paddingRight: 15,
         color: '#fff',
-        textAlign: 'right'
+        textAlign: 'right',
+        width: '115px'
       }
     }
   }
