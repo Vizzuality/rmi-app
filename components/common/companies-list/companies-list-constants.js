@@ -11,7 +11,8 @@ export const TOOLTIP_TABLE_COLUMNS = [
         style: {
           backgroundColor: '#000',
           color: '#fff',
-          fontWeight: 500
+          fontWeight: 500,
+          paddingLeft: 15
         }
       }
     },
@@ -25,7 +26,8 @@ export const TOOLTIP_TABLE_COLUMNS = [
             <a>{name}</a>
           </Link>
         )
-      ]
+      ],
+      props: { style: { paddingLeft: 15 } }
     }
   },
   {
@@ -50,11 +52,15 @@ export const TOOLTIP_TABLE_COLUMNS = [
         style: {
           backgroundColor: '#000',
           color: '#fff',
-          fontWeight: 500
+          fontWeight: 500,
+          paddingRight: 15
         }
       }
     },
-    cell: { formatters: [commodities => commodities.map(commodity => commodity.name).join(', ')] }
+    cell: {
+      formatters: [commodities => commodities.map(commodity => commodity.name).join(', ')],
+      props: { style: { paddingRight: 15 } }
+    }
   }
 ];
 
