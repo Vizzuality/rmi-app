@@ -66,7 +66,6 @@ class BarsChart extends PureComponent {
         <ResponsiveContainer width={width} height={height}>
           <BarChart
             data={data}
-            // margin={{ left: -15 }}
             onMouseLeave={barChartOnMouseLeave}
           >
             <YAxis
