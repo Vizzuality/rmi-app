@@ -1,5 +1,4 @@
 import { connect } from 'react-redux';
-import { resetCompanies } from 'modules/companies/companies-actions';
 
 import * as actions from './companies-actions';
 import * as reducers from './companies-reducers';
@@ -18,8 +17,5 @@ export default connect(
     paths: getUpdatedPaths(state),
     mineSites: getMarkers(state)
   }),
-  {
-    ...actions,
-    resetCompanies
-  }
+  { ...actions }
 )(Companies);

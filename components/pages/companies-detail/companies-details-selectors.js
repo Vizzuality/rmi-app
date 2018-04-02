@@ -8,10 +8,21 @@ import { EXCLUDED_COUNTRIES } from 'constants/map';
 const countries = state => state.countries.list;
 const company = state => state.companies.list[0];
 const indicators = state => state.indicators.list;
+const companyId = state => state.routes.query.company;
 
 export const getUpdatedPaths = createSelector(
-  [countries, company],
-  (_countries = [], _company = {}) => {
+  [countries, company, companyId],
+  (_countries = [], _company = {}, _companyId) => {
+
+    if(_company.id !== _companyId) {
+      return paths.map((geography, index) => ({
+        ...geography,
+        properties: {
+          ...geography.properties,
+          id: index
+        }
+      }));
+    }
 
     if(!Object.keys(_company).length) {
       return paths.map((geography, index) => ({
