@@ -15,6 +15,7 @@ export const getScores = createSelector(
   (_scores = []) => sortBy(_scores.filter(score => score.kind == 'indicator_mine_site'), score => score.indicator.code).map(score => ({
     id: score.id,
     name: (score.indicator || {}).code,
+    label:( (score.indicator || {}).parent || {}).label,
     value: score.value
   }))
 );
