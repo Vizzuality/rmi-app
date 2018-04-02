@@ -40,6 +40,9 @@ class CompaniesDetailOverallMeasurements extends PureComponent {
             ))}
           </div>
         </div>
+        <div className="overall-legend">
+          1.000 = aggregation of best scores for all indicators of this thematic area.
+        </div>
       </div>
     );
   }

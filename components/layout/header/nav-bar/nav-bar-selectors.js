@@ -49,7 +49,7 @@ export const getNavigation = createSelector(
 
     // results tree - indicators
     if (!isFoundation && _indicators.length) {
-      const children = _indicators.map(indicatorChild => ({
+      const children = _indicators.filter(ind => ind.kind === 'issue_areas').map(indicatorChild => ({
         id: indicatorChild.id,
         label: indicatorChild.label,
         query: {

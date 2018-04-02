@@ -35,7 +35,15 @@ class MineSite extends PureComponent {
                 <h2 className="title">Mine Sites</h2>
               </div>
               <div className="col-md-6">
-                <p>Lorem ipsum mine sites</p>
+                <p>
+                  In addition to the company-wide indicators,
+                  six indicators are applied at a mine-site
+                  level for the individually selected 127 mine
+                  sites. Although these indicators are scored
+                  to indicate each site’s level of performance,
+                  these scores are not included in the thematic-area-level
+                  scores for company-wide indicators.
+                </p>
               </div>
             </div>
           </div>

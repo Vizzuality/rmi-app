@@ -14,11 +14,21 @@ class Library extends PureComponent {
         <style jsx>{styles}</style>
         <div className="page-intro">
           <div className="l-layout">
-            <div className="row bottom-md end-md">
-              <div className="col-md-6">
+            <div className="row">
+              <div className="col-xs-12 col-md-5">
                 <h2 className="title">Document Library</h2>
               </div>
-              <div className="col-md-6">
+              <div className="col-xs-12 col-md-7">
+                <p>
+                  This searchable document library includes
+                  approximately 2,000 source documents, which
+                  have been used in the assessment of the 30
+                  companies and 127 mine sites.
+                </p>
+              </div>
+            </div>
+            <div className="row end-md">
+              <div className="col-xs-12">
                 <a className="download-link" href="#">Download list of mine sites</a>
               </div>
             </div>
