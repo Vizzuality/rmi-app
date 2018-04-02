@@ -52,7 +52,7 @@ export const MINE_SITE_TABLE_COLUMNS = [
         paddingRight: 15,
         color: '#fff',
         textAlign: 'right',
-        width: '115px'
+        width: 115
       }
     }
   }
