@@ -5,6 +5,8 @@ export const CHART_CONFIG = {
   // xAxis
   xAxisTick: false,
   xAxisHeight: 5,
+  // yAxis
+  YAxisTick: { fill: '#f2f2f2' },
   // bar
   barSize: 5
 };
