@@ -71,13 +71,8 @@ export const getBreakdownScores = createSelector(
           id: scoreChild.id,
           name: scoreChild.label,
           value: scoreChild.value
-        })).sort(function(a, b) {
-          if (scoreOrder.indexOf(a.name) < scoreOrder.indexOf(b.name)) {
-            return -1
-          } else {
-            return 1
-          }
-        })
+        }))
+        .sort((a, b) => (scoreOrder.indexOf(a.name) < scoreOrder.indexOf(b.name)) ? -1 : 1)
       });
     });
   }
