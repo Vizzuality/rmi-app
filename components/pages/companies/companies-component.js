@@ -18,7 +18,8 @@ import styles from './companies-styles.scss';
 class Companies extends PureComponent {
   static propTypes = {
     paths: PropTypes.array.isRequired,
-    setFilters: PropTypes.func.isRequired
+    setFilters: PropTypes.func.isRequired,
+    resetCompanies: PropTypes.func.isRequired
   }
 
   static setCountryColor = geographyProperties => getCompanyCountryColor(geographyProperties);
@@ -27,6 +28,10 @@ class Companies extends PureComponent {
     const { countryId } = geography.properties;
     this.props.setFilters({ country: countryId });
   };
+
+  componentWillUnmount() {
+    this.props.resetCompanies();
+  }
 
   render() {
     const { paths, mineSites } = this.props;

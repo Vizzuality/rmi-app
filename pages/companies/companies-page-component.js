@@ -25,8 +25,11 @@ class CompaniesPage extends Page {
   static async getInitialProps(context) {
     const props = await super.getInitialProps(context);
 
+    const state = context.store.getState();
+
     if (context.query.company) {
       // gets company info and relationships
+
       await context.store.dispatch(getCompany({
         companyId: context.query.company,
         queryParams: {
@@ -66,12 +69,16 @@ class CompaniesPage extends Page {
       }));
     }
 
-    await context.store.dispatch(getCountries({
-      include: ['producing-companies', 'companies', 'secondary-companies'].join(','),
-      sort: 'name',
-      'fields[countries]': ['name', 'code', 'producing-companies', 'companies', 'secondary-companies'].join(','),
-      'page[size]': 1000
-    }));
+
+    if(context.isServer || (!context.isServer && !state.countries.list.length)) {
+      await context.store.dispatch(getCountries({
+        include: ['producing-companies', 'companies', 'secondary-companies'].join(','),
+        sort: 'name',
+        'fields[countries]': ['name', 'code', 'producing-companies', 'companies', 'secondary-companies'].join(','),
+        'page[size]': 1000
+      }));
+
+    }
 
     return { ...props };
   }

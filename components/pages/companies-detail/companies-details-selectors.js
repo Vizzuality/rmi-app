@@ -11,8 +11,19 @@ const indicators = state => state.indicators.list;
 
 export const getUpdatedPaths = createSelector(
   [countries, company],
-  (_countries = [], _company = {}) =>
-    paths.filter(p => !EXCLUDED_COUNTRIES.includes(p.properties.ISO_A3))
+  (_countries = [], _company = {}) => {
+
+    if(!Object.keys(_company).length) {
+      return paths.map((geography, index) => ({
+        ...geography,
+        properties: {
+          ...geography.properties,
+          id: index
+        }
+      }));
+    }
+
+    return paths.filter(p => !EXCLUDED_COUNTRIES.includes(p.properties.ISO_A3))
       .map((geography, index) => {
         const {
           country: companyCountry,
@@ -37,6 +48,8 @@ export const getUpdatedPaths = createSelector(
           }
         };
       })
+  }
+
 );
 
 export const getIssueAreas = createSelector(

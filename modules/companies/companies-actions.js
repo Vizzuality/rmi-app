@@ -9,6 +9,7 @@ export const setCompanies = createAction('companies/setCompanies');
 export const setCompaniesLoading = createAction('companies/setCompaniesLoading');
 export const setCompaniesScores = createAction('companies/setCompaniesScores');
 export const setCompaniesError = createAction('companies/setCompaniesError');
+export const resetCompanies = createAction('companies-index-page/resetCompanies');
 
 export const getCompanies = createThunkAction('companies/getCompanies', _options =>
   (dispatch, getState) => {
@@ -75,5 +76,6 @@ export default {
   setCompaniesError,
   getCompanies,
   getCompany,
-  getCompaniesScores
+  getCompaniesScores,
+  resetCompanies
 };
