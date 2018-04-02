@@ -48,11 +48,8 @@ class Companies extends PureComponent {
                 </p>
                 <p>
                   These companies operate in more than 700 sites in
-                  over 40 producing countries. The assessment covers
-                  most mined commodities, excluding oil and gas. The
-                  assessment also focuses on 127 mine sites located
-                  in countries with low-income or lower-middle-income
-                  economies or high levels of inequality.
+                  over 40 producing countries, and the assessment covers
+                  most mined commodities, excluding oil and gas.
                 </p>
               </div>
             </div>

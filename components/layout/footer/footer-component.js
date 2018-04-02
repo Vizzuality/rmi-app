@@ -78,8 +78,22 @@ class Footer extends PureComponent {
                   </ul>
                 </div>
                 <div className="footer-section">
-                  <p>RMI Rights ipsum dolor sit amet, consectetur adipiscing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  <p>
+                    All data and written content are licensed
+                    under the Creative Commons Attribution-NonCommercial
+                    4.0 International License (CC BY-NC 4.0).
+                  </p>
+                  <p>
+                    Users are free to share and adapt the material but must give
+                    appropriate credit, provide a link to the license
+                    and indicate if changes were made. The licensed
+                    material may not be used for commercial purposes,
+                    or in a discriminating, degrading or distorting way.
+                    When cited, attribute to: “Responsible Mining Index
+                    2018 (RMI), Responsible Mining Foundation (RMF).”
+                    Images, photographs, and video content depicted on
+                    RMI and RMF websites are excluded from this license,
+                    except where noted.
                   </p>
                 </div>
                 <div className="footer-section -vizzuality">
