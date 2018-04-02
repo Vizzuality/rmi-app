@@ -27,7 +27,7 @@ class MineSitesPage extends Page {
         mineSiteId: context.query.mineSite,
         queryParams: {
           include: ['company', 'company.country', 'country',
-            'documents', 'commodities', 'scores', 'scores.indicator',
+            'documents', 'commodities', 'scores', 'scores.indicator', 'scores.indicator.parent',
             'document-mine-sites.indicators', 'document-mine-sites.document'].join(',')
         }
       }));

@@ -1,5 +1,6 @@
 export const CHART_CONFIG = {
   xAxis: false,
+  xAxisHeight: 5,
   setBarFill: item => item.currentCompany ? '#272626' : '#f2f2f2'
 };
 

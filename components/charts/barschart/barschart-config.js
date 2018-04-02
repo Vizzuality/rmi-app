@@ -14,6 +14,7 @@ export default {
   // yAxis
   YaxisLine: false,
   domain: [0, 1],
+  YAxisTick: {},
   // styling
   strokeDasharray: '3',
   fill: 'none',

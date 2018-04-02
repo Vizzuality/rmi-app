@@ -53,11 +53,12 @@ class BarsChart extends PureComponent {
       height,
       barDataKey,
       YAxisTicks,
+      YAxisTick,
       YaxisInterval,
+      YaxisLine,
       strokeDasharray,
       barSize,
       barOnMouseOver,
-      YaxisLine
     } = this.config;
 
     return (
@@ -71,6 +72,7 @@ class BarsChart extends PureComponent {
             <YAxis
               domain={domain}
               ticks={YAxisTicks}
+              tick={YAxisTick}
               tickLine={false}
               axisLine={YaxisLine}
               interval={0}
