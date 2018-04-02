@@ -4,6 +4,7 @@ import { Router } from 'routes';
 
 // components
 import Select from 'components/common/select';
+import Summary from 'components/common/summary';
 import Spinner from 'components/common/spinner';
 import IssueAreasBar from 'components/common/issue-areas-bar';
 import Accordion from './accordion';
@@ -28,7 +29,7 @@ class ResultsDetail extends PureComponent {
 
   render() {
     const { issueAreas, selectedArea } = this.props;
-    const { observation, slug, id } = selectedArea || {};
+    const { observation, slug, id, summary } = selectedArea || {};
 
     return (
       <div className="c-results-detail-page">
@@ -48,7 +49,7 @@ class ResultsDetail extends PureComponent {
               </div>
               <div className="col-md-6">
                 {observation &&
-                  <p>{observation}</p>}
+                  <div dangerouslySetInnerHTML={{ __html: observation }} />}
               </div>
             </div>
           </div>
@@ -82,40 +83,12 @@ class ResultsDetail extends PureComponent {
                         publicly available documentation.
                       </p>
                     </div>
-                    <div className="summary">
-                      <h3 className="summary-title">Summary of results</h3>
-                      <p>The assessment results reveal only a small proportion of companies
-                        systematically addressing these issues. Three companies ([Company-I],
-                        [Company-D1 ] and [Company-D]) significantly outperform their peers.
-                        These companies tend to have well-developed corporate-level systems
-                        (typically guidelines or management standards) and programmes to
-                        support procurement, capacity building and skills development at
-                        a national level. Interestingly, three companies that are among
-                        the ten strongest performers for only Economic Development
-                        (namely [Company-N], [Company-C1] and [Company-X]) show some
-                        of the strongest results for one issue in particular: skills
-                        development. These companies show evidence of taking a
-                        systematic approach to enhancing the national skills base
-                        and employability of local populations around their mine sites.
-                      </p>
-                      <p>Leading practices in Economic Development generally involve collaborative
-                        partnerships between mining companies and in-country organisations,
-                        with an explicit capacity-building element to strengthen the
-                        organisations involved. This includes, for example, partnerships
-                        with government authorities for collaborative planning of
-                        development initiatives. On the whole though, these innovative
-                        approaches are generally found in one or two producing countries,
-                        rather than across all countries where the company in
-                        question is operating. And many companies show little
-                        or no evidence of taking a national-level perspective
-                        to catalysing socio-economic development. Other performance gaps
-                        identified in Economic Development include a general lack of evidence
-                        of companies systematically tracking the effectiveness of their measures
-                        to develop procurement opportunities for producing country suppliers
-                        beyond those located in the immediate vicinity of their
-                        mining operations.
-                      </p>
-                    </div>
+                    {summary &&
+                      <Summary
+                        title="Summary of results"
+                        content={summary}
+                        theme="dark"
+                      />}
                     <Accordion />
                   </div>}
                 </div>

@@ -5,13 +5,16 @@ export default {
   height: 195,
   // xAxis
   xAxisTickLine: false,
-  xAxisTick: false,
+  xAxisTick: {},
   xAxisKey: 'name',
-  xAxisHeight: 10,
+  xAxisHeight: 35,
   xAxisTicks: [],
+  xAxisTextAnchor: 'middle',
+  xAxisInterval: 'preserveEnd',
   // yAxis
   YaxisLine: false,
   domain: [0, 1],
+  YAxisTick: {},
   // styling
   strokeDasharray: '3',
   fill: 'none',

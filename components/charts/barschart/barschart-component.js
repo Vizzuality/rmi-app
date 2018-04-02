@@ -47,14 +47,18 @@ class BarsChart extends PureComponent {
       xAxisTick,
       xAxisHeight,
       xAxisTicks,
+      xAxisTextAnchor,
+      xAxisInterval,
       width,
       height,
       barDataKey,
       YAxisTicks,
+      YAxisTick,
+      YaxisInterval,
+      YaxisLine,
       strokeDasharray,
       barSize,
       barOnMouseOver,
-      YaxisLine
     } = this.config;
 
     return (
@@ -63,21 +67,24 @@ class BarsChart extends PureComponent {
         <ResponsiveContainer width={width} height={height}>
           <BarChart
             data={data}
-            margin={{ left: -15 }}
             onMouseLeave={barChartOnMouseLeave}
           >
             <YAxis
               domain={domain}
               ticks={YAxisTicks}
+              tick={YAxisTick}
               tickLine={false}
               axisLine={YaxisLine}
+              interval={0}
             />
             <XAxis
               dataKey={xAxisKey}
               height={xAxisHeight}
               tickLine={xAxisTickLine}
+              textAnchor={xAxisTextAnchor}
               tick={xAxisTick}
               ticks={xAxisTicks}
+              interval={xAxisInterval}
             />
             <CartesianGrid
               vertical={false}

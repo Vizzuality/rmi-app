@@ -22,10 +22,10 @@ class ResultsDetailAccordion extends PureComponent {
           <div className="row between-md">
             <div className="col-md-8">
               <h4 className="block-title">{d.name}</h4>
-              {d.observation &&
+              {d.summary &&
                 <div className="block-section">
                   <h5 className="block-section-name">Observation</h5>
-                  <p>{d.observation}</p>
+                  <div dangerouslySetInnerHTML={{ __html: d.summary }} />
                 </div>}
             </div>
             <div className="col-md-3">
