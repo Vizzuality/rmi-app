@@ -81,12 +81,21 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
 
         <div className="l-layout">
           <div className="graph-legend">
-            The radar chart shows how the company&apos;s performance varies across the
-            six thematic areas. The closer the company&apos;s polygon gets to the outer
-            point of the chart, the stronger the company&apos;s performance in that thematic
-            area. The maximum value for each thematic area (i.e. the value at each outer point)
-            represents current best practice by the assessed companies, collectively.
-            This is the aggregate best score achieved for all indicators in the area.
+            <p>
+              The maximum value of 1.000 represents the aggregation of best scores
+              achieved for all indicators in a given thematic area, taking into
+              account all companies’ results. As the aggregate best score varies
+              from one area to another, these charts cannot be used to compare
+              company performances across different areas.
+            </p>
+
+            <p>
+              All company results are based on public domain data that have been
+              sourced by RMI analysts or provided by companies. In the case of a
+              few companies, very little information was available. It is important
+              to note that a low score may only reflect a lack of relevant
+              information in the company’s publicly available documentation.
+            </p>
           </div>
         </div>
 

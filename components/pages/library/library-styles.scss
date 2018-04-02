@@ -3,7 +3,14 @@
 .c-library-page {
 
   .download-link {
+    display: inline-block;
+    margin: 15px 0 0;
+
     font-weight: $font-weight-bold;
     text-decoration: underline;
+
+    @media #{$mq-md} {
+      margin: 0;
+    }
   }
 }
