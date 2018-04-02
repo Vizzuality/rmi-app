@@ -55,6 +55,7 @@ export const getBreakdownScores = createSelector(
   (_scores = []) => {
     const breakdownScores = _scores.filter(score => (score || {}).kind === 'breakdown');
     const groupedByParent = groupBy(breakdownScores, 'parent-id');
+    const scoreOrder = ['Commitment', 'Action', 'Effectiveness']
 
     return Object.keys(groupedByParent).map((parentId) => {
       const scoreGroup = groupedByParent[parentId];
@@ -70,7 +71,13 @@ export const getBreakdownScores = createSelector(
           id: scoreChild.id,
           name: scoreChild.label,
           value: scoreChild.value
-        }))
+        })).sort(function(a, b) {
+          if (scoreOrder.indexOf(a.name) < scoreOrder.indexOf(b.name)) {
+            return -1
+          } else {
+            return 1
+          }
+        })
       });
     });
   }
