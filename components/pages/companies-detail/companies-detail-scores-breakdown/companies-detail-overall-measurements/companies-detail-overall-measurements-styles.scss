@@ -10,6 +10,14 @@
     text-align: center;
   }
 
+  .overall-legend {
+    margin-top: 25px;
+    font-size: $font-size-regular;
+    font-weight: $font-weight-light;
+    line-height: 1.8;
+    font-style: italic;
+  }
+
   .chart-legend {
     > .title {
       font-family: $font-family-1;
