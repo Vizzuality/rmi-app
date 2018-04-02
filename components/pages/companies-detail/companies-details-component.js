@@ -6,6 +6,7 @@ import Map from 'components/common/map';
 import CompanyDetailHeader from './companies-detail-header';
 import CompaniesDetailSidebar from './companies-detail-sidebar';
 import CompaniesDetailScoresBreakDown from './companies-detail-scores-breakdown';
+import Disclaimer from 'components/common/disclaimer';
 
 // constants
 import { MAP_LEGEND } from './companies-details-constants';
@@ -63,6 +64,15 @@ class CompaniesDetail extends PureComponent {
             </div>
           </div>
           <CompaniesDetailScoresBreakDown />
+          <div className="section">
+            <div className="l-layout">
+              <div className="row">
+                <div className="col-sm-12">
+                  <Disclaimer />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     );

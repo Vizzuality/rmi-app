@@ -9,7 +9,6 @@ import SpiderChart from 'components/charts/spiderchart';
 import StackedBars from 'components/charts/stacked-bars';
 import Table from 'components/common/table';
 import Summary from 'components/common/summary';
-import Disclaimer from 'components/common/disclaimer';
 import CompaniesDetailMineSitesList from './companies-detail-mine-sites-list';
 import CompaniesDetailAccordion from './companies-detail-accordion';
 import CompaniesDetailOverallMeasurements from './companies-detail-overall-measurements';
@@ -192,7 +191,6 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
                 /> : <Unknowndata asOf={false} />}
               </div>
             </div>
-            <Disclaimer />
           </div>
         </section>
       </div>
