@@ -21,7 +21,7 @@ class CompaniesListContainer extends PureComponent {
     const filtersChanged = !isEqual(filters, nextFilters);
 
     if (filtersChanged) {
-      this.props.getCompanies({ include: ['country', 'mine-sites', 'mine-sites.country', 'mine-sites.commodities'].join(',') });
+      this.props.getCompanies({ include: ['country', 'secondary-country', 'mine-sites', 'mine-sites.country', 'mine-sites.commodities'].join(',') });
     }
   }
 

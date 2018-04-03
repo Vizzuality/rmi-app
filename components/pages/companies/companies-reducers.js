@@ -10,5 +10,7 @@ export default {
       ...payload
     }
   }),
-  [actions.resetFilters]: state => ({ ...state, filters: initialState.filters })
+  [actions.resetFilters]: state => ({ ...state, filters: initialState.filters }),
+  [actions.setSelectedCompany]: (state, { payload }) => ({ ...state, selectedCompany: payload }),
+  [actions.resetSelectedCompany]: state => ({ ...state, selectedCompany: initialState.selectedCompany }),
 };
