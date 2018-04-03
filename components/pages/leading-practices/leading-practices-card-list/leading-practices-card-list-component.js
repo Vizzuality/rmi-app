@@ -13,8 +13,8 @@ class LeadingPracticesCardList extends PureComponent {
   };
 
   openModal({ id }) {
-    this.props.setSelectedLeadingPractice(id)
-    this.props.toggleModal(true)
+    this.props.setSelectedLeadingPractice(id);
+    this.props.toggleModal(true);
   };
 
   render() {

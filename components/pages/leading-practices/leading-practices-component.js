@@ -38,8 +38,13 @@ class LeadingPracticesPage extends PureComponent {
     this.props.setLeadingPracticesFilters({ topic: selectedTopic.value });
   }
 
+  closeModal() {
+    this.props.toggleModal(false);
+    this.props.setSelectedLeadingPractice(null);
+  };
+
   render() {
-    const { topics, leadingPracticesPagination, filters, modalOpen, toggleModal } = this.props;
+    const { topics, leadingPracticesPagination, filters, modalOpen } = this.props;
     const { size, page, limit } = leadingPracticesPagination;
     const { topic } = filters;
 
@@ -96,7 +101,7 @@ class LeadingPracticesPage extends PureComponent {
         </div>
         <Modal
           isOpen={modalOpen}
-          onRequestClose={() => toggleModal(false)}
+          onRequestClose={() => this.closeModal()}
         >
           <ModalContent />
         </Modal>

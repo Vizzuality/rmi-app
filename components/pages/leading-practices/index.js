@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 
 // actions
 import { toggleModal } from 'modules/app/app-actions';
+import { setSelectedLeadingPractice } from './leading-practices-actions';
 
 // utils
 import isEqual from 'lodash/isEqual';
@@ -48,5 +49,5 @@ export default connect(
     filters: state.leadingPracticesPage.leadingPractices.filters,
     topics: parseTopics(state)
   }),
-  { ...actions, toggleModal }
+  { ...actions, toggleModal, setSelectedLeadingPractice }
 )(LeadingPracticesPageContainer);
