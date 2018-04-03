@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
 // global constants
-import { overallColors, measurementColors } from 'constants/graph-colors';
+import { measurementColors } from 'constants/graph-colors';
 
 // components
 import SpiderChart from 'components/charts/spiderchart';
@@ -27,7 +27,6 @@ import styles from './companies-detail-scores-breakdown-styles.scss';
 
 class CompaniesDetailScoresBreakDown extends PureComponent {
   static propTypes = {
-    overallScores: PropTypes.array.isRequired,
     mineSites: PropTypes.array.isRequired,
     breakdownScores: PropTypes.array.isRequired,
     shareholders: PropTypes.array.isRequired,
@@ -38,7 +37,7 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
 
   render() {
     const {
-      company, overallScores, breakdownScores, mineSites,
+      company, breakdownScores, mineSites,
       shareholders, investmentDisputes, knownTaxJurisdictions
     } = this.props;
     const {
@@ -52,16 +51,6 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
         <style jsx>{styles}</style>
         <div className="l-layout">
           {summary && <Summary content={summary}/>}
-          <div className="section overall-scores-container">
-            <div className="row center-md">
-              <div className="col-md-10">
-                <SpiderChart
-                  colors={overallColors}
-                  data={overallScores}
-                />
-              </div>
-            </div>
-          </div>
           <section className="section measurement-scores-container">
             <div className="row center-md -no-text-align">
               <div className="col-xs-12 col-md-10">
