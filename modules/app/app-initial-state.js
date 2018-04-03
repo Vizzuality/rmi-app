@@ -1,1 +1,4 @@
-export default { sidebar: { open: false } };
+export default {
+  sidebar: { open: false },
+  modal: { open: true }
+};

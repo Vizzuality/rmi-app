@@ -8,5 +8,12 @@ export default {
       ...state.sidebar,
       open: payload
     }
+  }),
+  [actions.toggleModal]: (state, { payload }) => ({
+    ...state,
+    modal: {
+      ...state.modal,
+      open: payload
+    }
   })
 };

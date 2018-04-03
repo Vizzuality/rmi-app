@@ -44,6 +44,7 @@
     "react-addons-shallow-compare": "15.6.2",
     "react-dom": "16.2.0",
     "react-dom-factories": "1.0.2",
+    "react-modal": "3.3.2",
     "react-redux": "5.0.6",
     "react-redux-toastr": "7.2.1",
     "react-responsive": "4.0.5",
