@@ -7,6 +7,7 @@ import Modal from 'components/common/modal';
 import Select from 'components/common/select';
 import Paginator from 'components/common/paginator';
 import LeadingPracticesCardList from './leading-practices-card-list';
+import ModalContent from './modal-content';
 
 // actions
 import { setPaginationPage, getLeadingPractices, setLeadingPracticesFilters } from './leading-practices-actions';
@@ -97,7 +98,7 @@ class LeadingPracticesPage extends PureComponent {
           isOpen={modalOpen}
           onRequestClose={() => toggleModal(false)}
         >
-          Test
+          <ModalContent />
         </Modal>
       </div>
     );

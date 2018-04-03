@@ -12,8 +12,8 @@ class LeadingPracticesCardList extends PureComponent {
     toggleModal: PropTypes.func.isRequired
   };
 
-  openModal(leadingPractice) {
-    this.props.setSelectedLeadingPractice(leadingPractice.id)
+  openModal({ id }) {
+    this.props.setSelectedLeadingPractice(id)
     this.props.toggleModal(true)
   };
 
