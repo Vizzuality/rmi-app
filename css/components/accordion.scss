@@ -29,7 +29,7 @@
       }
     }
 
-    &[aria-selected=true] {
+    &[aria-expanded=true] {
       .category-name {
         &:before {
           top: calc(50% - 11px);
