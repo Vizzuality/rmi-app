@@ -19,6 +19,10 @@ class LeadingPracticesCard extends PureComponent {
     onClick: PropTypes.func.isRequired
   }
 
+  shortDescription(description) {
+    return `${description.replace(/^(.{120}[^\s]*).*/, "$1")}...`
+  };
+
   render() {
     const { onClick, leadingPractice } = this.props;
     const { title, companies, description } = leadingPractice;
@@ -31,7 +35,7 @@ class LeadingPracticesCard extends PureComponent {
           <h4 key={company.id} className="company">
             <Link
               route="companies"
-              params={{ company: company.slug }}
+              params={{ company: company.id }}
             >
               <a>{company.name}</a>
             </Link>
@@ -39,7 +43,7 @@ class LeadingPracticesCard extends PureComponent {
         ))}
 
         {description &&
-          <p>{description}</p>}
+          <p>{this.shortDescription(description)}</p>}
       </div>
     );
   }

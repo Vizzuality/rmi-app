@@ -1,5 +1,9 @@
 import { connect } from 'react-redux';
 
+// actions
+import { toggleModal } from 'modules/app/app-actions';
+import { setSelectedLeadingPractice } from '../leading-practices-actions';
+
 // components
 import ModalContent from './modal-content-component';
 
@@ -10,5 +14,5 @@ export default connect(
   state => ({
     leadingPractice: getLeadingPractice(state)
   }),
-  {}
+  {toggleModal, setSelectedLeadingPractice}
 )(ModalContent);

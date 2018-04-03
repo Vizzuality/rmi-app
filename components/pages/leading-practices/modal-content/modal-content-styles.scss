@@ -1,11 +1,10 @@
 @import 'css/settings';
 
-.c-leading-practices-card {
+.c-modal-content {
   flex: 1;
   padding: 35px;
   background: $color-7;
-  border: 4px solid $color-1;
-  cursor: pointer;
+  // border: 4px solid $color-1;
 
   .title {
     font-family: $font-family-2;
