@@ -64,9 +64,18 @@ $font-size-bigger: 26px;
 $font-size-huge: 28px;
 $font-size-giant: 60px;
 
+// modal
+$max-width-modal: 880px;
+$max-width-modal-medium: 600px;
+
 $animation-time: .75s;
 $animation-time-2: .35s;
+
+$ease-in-sine: cubic-bezier(0.470, 0.000, 0.745, 0.715);
 $ease-in-out-sine: cubic-bezier(0.445, 0.050, 0.550, 0.950);
+
+$ease-out-cubic: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+
 
 // responsive
 $sm: 48rem;
