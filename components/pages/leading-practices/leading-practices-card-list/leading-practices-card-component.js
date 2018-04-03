@@ -15,14 +15,16 @@ class LeadingPracticesCard extends PureComponent {
         slug: PropTypes.string
       })),
       description: PropTypes.string
-    })
+    }),
+    onClick: PropTypes.func.isRequired
   }
 
   render() {
-    const { title, companies, description } = this.props.leadingPractice;
+    const { onClick, leadingPractice } = this.props;
+    const { title, companies, description } = leadingPractice;
 
     return (
-      <div className="c-leading-practices-card">
+      <div className="c-leading-practices-card" onClick={() => onClick(leadingPractice)}>
         <style jsx>{styles}</style>
         <h3 className="title">{title}</h3>
         {companies.map(company => (

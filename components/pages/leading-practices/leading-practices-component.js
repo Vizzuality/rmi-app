@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 // components
+import Modal from 'components/common/modal';
 import Select from 'components/common/select';
 import Paginator from 'components/common/paginator';
 import LeadingPracticesCardList from './leading-practices-card-list';
@@ -19,9 +20,11 @@ class LeadingPracticesPage extends PureComponent {
     topics: PropTypes.array.isRequired,
     filters: PropTypes.object.isRequired,
     leadingPracticesPagination: PropTypes.object.isRequired,
+    modalOpen: PropTypes.bool.isRequired,
     setPaginationPage: PropTypes.func.isRequired,
     getLeadingPractices: PropTypes.func.isRequired,
-    setLeadingPracticesFilters: PropTypes.func.isRequired
+    setLeadingPracticesFilters: PropTypes.func.isRequired,
+    toggleModal: PropTypes.func.isRequired
   }
 
   handlePagination = (nextPage) => {
@@ -35,7 +38,7 @@ class LeadingPracticesPage extends PureComponent {
   }
 
   render() {
-    const { topics, leadingPracticesPagination, filters } = this.props;
+    const { topics, leadingPracticesPagination, filters, modalOpen, toggleModal } = this.props;
     const { size, page, limit } = leadingPracticesPagination;
     const { topic } = filters;
 
@@ -90,6 +93,12 @@ class LeadingPracticesPage extends PureComponent {
             </div>
           </div>
         </div>
+        <Modal
+          isOpen={modalOpen}
+          onRequestClose={() => toggleModal(false)}
+        >
+          Test
+        </Modal>
       </div>
     );
   }

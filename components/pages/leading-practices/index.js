@@ -3,6 +3,9 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
+// actions
+import { toggleModal } from 'modules/app/app-actions';
+
 // utils
 import isEqual from 'lodash/isEqual';
 
@@ -41,8 +44,9 @@ class LeadingPracticesPageContainer extends PureComponent {
 
 export default connect(
   state => ({
+    modalOpen: state.app.modal.open,
     filters: state.leadingPracticesPage.leadingPractices.filters,
     topics: parseTopics(state)
   }),
-  actions
+  { ...actions, toggleModal }
 )(LeadingPracticesPageContainer);

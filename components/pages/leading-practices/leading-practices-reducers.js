@@ -9,6 +9,14 @@ export default {
         list: payload
       }
     }),
+  [actions.setSelectedLeadingPractice]: (state, { payload }) => (
+    {
+      ...state,
+      leadingPractices: {
+        ...state.leadingPractices,
+        selectedLeadingPractice: payload
+      }
+    }),
   [actions.setLeadingPracticesFilters]: (state, { payload }) => (
     {
       ...state,

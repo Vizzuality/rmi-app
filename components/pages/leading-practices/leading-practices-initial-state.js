@@ -1,6 +1,7 @@
 export default {
   leadingPractices: {
     list: [],
+    selectedLeadingPractice: null,
     filters: {},
     loading: false,
     error: null,

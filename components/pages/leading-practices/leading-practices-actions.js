@@ -5,6 +5,7 @@ import LeadingPracticesService from 'services/leading-practices';
 import TopicsService from 'services/topics';
 
 export const setLeadingPractices = createAction('leading-practices-page/setLeadingPractices');
+export const setSelectedLeadingPractice = createAction('leading-practices-page/setSelectedLeadingPractice');
 export const setLeadingPracticesFilters = createAction('leading-practices-page/setLeadingPracticesFilters');
 export const setLeadingPracticesLoading = createAction('leading-practices-page/setLeadingPracticesLoading');
 export const setTopics = createAction('leading-practices-page/setTopics');
