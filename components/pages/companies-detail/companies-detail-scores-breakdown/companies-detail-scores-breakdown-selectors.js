@@ -11,18 +11,6 @@ const investmentDisputes = state => (state.companies.list[0] || {})['investment-
 const knownTaxJurisdictions = state =>
   (state.companies.list[0] || {})['company-country-tax-jurisdictions'];
 
-export const getOverallScores = createSelector(
-  [scores],
-  (_scores = []) => {
-    const overallScores = _scores.filter(score => (score || {}).kind === 'overall_indicator');
-    return overallScores.map(score => ({
-      id: score.id,
-      name: score.label,
-      value: score.value
-    }));
-  }
-);
-
 export const parseShareholders = createSelector(
   [shareholders],
   (_shareholders = []) => orderBy(_shareholders, 'name', ['asc'])
@@ -111,7 +99,6 @@ export const parseKnownTaxJurisdictions = createSelector(
 );
 
 export default {
-  getOverallScores,
   getBreakdownScores,
   parseMineSitesScores,
   parseKnownTaxJurisdictions

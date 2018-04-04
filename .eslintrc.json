@@ -5,7 +5,8 @@
     "es6": true
   },
   "globals": {
-    "Transifex": true
+    "Transifex": true,
+    "google": true
   },
   "extends": "vizzuality",
   "rules": {

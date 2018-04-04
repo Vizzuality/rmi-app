@@ -1,12 +1,13 @@
 export default {
   leadingPractices: {
     list: [],
+    selectedLeadingPractice: null,
     filters: {},
     loading: false,
     error: null,
     pagination: {
       page: 1,
-      limit: 6,
+      limit: 18,
       size: 0
     }
   },

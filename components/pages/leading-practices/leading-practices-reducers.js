@@ -1,4 +1,5 @@
 import * as actions from './leading-practices-actions';
+import initialState from './leading-practices-initial-state';
 
 export default {
   [actions.setLeadingPractices]: (state, { payload }) => (
@@ -7,6 +8,22 @@ export default {
       leadingPractices: {
         ...state.leadingPractices,
         list: payload
+      }
+    }),
+  [actions.setSelectedLeadingPractice]: (state, { payload }) => (
+    {
+      ...state,
+      leadingPractices: {
+        ...state.leadingPractices,
+        selectedLeadingPractice: payload
+      }
+    }),
+  [actions.resetLeadingPracticesFilters]: state => (
+    {
+      ...state,
+      leadingPractices: {
+        ...state.leadingPractices,
+        filters: initialState.leadingPractices.filters
       }
     }),
   [actions.setLeadingPracticesFilters]: (state, { payload }) => (
@@ -45,6 +62,14 @@ export default {
           ...state.leadingPractices.pagination,
           size: payload
         }
+      }
+    }),
+  [actions.resetPagination]: state => (
+    {
+      ...state,
+      leadingPractices: {
+        ...state.leadingPractices,
+        pagination: initialState.leadingPractices.pagination
       }
     }),
   [actions.setTopics]: (state, { payload }) => (
