@@ -5,17 +5,23 @@ import PropTypes from 'prop-types';
 import styles from './unknown-data-styles.scss';
 
 class Unknowndata extends PureComponent {
-  static propTypes = { asOf: PropTypes.bool }
+  static propTypes = {
+    asOf: PropTypes.bool,
+    text: PropTypes.string
+  }
 
-  static defaultProps = { asOf: true }
+  static defaultProps = {
+    asOf: true,
+    text: "Unkown"
+  }
 
   render() {
-    const { asOf } = this.props;
+    const { asOf, text } = this.props;
     return (
       <div className="c-unknown-data">
         <style jsx>{styles}</style>
         {asOf && <span className="as-of">As of: Unknown</span>}
-        <span className="unknown-value">Unknown</span>
+          <span className="unknown-value">{text}</span>
       </div>
     );
   }
