@@ -46,22 +46,6 @@
     font-style: italic;
   }
 
-  .measurement-scores-container {
-    position: relative;
-
-    &:after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translate(-50%, 0);
-      display: inline-block;
-      height: 2px;
-      width: 80%;
-      background-color: $color-6;
-    }
-  }
-
   .contextual-table {
     &:not(:first-child) {
       margin: 35px 0 0;
