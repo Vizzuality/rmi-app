@@ -7,18 +7,21 @@ import LeadingPracticeCard from './leading-practices-card-component';
 
 class LeadingPracticesCardList extends PureComponent {
   static propTypes = {
-    leadingPractices: PropTypes.array,
-    loading: PropTypes.bool,
-    toggleModal: PropTypes.func.isRequired
+    leadingPractices: PropTypes.array.isRequired,
+    loading: PropTypes.bool.isRequired,
+    toggleModal: PropTypes.func.isRequired,
+    setSelectedLeadingPractice: PropTypes.func.isRequired
   };
 
   openModal({ id }) {
     this.props.setSelectedLeadingPractice(id);
     this.props.toggleModal(true);
-  };
+  }
+
+  handleClick = leadingPractice => this.openModal(leadingPractice)
 
   render() {
-    const { leadingPractices, loading, setModalContent } = this.props;
+    const { leadingPractices, loading } = this.props;
 
     return (
       <div className="leading-practices-card-list">
@@ -27,7 +30,7 @@ class LeadingPracticesCardList extends PureComponent {
             <div className="col-md-4" key={leadingPractice.id}>
               <LeadingPracticeCard
                 leadingPractice={leadingPractice}
-                onClick={(leadingPractice) => this.openModal(leadingPractice)}
+                onClick={this.handleClick}
               />
             </div>
           ))}

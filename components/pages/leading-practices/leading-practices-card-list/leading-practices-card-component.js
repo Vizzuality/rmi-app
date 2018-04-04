@@ -19,16 +19,26 @@ class LeadingPracticesCard extends PureComponent {
     onClick: PropTypes.func.isRequired
   }
 
-  shortDescription(description) {
-    return `${description.replace(/^(.{120}[^\s]*).*/, "$1")}...`
-  };
+  static defaultProps = { leadingPractice: {} }
+
+  static shortDescription(description) {
+    return `${description.replace(/^(.{120}[^\s]*).*/, '$1')}...`;
+  }
+
+  handleClick = () => {
+    const { onClick, leadingPractice } = this.props;
+    onClick(leadingPractice);
+  }
 
   render() {
-    const { onClick, leadingPractice } = this.props;
+    const { leadingPractice } = this.props;
     const { title, companies, description } = leadingPractice;
 
     return (
-      <div className="c-leading-practices-card" onClick={() => onClick(leadingPractice)}>
+      <div
+        className="c-leading-practices-card"
+        onClick={this.handleClick}
+      >
         <style jsx>{styles}</style>
         <h3 className="title">{title}</h3>
         {companies.map(company => (
@@ -43,7 +53,7 @@ class LeadingPracticesCard extends PureComponent {
         ))}
 
         {description &&
-          <p>{this.shortDescription(description)}</p>}
+          <p>{LeadingPracticesCard.shortDescription(description)}</p>}
       </div>
     );
   }

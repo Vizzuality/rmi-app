@@ -1,10 +1,10 @@
 @import 'css/settings';
 
 .c-modal-content {
-  flex: 1;
-  padding: 35px;
-  background: $color-7;
-  // border: 4px solid $color-1;
+
+  @media #{$mq-md} {
+    padding: 35px;
+  }
 
   .title {
     font-family: $font-family-2;
@@ -13,9 +13,9 @@
   }
 
   .company {
-    border-bottom: 1px solid $color-6;
     padding: 0 0 20px;
     margin: 25px 0 20px;
+    border-bottom: 1px solid $color-6;
 
     color: $color-8;
   }
