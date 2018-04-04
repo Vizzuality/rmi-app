@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 
 // components
 import Modal from 'components/common/modal';
@@ -8,10 +7,6 @@ import Select from 'components/common/select';
 import Paginator from 'components/common/paginator';
 import LeadingPracticesCardList from './leading-practices-card-list';
 import ModalContent from './modal-content';
-
-// actions
-import { setPaginationPage, getLeadingPractices, setLeadingPracticesFilters } from './leading-practices-actions';
-
 
 // styles
 import styles from './leading-practices-styles.scss';
@@ -23,9 +18,17 @@ class LeadingPracticesPage extends PureComponent {
     leadingPracticesPagination: PropTypes.object.isRequired,
     modalOpen: PropTypes.bool.isRequired,
     setPaginationPage: PropTypes.func.isRequired,
+    resetPagination: PropTypes.func.isRequired,
     getLeadingPractices: PropTypes.func.isRequired,
     setLeadingPracticesFilters: PropTypes.func.isRequired,
-    toggleModal: PropTypes.func.isRequired
+    resetLeadingPracticesFilters: PropTypes.func.isRequired,
+    toggleModal: PropTypes.func.isRequired,
+    setSelectedLeadingPractice: PropTypes.func.isRequired
+  }
+
+  componentWillUnmount() {
+    this.props.resetLeadingPracticesFilters();
+    this.props.resetPagination();
   }
 
   handlePagination = (nextPage) => {
@@ -38,10 +41,10 @@ class LeadingPracticesPage extends PureComponent {
     this.props.setLeadingPracticesFilters({ topic: selectedTopic.value });
   }
 
-  closeModal() {
+  closeModal = () => {
     this.props.toggleModal(false);
     this.props.setSelectedLeadingPractice(null);
-  };
+  }
 
   render() {
     const { topics, leadingPracticesPagination, filters, modalOpen } = this.props;
@@ -101,7 +104,7 @@ class LeadingPracticesPage extends PureComponent {
         </div>
         <Modal
           isOpen={modalOpen}
-          onRequestClose={() => this.closeModal()}
+          onRequestClose={this.closeModal}
         >
           <ModalContent />
         </Modal>
@@ -110,11 +113,4 @@ class LeadingPracticesPage extends PureComponent {
   }
 }
 
-export default connect(
-  state => ({ leadingPracticesPagination: state.leadingPracticesPage.leadingPractices.pagination }),
-  {
-    setPaginationPage,
-    getLeadingPractices,
-    setLeadingPracticesFilters
-  }
-)(LeadingPracticesPage);
+export default LeadingPracticesPage;

@@ -7,12 +7,14 @@ import TopicsService from 'services/topics';
 export const setLeadingPractices = createAction('leading-practices-page/setLeadingPractices');
 export const setSelectedLeadingPractice = createAction('leading-practices-page/setSelectedLeadingPractice');
 export const setLeadingPracticesFilters = createAction('leading-practices-page/setLeadingPracticesFilters');
+export const resetLeadingPracticesFilters = createAction('leading-practices-page/resetLeadingPracticesFilters');
 export const setLeadingPracticesLoading = createAction('leading-practices-page/setLeadingPracticesLoading');
 export const setTopics = createAction('leading-practices-page/setTopics');
 export const setTopicsLoading = createAction('leading-practices-page/setTopicsLoading');
 export const setTopicsError = createAction('leading-practices-page/setTopicsError');
 export const setPaginationPage = createAction('leading-practices-page/setPaginationPage');
 export const setPaginationSize = createAction('leading-practices-page/setPaginationSize');
+export const resetPagination = createAction('leading-practices-page/resetPagination');
 
 export const getLeadingPractices = createThunkAction('leading-practices-page/getLeadingPractices', (_options = {}) =>
   (dispatch, getState) => {
