@@ -1,6 +1,10 @@
 // redux
 import { connect } from 'react-redux';
 
+// actions
+import { toggleModal } from 'modules/app/app-actions';
+import { setSelectedLeadingPractice } from '../leading-practices-actions';
+
 // selectors
 import { parseLeadingPractices } from './leading-practices-card-list-selectors';
 
@@ -11,5 +15,8 @@ export default connect(
     leadingPractices: parseLeadingPractices(state),
     loading: state.leadingPracticesPage.leadingPractices.loading
   }),
-  {}
+  {
+    toggleModal,
+    setSelectedLeadingPractice
+  }
 )(LeadingPracticesCardList);
