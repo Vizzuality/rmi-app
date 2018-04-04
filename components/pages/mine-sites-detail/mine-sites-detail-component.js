@@ -4,6 +4,7 @@ import React, { PureComponent } from 'react';
 import Disclaimer from 'components/common/disclaimer';
 import MineSitesDetailHeader from './mine-sites-detail-header';
 import MineSitesDetailSidebar from './mine-sites-detail-sidebar';
+import MineSiteSatelliteView from './mine-site-satellite-view';
 import MineSitesDetailBars from './mine-sites-detail-bars';
 import MineSitesDetailAccordion from './mine-sites-detail-accordion';
 import MineSitesDetailAssessmentTable from './mine-sites-detail-assessments-table';
@@ -27,7 +28,14 @@ class MineSitesDetail extends PureComponent {
                     <MineSitesDetailSidebar />
                   </div>
                   <div className="col-md-7">
-                    <div className="map-container" />
+                    <div className="map-container" id="mine-site-satellite-view">
+                      <MineSiteSatelliteView
+                        containerElement={<div style={{ height: '400px' }} />}
+                        mapElement={<div style={{ height: '100%' }} />}
+                        loadingElement={<div style={{ height: '100%' }} />}
+                        googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${process.env.GOOGLE_MAPS_API_KEY}&v=3.exp`}
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
