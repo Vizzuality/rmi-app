@@ -13,12 +13,12 @@ export default {
   xAxisInterval: 'preserveEnd',
   // yAxis
   YaxisLine: false,
-  domain: [0, 1],
   YAxisTick: {},
+  domain: [0, 6],
+  YAxisTicks: ['0.000', '1.000', '2.000', '3.000', '4.000', '5.000', '6.000'],
   // styling
   strokeDasharray: '3',
   fill: 'none',
-  YAxisTicks: ['0.000', '0.200', '0.400', '0.600', '0.800', '1.000'],
   // bar
   barDataKey: 'value',
   setBarFill: () => '#ddd',
