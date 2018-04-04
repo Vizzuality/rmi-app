@@ -11,15 +11,6 @@ export const ASSESSMENTS_TABLE_COLUMNS = [
     header: { label: 'Indicators' }
   },
   {
-    property: 'url',
-    header: { label: 'URL Address' },
-    cell: {
-      formatters: [
-        url => (url.label ? <a href={url.value} rel="noopener noreferrer">{url.label}</a> : '-')
-      ]
-    }
-  },
-  {
     property: 'downloadLink',
     header: { label: 'Select File' },
     cell: {
