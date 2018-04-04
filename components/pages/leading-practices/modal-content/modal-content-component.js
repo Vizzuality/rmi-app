@@ -6,10 +6,18 @@ import { Link } from 'routes';
 import styles from './modal-content-styles.scss';
 
 class ModalContent extends PureComponent {
-  closeModal() {
+  static propTypes = {
+    leadingPractice: PropTypes.object,
+    toggleModal: PropTypes.func.isRequired,
+    setSelectedLeadingPractice: PropTypes.func.isRequired
+  }
+
+  static defaultProps = { leadingPractice: {} }
+
+  closeModal = () => {
     this.props.toggleModal(false);
     this.props.setSelectedLeadingPractice(null);
-  };
+  }
 
   render() {
     const { name, companies, description } = this.props.leadingPractice;
@@ -20,7 +28,11 @@ class ModalContent extends PureComponent {
         <h3 className="title">{name}</h3>
 
         {companies.map(company => (
-          <h4 onClick={() => this.closeModal()} key={company.id} className="company">
+          <h4
+            key={company.id}
+            onClick={this.closeModal}
+            className="company"
+          >
             <Link
               route="companies"
               params={{ company: company.id }}
