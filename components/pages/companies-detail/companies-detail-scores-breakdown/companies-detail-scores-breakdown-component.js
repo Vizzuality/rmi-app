@@ -186,7 +186,7 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
                 {investmentDisputes.length ? <Table
                   columns={INVESTMENT_DISPUTES_COLUMNS}
                   rows={investmentDisputes}
-                /> : <Unknowndata asOf={false} />}
+                /> : <Unknowndata asOf={false} text={"No case"} />}
               </div>
             </div>
           </div>
