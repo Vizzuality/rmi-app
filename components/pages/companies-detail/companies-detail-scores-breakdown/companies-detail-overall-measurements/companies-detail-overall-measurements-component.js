@@ -32,6 +32,7 @@ class CompaniesDetailOverallMeasurements extends PureComponent {
                 <Bars
                   config={CHART_CONFIG}
                   data={d.children}
+                  customTooltip={true}
                 />
                 <div className="chart-legend">
                   <h2 className="title">{OVERALL_CHARTS_TITLES[d.name]}</h2>
