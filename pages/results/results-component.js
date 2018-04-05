@@ -33,7 +33,7 @@ class ResultsPage extends Page {
     if (isOverallPage) {
       await context.store.dispatch(getScores({
         include: ['company'].join(','),
-        'filter[kind]': 'overall_indicator',
+        'filter[kind]': 'absolute_breakdown',
         'page[size]': 1000
       }));
     }

@@ -2,11 +2,10 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
 // components
-import Bars from 'components/charts/barschart';
+import StackedBars from 'components/charts/stacked-bars-chart';
 
 // constants
-import { BAR_CONFIG, AREA_ISSUES_COLORS } from './overall-graphs-constants';
-
+import { BAR_CONFIG, STACKED_BAR_COLOURS, BARS } from './overall-graphs-constants';
 
 // styles
 import styles from './overall-graphs-styles.scss';
@@ -18,7 +17,7 @@ class OverallGraphs extends PureComponent {
     const { slug } = this.props.data;
     this.chartConfig = {
       ...BAR_CONFIG,
-      setBarFill: () => AREA_ISSUES_COLORS[slug]
+      setBarFill: ({ dataKey }) => STACKED_BAR_COLOURS[slug][dataKey]
     };
   }
 
@@ -30,9 +29,10 @@ class OverallGraphs extends PureComponent {
       <div className="graph-item">
         <style jsx>{styles}</style>
         <div className="graph-item-container">
-          <Bars
+          <StackedBars
             config={this.chartConfig}
             data={scores}
+            bars={BARS}
           />
           <div className="chart-legend">
             <h2 className="title">{label}</h2>

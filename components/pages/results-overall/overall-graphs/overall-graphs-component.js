@@ -44,22 +44,20 @@ class OverallGraphs extends PureComponent {
   }
 
   render() {
-    const overallGraphs = this.renderGraphs();
     return (
       <div className="c-overall-graphs">
         <style jsx>{styles}</style>
         <div className="graph-container">
-          {overallGraphs}
+          {this.renderGraphs()}
         </div>
-
         <div className="explanation">
-          <p>The maximum value of 1.000 represents the aggregation of best
+          {/* <p>The maximum value of 1.000 represents the aggregation of best
             scores achieved for all indicators in a given thematic area,
             taking into account all companies&apos;s results. As the aggregate
             best score varies from one area to another, these charts
             cannot be used to compare company performances across
             different areas.
-          </p>
+          </p> */}
           <p>All company results are based on public domain data that
             have been sourced by RMI analysts or provided by companies.
             In the case of a few companies, very little information was
