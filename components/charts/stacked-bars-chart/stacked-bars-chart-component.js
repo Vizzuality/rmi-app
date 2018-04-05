@@ -35,7 +35,7 @@ class StackedBarsChart extends PureComponent {
   }
 
   handleBarFill = (item) => {
-    const { setBarFill } = this.config;
+    const { setBarFill } = this.props.config;
 
     return setBarFill(item);
   }

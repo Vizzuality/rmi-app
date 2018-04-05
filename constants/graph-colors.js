@@ -12,12 +12,45 @@ export const measurementColors = [blue, brown, pink, yellow, red, green];
 export const HOVER_COLOUR = '#000';
 
 export const AREA_ISSUE_COLOURS = {
-  '145': overallColors[1],
-  '146': overallColors[5],
-  '147': overallColors[4],
-  '148': overallColors[2],
-  '149': overallColors[0],
-  '150': overallColors[3]
+  145: overallColors[1],
+  146: overallColors[5],
+  147: overallColors[4],
+  148: overallColors[2],
+  149: overallColors[0],
+  150: overallColors[3]
+};
+
+export const STACKED_BAR_COLOURS = {
+  'a-economic-development': {
+    commitment: '#4f80fc',
+    action: '#255dec',
+    effectiveness: '#0b46dd'
+  },
+  'b-business-conduct': {
+    commitment: '#d0a77f',
+    action: '#c09872',
+    effectiveness: '#af8862'
+  },
+  'c-lifecycle-management': {
+    commitment: '#ce348e',
+    action: '#b7247a',
+    effectiveness: '#a3196a'
+  },
+  'd-community-wellbeing': {
+    commitment: '#fdbf5f',
+    action: '#fab03b',
+    effectiveness: '#f89d0f'
+  },
+  'e-working-conditions': {
+    commitment: '#f85948',
+    action: '#ef3521',
+    effectiveness: '#de1F0a'
+  },
+  'f-environmental-responsibility': {
+    commitment: '#9ccd63',
+    action: '#83c13A',
+    effectiveness: '#69a820'
+  }
 };
 
 export default {
@@ -30,5 +63,6 @@ export default {
   overallColors,
   measurementColors,
   HOVER_COLOUR,
-  AREA_ISSUE_COLOURS
+  AREA_ISSUE_COLOURS,
+  STACKED_BAR_COLOURS
 };
