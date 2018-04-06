@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import isEqual from 'lodash/isEqual';
 
 // constants
-import { HOVER_COLOUR } from 'constants/graph-colors';
-import { CHART_CONFIG, AREA_ISSUE_COLOURS } from './overall-chart-constants';
+import { STACKED_BAR_COLOURS, HOVER_COLOUR } from 'constants/graph-colors';
+import { CHART_CONFIG } from './overall-chart-constants';
 
 // actions
 import { setSelectedCompany, resetSelectedCompany } from '../results-detail-actions';
@@ -29,7 +29,8 @@ class OverallChartContainer extends PureComponent {
 
     this.chartConfig = {
       ...CHART_CONFIG,
-      setBarFill: ({ selected }) => (selected ? HOVER_COLOUR : AREA_ISSUE_COLOURS[slug]),
+      setBarFill: ({ dataKey, selected }) =>
+        (selected ? HOVER_COLOUR : STACKED_BAR_COLOURS[slug][dataKey]),
       barOnMouseOver: this.onMouseOver,
       barChartOnMouseLeave: this.onMouseOut
     };
@@ -46,7 +47,8 @@ class OverallChartContainer extends PureComponent {
 
       this.chartConfig = {
         ...this.chartConfig,
-        setBarFill: ({ selected }) => (selected ? HOVER_COLOUR : AREA_ISSUE_COLOURS[slug])
+        setBarFill: ({ dataKey, selected }) =>
+          (selected ? HOVER_COLOUR : STACKED_BAR_COLOURS[slug][dataKey])
       };
     }
   }

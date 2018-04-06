@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/mouse-events-have-key-events */
+
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import {
@@ -61,11 +63,10 @@ class BarsChart extends PureComponent {
       barDataKey,
       YAxisTicks,
       YAxisTick,
-      YaxisInterval,
       YaxisLine,
       strokeDasharray,
       barSize,
-      barOnMouseOver,
+      barOnMouseOver
     } = this.config;
 
     return (
