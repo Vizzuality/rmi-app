@@ -55,7 +55,7 @@ class ResultsOverall extends PureComponent {
               </div>
               <div className="row">
                 <div className="col-xs-12">
-                  {/* <TopCompanies /> */}
+                  <TopCompanies />
                 </div>
               </div>
             </div>

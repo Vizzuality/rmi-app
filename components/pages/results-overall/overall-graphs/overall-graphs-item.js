@@ -3,9 +3,15 @@ import PropTypes from 'prop-types';
 
 // components
 import StackedBars from 'components/charts/stacked-bars-chart';
+import Icon from 'components/common/icon';
 
 // constants
-import { BAR_CONFIG, STACKED_BAR_COLOURS, BARS } from './overall-graphs-constants';
+import { AREA_ISSUE_COLOURS } from 'constants/graph-colors';
+import {
+  BAR_CONFIG,
+  STACKED_BAR_COLOURS,
+  BARS
+} from './overall-graphs-constants';
 
 // styles
 import styles from './overall-graphs-styles.scss';
@@ -23,7 +29,7 @@ class OverallGraphs extends PureComponent {
 
   render() {
     const { data } = this.props;
-    const { scores, label } = data;
+    const { scores, label, id } = data;
 
     return (
       <div className="graph-item">
@@ -35,6 +41,15 @@ class OverallGraphs extends PureComponent {
             bars={BARS}
           />
           <div className="chart-legend">
+            <div
+              className="icon-background"
+              style={{ background: AREA_ISSUE_COLOURS[id] }}
+            >
+              <Icon
+                name={id}
+                className="-x-big"
+              />
+            </div>
             <h2 className="title">{label}</h2>
           </div>
         </div>

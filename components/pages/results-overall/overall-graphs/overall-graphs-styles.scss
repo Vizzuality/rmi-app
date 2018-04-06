@@ -2,6 +2,7 @@
 
 
 .c-overall-graphs {
+  margin: -45px 0 0;
 
   .explanation {
     margin: 55px 0 0;
@@ -14,13 +15,31 @@
 }
 
 .graph-item {
-  margin: 25px 0 0;
+  margin: 45px 0 0;
 
   .chart-legend {
+    display: flex;
+    align-items: center;
+
+    @media #{$mq-md} {
+      margin: 0 0 0 65px;
+    }
+
+    > .icon-background {
+      display: inline-flex;
+
+      > :global(.c-icon) {
+        fill: $color-7;
+      }
+
+      & + .title {
+        margin: 0 0 0 15px;
+      }
+    }
+
     > .title {
       font-family: $font-family-1;
       font-size: $font-size-big;
-      font-weight: $font-weight-light;
       color: $color-7;
     }
   }
