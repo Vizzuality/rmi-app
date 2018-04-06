@@ -10,16 +10,10 @@ const mineSite = state => state.mineSites.list[0];
 export const getCountries = createSelector(
   [mineSite],
   (_mineSite = {}) => {
-    const {
-      country: producingCountry,
-      company
-    } = _mineSite;
-    const { country: homeCountry } = company;
+    const { company } = _mineSite;
+    const { country: producingCountry } = company;
 
-    return {
-      producingCountryName: producingCountry.name,
-      homeCountryName: homeCountry.name
-    };
+    return { producingCountryName: producingCountry.name };
   }
 );
 
@@ -27,17 +21,12 @@ export const getCountries = createSelector(
 export const parseCountries = createSelector(
   [mineSite],
   (_mineSite = {}) => {
-    const {
-      country: producingCountry,
-      company
-    } = _mineSite;
-    const { country: homeCountry } = company;
+    const { country: producingCountry } = _mineSite;
 
     return groupBy(Object.keys(COMPARISON_COUNTRY_KEYS).map(key => ({
-      key: COMPARISON_COUNTRY_KEYS[key]['title'](homeCountry),
-      producingCountry: COMPARISON_COUNTRY_KEYS[key]['value'](producingCountry),
-      homeCountry: COMPARISON_COUNTRY_KEYS[key]['value'](homeCountry),
-      group: COMPARISON_COUNTRY_KEYS[key]['group']
+      key: COMPARISON_COUNTRY_KEYS[key].title(producingCountry),
+      producingCountry: COMPARISON_COUNTRY_KEYS[key].value(producingCountry),
+      group: COMPARISON_COUNTRY_KEYS[key].group
     })), 'group');
   }
 );
