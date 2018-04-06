@@ -6,7 +6,7 @@ import withRedux from 'next-redux-wrapper';
 import { initStore } from 'store';
 
 // actions
-import { getScores } from 'modules/scores/scores-actions';
+import { getScores } from 'components/pages/results-overall/results-overall-actions';
 import { getIssueAreas } from 'components/pages/results-detail/results-detail-actions';
 import { getResultSection } from 'modules/static-content/static-content-actions';
 
@@ -31,10 +31,24 @@ class ResultsPage extends Page {
     const isStaticPage = !isOverallPage && !isThematicPage;
 
     if (isOverallPage) {
+      // scores for stacked-bar charts
       await context.store.dispatch(getScores({
-        include: ['company'].join(','),
-        'filter[kind]': 'absolute_breakdown',
-        'page[size]': 1000
+        key: 'breakdownScores',
+        queryParams: {
+          include: ['company'].join(','),
+          'filter[kind]': 'absolute_breakdown',
+          'page[size]': 1000
+        }
+      }));
+
+      // scores for top companies
+      await context.store.dispatch(getScores({
+        key: 'overallScores',
+        queryParams: {
+          include: ['company'].join(','),
+          'filter[kind]': 'overall_indicator',
+          'page[size]': 1000
+        }
       }));
     }
 

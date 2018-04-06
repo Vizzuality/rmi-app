@@ -3,7 +3,7 @@ import { createSelector } from 'reselect';
 import groupBy from 'lodash/groupBy';
 import orderBy from 'lodash/orderBy';
 
-const scores = state => state.scores.list;
+const scores = state => state.resultsOverallPage.breakdownScores.list;
 const indicators = state => state.indicators.list;
 
 export const getScoresByIssueArea = createSelector(
