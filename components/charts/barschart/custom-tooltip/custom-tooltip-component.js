@@ -17,7 +17,7 @@ class CustomTooltip extends PureComponent {
       return (
         <div className="c-custom-tooltip">
           <style jsx>{styles}</style>
-          {(companies.find((company) => company['id'] === payload[0].payload.id).currentCompanyName)}
+          {(companies.find(company => company.id === payload[0].payload.id).currentCompanyName)}
         </div>
       );
     }
