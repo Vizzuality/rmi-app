@@ -50,6 +50,31 @@ export const INDEX_NAVIGATION = [{
     route: 'mine-sites',
     params: {}
   }
+}, {
+  id: 5,
+  label: 'Index',
+  query: {
+    route: 'index',
+    params: {}
+  },
+  noLink: true,
+  children: [{
+    id: '5-1',
+    label: 'Index 2018',
+    slug: 'index-2018',
+    query: {
+      route: 'index',
+      params: {}
+    }
+  }, {
+    id: '5-2',
+    label: 'Methodology 2017',
+    slug: 'methodology-2017',
+    query: {
+      route: 'results',
+      params: { id: 'methodology-2017' }
+    }
+  }]
 }];
 
 export const FOUNDATION_NAVIGATION = [{
