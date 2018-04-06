@@ -22,7 +22,7 @@ class CompaniesDetailOverallMeasurements extends PureComponent {
         <style jsx>{styles}</style>
         <div className="row">
           <div className="col-xs-12">
-            <h3 className="title">Overall measurement area ranking</h3>
+            <h3 className="title">Relative company performance</h3>
           </div>
         </div>
         <div className="charts-container">
@@ -42,7 +42,7 @@ class CompaniesDetailOverallMeasurements extends PureComponent {
           </div>
         </div>
         <div className="overall-legend">
-          1.000 = aggregation of best scores for all indicators of this thematic area.
+          1.000 = aggregation of best scores for all indicators of this measurement area.
         </div>
       </div>
     );
