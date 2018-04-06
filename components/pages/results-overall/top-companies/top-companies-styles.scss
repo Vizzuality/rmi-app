@@ -2,12 +2,14 @@
 
 
 .c-top-companies {
-  margin: -55px 0 0;
-
   .title {
     margin-top: 60px;
     color: $color-7;
     text-align: center;
+  }
+
+  .companies-container {
+    width: 100%;
   }
 }
 
