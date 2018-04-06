@@ -15,7 +15,7 @@ export default {
   YaxisLine: false,
   YAxisTick: {},
   domain: [0, 6],
-  YAxisTicks: ['0.000', '1.000', '2.000', '3.000', '4.000', '5.000', '6.000'],
+  YAxisTicks: ['0.00', '1.00', '2.00', '3.00', '4.00', '5.00', '6.00'],
   // styling
   strokeDasharray: '3',
   fill: 'none',

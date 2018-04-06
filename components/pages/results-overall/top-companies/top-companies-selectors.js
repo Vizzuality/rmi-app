@@ -6,7 +6,7 @@ import orderBy from 'lodash/orderBy';
 // constants
 import { COMPANIES_COLOURS } from './top-companies-constants';
 
-const scores = state => state.scores.list;
+const scores = state => state.resultsOverallPage.overallScores.list;
 const indicators = state => state.indicators.list;
 
 export const getTopCompanies = createSelector(

@@ -42,7 +42,12 @@
 
         > td {
           padding: 10px 0;
-          text-align: center;
+
+          &:last-child {
+            text-align: center;
+            color: $color-7;
+            font-weight: $font-weight-bold;
+          }
         }
       }
 
