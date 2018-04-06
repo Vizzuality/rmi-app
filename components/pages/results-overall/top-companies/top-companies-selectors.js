@@ -36,7 +36,7 @@ export const getTopCompanies = createSelector(
             currentPosition += 1;
 
             return ({
-              id: score.company.id,
+              id: index,
               name: score.company.name,
               slug: score.company.slug,
               score: score.value,
