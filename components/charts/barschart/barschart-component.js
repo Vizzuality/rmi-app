@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/mouse-events-have-key-events */
+
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import {
@@ -11,6 +13,9 @@ import {
   Tooltip
 } from 'recharts';
 
+// components
+import CustomTooltip from './custom-tooltip';
+
 // config
 import defaultConfig from './barschart-config';
 
@@ -20,10 +25,14 @@ import styles from './barschart-styles.scss';
 class BarsChart extends PureComponent {
   static propTypes = {
     data: PropTypes.array.isRequired,
-    config: PropTypes.object
+    config: PropTypes.object,
+    customTooltip: PropTypes.bool
   }
 
-  static defaultProps = { config: {} };
+  static defaultProps = {
+    config: {},
+    customTooltip: false
+  }
 
   componentWillMount() {
     const { config: customConfig } = this.props;
@@ -37,7 +46,7 @@ class BarsChart extends PureComponent {
   }
 
   render() {
-    const { data } = this.props;
+    const { data, customTooltip } = this.props;
     const {
       domain,
       isAnimationActive,
@@ -54,11 +63,10 @@ class BarsChart extends PureComponent {
       barDataKey,
       YAxisTicks,
       YAxisTick,
-      YaxisInterval,
       YaxisLine,
       strokeDasharray,
       barSize,
-      barOnMouseOver,
+      barOnMouseOver
     } = this.config;
 
     return (
@@ -104,6 +112,7 @@ class BarsChart extends PureComponent {
               ))}
             </Bar>
             <Tooltip
+              {...customTooltip && { content: <CustomTooltip companies={data} />}}
               isAnimationActive={false}
               cursor={false}
             />

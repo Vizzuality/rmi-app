@@ -52,7 +52,7 @@ class TopCompanies extends PureComponent {
         <style jsx>{styles}</style>
         {!topCompanies.length && <Spinner />}
         {!!topCompanies.length &&
-          <div className="container">
+          <div className="companies-container">
             <h2 className="title">Companies achieving the ten best scores for each thematic area</h2>
             {topCompanies}
           </div>}

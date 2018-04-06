@@ -50,7 +50,11 @@ class ResultsOverall extends PureComponent {
             <div className="l-layout">
               <div className="row">
                 <div className="col-xs-12">
-                  {/* Overall charts */}
+                  <OverallGraph />
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-xs-12">
                   <TopCompanies />
                 </div>
               </div>

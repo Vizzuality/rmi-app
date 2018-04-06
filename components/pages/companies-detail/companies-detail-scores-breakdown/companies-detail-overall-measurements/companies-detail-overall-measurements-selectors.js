@@ -20,6 +20,7 @@ export const getOverallMeasurementsScores = createSelector(
         children: orderBy(scoreGroup, 'value', 'desc').map(scoreChild => ({
           id: scoreChild.id,
           currentCompany: scoreChild['company-id'] === +_company.id,
+          currentCompanyName: _company.name,
           value: scoreChild.value
         }))
       });

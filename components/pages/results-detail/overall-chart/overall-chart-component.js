@@ -2,7 +2,10 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
 // components
-import Bars from 'components/charts/barschart';
+import StackedBars from 'components/charts/stacked-bars-chart';
+
+// constants
+import { BARS } from './overall-chart-constants';
 
 class OverallChart extends PureComponent {
   static propTypes = {
@@ -16,9 +19,10 @@ class OverallChart extends PureComponent {
 
     return (
       <div className="c-overall-chart">
-        <Bars
+        <StackedBars
           data={scores}
           config={config}
+          bars={BARS}
         />
       </div>
     );
