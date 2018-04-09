@@ -38,7 +38,9 @@ class MineSitesDetailHeader extends PureComponent {
                 </span>
               </div>
             </div>
-            <div className="col-md-2">
+
+            {/* Leaving this download button commented until we have the download files. */}
+            {/* <div className="col-md-2">
               <div className="right-side">
                 <div className="pdf-print">
                   <a href="#" className="print-link">
@@ -50,7 +52,7 @@ class MineSitesDetailHeader extends PureComponent {
                   </a>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

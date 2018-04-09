@@ -48,7 +48,8 @@ class CompaniesDetailHeader extends PureComponent {
                   ))}
                 </div>
 
-                <div className="pdf-print">
+                {/* Leaving this download button commented until we have the download files. */}
+                {/* <div className="pdf-print">
                   <a href="#" className="print-link">
                     <Icon
                       name="download"
@@ -56,7 +57,7 @@ class CompaniesDetailHeader extends PureComponent {
                     />
                     Download in PDF
                   </a>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
