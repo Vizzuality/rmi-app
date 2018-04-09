@@ -20,7 +20,7 @@ class MineSitesDetailCountryComparison extends PureComponent {
 
   render() {
     const { countries, data } = this.props;
-    const { producingCountryName, homeCountryName } = countries;
+    const { producingCountryName } = countries;
 
     return (
       <div className="c-mine-sites-detail-country-comparison">
@@ -35,14 +35,12 @@ class MineSitesDetailCountryComparison extends PureComponent {
         <table className="country-comparison-table">
           <thead>
             <tr>
-              <th className="country-header">Producing Country</th>
               <th />
-              <th className="country-header">Home Country</th>
+              <th className="country-header">Producing Country</th>
             </tr>
             <tr>
-              <th className="country-value">{producingCountryName}</th>
               <th />
-              <th className="country-value">{homeCountryName}</th>
+              <th className="country-value">{producingCountryName}</th>
             </tr>
           </thead>
           <tbody>
@@ -52,9 +50,8 @@ class MineSitesDetailCountryComparison extends PureComponent {
                   key={d.key}
                   className={MineSitesDetailCountryComparison.getRowClass(data[group].length, index)}
                 >
-                  <td>{d.producingCountry}</td>
                   <td>{d.key}</td>
-                  <td>{d.homeCountry}</td>
+                  <td>{d.producingCountry}</td>
                 </tr>
               ))
             ))}

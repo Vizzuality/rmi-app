@@ -28,6 +28,7 @@ import * as LeadingPracticesModule from 'components/pages/leading-practices';
 import * as CompaniesModule from 'components/pages/companies';
 import * as CompaniesDetailModule from 'components/pages/companies-detail';
 import * as MineSitesPageModule from 'components/pages/mine-sites';
+import * as ResultsOverallPageModule from 'components/pages/results-overall';
 import * as ResultsDetailPageModule from 'components/pages/results-detail';
 
 export default {
@@ -51,6 +52,7 @@ export default {
   companiesFilters: handleModule(CompaniesFiltersModule),
   companiesDetailPage: handleModule(CompaniesDetailModule),
   mineSitesPage: handleModule(MineSitesPageModule),
+  resultsOverallPage: handleModule(ResultsOverallPageModule),
   resultsDetailPage: handleModule(ResultsDetailPageModule),
   staticContent: handleModule(staticContentModule)
 };
