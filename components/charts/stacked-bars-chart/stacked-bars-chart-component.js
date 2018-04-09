@@ -9,6 +9,7 @@ import {
   XAxis,
   YAxis,
   CartesianGrid,
+  ReferenceLine,
   Tooltip
 } from 'recharts';
 
@@ -64,7 +65,13 @@ class StackedBarsChart extends PureComponent {
       // bar config
       barSize,
       barOnMouseOver,
-      barIsAnimationActive
+      barIsAnimationActive,
+      // reference line config
+      showReferenceLine,
+      yReferenceLine,
+      strokeReferenceLine,
+      strokeDasharrayReferenceLine,
+      labelReferenceLine
     } = this.config;
 
     return (
@@ -104,6 +111,13 @@ class StackedBarsChart extends PureComponent {
                 fill={this.handleBarFill(bar)}
               />
             ))}
+            {showReferenceLine &&
+              <ReferenceLine
+                y={yReferenceLine}
+                stroke={strokeReferenceLine}
+                strokeDasharray={strokeDasharrayReferenceLine}
+                label={labelReferenceLine}
+              />}
             <Tooltip
               isAnimationActive={false}
               cursor={false}

@@ -20,10 +20,11 @@ class OverallGraphs extends PureComponent {
   static propTypes = { data: PropTypes.object.isRequired }
 
   componentWillMount() {
-    const { slug } = this.props.data;
+    const { slug, bestPracticeScore } = this.props.data;
     this.chartConfig = {
       ...BAR_CONFIG,
-      setBarFill: ({ dataKey }) => STACKED_BAR_COLOURS[slug][dataKey]
+      setBarFill: ({ dataKey }) => STACKED_BAR_COLOURS[slug][dataKey],
+      yReferenceLine: bestPracticeScore
     };
   }
 

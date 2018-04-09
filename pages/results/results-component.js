@@ -41,6 +41,15 @@ class ResultsPage extends Page {
         }
       }));
 
+      await context.store.dispatch(getScores({
+        key: 'bestPracticesScores',
+        queryParams: {
+          include: ['indicator'].join(','),
+          'filter[kind]': 'current_best_practice',
+          'page[size]': 1000
+        }
+      }));
+
       // scores for top companies
       await context.store.dispatch(getScores({
         key: 'overallScores',
