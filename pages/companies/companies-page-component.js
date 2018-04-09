@@ -54,7 +54,11 @@ class CompaniesPage extends Page {
       // gets subsidiaries
       await context.store.dispatch(getSubsidiaries({ 'filter[company]': context.query.company, sort: 'name' }));
     } else {
-      await context.store.dispatch(getCompanies({ include: ['country', 'mine-sites', 'mine-sites.country', 'mine-sites.commodities', 'selected-mine-sites'].join(',') }));
+      await context.store.dispatch(getCompanies({
+        include: ['country', 'mine-sites', 'mine-sites.country', 'mine-sites.commodities', 'selected-mine-sites'].join(','),
+        sort: 'name'
+      }));
+
       await context.store.dispatch(getCommodities({
         'fields[commodities]': ['name'].join(','),
         'filter[used]': true,
@@ -70,14 +74,13 @@ class CompaniesPage extends Page {
     }
 
 
-    if(context.isServer || (!context.isServer && !state.countries.list.length)) {
+    if (context.isServer || (!context.isServer && !state.countries.list.length)) {
       await context.store.dispatch(getCountries({
         include: ['producing-companies', 'companies', 'secondary-companies'].join(','),
         sort: 'name',
         'fields[countries]': ['name', 'code', 'producing-companies', 'companies', 'secondary-companies'].join(','),
         'page[size]': 1000
       }));
-
     }
 
     return { ...props };

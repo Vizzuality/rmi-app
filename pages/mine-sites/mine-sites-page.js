@@ -41,7 +41,10 @@ class MineSitesPage extends Page {
         include: ['indicators', 'document'].join(',')
       }));
     } else {
-      await context.store.dispatch(getCompanies({ include: ['selected-mine-sites', 'selected-mine-sites.country', 'selected-mine-sites.commodities'].join(',') }));
+      await context.store.dispatch(getCompanies({
+        include: ['selected-mine-sites', 'selected-mine-sites.country', 'selected-mine-sites.commodities'].join(','),
+        sort: 'name'
+      }));
 
       await context.store.dispatch(getCountries({
         include: ['producing-companies', 'companies', 'secondary-companies'].join(','),

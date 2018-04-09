@@ -13,6 +13,9 @@ import {
   Tooltip
 } from 'recharts';
 
+// components
+import CustomTooltip from './custom-tooltip';
+
 // config
 import CHART_CONFIG from './stacked-bars-chart-config';
 
@@ -33,6 +36,11 @@ class StackedBarsChart extends PureComponent {
   componentWillMount() {
     const { config: customConfig } = this.props;
     this.config = { ...CHART_CONFIG, ...customConfig };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const { config: nextConfig } = nextProps;
+    this.config = { ...this.config, ...nextConfig };
   }
 
   handleBarFill = (item) => {
@@ -71,7 +79,9 @@ class StackedBarsChart extends PureComponent {
       yReferenceLine,
       strokeReferenceLine,
       strokeDasharrayReferenceLine,
-      labelReferenceLine
+      labelReferenceLine,
+      // tooltip config
+      customTooltip
     } = this.config;
 
     return (
@@ -119,6 +129,7 @@ class StackedBarsChart extends PureComponent {
                 label={labelReferenceLine}
               />}
             <Tooltip
+              {...customTooltip && { content: <CustomTooltip /> }}
               isAnimationActive={false}
               cursor={false}
             />

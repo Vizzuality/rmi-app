@@ -112,7 +112,7 @@ class BarsChart extends PureComponent {
               ))}
             </Bar>
             <Tooltip
-              {...customTooltip && { content: <CustomTooltip companies={data} />}}
+              {...customTooltip && { content: <CustomTooltip companies={data} /> }}
               isAnimationActive={false}
               cursor={false}
             />
