@@ -11,24 +11,23 @@ export const parseScores = createSelector(
   [getIssueArea, selectedCompany],
   (_issueArea = {}, _selectedCompany) => {
     const absoluteScores = _issueArea.scores.filter(score => score.kind === 'absolute_breakdown');
-
+    const overallScores = _issueArea.scores.filter(score => score.kind === 'overall_indicator');
     const scoresByCompanies = groupBy(absoluteScores, 'company-id');
-    const totalScores = [];
     const bestPracticeScore = _issueArea.scores.find(score => score.kind === 'current_best_practice') || {};
+    const totalScores = [];
 
     Object.values(scoresByCompanies).forEach((company) => {
       const barScore = {};
-      let totalScore = 0;
       company.forEach((scoreCell) => {
-        totalScore += scoreCell.value;
         Object.assign(barScore, {
           name: scoreCell.company.name,
           ...scoreCell.label === 'Action' && { action: scoreCell.value },
           ...scoreCell.label === 'Effectiveness' && { effectiveness: scoreCell.value },
           ...scoreCell.label === 'Commitment' && { commitment: scoreCell.value },
-          total: totalScore,
           companyId: scoreCell.company.id,
-          selected: scoreCell.company.id === _selectedCompany
+          selected: scoreCell.company.id === _selectedCompany,
+          overallScore: (overallScores.find(score =>
+            score.company.id === scoreCell.company.id) || {}).value
         });
       });
 
@@ -39,7 +38,7 @@ export const parseScores = createSelector(
       id: _issueArea.id,
       name: _issueArea.name,
       slug: _issueArea.slug,
-      scores: orderBy(totalScores, 'total', 'desc'),
+      scores: orderBy(totalScores, 'overallScore', 'desc'),
       bestPracticeScore: bestPracticeScore.value
     });
   }

@@ -58,7 +58,6 @@ class OverallGraphs extends PureComponent {
             represents the maximum achievable score
           </p>
         </div>
-
       </div>
     );
   }

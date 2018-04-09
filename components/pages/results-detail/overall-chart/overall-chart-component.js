@@ -22,6 +22,17 @@ class OverallChart extends PureComponent {
     };
   }
 
+  componentWillReceiveProps(nextProps) {
+    const { data: nextData, config: nextConfig } = nextProps;
+    const { bestPracticeScore } = nextData;
+
+    this.chartConfig = {
+      ...this.chartConfig,
+      ...nextConfig,
+      yReferenceLine: bestPracticeScore
+    };
+  }
+
   render() {
     const { data } = this.props;
     const { scores } = data;
