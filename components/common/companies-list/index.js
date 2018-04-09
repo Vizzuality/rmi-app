@@ -8,6 +8,9 @@ import { getCompanies } from 'modules/companies/companies-actions';
 // component
 import CompaniesList from './companies-list-component';
 
+// selectors
+import { parseCompanies } from './companies-list-selectors';
+
 class CompaniesListContainer extends PureComponent {
   static propTypes = {
     filters: PropTypes.object.isRequired,
@@ -32,7 +35,7 @@ class CompaniesListContainer extends PureComponent {
 
 export default connect(
   state => ({
-    companies: state.companies.list,
+    companies: parseCompanies(state),
     filters: state.companiesPage.filters,
     loading: state.companies.loading
   }),
