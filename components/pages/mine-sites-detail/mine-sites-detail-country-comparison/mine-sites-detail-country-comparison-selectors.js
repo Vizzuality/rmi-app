@@ -11,7 +11,7 @@ export const getCountries = createSelector(
   [mineSite],
   (_mineSite = {}) => {
     const { company } = _mineSite;
-    const { country: producingCountry } = company;
+    const { country: producingCountry } = _mineSite;
 
     return { producingCountryName: producingCountry.name };
   }

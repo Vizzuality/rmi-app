@@ -13,15 +13,24 @@ class OverallChart extends PureComponent {
     config: PropTypes.object.isRequired
   }
 
-  render() {
+  componentWillMount() {
     const { data, config } = this.props;
+    const { bestPracticeScore } = data;
+    this.chartConfig = {
+      ...config,
+      yReferenceLine: bestPracticeScore
+    };
+  }
+
+  render() {
+    const { data } = this.props;
     const { scores } = data;
 
     return (
       <div className="c-overall-chart">
         <StackedBars
           data={scores}
-          config={config}
+          config={this.chartConfig}
           bars={BARS}
         />
       </div>

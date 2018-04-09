@@ -14,6 +14,7 @@ export const parseScores = createSelector(
 
     const scoresByCompanies = groupBy(absoluteScores, 'company-id');
     const totalScores = [];
+    const bestPracticeScore = _issueArea.scores.find(score => score.kind === 'current_best_practice') || {};
 
     Object.values(scoresByCompanies).forEach((company) => {
       const barScore = {};
@@ -38,7 +39,8 @@ export const parseScores = createSelector(
       id: _issueArea.id,
       name: _issueArea.name,
       slug: _issueArea.slug,
-      scores: orderBy(totalScores, 'total', 'desc')
+      scores: orderBy(totalScores, 'total', 'desc'),
+      bestPracticeScore: bestPracticeScore.value
     });
   }
 );
