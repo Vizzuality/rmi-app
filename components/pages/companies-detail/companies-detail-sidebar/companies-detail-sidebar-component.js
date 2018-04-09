@@ -13,6 +13,7 @@ class CompaniesDetailSidebar extends PureComponent {
     const { company } = this.props;
     const {
       country,
+      'secondary-country': secondaryCountry,
       sector,
       'government-ownership': governmentOwnership,
       'pretax-revenues-busd': preTaxRevenuesBusd,
@@ -24,6 +25,7 @@ class CompaniesDetailSidebar extends PureComponent {
       'number-employees-date': employeesDate
     } = company;
     const { name: countryName } = country || {};
+    const { name: secondaryCountryName } = secondaryCountry || {};
 
     return (
       <div className="c-detail-sidebar">
@@ -36,6 +38,8 @@ class CompaniesDetailSidebar extends PureComponent {
                   <div className="definition-item">
                     <div className="definition-key">Headquarters:</div>
                     <div className="definition-value">{countryName}</div>
+                    {!!secondaryCountryName &&
+                      <div className="definition-value">{secondaryCountryName}</div>}
                   </div>}
               </div>
               <div className="col-xs-12 col-md-6">
