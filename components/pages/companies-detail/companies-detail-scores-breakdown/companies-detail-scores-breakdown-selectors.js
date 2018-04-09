@@ -13,7 +13,7 @@ const knownTaxJurisdictions = state =>
 
 export const parseShareholders = createSelector(
   [shareholders],
-  (_shareholders = []) => orderBy(_shareholders, 'name', ['asc'])
+  (_shareholders = []) => orderBy(_shareholders, 'percent-shares', ['desc'])
 )
 
 export const parseInvestmentDisputes = createSelector(
