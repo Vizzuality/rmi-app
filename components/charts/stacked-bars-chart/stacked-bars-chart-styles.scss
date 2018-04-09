@@ -3,7 +3,11 @@
 .c-stacked-bars-chart {
   width: 100%;
 
-  :global(text > tspan) {
+  :global(.recharts-yAxis tspan) {
+    fill: $color-5;
+  }
+
+  :global(.recharts-xAxis tspan) {
     fill: $color-7;
   }
 
