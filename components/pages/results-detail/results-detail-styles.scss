@@ -4,6 +4,13 @@
   .explanation {
     margin: 35px 0 0;
 
+    .aggregation-line {
+      display: inline-block;
+      margin: 0 10px 0 0;
+      font-weight: $font-weight-bold;
+      color: $color-8;
+    }
+
     > p {
       color: $color-7;
       font-style: italic;

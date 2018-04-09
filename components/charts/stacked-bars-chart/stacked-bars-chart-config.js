@@ -2,7 +2,7 @@ export default {
   // general chart config
   height: 295,
   // cartesian grid config
-  strokeDasharray: '3',
+  strokeDasharray: null,
   // y axis config
   yDomain: [0, 6],
   yAxisLine: false,
@@ -20,5 +20,11 @@ export default {
   barSize: undefined,
   setBarFill: () => '#ddd',
   barOnMouseOver: undefined,
-  barIsAnimationActive: false
+  barIsAnimationActive: false,
+  // reference line config
+  showReferenceLine: true,
+  yReferenceLine: 0,
+  strokeReferenceLine: 'red',
+  strokeDasharrayReferenceLine: '3 5',
+  labelReferenceLine: 'Current Best Practice'
 };
