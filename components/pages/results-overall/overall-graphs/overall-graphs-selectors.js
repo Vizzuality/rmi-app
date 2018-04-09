@@ -5,11 +5,12 @@ import orderBy from 'lodash/orderBy';
 
 const scores = state => state.resultsOverallPage.breakdownScores.list;
 const bestPracticesScores = state => state.resultsOverallPage.bestPracticesScores.list;
+const overallScores = state => state.resultsOverallPage.overallScores.list;
 const indicators = state => state.indicators.list;
 
 export const getScoresByIssueArea = createSelector(
-  [scores, indicators, bestPracticesScores],
-  (_scores = [], _indicators = [], _bestPracticesScores) => {
+  [scores, indicators, bestPracticesScores, overallScores],
+  (_scores = [], _indicators = [], _bestPracticesScores, _overallScores = []) => {
     const scoresByIndicator = groupBy(_scores, 'indicator-id');
 
     const companiesByIndicator = {};
@@ -26,15 +27,15 @@ export const getScoresByIssueArea = createSelector(
 
       Object.values(companies).forEach((company) => {
         const barScore = {};
-        let totalScore = 0;
+
         company.forEach((scoreCell) => {
-          totalScore += scoreCell.value;
           Object.assign(barScore, {
             name: scoreCell.company.name,
             ...scoreCell.label === 'Action' && { action: scoreCell.value },
             ...scoreCell.label === 'Effectiveness' && { effectiveness: scoreCell.value },
             ...scoreCell.label === 'Commitment' && { commitment: scoreCell.value },
-            total: totalScore
+            overallScore: (_overallScores.find(score =>
+              score.company.id === scoreCell.company.id && score['indicator-id'] === +issueArea.id) || {}).value
           });
         });
         totalScores.push(barScore);
@@ -44,7 +45,7 @@ export const getScoresByIssueArea = createSelector(
         id: issueArea.id,
         label: issueArea.label,
         slug: issueArea.slug,
-        scores: orderBy(totalScores, 'total', 'desc'),
+        scores: orderBy(totalScores, 'overallScore', 'desc'),
         bestPracticeScore: bestPracticeScore.value
       };
     });
