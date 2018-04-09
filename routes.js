@@ -10,6 +10,7 @@ routes.add('mining-society', '/foundation/mining-society', 'foundation-pages/min
 routes.add('about', '/about/:section?', 'foundation-pages/about');
 routes.add('media', '/media/:section?', 'foundation-pages/media');
 routes.add('contact', '/foundation/contact', 'foundation-pages/contact');
+routes.add('methodology', '/methodology/:year?', 'foundation-pages/methodology');
 
 // Index routes
 routes.add('companies', '/companies/:company?', 'companies');

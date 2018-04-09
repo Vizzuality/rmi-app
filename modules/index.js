@@ -24,6 +24,7 @@ import subsidiariesModule from 'modules/subsidiaries';
 import * as CompaniesFiltersModule from 'components/pages/companies/companies-filters';
 
 // pages modules
+import * as MethodologyModule from 'components/pages/foundation/methodology';
 import * as LeadingPracticesModule from 'components/pages/leading-practices';
 import * as CompaniesModule from 'components/pages/companies';
 import * as CompaniesDetailModule from 'components/pages/companies-detail';
@@ -54,5 +55,6 @@ export default {
   mineSitesPage: handleModule(MineSitesPageModule),
   resultsOverallPage: handleModule(ResultsOverallPageModule),
   resultsDetailPage: handleModule(ResultsDetailPageModule),
-  staticContent: handleModule(staticContentModule)
+  staticContent: handleModule(staticContentModule),
+  methodologyPage: handleModule(MethodologyModule)
 };
