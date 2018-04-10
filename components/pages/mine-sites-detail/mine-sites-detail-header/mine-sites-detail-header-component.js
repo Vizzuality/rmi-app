@@ -39,11 +39,14 @@ class MineSitesDetailHeader extends PureComponent {
               </div>
             </div>
 
-            {/* Leaving this download button commented until we have the download files. */}
-            {/* <div className="col-md-2">
+            <div className="col-md-2">
               <div className="right-side">
                 <div className="pdf-print">
-                  <a href="#" className="print-link">
+                  <a
+                    href="/documents/RMI_2018_report-WEB.pdf"
+                    className="print-link"
+                    download
+                  >
                     <Icon
                       name="download"
                       className="-big -download -reverse"
@@ -52,7 +55,7 @@ class MineSitesDetailHeader extends PureComponent {
                   </a>
                 </div>
               </div>
-            </div> */}
+            </div>
           </div>
         </div>
       </div>

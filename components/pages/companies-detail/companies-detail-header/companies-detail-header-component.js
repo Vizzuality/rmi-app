@@ -48,9 +48,12 @@ class CompaniesDetailHeader extends PureComponent {
                   ))}
                 </div>
 
-                {/* Leaving this download button commented until we have the download files. */}
-                {/* <div className="pdf-print">
-                  <a href="#" className="print-link">
+                <div className="pdf-print">
+                  <a
+                    href="/documents/RMI_2018_report-WEB.pdf"
+                    className="print-link"
+                    download
+                  >
                     <Icon
                       name="download"
                       className="-big -download -reverse"
