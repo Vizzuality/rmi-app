@@ -3,12 +3,24 @@ import PropTypes from 'prop-types';
 
 // components
 import MediaReleasesCardList from './media-releases-card-list';
+import Modal from 'components/common/modal';
+import ModalContent from './modal-content';
 
 class Media extends PureComponent {
-  static propTypes = { content: PropTypes.object.isRequired }
+  static propTypes = {
+    content: PropTypes.object.isRequired,
+    toggleModal: PropTypes.func.isRequired,
+    setResourceId: PropTypes.func.isRequired,
+    modalOpen: PropTypes.bool.isRequired
+  }
+
+  closeModal = () => {
+    this.props.toggleModal(false);
+    this.props.setResourceId(null);
+  }
 
   render() {
-    const { content } = this.props;
+    const { content, modalOpen } = this.props;
     const { title, summary } = content;
 
     return (
@@ -33,6 +45,12 @@ class Media extends PureComponent {
             </div>
           </section>
         </div>
+        <Modal
+          isOpen={modalOpen}
+          onRequestClose={this.closeModal}
+        >
+          <ModalContent />
+        </Modal>
       </div>
     );
   }
