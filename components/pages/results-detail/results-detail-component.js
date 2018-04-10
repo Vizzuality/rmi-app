@@ -75,7 +75,7 @@ class ResultsDetail extends PureComponent {
                       <p>The &apos;Current Best Practice&apos; value represents the aggregation of best
                         scores achieved for all indicators in the given thematic area, taking into
                         account all companies&apos; results.<br /> The maximum value of 6.0
-                        represents the maximum achievable score
+                        represents the maximum achievable score.
                       </p>
                     </div>
                     {summary &&
