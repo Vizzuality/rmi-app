@@ -41,9 +41,10 @@ class CompaniesDetailMineSitesList extends PureComponent {
               rows={allMineSites}
               className="-theme-2"
             />
-            <div className="mine-site-list-disclaimer">
-              *Joint-Venture not under direct control of the company and not included in RMI assessment
-            </div>
+            {allMineSites.find(mineSite => !mineSite['in-rmi-scope']) &&
+              <div className="mine-site-list-disclaimer">
+                *Joint-Venture not under direct control of the company and not included in RMI assessment
+              </div>}
           </div>}
         {!!closedMineSites.length &&
           <div className="table closed-mine-sites-table">
