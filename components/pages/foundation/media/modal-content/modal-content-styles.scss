@@ -1,13 +1,15 @@
 @import 'css/settings';
 
-.c-media-releases-card {
+.c-modal-content {
+
+  @media #{$mq-md} {
+    padding: 35px;
+  }
+
   position: relative;
   flex: 1;
-  padding: 35px;
   background: $color-7;
-  box-shadow: 0 4px 16px 0 rgba($color-1 ,.1);
   text-align: center;
-  cursor: pointer;
 
   .title {
     font-family: $font-family-2;
@@ -20,4 +22,6 @@
     padding: 0 0 20px;
     margin: 25px 0 20px;
   }
+
 }
+

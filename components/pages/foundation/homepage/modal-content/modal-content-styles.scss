@@ -1,0 +1,21 @@
+@import 'css/settings';
+
+.c-modal-content {
+
+  @media #{$mq-md} {
+    padding: 35px;
+  }
+
+  position: relative;
+  flex: 1;
+  background: $color-7;
+  text-align: center;
+
+  .title {
+    font-family: $font-family-2;
+    font-size: $font-size-huge;
+    line-height: 1.43;
+  }
+
+}
+
