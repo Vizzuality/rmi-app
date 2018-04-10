@@ -18,17 +18,19 @@ class CompaniesDetailMineSitesList extends PureComponent {
   static propTypes = {
     allMineSites: PropTypes.array,
     closedMineSites: PropTypes.array,
-    assetsSoldAfterMay: PropTypes.array
+    assetsSoldAfterMay: PropTypes.array,
+    hasJointVentureExcluded: PropTypes.bool
   }
 
   static defaultProps = {
     allMineSites: [],
     closedMineSites: [],
-    assetsSoldAfterMay: []
+    assetsSoldAfterMay: [],
+    hasJointVentureExcluded: false
   }
 
   render() {
-    const { allMineSites, closedMineSites, assetsSoldAfterMay } = this.props;
+    const { allMineSites, closedMineSites, assetsSoldAfterMay, hasJointVentureExcluded } = this.props;
 
     return (
       <div className="c-companies-detail-mine-sites-list">
@@ -41,9 +43,10 @@ class CompaniesDetailMineSitesList extends PureComponent {
               rows={allMineSites}
               className="-theme-2"
             />
-            <div className="mine-site-list-disclaimer">
-              *Joint-Venture not under direct control of the company and not included in RMI assessment
-            </div>
+            {hasJointVentureExcluded &&
+              <div className="mine-site-list-disclaimer">
+                *Joint-Venture not under direct control of the company and not included in RMI assessment
+              </div>}
           </div>}
         {!!closedMineSites.length &&
           <div className="table closed-mine-sites-table">
