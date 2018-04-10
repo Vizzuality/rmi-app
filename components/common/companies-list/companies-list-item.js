@@ -4,7 +4,7 @@ import { Router } from 'routes';
 import Tether from 'react-tether';
 
 // helpers
-import { trackEvent } from 'helpers/analytics';
+import { trackEvent, trackLink } from 'helpers/analytics';
 
 // components
 import CompaniesListTooltip from './companies-list-tooltip';
@@ -28,13 +28,13 @@ class CompaniesListItem extends PureComponent {
     const { company } = this.props;
     const { visibility } = this.state;
     this.setState({ visibility: !visibility });
-    trackEvent(`Clicks on mine sites of company: ${company.name}`, company);
+    trackEvent('click', `Clicks on mine sites of company: ${company.name}`, company);
   }
 
   handleClick = (company) => {
-    const { id, name } = company;
+    const { id } = company;
 
-    trackEvent(`Clicks on company detail of ${name}`, company, {}, () => {
+    trackLink(`/companies/${id}`, 'Clicks on company detail ', () => {
       Router.pushRoute('companies', { company: id });
     });
   }

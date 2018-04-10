@@ -1,15 +1,23 @@
 
-const { analytics } = typeof window !== 'undefined' ? window : {};
+const { _paq } = typeof window !== 'undefined' ? window : {};
 
 export const trackPage = () => {
-  analytics.page();
+  _paq.push(['setDocumentTitle', document.title]);
+  _paq.push(['trackPageView']);
 };
 
-export const trackEvent = (eventName, properties = {}, options = {}, callback) => {
-  analytics.track(eventName, properties, options, callback);
+export const trackEvent = (action, name, value, callback) => {
+  _paq.push(['trackEvent', action, name, value]);
+  if (callback && typeof callback === 'function') callback();
+};
+
+export const trackLink = (url, linkType, callback) => {
+  _paq.push(['trackLink', url, linkType]);
+  if (callback && typeof callback === 'function') callback();
 };
 
 export default {
   trackPage,
-  trackEvent
+  trackEvent,
+  trackLink
 };
