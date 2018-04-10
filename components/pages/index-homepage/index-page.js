@@ -51,11 +51,6 @@ class IndexPage extends PureComponent {
         <section className="section -dark intro">
           <div className="l-layout">
             <div className="row between-md">
-              <div className="col-xs-12">
-                <div className="text-section">
-                  <h3 className="title">RMI assessment</h3>
-                </div>
-              </div>
               <div className="col-xs-12 col-md-5">
                 <div className="text-section">
                   <p>
@@ -152,8 +147,9 @@ class IndexPage extends PureComponent {
                   <Button className="-red -round">
                     <Link
                       route="results"
+                      params={{ section: 'overall' }}
                     >
-                      <a href="#">Go to Results</a>
+                      <a>Go to Results</a>
                     </Link>
                   </Button>
 
