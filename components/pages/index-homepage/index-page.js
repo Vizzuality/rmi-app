@@ -36,13 +36,13 @@ class IndexPage extends PureComponent {
             <div className="row">
               <div className="col-xs-12">
                 <div className="download-button-container">
-                  <Button
-                    className="-white -round -big"
-                    onClick={this.handleDownloadSummary}
-                    disabled
+                  <a
+                    href="/documents/RMI_2018_report-WEB.pdf"
+                    className="summary-link"
+                    download
                   >
                     Download Summary
-                  </Button>
+                  </a>
                 </div>
               </div>
             </div>
@@ -157,13 +157,13 @@ class IndexPage extends PureComponent {
                     </Link>
                   </Button>
 
-                  <Button
-                    className="-white -round"
-                    onClick={this.handleDownloadSummary}
-                    disabled
+                  <a
+                    href="/documents/RMI_2018_report-WEB.pdf"
+                    className="summary-link"
+                    download
                   >
                     Download Summary
-                  </Button>
+                  </a>
                 </div>
               </div>
             </div>
