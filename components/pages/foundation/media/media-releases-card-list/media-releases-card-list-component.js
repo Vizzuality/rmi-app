@@ -7,9 +7,18 @@ import MediaReleaseCard from './media-releases-card-component';
 
 class MediaReleasesCardList extends PureComponent {
   static propTypes = {
-    mediaReleases: PropTypes.array,
-    loading: PropTypes.bool
+    mediaReleases: PropTypes.array.isRequired,
+    loading: PropTypes.bool.isRequired,
+    toggleModal: PropTypes.func.isRequired,
+    setResourceId: PropTypes.func.isRequired
   };
+
+  openModal({ id }) {
+    this.props.setResourceId(id);
+    this.props.toggleModal(true);
+  }
+
+  handleClick = mediaRelease => this.openModal(mediaRelease)
 
   render() {
     const { mediaReleases, loading } = this.props;
@@ -19,7 +28,10 @@ class MediaReleasesCardList extends PureComponent {
         <div className="row -equal-height">
           {mediaReleases.map(mediaRelease => (
             <div className="col-md-4" key={mediaRelease.id}>
-              <MediaReleaseCard mediaRelease={mediaRelease} />
+              <MediaReleaseCard
+                mediaRelease={mediaRelease}
+                onClick={this.handleClick}
+              />
             </div>
           ))}
         </div>
