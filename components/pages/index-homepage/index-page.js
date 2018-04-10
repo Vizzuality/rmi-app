@@ -152,8 +152,9 @@ class IndexPage extends PureComponent {
                   <Button className="-red -round">
                     <Link
                       route="results"
+                      params={{ section: 'overall' }}
                     >
-                      <a href="#">Go to Results</a>
+                      <a>Go to Results</a>
                     </Link>
                   </Button>
 
