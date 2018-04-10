@@ -2,10 +2,20 @@
 import { connect } from 'react-redux';
 
 import { getHomePageContent } from 'modules/static-content/static-content-actions';
+import { toggleModal } from 'modules/app/app-actions';
+import { setResourceId } from 'modules/static-content/static-content-actions';
+
 import FoundationHomepage from './foundation-homepage-component';
 
 
 export default connect(
-  state => ({ content: state.staticContent.content }),
-  { getHomePageContent }
+  state => ({
+    modalOpen: state.app.modal.open,
+    content: state.staticContent.content
+  }),
+  {
+    toggleModal,
+    setResourceId,
+    getHomePageContent
+  }
 )(FoundationHomepage);
