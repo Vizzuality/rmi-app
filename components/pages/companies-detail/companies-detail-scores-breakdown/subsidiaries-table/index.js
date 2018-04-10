@@ -30,7 +30,8 @@ class SubsidiariesTableContainer extends PureComponent {
     const searchChanged = search !== nextSearch;
 
     if (paginationChanged || searchChanged) this.props.getSubsidiaries({
-      'filter[company]': id
+      'filter[company]': id,
+      include: 'country'
     });
   }
 

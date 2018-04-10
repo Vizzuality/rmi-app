@@ -54,8 +54,13 @@ class SubsidiariesTable extends PureComponent {
                   header: { label: `As of: ${subsidiariesDate || 'unknown'}` }
                 },
                 {
-                  property: 'percent-controlled-ownership',
-                  header: { label: 'Shares (%)' },
+                  property: 'country',
+                  header: { label: 'Country' },
+                  cell: {
+                    formatters: [
+                      (country, { rowData }) => (rowData.country ? rowData.country.name : 'unknown')
+                    ]
+                  },
                   props: { style: {
                     textAlign: 'right',
                     minWidth: 90

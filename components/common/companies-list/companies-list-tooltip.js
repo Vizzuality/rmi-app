@@ -32,7 +32,7 @@ class CompaniesListTooltip extends PureComponent {
           route="companies"
           params={{ company: company.id }}
         >
-          <a className="company-link">See company detail</a>
+          <a className="company-link">See company report</a>
         </Link>
       </div>
     );
