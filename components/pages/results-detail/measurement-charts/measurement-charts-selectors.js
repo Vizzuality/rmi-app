@@ -14,7 +14,7 @@ export const parseScores = createSelector(
 
     return Object.keys(scoresByMeasurement).map((measurementKey, index) => ({
       id: index,
-      name: measurementKey,
+      name: `${measurementKey} ${(scoresByMeasurement[measurementKey][0] || {})['nbr-indicators']}`,
       indicatorSlug: _issueArea.slug,
       scores: orderBy(scoresByMeasurement[measurementKey].map(score => ({
         id: score.id,
