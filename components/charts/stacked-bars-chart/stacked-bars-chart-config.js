@@ -25,7 +25,8 @@ export default {
   showReferenceLine: true,
   yReferenceLine: 0,
   strokeReferenceLine: 'red',
-  strokeDasharrayReferenceLine: '8 5',
+  strokeDasharrayReferenceLine: '8',
+  strokeWidth: 4,
   labelReferenceLine: 'Current Best Practice',
   // tooltip config
   customTooltip: true

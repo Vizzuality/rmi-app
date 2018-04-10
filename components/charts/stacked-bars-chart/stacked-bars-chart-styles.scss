@@ -12,12 +12,11 @@
   }
 
   :global(.recharts-label) {
-    text-anchor: start;
     transform: translate(0, -12px);
 
     > :global(tspan) {
       fill: $color-8;
-      font-size: $font-size-smallest;
+      font-size: $font-size-regular;
       font-weight: $font-weight-bold;
       text-transform: uppercase;
     }
