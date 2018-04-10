@@ -1,4 +1,6 @@
 import { PureComponent } from 'react';
+import PropTypes from 'prop-types';
+import isEqual from 'lodash/isEqual';
 
 // actions
 import { setRoute } from 'modules/routes/routes-actions';
@@ -8,9 +10,13 @@ import { setMobileDetect } from 'modules/responsive/responsive-actions';
 import { getResultsTree, getAboutTree } from 'modules/navigation/navigation-actions';
 import { getIndicators } from 'modules/indicators/indicators-actions';
 
+// helpers
+import { trackPage } from 'helpers/analytics';
+
 class Page extends PureComponent {
   static async getInitialProps({ pathname, query, store, req, isServer }) {
     const isFoundation = pathname.includes('foundation');
+    const { routes } = store.getState();
     // sets routing
     store.dispatch(setRoute({
       root: isFoundation ? 'foundation' : 'index',
@@ -38,6 +44,21 @@ class Page extends PureComponent {
 
     // sets page language
     if (query.language) store.dispatch(setLanguage(query.language));
+
+    return { routes };
+  }
+
+  componentDidMount() {
+    trackPage();
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const { routes } = this.props;
+    const { routes: nextRoutes } = nextProps;
+
+    const routesChanged = !isEqual(routes, nextRoutes);
+
+    if (routesChanged) trackPage();
   }
 }
 
