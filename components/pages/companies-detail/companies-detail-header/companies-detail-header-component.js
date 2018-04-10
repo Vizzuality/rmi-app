@@ -47,7 +47,7 @@ class CompaniesDetailHeader extends PureComponent {
                     </div>
                   ))}
                 </div>
-                <div className="pdf-print">
+                {/* <div className="pdf-print">
                   <a
                     href="/documents/RMI_2018_report-WEB.pdf"
                     className="print-link"
@@ -59,7 +59,7 @@ class CompaniesDetailHeader extends PureComponent {
                     />
                     Download in PDF
                   </a>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
