@@ -10,7 +10,8 @@
           "css": "./css",
           "services": "./services",
           "utils": "./utils",
-          "constants": "./constants"
+          "constants": "./constants",
+          "helpers": "./helpers"
         },
         "cwd": "babelrc"
       }
