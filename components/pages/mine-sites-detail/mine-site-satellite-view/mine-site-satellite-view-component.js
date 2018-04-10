@@ -15,7 +15,7 @@ class MineSiteSatelliteView extends PureComponent {
     const { 'coord-x': lat, 'coord-y': lng } = this.props.mineSite;
 
     return ({
-      defaultZoom: 16,
+      defaultZoom: 14,
       defaultMapTypeId: google.maps.MapTypeId.SATELLITE,
       mapTypeControl: false,
       defaultCenter: { lat, lng },
