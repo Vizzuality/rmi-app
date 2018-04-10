@@ -9,6 +9,8 @@ export const getAllMineSites = createSelector(
   (_mineSites = []) =>
     orderBy(_mineSites.filter(mineSite =>
       !mineSite['closed-mine'] && !mineSite['sold-after-may-2015']
+    ).map(mineSite =>
+      mineSite['in-rmi-scope'] ? ({...mineSite}) : ({...mineSite, name: `${mineSite.name}*`})
     ), 'name', ['asc'])
 );
 
@@ -28,8 +30,17 @@ export const getAssetsSoldAfterMay = createSelector(
     ), 'name', ['asc'])
 );
 
+export const hasJointVentureExcluded = createSelector(
+  mineSites,
+  (_mineSites = []) =>
+    !!(_mineSites.filter(mineSite =>
+      !mineSite['closed-mine'] && !mineSite['sold-after-may-2015']
+    ).find(mineSite => !mineSite['in-rmi-scope']))
+);
+
 export default {
   getClosedMineSites,
   getAssetsSoldAfterMay,
-  getAllMineSites
+  getAllMineSites,
+  hasJointVentureExcluded
 };
