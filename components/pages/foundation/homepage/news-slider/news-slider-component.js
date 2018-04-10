@@ -20,6 +20,12 @@ class NewsSlider extends PureComponent {
     return moment(date).format('MMM.DD.YYYY');
   }
 
+  handleClick(id) {
+    console.log(id)
+    this.props.setResourceId(id);
+    this.props.toggleModal(true);
+  }
+
   renderNews(news, key) {
     return (
       <Fragment key={key} >
@@ -27,7 +33,11 @@ class NewsSlider extends PureComponent {
         <div className="row">
           {news.map(_news => (
             <div key={_news.id} className="col-md-4">
-              <div className="news-card" style={{ backgroundImage: `url(${_news.image})` }}>
+              <div
+                className="news-card"
+                style={{ backgroundImage: `url(${_news.image})` }}
+                onClick={() => this.handleClick(_news.id) }
+            >
                 <div className="wrapper">
                   <h2 className="title">{_news.title}</h2>
                   <p className="summary">{_news.summary}</p>

@@ -11,6 +11,7 @@ import ResultsSectionService from 'services/results-section';
 
 export const setPageContent = createAction('static-content/setPageContent');
 export const setPageContentLoading = createAction('static-content/setPageContentLoading');
+export const setResourceId = createAction('static-content/setResourceId');
 
 export const getMiningSociety = createThunkAction('static-content/getMiningSociety', (_options = {}) =>
   dispatch =>
@@ -105,6 +106,7 @@ export const getResultSection = createThunkAction('static-content/getResultSecti
 export default {
   setPageContent,
   setPageContentLoading,
+  setResourceId,
   getHomePageContent,
   getMiningSociety,
   getContact,

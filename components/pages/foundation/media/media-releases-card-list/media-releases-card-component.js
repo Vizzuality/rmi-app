@@ -12,16 +12,25 @@ class MediaReleaseCard extends PureComponent {
       subtitle: PropTypes.string.isRequired,
       text: PropTypes.string.isRequired,
       summary: PropTypes.string.isRequired
-    })
+    }),
+    onClick: PropTypes.func.isRequired
   }
 
   static defaultProps = { mediaRelease: {} }
+
+  handleClick = () => {
+    const { onClick, mediaRelease } = this.props;
+    onClick(mediaRelease);
+  }
 
   render() {
     const { title, subtitle, summary } = this.props.mediaRelease;
 
     return (
-      <div className="c-media-releases-card">
+      <div
+        className="c-media-releases-card"
+        onClick={this.handleClick}
+      >
         <style jsx>{styles}</style>
         <h3 className="title">{title}</h3>
         <h3 className="subtitle">{subtitle}</h3>

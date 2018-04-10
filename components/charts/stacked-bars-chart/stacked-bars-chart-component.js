@@ -79,6 +79,7 @@ class StackedBarsChart extends PureComponent {
       yReferenceLine,
       strokeReferenceLine,
       strokeDasharrayReferenceLine,
+      strokeWidth,
       labelReferenceLine,
       // tooltip config
       customTooltip
@@ -126,6 +127,7 @@ class StackedBarsChart extends PureComponent {
                 y={yReferenceLine}
                 stroke={strokeReferenceLine}
                 strokeDasharray={strokeDasharrayReferenceLine}
+                strokeWidth={strokeWidth}
                 label={labelReferenceLine}
               />}
             <Tooltip
