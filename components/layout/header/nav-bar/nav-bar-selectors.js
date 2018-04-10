@@ -1,5 +1,6 @@
 
 import { createSelector } from 'reselect';
+import orderBy from 'lodash/orderBy';
 
 // constants
 import { INDEX_NAVIGATION, FOUNDATION_NAVIGATION } from './nav-bar-constants';
@@ -79,7 +80,7 @@ export const getNavigation = createSelector(
 
     // about tree
     if (isFoundation && aboutChildren) {
-      const children = aboutChildren.map(aboutChild => ({
+      const children = orderBy(aboutChildren, 'position', 'asc').map(aboutChild => ({
         id: aboutChild.id,
         label: aboutChild.title,
         query: {
