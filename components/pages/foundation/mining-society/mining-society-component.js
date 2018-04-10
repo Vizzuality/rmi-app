@@ -34,7 +34,7 @@ class MiningSocietyPage extends PureComponent {
             <div className="l-layout">
               <div className="row center-xs -no-text-align">
                 <div className="col-md-6">
-                  <p>{text}</p>
+                  <div dangerouslySetInnerHTML={{ __html: text }} />
                 </div>
                 <div className="col-md-5 col-md-offset-1 ">
                   <div className="sidenote" dangerouslySetInnerHTML={{ __html: sidenote }} />
