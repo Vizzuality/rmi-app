@@ -131,7 +131,7 @@ class Footer extends PureComponent {
             </div>
             <div className="col-xs-12 col-sm-6">
               <div className="right-side">
-                <div className="footer-section">
+                {/* <div className="footer-section">
                   <h4 className="subscribe-title">Subscribe to newsletter and updates</h4>
                   <form className="subscribe-form" onSubmit={this.handleSignUp}>
                     <input
@@ -171,7 +171,7 @@ class Footer extends PureComponent {
                     />
                     <button type="submit">Sign up</button>
                   </form>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
