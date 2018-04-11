@@ -24,7 +24,7 @@ export default {
   // reference line config
   showReferenceLine: true,
   yReferenceLine: 0,
-  strokeReferenceLine: 'red',
+  strokeReferenceLine: '#bf3132',
   strokeDasharrayReferenceLine: '8',
   strokeWidth: 4,
   labelReferenceLine: 'Current Best Practice',

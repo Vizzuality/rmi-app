@@ -18,7 +18,7 @@ class CustomTooltip extends PureComponent {
         <div className="c-custom-tooltip">
           <style jsx>{styles}</style>
           <span>{name}</span>
-          <span>Overall: {overallScore}</span>
+          <span>Score: {overallScore}</span>
         </div>
       );
     }

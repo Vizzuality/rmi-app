@@ -6,9 +6,11 @@ import styles from './custom-tooltip-styles.scss';
 
 class CustomTooltip extends PureComponent {
   static propTypes = {
-    payload: PropTypes.array.isRequired,
+    payload: PropTypes.array,
     companies: PropTypes.array.isRequired
   }
+
+  static defaultProps = { payload: [] }
 
   render() {
     const { payload, companies } = this.props;
