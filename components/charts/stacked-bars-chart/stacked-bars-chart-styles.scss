@@ -3,6 +3,12 @@
 .c-stacked-bars-chart {
   width: 100%;
 
+  :global(.recharts-cartesian-grid) {
+    :global(line) {
+      stroke: rgba($color-5, .3);
+    }
+  }
+
   :global(.recharts-yAxis tspan) {
     fill: rgba($color-5, .3);
   }
