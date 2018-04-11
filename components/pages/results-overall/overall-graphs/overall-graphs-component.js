@@ -51,7 +51,7 @@ class OverallGraphs extends PureComponent {
           {this.renderGraphs()}
         </div>
         <div className="explanation">
-          <p><span className="aggregation-line">- - - -</span> Aggregation of best scores for all indicators in the given thematic area.</p>
+          <p><span className="aggregation-line" />Aggregation of best scores for all indicators in the given thematic area.</p>
           <p>The &apos;Current Best Practice&apos; value represents the aggregation of best
             scores achieved for all indicators in the given thematic area, taking into
             account all companies&apos; results.<br /> The maximum value of 6.0
