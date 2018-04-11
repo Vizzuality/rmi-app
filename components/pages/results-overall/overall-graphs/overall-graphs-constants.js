@@ -50,7 +50,8 @@ export const STACKED_BAR_COLOURS = {
 
 export const BAR_CONFIG = {
   // x axis config
-  xAxisTick: false
+  xAxisTick: false,
+  xAxisHeight: 10
 };
 
 export default {

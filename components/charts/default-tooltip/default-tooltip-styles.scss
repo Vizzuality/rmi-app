@@ -1,0 +1,11 @@
+@import 'css/settings';
+
+.c-default-tooltip {
+  padding: 15px 10px;
+  border: solid 1px $color-5;
+  background-color: $color-7;
+
+  span {
+    display: block;
+  }
+}

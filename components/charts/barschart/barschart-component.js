@@ -14,6 +14,7 @@ import {
 } from 'recharts';
 
 // components
+import DefaultTooltip from 'components/charts/default-tooltip';
 import CustomTooltip from './custom-tooltip';
 
 // config
@@ -112,6 +113,7 @@ class BarsChart extends PureComponent {
               ))}
             </Bar>
             <Tooltip
+              {...!customTooltip && { content: <DefaultTooltip /> }}
               {...customTooltip && { content: <CustomTooltip companies={data} /> }}
               isAnimationActive={false}
               cursor={false}

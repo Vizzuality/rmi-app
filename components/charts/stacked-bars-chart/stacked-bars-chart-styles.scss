@@ -4,7 +4,7 @@
   width: 100%;
 
   :global(.recharts-yAxis tspan) {
-    fill: $color-5;
+    fill: rgba($color-5, .3);
   }
 
   :global(.recharts-xAxis tspan) {
