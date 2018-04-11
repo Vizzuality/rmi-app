@@ -4,13 +4,13 @@ import groupBy from 'lodash/groupBy';
 import orderBy from 'lodash/orderBy';
 
 const scores = state => state.resultsOverallPage.breakdownScores.list;
-const bestPracticesScores = state => state.resultsOverallPage.bestPracticesScores.list;
-const overallScores = state => state.resultsOverallPage.overallScores.list;
+const bestPracticesScores = state => (state.resultsOverallPage.bestPracticesScores || {}).list;
+const overallScores = state => (state.resultsOverallPage.overallScores || {}).list;
 const indicators = state => state.indicators.list;
 
 export const getScoresByIssueArea = createSelector(
   [scores, indicators, bestPracticesScores, overallScores],
-  (_scores = [], _indicators = [], _bestPracticesScores, _overallScores = []) => {
+  (_scores = [], _indicators = [], _bestPracticesScores = [], _overallScores = []) => {
     const scoresByIndicator = groupBy(_scores, 'indicator-id');
 
     const companiesByIndicator = {};
