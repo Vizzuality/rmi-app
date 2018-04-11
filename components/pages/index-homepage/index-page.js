@@ -37,9 +37,11 @@ class IndexPage extends PureComponent {
               <div className="col-xs-12">
                 <div className="download-button-container">
                   <a
-                    href="/documents/RMI_2018_report-WEB.pdf"
+                    href="/resources/RMI_2018_report-WEB.pdf"
                     className="summary-link"
                     download
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     Download Summary
                   </a>
@@ -154,9 +156,11 @@ class IndexPage extends PureComponent {
                   </Button>
 
                   <a
-                    href="/documents/RMI_2018_report-WEB.pdf"
+                    href="/resources/RMI_2018_report-WEB.pdf"
                     className="summary-link"
                     download
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     Download Summary
                   </a>
