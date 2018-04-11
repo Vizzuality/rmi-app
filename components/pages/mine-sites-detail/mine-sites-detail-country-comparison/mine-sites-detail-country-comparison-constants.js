@@ -12,17 +12,17 @@ export const COMPARISON_COUNTRY_KEYS = {
     group: 'group-1'
   },
   'world-bank-fragile-situations': {
-    title: () => 'World Bank list of fragile situations',
+    title: () => 'World Bank List of Fragile Situations',
     value: ({ 'world-bank-fragile-situations-date': year, 'world-bank-fragile-situations': value }) => `${valueParser(value)} ${year ? `(${year})` : ''}`,
     group: 'group-1'
   },
   'global-peace-index': {
-    title: () => 'Global Peace index',
+    title: () => 'Global Peace Index',
     value: ({ 'global-peace-index-date': year, 'global-peace-index': value }) => `${valueParser(value)} ${year ? `(${year})` : ''}`,
     group: 'group-1'
   },
   'global-hunger-index': {
-    title: () => 'Global Hunger index',
+    title: () => 'Global Hunger Index',
     value: ({ 'global-hunger-index-date': year, 'global-hunger-index': value }) => `${valueParser(value)} ${year ? `(${year})` : ''}`,
     group: 'group-1'
   },
@@ -47,7 +47,7 @@ export const COMPARISON_COUNTRY_KEYS = {
     group: 'group-2'
   },
   'ores-and-metals-percent-of-exports': {
-    title: () => 'Ores and metals percent of export',
+    title: () => 'Ores and Metals (% of export)',
     value: ({ 'ores-and-metals-percent-of-exports-date': year, 'ores-and-metals-percent-of-exports': value }) => `${fixedValue(valueParser(value))} ${year ? `(${year})` : ''}`,
     group: 'group-2'
   },
@@ -102,12 +102,12 @@ export const COMPARISON_COUNTRY_KEYS = {
     group: 'group-4'
   },
   'financial-secrecy-index': {
-    title: () => 'Financial secrecy Index',
+    title: () => 'Financial Secrecy Index',
     value: ({ 'financial-secrecy-index-date': year, 'financial-secrecy-index': value }) => `${valueParser(value)} ${year ? `(${year})` : ''}`,
     group: 'group-4'
   },
   'enforcing-contracts-rank': {
-    title: () => 'Enforcing contracts Index',
+    title: () => 'Enforcing Contracts Index',
     value: ({ 'enforcing-contracts-rank-date': year, 'enforcing-contracts-rank': value }) => `${valueParser(value)} ${year ? `(${year})` : ''}`,
     group: 'group-4'
   },
