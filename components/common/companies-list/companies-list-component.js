@@ -15,13 +15,19 @@ class CompaniesList extends PureComponent {
   static propTypes = {
     companies: PropTypes.array.isRequired,
     loading: PropTypes.bool.isRequired,
-    isCompanyPage: PropTypes.bool
+    isCompanyPage: PropTypes.bool,
+    onMouseEnter: PropTypes.func,
+    onMouseLeave: PropTypes.func
   }
 
-  static defaultProps = { isCompanyPage: true };
+  static defaultProps = {
+    isCompanyPage: true,
+    onMouseEnter: () => {},
+    onMouseLeave: () => {}
+  };
 
   renderCompaniesRow(companies, key) {
-    const { isCompanyPage } = this.props;
+    const { isCompanyPage, onMouseEnter, onMouseLeave } = this.props;
 
     return (
       <Fragment key={key} >
@@ -32,6 +38,8 @@ class CompaniesList extends PureComponent {
               <CompaniesListItem
                 key={_company.id}
                 company={_company}
+                onMouseEnter={onMouseEnter}
+                onMouseLeave={onMouseLeave}
                 isCompanyPage={isCompanyPage}
               />
             </div>
