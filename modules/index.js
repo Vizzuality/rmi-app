@@ -25,6 +25,7 @@ import * as CompaniesFiltersModule from 'components/pages/companies/companies-fi
 
 // pages modules
 import * as MethodologyModule from 'components/pages/foundation/methodology';
+import * as ScoringFrameworkModule from 'components/pages/foundation/scoring-framework';
 import * as LeadingPracticesModule from 'components/pages/leading-practices';
 import * as CompaniesModule from 'components/pages/companies';
 import * as CompaniesDetailModule from 'components/pages/companies-detail';
@@ -56,5 +57,6 @@ export default {
   resultsOverallPage: handleModule(ResultsOverallPageModule),
   resultsDetailPage: handleModule(ResultsDetailPageModule),
   staticContent: handleModule(staticContentModule),
-  methodologyPage: handleModule(MethodologyModule)
+  methodologyPage: handleModule(MethodologyModule),
+  scoringFrameworkPage: handleModule(ScoringFrameworkModule)
 };
