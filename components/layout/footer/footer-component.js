@@ -8,22 +8,8 @@ import styles from './footer-styles.scss';
 class Footer extends PureComponent {
   static propTypes = { root: PropTypes.string.isRequired }
 
-  constructor(props) {
-    super(props);
-
-    this.state = {};
-  }
-
-  handleField = evt => this.setState({ [evt.target.name]: evt.target.value })
-
-  handleSignUp = (evt) => {
-    evt.preventDefault();
-    // TO-DO
-  }
-
   render() {
     const { root } = this.props;
-    const { email } = this.state;
 
     const isFoundation = root !== 'index';
 
@@ -132,47 +118,41 @@ class Footer extends PureComponent {
             </div>
             <div className="col-xs-12 col-sm-6">
               <div className="right-side">
-                {/* <div className="footer-section">
+                <div className="footer-section">
                   <h4 className="subscribe-title">Subscribe to newsletter and updates</h4>
-                  <form className="subscribe-form" onSubmit={this.handleSignUp}>
+                  <form
+                    className="subscribe-form"
+                    action="https://responsibleminingindex.us13.list-manage.com/subscribe/post?u=acc420b06d58d1313623a848e&amp;id=dfa95db630"
+                    method="POST"
+                  >
                     <input
                       type="text"
-                      name="firstName"
+                      name="FNAME"
                       placeholder="First name"
-                      onChange={this.handleField}
-                      defaultValue={email}
                     />
                     <input
                       type="text"
-                      name="lastName"
+                      name="LNAME"
                       placeholder="Last name"
-                      onChange={this.handleField}
-                      defaultValue={email}
                     />
                     <input
                       type="text"
-                      name="organisation"
+                      name="ORG"
                       placeholder="Organisation"
-                      onChange={this.handleField}
-                      defaultValue={email}
                     />
                     <input
                       type="text"
-                      name="position"
+                      name="POSITION"
                       placeholder="Position"
-                      onChange={this.handleField}
-                      defaultValue={email}
                     />
                     <input
                       type="email"
-                      name="email"
+                      name="EMAIL"
                       placeholder="Email address"
-                      onChange={this.handleField}
-                      defaultValue={email}
                     />
                     <button type="submit">Sign up</button>
                   </form>
-                </div> */}
+                </div>
               </div>
             </div>
           </div>
