@@ -33,7 +33,6 @@ class Companies extends PureComponent {
   render() {
     const {
       paths,
-      mineSites,
       setSelectedCompany,
       resetSelectedCompany
     } = this.props;
@@ -81,7 +80,6 @@ class Companies extends PureComponent {
                       setCountryColor={Companies.setCountryColor}
                       legend={MAP_LEGEND}
                       onClickGeography={this.handleClickGeography}
-                      markers={mineSites}
                     />
                   </div>
                 </div>

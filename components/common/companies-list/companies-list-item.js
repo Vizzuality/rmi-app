@@ -1,6 +1,6 @@
 import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { Router } from 'routes';
+import { Router, Link } from 'routes';
 import Tether from 'react-tether';
 
 // helpers
@@ -67,7 +67,7 @@ class CompaniesListItem extends PureComponent {
               route="companies"
               params={{ company: id }}
             >
-              {name}
+              <a className="company-name">{name}</a>
             </Link>
           </div>
         </Fragment>

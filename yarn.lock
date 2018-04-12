@@ -1360,10 +1360,6 @@ bindings@~1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/bindings/-/bindings-1.2.1.tgz#14ad6113812d2d37d72e67b4cacb4bb726505f11"
 
-blacklist@^1.1.4:
-  version "1.1.4"
-  resolved "https://registry.yarnpkg.com/blacklist/-/blacklist-1.1.4.tgz#b2dd09d6177625b2caa69835a37b28995fa9a2f2"
-
 block-stream@*:
   version "0.0.9"
   resolved "https://registry.yarnpkg.com/block-stream/-/block-stream-0.0.9.tgz#13ebfe778a03205cfe03751481ebb4b3300c126a"
@@ -2488,10 +2484,6 @@ dom-walk@^0.1.0:
 domain-browser@^1.1.1:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/domain-browser/-/domain-browser-1.2.0.tgz#3d31f50191a6749dd1375a7f522e823d42e54eda"
-
-dompurify@^0.8.4:
-  version "0.8.9"
-  resolved "https://registry.yarnpkg.com/dompurify/-/dompurify-0.8.9.tgz#fcec021f917b51f42a78af71d7875a7ba514fd64"
 
 dot-prop@^3.0.0:
   version "3.0.0"
@@ -4299,10 +4291,6 @@ is-descriptor@^1.0.0, is-descriptor@^1.0.2:
 is-directory@^0.3.1:
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/is-directory/-/is-directory-0.3.1.tgz#61339b6f2475fc772fd9c9d83f5c8575dc154ae1"
-
-is-dom@^1.0.5:
-  version "1.0.9"
-  resolved "https://registry.yarnpkg.com/is-dom/-/is-dom-1.0.9.tgz#483832d52972073de12b9fe3f60320870da8370d"
 
 is-dotfile@^1.0.0:
   version "1.0.3"
@@ -6799,14 +6787,6 @@ redux-thunk@2.2.0:
     rollup-plugin-babel "^3.0.2"
     rollup-plugin-node-resolve "^3.0.0"
     rollup-plugin-uglify "^2.0.1"
-
-redux-tooltip@0.7.2:
-  version "0.7.2"
-  resolved "https://registry.yarnpkg.com/redux-tooltip/-/redux-tooltip-0.7.2.tgz#59d51bc0e65b67a0e6137a50aa2b4e851652d78f"
-  dependencies:
-    blacklist "^1.1.4"
-    dompurify "^0.8.4"
-    is-dom "^1.0.5"
 
 redux@3.7.2:
   version "3.7.2"

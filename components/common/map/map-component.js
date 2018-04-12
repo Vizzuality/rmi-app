@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { ComposableMap, ZoomableGroup, Geographies, Geography, Markers } from 'react-simple-maps';
 import { PatternLines } from '@vx/pattern';
-import tooltip from "wsdm-tooltip";
+import tooltip from 'wsdm-tooltip';
 
 // components
 import Legend from './legend';

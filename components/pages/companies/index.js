@@ -7,15 +7,14 @@ import initialState from './companies-initial-state';
 import Companies from './companies-component';
 
 // selectors
-import { getUpdatedPaths, getMarkers } from './companies-selectors';
+import { getUpdatedPaths } from './companies-selectors';
 
 export { actions, reducers, initialState };
 
 export default connect(
   state => ({
     countries: state.countries.list,
-    paths: getUpdatedPaths(state),
-    mineSites: getMarkers(state)
+    paths: getUpdatedPaths(state)
   }),
   { ...actions }
 )(Companies);
