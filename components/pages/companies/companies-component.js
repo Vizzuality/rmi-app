@@ -18,7 +18,9 @@ import styles from './companies-styles.scss';
 class Companies extends PureComponent {
   static propTypes = {
     paths: PropTypes.array.isRequired,
-    setFilters: PropTypes.func.isRequired
+    setFilters: PropTypes.func.isRequired,
+    setSelectedCompany: PropTypes.func.isRequired,
+    resetSelectedCompany: PropTypes.func.isRequired
   }
 
   static setCountryColor = geographyProperties => getCompanyCountryColor(geographyProperties);
@@ -29,7 +31,11 @@ class Companies extends PureComponent {
   };
 
   render() {
-    const { paths, mineSites } = this.props;
+    const {
+      paths,
+      setSelectedCompany,
+      resetSelectedCompany
+    } = this.props;
 
     return (
       <div className="c-companies-page">
@@ -61,7 +67,10 @@ class Companies extends PureComponent {
             <div className="l-layout">
               <div className="row">
                 <div className="col-md-5">
-                  <CompaniesList />
+                  <CompaniesList
+                    onMouseEnter={({ id }) => { setSelectedCompany(id); }}
+                    onMouseLeave={() => { resetSelectedCompany(); }}
+                  />
                 </div>
                 <div className="col-md-7">
                   <CompaniesFilters />
@@ -71,7 +80,6 @@ class Companies extends PureComponent {
                       setCountryColor={Companies.setCountryColor}
                       legend={MAP_LEGEND}
                       onClickGeography={this.handleClickGeography}
-                      markers={mineSites}
                     />
                   </div>
                 </div>

@@ -1,6 +1,6 @@
 import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { Router } from 'routes';
+import { Router, Link } from 'routes';
 import Tether from 'react-tether';
 
 // helpers
@@ -15,7 +15,14 @@ import styles from './companies-list-styles.scss';
 class CompaniesListItem extends PureComponent {
   static propTypes = {
     company: PropTypes.object.isRequired,
-    isCompanyPage: PropTypes.bool.isRequired
+    isCompanyPage: PropTypes.bool.isRequired,
+    onMouseEnter: PropTypes.func,
+    onMouseLeave: PropTypes.func
+  }
+
+  static defaultProps = {
+    onMouseEnter: () => {},
+    onMouseLeave: () => {}
   }
 
   constructor(props) {
@@ -42,7 +49,7 @@ class CompaniesListItem extends PureComponent {
   handleClose = () => this.setState({ visibility: false });
 
   render() {
-    const { isCompanyPage, company } = this.props;
+    const { isCompanyPage, company, onMouseEnter, onMouseLeave } = this.props;
     const { name, id, 'selected-mine-sites': mineSites } = company;
     const { visibility } = this.state;
 
@@ -50,13 +57,18 @@ class CompaniesListItem extends PureComponent {
       return (
         <Fragment>
           <style jsx>{styles}</style>
-          <div className="companies-list-item">
-            <a
-              className="company-name"
-              onClick={() => this.handleClick(company)}
+          <div
+            className="companies-list-item"
+            onClick={this.handleToggle}
+            onMouseEnter={() => onMouseEnter(company)}
+            onMouseLeave={onMouseLeave}
+          >
+            <Link
+              route="companies"
+              params={{ company: id }}
             >
-              {name}
-            </a>
+              <a className="company-name">{name}</a>
+            </Link>
           </div>
         </Fragment>
       );

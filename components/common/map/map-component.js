@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { ComposableMap, ZoomableGroup, Geographies, Geography, Markers } from 'react-simple-maps';
 import { PatternLines } from '@vx/pattern';
+import tooltip from 'wsdm-tooltip';
 
 // components
 import Legend from './legend';
@@ -26,8 +27,32 @@ class Map extends PureComponent {
     onClickGeography: () => {}
   }
 
+  componentDidMount() {
+    this.tip = tooltip();
+    this.tip.create();
+  }
+
+  handleMove = (geography, evt) => {
+    const x = evt.clientX;
+    const y = evt.clientY + window.pageYOffset;
+
+    this.tip.show(`<div>${geography.properties.NAME}</div>`);
+    this.tip.position({ pageX: x, pageY: y });
+  }
+
+  handleMoveMarker = (marker, evt) => {
+    const x = evt.clientX;
+    const y = evt.clientY + window.pageYOffset;
+
+    this.tip.show(`<div>${marker.name}</div>`);
+    this.tip.position({ pageX: x, pageY: y });
+  }
+
+  handleLeave = () => { this.tip.hide(); }
+
   renderMarkers() {
-    return this.props.markers.map(marker => createMarker(marker));
+    return this.props.markers.map(marker =>
+      createMarker(marker, this.handleMoveMarker, this.handleLeave));
   }
 
   render() {
@@ -58,23 +83,28 @@ class Map extends PureComponent {
                   key={geography.properties.id}
                   geography={geography}
                   projection={projection}
-                  onClick={geography.properties.isClicklable ? onClickGeography : undefined}
+                  onClick={geography.properties.isClickable ? onClickGeography : undefined}
+                  onMouseMove={this.handleMove}
+                  onMouseLeave={this.handleLeave}
                   style={{
                     default: {
                       fill: setCountryColor(geography.properties),
-                      stroke: '#000',
-                      strokeWidth: 0.25,
-                      outline: 'none'
+                      stroke: geography.properties.isSelected ? '#f2f2f2' : '#000',
+                      strokeWidth: geography.properties.isSelected ? 0.55 : 0.25,
+                      outline: 'none',
+                      cursor: geography.properties.isClickable ? 'pointer' : 'default'
                     },
                     hover: {
                       fill: setCountryColor(geography.properties),
-                      stroke: '#000',
-                      strokeWidth: 0.25,
+                      stroke: geography.properties.isClickable ? '#f2f2f2' : '#000',
+                      strokeWidth: geography.properties.isClickable ? 0.55 : 0.25,
                       outline: 'none',
-                      cursor: geography.properties.isClicklable ? 'pointer' : 'default'
+                      cursor: geography.properties.isClickable ? 'pointer' : 'default'
                     },
                     pressed: {
                       fill: setCountryColor(geography.properties),
+                      stroke: 'inherit',
+                      strokeWidth: 0.55,
                       outline: 'none'
                     }
                   }}

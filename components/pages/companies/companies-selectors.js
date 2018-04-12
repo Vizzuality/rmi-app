@@ -2,6 +2,7 @@
 import { createSelector } from 'reselect';
 import { paths } from 'components/common/map/map-helpers';
 import flatten from 'lodash/flatten';
+import compact from 'lodash/compact';
 
 // constants
 import { EXCLUDED_COUNTRIES } from 'constants/map';
@@ -9,26 +10,51 @@ import { EXCLUDED_COUNTRIES } from 'constants/map';
 const countries = state => state.countries.list;
 const countriesWithCompanies = state => state.companiesFilters.countries;
 const companies = state => state.companies.list;
+const filters = state => state.companiesPage.filters;
+const selectedCompany = state => state.companiesPage.selectedCompany;
+
+export const getSelectedCompany = createSelector(
+  [companies, selectedCompany],
+  (_companies, _selectedCompany) => _companies.find(company => company.id === _selectedCompany)
+);
 
 export const getUpdatedPaths = createSelector(
-  [countries, countriesWithCompanies],
-  (_countries = [], _countriesWithCompanies) =>
+  [countries, countriesWithCompanies, filters, getSelectedCompany],
+  (_countries = [], _countriesWithCompanies, _filters, _company = {}) =>
     paths.filter(p => !EXCLUDED_COUNTRIES.includes(p.properties.ISO_A3))
       .map((geography, index) => {
-        const geographyProperties = geography.properties;
-        const iso = geographyProperties.ISO_A3;
+        const { country: countrySelected } = _filters;
+        const {
+          country: companyCountry,
+          'secondary-country': companySecondaryCountry
+        } = _company;
+
+        // the countries we will hightlight when the user hovers a company
+        const hihglightedCountries = compact([
+          (companyCountry || {}).code,
+          (companySecondaryCountry || {}).code
+        ]);
+
+        const iso = geography.properties.ISO_A3;
         const country = _countries.find(_country => _country.code === iso) || {};
-        const isClicklable = !!(_countriesWithCompanies.find(c => c.code === iso));
+        const isClickable = !!(_countriesWithCompanies.find(c => c.code === iso));
+        const isSelected = countrySelected ? country.id === countrySelected : false;
+        const isHighlighted = hihglightedCountries.includes(country.code);
+        const isHome = !!((country.companies || []).length ||
+          (country.secondaryCompanies || []).length);
+        const isProducing = !!((country.producingCompanies || []).length);
 
         return {
           ...geography,
           properties: {
             ...geography.properties,
             id: index,
-            isClicklable,
+            isClickable,
+            isSelected,
+            isHighlighted,
             countryId: country.id,
-            isHome: !!((country.companies || []).length || (country.secondaryCompanies || []).length),
-            isProducing: !!((country.producingCompanies || []).length)
+            isHome,
+            isProducing
           }
         };
       })
@@ -38,13 +64,11 @@ export const getMarkers = createSelector(
   companies,
   (_companies = []) =>
     flatten(_companies.map(company =>
-        (company['selected-mine-sites'] || []).map(mineSite => ({
-          id: mineSite.id,
-          name: mineSite.name,
-          coordinates: [mineSite['coord-y'], mineSite['coord-x']]
-        }))
-      )
-    )
+      (company['selected-mine-sites'] || []).map(mineSite => ({
+        id: mineSite.id,
+        name: mineSite.name,
+        coordinates: [mineSite['coord-y'], mineSite['coord-x']]
+      }))))
 );
 
 export default {
