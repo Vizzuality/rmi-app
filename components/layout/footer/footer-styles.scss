@@ -60,10 +60,10 @@
         }
       }
 
-      .copyright-notice {
-        display: inline-block;
-        margin: 0 0 15px;
-        font-size: $font-size-small;
+      .copyright {
+        > p {
+          font-size: $font-size-small;
+        }
       }
     }
   }
@@ -143,8 +143,8 @@
 
   .license {
     display: inline-block;
-    height: 40px;
-    width: 125px;
+    height: 35px;
+    width: 110px;
     margin: 10px 0;
 
     > img {
