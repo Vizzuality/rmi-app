@@ -54,10 +54,10 @@ export const INDEX_NAVIGATION = [{
 
 export const FOUNDATION_NAVIGATION = [{
   id: 5,
-  label: 'Mining and Society',
-  slug: 'mining-society',
+  label: 'Context',
+  slug: 'context',
   query: {
-    route: 'mining-society',
+    route: 'context',
     params: {}
   }
 }, {
