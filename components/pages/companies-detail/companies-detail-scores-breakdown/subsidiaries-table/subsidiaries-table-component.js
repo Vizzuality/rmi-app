@@ -38,11 +38,11 @@ class SubsidiariesTable extends PureComponent {
     return (
       <div className="c-subsidiaries-table">
         <style jsx>{styles}</style>
-        <h3 className="title">Selection of Subsidaries</h3>
+        <h3 className="title">Known Subsidiaries</h3>
         <div className="filters-container">
           <Search
             onSearch={this.handleSearch}
-            placeholder='Search for a subsidiary...'
+            placeholder="Search for a subsidiary..."
           />
         </div>
         {subsidiaries.length ?
@@ -61,10 +61,12 @@ class SubsidiariesTable extends PureComponent {
                       (country, { rowData }) => (rowData.country ? rowData.country.name : 'unknown')
                     ]
                   },
-                  props: { style: {
-                    textAlign: 'right',
-                    minWidth: 90
-                  } }
+                  props: {
+                      style: {
+                      textAlign: 'right',
+                      minWidth: 90
+                    }
+                  }
                 }
               ]}
               rows={subsidiaries}
