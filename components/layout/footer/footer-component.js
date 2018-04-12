@@ -129,26 +129,31 @@ class Footer extends PureComponent {
                       type="text"
                       name="FNAME"
                       placeholder="First name"
+                      required
                     />
                     <input
                       type="text"
                       name="LNAME"
                       placeholder="Last name"
+                      required
                     />
                     <input
                       type="text"
                       name="ORG"
                       placeholder="Organisation"
+                      required
                     />
                     <input
                       type="text"
                       name="POSITION"
                       placeholder="Position"
+                      required
                     />
                     <input
                       type="email"
                       name="EMAIL"
                       placeholder="Email address"
+                      required
                     />
                     <button type="submit">Sign up</button>
                   </form>
