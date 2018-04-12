@@ -2,13 +2,13 @@ import { MAP_COLORS } from './companies-constants';
 
 export const getCompanyCountryColor = (geographyProperties = {}) => {
   const { isHome, isProducing, isHighlighted } = geographyProperties;
-  const { color1, color2, color3, defaultColor } = MAP_COLORS;
+  const { color1, color2, color3, highlight, defaultColor } = MAP_COLORS;
 
-  if (isHome && isProducing) return isHighlighted ? '#f00' : color3;
+  if (isHome && isProducing) return isHighlighted ? highlight : color3;
 
-  if (isProducing) return isHighlighted ? '#f00' : color2;
+  if (isProducing) return isHighlighted ? highlight : color2;
 
-  if (isHome) return isHighlighted ? '#f00' : color1;
+  if (isHome) return isHighlighted ? highlight : color1;
 
   return defaultColor;
 };

@@ -2,6 +2,7 @@ export const MAP_COLORS = {
   color1: '#4ec1c2',
   color2: '#4a5972',
   color3: 'url(#lines)',
+  highlight: '#bf3132',
   defaultColor: '#e0e0e2'
 };
 
