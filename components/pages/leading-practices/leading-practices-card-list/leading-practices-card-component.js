@@ -2,6 +2,9 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'routes';
 
+// components
+import Button from 'components/common/button';
+
 // styles
 import styles from './leading-practices-card-styles.scss';
 
@@ -37,7 +40,6 @@ class LeadingPracticesCard extends PureComponent {
     return (
       <div
         className="c-leading-practices-card"
-        onClick={this.handleClick}
       >
         <style jsx>{styles}</style>
         <h3 className="title">{title}</h3>
@@ -54,6 +56,14 @@ class LeadingPracticesCard extends PureComponent {
 
         {description &&
           <p>{LeadingPracticesCard.shortDescription(description)}</p>}
+
+        <Button
+          className="-white"
+          padding={false}
+          onClick={this.handleClick}
+        >
+          Read more
+        </Button>
       </div>
     );
   }
