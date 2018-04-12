@@ -5,8 +5,9 @@ import { Link } from 'routes';
 // components
 
 import Button from 'components/common/button';
-import NewsSlider from './news-slider';
 import Modal from 'components/common/modal';
+import CustomContent from 'components/common/custom-content';
+import NewsSlider from './news-slider';
 import ModalContent from './modal-content';
 
 // styles
@@ -16,7 +17,8 @@ class FoundationHomepagePage extends PureComponent {
   static propTypes = {
     content: PropTypes.object.isRequired,
     setResourceId: PropTypes.func.isRequired,
-    modalOpen: PropTypes.bool.isRequired
+    modalOpen: PropTypes.bool.isRequired,
+    toggleModal: PropTypes.func.isRequired
   }
 
   closeModal = () => {
@@ -85,7 +87,11 @@ class FoundationHomepagePage extends PureComponent {
                   </div>
                   <div className="row">
                     <div className="col-md-6">
-                      <div className="highlight" dangerouslySetInnerHTML={{ __html: indexText }} />
+                      <div className="highlight">
+                        <CustomContent>
+                          <div className="content" dangerouslySetInnerHTML={{ __html: indexText }} />
+                        </CustomContent>
+                      </div>
                     </div>
                     <div className="col-md-5 col-md-offset-1">
                       <div className="sidenote">
@@ -114,7 +120,9 @@ class FoundationHomepagePage extends PureComponent {
               <div className="row center-xs -no-text-align">
                 <div className="col-md-10">
                   <h4 className="title">{roadmapTitle}</h4>
-                  <div className="highlight" dangerouslySetInnerHTML={{ __html: roadmapText }} />
+                  <CustomContent>
+                    <div className="content" dangerouslySetInnerHTML={{ __html: roadmapText }} />
+                  </CustomContent>
                 </div>
               </div>
             </div>
