@@ -1,8 +1,11 @@
 import { connect } from 'react-redux';
-import NewsSlider from './news-slider-component';
 
+// actions
 import { toggleModal } from 'modules/app/app-actions';
 import { setResourceId } from 'modules/static-content/static-content-actions';
+
+// component
+import NewsSlider from './news-slider-component';
 
 export default connect(
   state => ({ news: state.staticContent.content.news }),
