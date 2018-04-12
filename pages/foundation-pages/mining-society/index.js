@@ -25,8 +25,8 @@ class MiningSocietyPage extends Page {
   render() {
     return (
       <Layout
-        title="Minging &amp; Society | The Foundation"
-        description="Welcome to RMI | Minging &amp; Society"
+        title="Context | The Foundation"
+        description="Welcome to RMI | Context"
       >
         <MiningSociety />
       </Layout>
