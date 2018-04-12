@@ -4,6 +4,7 @@
 
   :global(*) {
     margin: 20px 0 0;
+    font-family: $font-family-1;
   }
 
   :global(.content) {
@@ -43,8 +44,10 @@
   }
 
   // text
-  :global(b) {
-    font-weight: $font-weight-bold;
+  :global(b),
+  :global(strong),
+  :global(em) {
+    font-weight: 700;
   }
 
   :global(i) {

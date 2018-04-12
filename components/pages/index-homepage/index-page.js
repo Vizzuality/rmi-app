@@ -40,8 +40,6 @@ class IndexPage extends PureComponent {
                     href="/resources/RMI_2018_report-WEB.pdf"
                     className="summary-link"
                     download
-                    target="_blank"
-                    rel="noopener noreferrer"
                   >
                     Download Summary
                   </a>
@@ -159,8 +157,6 @@ class IndexPage extends PureComponent {
                     href="/resources/RMI_2018_report-WEB.pdf"
                     className="summary-link"
                     download
-                    target="_blank"
-                    rel="noopener noreferrer"
                   >
                     Download Summary
                   </a>

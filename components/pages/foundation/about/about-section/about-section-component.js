@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 // components
 import Breadcrumbs from 'components/common/breadcrumbs';
+import CustomContent from 'components/common/custom-content';
 
 class AboutSection extends PureComponent {
   static propTypes = { content: PropTypes.object }
@@ -11,7 +12,7 @@ class AboutSection extends PureComponent {
 
   render() {
     const { content } = this.props;
-    const { title, summary, text, sidenote } = content;
+    const { title, summary, text } = content;
 
     return (
       <div className="c-contact">
@@ -34,7 +35,9 @@ class AboutSection extends PureComponent {
             <div className="l-layout">
               <div className="row center-xs -no-text-align">
                 <div className="col-xs-12">
-                  <div dangerouslySetInnerHTML={{ __html: text }} />
+                  <CustomContent>
+                    <div className="content" dangerouslySetInnerHTML={{ __html: text }} />
+                  </CustomContent>
                 </div>
               </div>
             </div>

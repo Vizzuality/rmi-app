@@ -6,7 +6,7 @@ const routes = nextRoutes();
 // ========================= APP ROUTES =====================
 // Foundation routes
 routes.add('foundation', '/foundation', 'foundation');
-routes.add('mining-society', '/foundation/mining-society', 'foundation-pages/mining-society');
+routes.add('context', '/foundation/context', 'foundation-pages/mining-society');
 routes.add('about', '/about/:section?', 'foundation-pages/about');
 routes.add('media', '/media/:section?', 'foundation-pages/media');
 routes.add('contact', '/foundation/contact', 'foundation-pages/contact');
