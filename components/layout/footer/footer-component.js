@@ -48,7 +48,7 @@ class Footer extends PureComponent {
                 </div>
                 {isFoundation &&
                   <div className="footer-section">
-                    <span>&copy; 2018 - Responsible Mining Foundation</span>
+                    <span>&copy; 2018 - Responsible Mining FOUNDATION</span>
                   </div>}
                 {!isFoundation &&
                   <div className="footer-section">
@@ -79,13 +79,14 @@ class Footer extends PureComponent {
                         <Link
                           route="foundation"
                         >
-                          <a>Responsible Mining Foundation</a>
+                          <a>Responsible Mining FOUNDATION</a>
                         </Link>
                       </li>
                     </ul>
                   </div>}
                 {!isFoundation &&
                   <div className="footer-section">
+                    <span className="copyright-notice">Copyright notice</span>
                     <p>
                       All data and written content are licensed
                       under the Creative Commons Attribution-NonCommercial

@@ -12,7 +12,11 @@ import styles from './news-slider-styles.scss';
 const NEWS_PER_SLIDE = 3;
 
 class NewsSlider extends PureComponent {
-  static propTypes = { news: PropTypes.array }
+  static propTypes = {
+    news: PropTypes.array,
+    setResourceId: PropTypes.func.isRequired,
+    toggleModal: PropTypes.func.isRequired
+  }
 
   static defaultProps = { news: [] }
 
@@ -21,7 +25,6 @@ class NewsSlider extends PureComponent {
   }
 
   handleClick(id) {
-    console.log(id)
     this.props.setResourceId(id);
     this.props.toggleModal(true);
   }
@@ -74,7 +77,7 @@ class NewsSlider extends PureComponent {
     return (
       <div className="c-news-slider">
         <style jsx>{styles}</style>
-        <h4 className="title">News.</h4>
+        <h4 className="title">News</h4>
         <div className="news-container">
           <Carousel>
             {slides.map(slide => slide)}

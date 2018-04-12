@@ -12,7 +12,7 @@ class Unknowndata extends PureComponent {
 
   static defaultProps = {
     asOf: true,
-    text: "Unkown"
+    text: 'Unknown'
   }
 
   render() {
@@ -21,7 +21,7 @@ class Unknowndata extends PureComponent {
       <div className="c-unknown-data">
         <style jsx>{styles}</style>
         {asOf && <span className="as-of">As of: Unknown</span>}
-          <span className="unknown-value">{text}</span>
+        <span className="unknown-value">{text}</span>
       </div>
     );
   }

@@ -16,7 +16,9 @@ class LibraryFilters extends PureComponent {
     companies: PropTypes.array.isRequired,
     setSearch: PropTypes.func.isRequired,
     setFilters: PropTypes.func.isRequired,
-    setPaginationPage: PropTypes.func.isRequired
+    setPaginationPage: PropTypes.func.isRequired,
+    setPaginationLimit: PropTypes.func.isRequired,
+    resetPagination: PropTypes.func.isRequired
   }
 
   handleSearch = (value) => {
