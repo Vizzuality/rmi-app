@@ -80,7 +80,7 @@ class FoundationHomepagePage extends PureComponent {
                 <div className="col-md-10">
                   <div className="row">
                     <div className="col-xs-12">
-                      <h4 className="title">{indexTitle}.</h4>
+                      <h4 className="title">{indexTitle}</h4>
                     </div>
                   </div>
                   <div className="row">
@@ -113,7 +113,7 @@ class FoundationHomepagePage extends PureComponent {
             <div className="l-layout">
               <div className="row center-xs -no-text-align">
                 <div className="col-md-10">
-                  <h4 className="title">{roadmapTitle}.</h4>
+                  <h4 className="title">{roadmapTitle}</h4>
                   <div className="highlight" dangerouslySetInnerHTML={{ __html: roadmapText }} />
                 </div>
               </div>
