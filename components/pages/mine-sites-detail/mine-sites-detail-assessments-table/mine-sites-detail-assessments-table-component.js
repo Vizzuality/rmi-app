@@ -9,8 +9,7 @@ import Spinner from 'components/common/spinner';
 import Select from 'components/common/select';
 
 // constants
-import { ASSESSMENTS_TABLE_COLUMNS } from './mine-sites-detail-assessments-table-constants';
-import { TABLE_SIZE_VALUES } from './mine-sites-detail-assessments-table-constants';
+import { ASSESSMENTS_TABLE_COLUMNS, TABLE_SIZE_VALUES } from './mine-sites-detail-assessments-table-constants';
 
 // styles
 import styles from './mine-sites-detail-assessments-table-styles.scss';
@@ -21,12 +20,14 @@ class MineSitesDetailAssessmentsTable extends PureComponent {
     pagination: PropTypes.object.isRequired,
     setPaginationPage: PropTypes.func.isRequired,
     setSearch: PropTypes.func.isRequired,
-    loading: PropTypes.bool.isRequired
+    loading: PropTypes.bool.isRequired,
+    resetPagination: PropTypes.func.isRequired,
+    setPaginationLimit: PropTypes.func.isRequired
   }
 
   handlePagination = nextPage => this.props.setPaginationPage(nextPage);
 
-  handleSearch = value => {
+  handleSearch = (value) => {
     this.props.setPaginationPage(1);
     this.props.setSearch(value);
   }
@@ -47,35 +48,40 @@ class MineSitesDetailAssessmentsTable extends PureComponent {
     return (
       <div className="c-mine-sites-detail-assessments-table">
         <style jsx>{styles}</style>
-        <h3 className="title">Mine Site Assessments</h3>
-        <h4 className="subtitle">Source documents used in scoring</h4>
-        <div className="filters-container">
-          <Search
-            onSearch={this.handleSearch}
-            placeholder="Search for a document..."
-          />
-          <Select
-            placeholder="Select quantity"
-            options={TABLE_SIZE_VALUES}
-            onChange={this.handleSize}
-          />
-        </div>
+        <h3 className="title">Source documents used in scoring</h3>
+        {data.length ?
+          <div>
+            <div className="filters-container">
+              <Search
+                onSearch={this.handleSearch}
+                placeholder="Search for a document..."
+              />
+              <Select
+                placeholder="Select quantity"
+                options={TABLE_SIZE_VALUES}
+                onChange={this.handleSize}
+              />
+            </div>
+            <Table
+              columns={ASSESSMENTS_TABLE_COLUMNS}
+              rows={data}
+            />
+            <div className="paginator-container">
+              <Paginator
+                className="-theme-2"
+                options={{
+                  size,
+                  page,
+                  limit
+                }}
+                onChange={this.handlePagination}
+              />
+            </div>
+          </div> :
+          <div className="no-data">
+            No documents available
+          </div>}
         {loading && <Spinner />}
-        <Table
-          columns={ASSESSMENTS_TABLE_COLUMNS}
-          rows={data}
-        />
-        <div className="paginator-container">
-          <Paginator
-            className="-theme-2"
-            options={{
-              size,
-              page,
-              limit
-            }}
-            onChange={this.handlePagination}
-          />
-        </div>
       </div>
     );
   }
