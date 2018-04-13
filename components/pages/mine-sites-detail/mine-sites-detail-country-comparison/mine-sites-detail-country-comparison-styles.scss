@@ -43,10 +43,14 @@
         > td {
           padding: 10px 0;
 
+          :global(.date) {
+            font-style: italic;
+          }
+
           &:last-child {
             text-align: center;
             color: $color-7;
-            font-weight: $font-weight-bold;
+            font-weight: 700;
           }
         }
       }

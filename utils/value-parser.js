@@ -9,7 +9,7 @@ export const valueParser = (value, toLocaleString = false) => {
 };
 
 export const fixedValue = (value, decimals = 2) =>
-  (typeof value === 'number') ? value.toFixed(decimals) : '-';
+  ((typeof value === 'number') ? value.toFixed(decimals) : '-');
 
 export default {
   valueParser,

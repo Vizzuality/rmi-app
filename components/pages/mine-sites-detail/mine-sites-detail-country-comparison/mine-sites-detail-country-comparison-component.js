@@ -48,10 +48,12 @@ class MineSitesDetailCountryComparison extends PureComponent {
               data[group].map((d, index) => (
                 <tr
                   key={d.key}
-                  className={MineSitesDetailCountryComparison.getRowClass(data[group].length, index)}
+                  className={MineSitesDetailCountryComparison.getRowClass(
+                    data[group].length, index
+                  )}
                 >
                   <td>{d.key}</td>
-                  <td>{d.producingCountry}</td>
+                  <td dangerouslySetInnerHTML={{ __html: d.producingCountry }} />
                 </tr>
               ))
             ))}
