@@ -1,54 +1,64 @@
-import { valueParser, fixedValue } from 'utils/value-parser'
+import { valueParser, fixedValue } from 'utils/value-parser';
 
 export const COMPARISON_COUNTRY_KEYS = {
   'world-bank-country-classification': {
     title: () => 'World Bank economy classification',
-    value: ({ 'world-bank-country-classification-date': year, 'world-bank-country-classification': value }) => `${valueParser(value)} ${year ? `(${year})` : ''}`,
+    value: ({ 'world-bank-country-classification-date': year, 'world-bank-country-classification': value }) =>
+      `${valueParser(value)} <span class="date">${year ? `(${year})` : ''} </span>`,
     group: 'group-1'
   },
   'ihdi-score': {
     title: () => 'IHDI (Inequality-adjusted Human Development Index)',
-    value: ({ 'ihdi-date': year, 'ihdi-score': value }) => `${valueParser(value)} ${year ? `(${year})` : ''}`,
+    value: ({ 'ihdi-date': year, 'ihdi-score': value }) =>
+      `${valueParser(value)} <span class="date">${year ? `(${year})` : ''} </span>`,
     group: 'group-1'
   },
   'world-bank-fragile-situations': {
     title: () => 'World Bank List of Fragile Situations',
-    value: ({ 'world-bank-fragile-situations-date': year, 'world-bank-fragile-situations': value }) => `${valueParser(value)} ${year ? `(${year})` : ''}`,
+    value: ({ 'world-bank-fragile-situations-date': year, 'world-bank-fragile-situations': value }) =>
+      `${valueParser(value)} <span class="date">${year ? `(${year})` : ''} </span>`,
     group: 'group-1'
   },
   'global-peace-index': {
     title: () => 'Global Peace Index',
-    value: ({ 'global-peace-index-date': year, 'global-peace-index': value }) => `${valueParser(value)} ${year ? `(${year})` : ''}`,
+    value: ({ 'global-peace-index-date': year, 'global-peace-index': value }) =>
+      `${valueParser(value)} <span class="date">${year ? `(${year})` : ''} </span>`,
     group: 'group-1'
   },
   'global-hunger-index': {
     title: () => 'Global Hunger Index',
-    value: ({ 'global-hunger-index-date': year, 'global-hunger-index': value }) => `${valueParser(value)} ${year ? `(${year})` : ''}`,
+    value: ({ 'global-hunger-index-date': year, 'global-hunger-index': value }) =>
+      `${valueParser(value)} <span class="date">${year ? `(${year})` : ''} </span>`,
     group: 'group-1'
   },
   'gdp-per-capita-value': {
     title: () => 'GDP per capita ($)',
-    value: ({ 'gdp-date': year, 'gdp-per-capita-value': value }) => `${valueParser(value, true)} ${year ? `(${year})` : ''}`,
+    value: ({ 'gdp-date': year, 'gdp-per-capita-value': value }) =>
+      `${valueParser(value, true)} <span class="date">${year ? `(${year})` : ''} </span>`,
     group: 'group-2'
   },
   'gdp-growth-annual-percent': {
     title: () => 'GDP annual growth (%)',
-    value: ({ 'gdp-growth-date': year, 'gdp-growth-annual-percent': value }) => `${fixedValue(valueParser(value))} ${year ? `(${year})` : ''}`,
+    value: ({ 'gdp-growth-date': year, 'gdp-growth-annual-percent': value }) =>
+      `${fixedValue(valueParser(value))} <span class="date">${year ? `(${year})` : ''} </span>`,
     group: 'group-2'
   },
   'tax-revenue': {
     title: () => 'Tax revenue (% of GDP)',
-    value: ({ 'tax-revenue-date': year, 'tax-revenue': value }) => `${fixedValue(valueParser(value))} ${year ? `(${year})` : ''}`,
+    value: ({ 'tax-revenue-date': year, 'tax-revenue': value }) =>
+      `${fixedValue(valueParser(value))} <span class="date">${year ? `(${year})` : ''} </span>`,
     group: 'group-2'
   },
   'mining-percent-of-gdp': {
     title: () => 'Mining sector (% of GDP)',
-    value: ({ 'mining-percent-of-gdp-date': year, 'mining-percent-of-gdp': value }) => `${fixedValue(valueParser(value))} ${year ? `(${year})` : ''}`,
+    value: ({ 'mining-percent-of-gdp-date': year, 'mining-percent-of-gdp': value }) =>
+      `${fixedValue(valueParser(value))} <span class="date">${year ? `(${year})` : ''} </span>`,
     group: 'group-2'
   },
   'ores-and-metals-percent-of-exports': {
     title: () => 'Ores and Metals (% of export)',
-    value: ({ 'ores-and-metals-percent-of-exports-date': year, 'ores-and-metals-percent-of-exports': value }) => `${fixedValue(valueParser(value))} ${year ? `(${year})` : ''}`,
+    value: ({ 'ores-and-metals-percent-of-exports-date': year, 'ores-and-metals-percent-of-exports': value }) =>
+      `${fixedValue(valueParser(value))} <span class="date">${year ? `(${year})` : ''} </span>`,
     group: 'group-2'
   },
   'ilo-169-status': {
@@ -63,7 +73,8 @@ export const COMPARISON_COUNTRY_KEYS = {
   },
   'eiti-status': {
     title: () => 'EITI (Extractive Industry Transparency Initiative)',
-    value: ({ 'eiti-date': year, 'eiti-status': value }) => `${valueParser(value)} ${year ? `(${year})` : ''}`,
+    value: ({ 'eiti-date': year, 'eiti-status': value }) =>
+      `${valueParser(value)} <span class="date">${year ? `(${year})` : ''} </span>`,
     group: 'group-3'
   },
   'voluntary-principles-status': {
@@ -73,47 +84,56 @@ export const COMPARISON_COUNTRY_KEYS = {
   },
   'rgi-rank': {
     title: () => 'NRGI Resource Governance Index',
-    value: ({ 'rgi-rank-date': year, 'rgi-rank': value }) => `${valueParser(value)} ${year ? `(${year})` : ''}`,
+    value: ({ 'rgi-rank-date': year, 'rgi-rank': value }) =>
+      `${valueParser(value)} <span class="date">${year ? `(${year})` : ''} </span>`,
     group: 'group-4'
   },
   'world-bank-control-of-corruption': {
     title: () => 'World Bank WGI Control of Corruption',
-    value: ({ 'world-bank-control-of-corruption-date': year, 'world-bank-control-of-corruption': value }) => `${valueParser(value)} ${year ? `(${year})` : ''}`,
+    value: ({ 'world-bank-control-of-corruption-date': year, 'world-bank-control-of-corruption': value }) =>
+      `${valueParser(value)} <span class="date">${year ? `(${year})` : ''} </span>`,
     group: 'group-4'
   },
   'corruption-perceptions-index': {
     title: () => 'Corruption Perceptions Index',
-    value: ({ 'corruption-perceptions-index-date': year, 'corruption-perceptions-index': value }) => `${valueParser(value)} ${year ? `(${year})` : ''}`,
+    value: ({ 'corruption-perceptions-index-date': year, 'corruption-perceptions-index': value }) =>
+      `${valueParser(value)} <span class="date">${year ? `(${year})` : ''} </span>`,
     group: 'group-4'
   },
   'wef-global-competitiveness-index': {
     title: () => 'WEF Global Competitiveness Index',
-    value: ({ 'wef-global-competitiveness-index-date': year, 'wef-global-competitiveness-index': value }) => `${valueParser(value)} ${year ? `(${year})` : ''}`,
+    value: ({ 'wef-global-competitiveness-index-date': year, 'wef-global-competitiveness-index': value }) =>
+      `${valueParser(value)} <span class="date">${year ? `(${year})` : ''} </span>`,
     group: 'group-4'
   },
   'country-attractiveness-index': {
     title: () => 'Country Attractiveness Index',
-    value: ({ 'country-attractiveness-index-date': year, 'country-attractiveness-index': value }) => `${valueParser(value)} ${year ? `(${year})` : ''}`,
+    value: ({ 'country-attractiveness-index-date': year, 'country-attractiveness-index': value }) =>
+      `${valueParser(value)} <span class="date">${year ? `(${year})` : ''} </span>`,
     group: 'group-4'
   },
   'tax-attractiveness-index': {
     title: () => 'Tax Attractiveness Index',
-    value: ({ 'tax-attractiveness-index-date': year, 'tax-attractiveness-index': value }) => `${valueParser(value)} ${year ? `(${year})` : ''}`,
+    value: ({ 'tax-attractiveness-index-date': year, 'tax-attractiveness-index': value }) =>
+      `${valueParser(value)} <span class="date">${year ? `(${year})` : ''} </span>`,
     group: 'group-4'
   },
   'financial-secrecy-index': {
     title: () => 'Financial Secrecy Index',
-    value: ({ 'financial-secrecy-index-date': year, 'financial-secrecy-index': value }) => `${valueParser(value)} ${year ? `(${year})` : ''}`,
+    value: ({ 'financial-secrecy-index-date': year, 'financial-secrecy-index': value }) =>
+      `${valueParser(value)} <span class="date">${year ? `(${year})` : ''} </span>`,
     group: 'group-4'
   },
   'enforcing-contracts-rank': {
     title: () => 'Enforcing Contracts Index',
-    value: ({ 'enforcing-contracts-rank-date': year, 'enforcing-contracts-rank': value }) => `${valueParser(value)} ${year ? `(${year})` : ''}`,
+    value: ({ 'enforcing-contracts-rank-date': year, 'enforcing-contracts-rank': value }) =>
+      `${valueParser(value)} <span class="date">${year ? `(${year})` : ''} </span>`,
     group: 'group-4'
   },
   'environmental-democracy-index': {
     title: () => 'Environmental Democracy Index',
-    value: ({ 'environmental-democracy-index-date': year, 'environmental-democracy-index': value }) => `${valueParser(value)} ${year ? `(${year})` : ''}`,
+    value: ({ 'environmental-democracy-index-date': year, 'environmental-democracy-index': value }) =>
+      `${valueParser(value)} <span class="date">${year ? `(${year})` : ''} </span>`,
     group: 'group-4'
   }
 };
