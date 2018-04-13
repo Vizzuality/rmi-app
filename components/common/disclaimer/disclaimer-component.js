@@ -8,12 +8,13 @@ class Disclaimer extends PureComponent {
     return (
       <div className="c-disclaimer">
         <style jsx>{styles}</style>
+        <p className="disclaimer-text">Disclaimer</p>
         <p className="disclaimer-text">
           The findings, conclusions and interpretations within this 2018 Responsible Mining Index
           (RMI) report do not necessarily represent the views of funders, trustees, and employees
           of the Responsible Mining Foundation, and others who participated in consultations and
           as advisors to the report.
-              </p>
+        </p>
 
         <p className="disclaimer-text">
           This report is intended to be for information purposes only and is not intended as
@@ -22,26 +23,27 @@ class Disclaimer extends PureComponent {
           or solicitation for the purchase or sale of any financial instrument. In order to fully
           understand the methodology of the 2018 Responsible Mining Index, the respective sections
           on the website should be consulted.
-              </p>
+        </p>
 
         <p className="disclaimer-text">
           The RMI seeks evidence of companies’ policies and practices on economic, environmental,
           social and governance (EESG) issues, but does not seek to measure the actual outcomes
           achieved on EESG issues. Results are based only on evidence sourced from the public domain
           or provided by companies as open data. Whilst this information is believed to be reliable,
-          no guarantee can be given that it is accurate or complete, nor does it preclude the possibility
-          that policies and practices may exist, but which the RMI has not been able to consider for
-          purposes of assessment. In this respect, the results of the low-scoring companies do not
-          necessarily reflect a lack of relevant policies and practices; as they may be due to a lack
-          of public reporting by the companies, limitations in accessing information, and/or any
-          difficulties in accessing the RMI company portal.
-              </p>
+          no guarantee can be given that it is accurate or complete, nor does it preclude
+          the possibility that policies and practices may exist, but which the RMI has not
+          been able to consider for purposes of assessment. In this respect, the results
+          of the low-scoring companies do not necessarily reflect a lack of relevant
+          policies and practices; as they may be due to a lack of public reporting
+          by the companies, limitations in accessing information, and/or any difficulties
+          in accessing the RMI company portal.
+        </p>
 
         <p className="disclaimer-text">
           It should be noted that, prior to publication, all companies in the Index were invited to
-          check the factual accuracy of the contextual data and evidence upon which the Index is based
-          and to review company information in the RMI document library.
-              </p>
+          check the factual accuracy of the contextual data and evidence upon
+          which the Index is based and to review company information in the RMI document library.
+        </p>
 
         <p className="disclaimer-text">
           Although every effort has been made to verify the accuracy of translations, the English

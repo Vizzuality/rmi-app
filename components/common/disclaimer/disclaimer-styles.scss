@@ -2,9 +2,10 @@
 
 .c-disclaimer {
   > .disclaimer-text {
-    font-size: $font-size-small;
+    font-size: 12px;
+    font-style: italic;
     font-weight: $font-weight-light;
-    line-height: 1.8;
+    line-height: 1.5;
 
     a {
       font-style: italic;
