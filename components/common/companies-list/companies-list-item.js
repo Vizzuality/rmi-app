@@ -17,12 +17,16 @@ class CompaniesListItem extends PureComponent {
     company: PropTypes.object.isRequired,
     isCompanyPage: PropTypes.bool.isRequired,
     onMouseEnter: PropTypes.func,
-    onMouseLeave: PropTypes.func
+    onMouseLeave: PropTypes.func,
+    onOpenTooltip: PropTypes.func,
+    onCloseTooltip: PropTypes.func
   }
 
   static defaultProps = {
     onMouseEnter: () => {},
-    onMouseLeave: () => {}
+    onMouseLeave: () => {},
+    onOpenTooltip: null,
+    onCloseTooltip: null
   }
 
   constructor(props) {
@@ -32,9 +36,12 @@ class CompaniesListItem extends PureComponent {
   }
 
   handleToggle = () => {
-    const { company } = this.props;
+    const { company, onOpenTooltip } = this.props;
     const { visibility } = this.state;
     this.setState({ visibility: !visibility });
+
+    if (onOpenTooltip) onOpenTooltip(company);
+
     trackEvent('click', `Clicks on mine sites of company: ${company.name}`, company);
   }
 
@@ -46,7 +53,12 @@ class CompaniesListItem extends PureComponent {
     });
   }
 
-  handleClose = () => this.setState({ visibility: false });
+  handleClose = () => {
+    const { onCloseTooltip, company } = this.props;
+    this.setState({ visibility: false });
+
+    if (onCloseTooltip) onCloseTooltip(company);
+  }
 
   render() {
     const { isCompanyPage, company, onMouseEnter, onMouseLeave } = this.props;

@@ -13,15 +13,24 @@ class MineSite extends PureComponent {
   static propTypes = {
     paths: PropTypes.array.isRequired,
     markers: PropTypes.array.isRequired,
-    setFilters: PropTypes.func.isRequired
+    setFilters: PropTypes.func.isRequired,
+    resetFilters: PropTypes.func.isRequired
   }
 
   static setCountryColor = geographyProperties => getCompanyCountryColor(geographyProperties);
+
+  componentWillUnmount() {
+    this.props.resetFilters();
+  }
 
   handleClickGeography = (geography) => {
     const { ISO_A3 } = geography.properties;
     this.props.setFilters({ country: ISO_A3 });
   };
+
+  handleOpenTooltip = ({ id }) => { this.props.setFilters({ selectedCompany: +id }); }
+
+  handleCloseTooltip = () => { this.props.setFilters({ selectedCompany: null }); };
 
   render() {
     const { paths, markers } = this.props;
@@ -56,6 +65,8 @@ class MineSite extends PureComponent {
                 <div className="col-md-4">
                   <CompaniesList
                     isCompanyPage={false}
+                    onOpenTooltip={this.handleOpenTooltip}
+                    onCloseTooltip={this.handleCloseTooltip}
                   />
                 </div>
                 <div className="col-md-8">

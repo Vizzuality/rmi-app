@@ -8,6 +8,7 @@ import { EXCLUDED_COUNTRIES } from 'constants/map';
 
 const countries = state => state.countries.list;
 const companies = state => state.companies.list;
+const selectedCompany = state => state.mineSitesPage.filters.selectedCompany;
 
 export const getUpdatedPaths = createSelector(
   countries,
@@ -31,16 +32,16 @@ export const getUpdatedPaths = createSelector(
 );
 
 export const getMarkers = createSelector(
-  companies,
-  (_companies = []) =>
+  [companies, selectedCompany],
+  (_companies = [], _selectedCompany) =>
     flatten(_companies.map(company =>
-      (company['selected-mine-sites'] || []).map(mineSite => ({
-        id: mineSite.id,
-        name: mineSite.name,
-        coordinates: [mineSite['coord-y'], mineSite['coord-x']]
-      }))
-    )
-  )
+      (company['selected-mine-sites'] || [])
+        .filter(mineSite => (_selectedCompany ? mineSite['company-id'] === _selectedCompany : true))
+        .map(mineSite => ({
+          id: mineSite.id,
+          name: mineSite.name,
+          coordinates: [mineSite['coord-y'], mineSite['coord-x']]
+        }))))
 );
 
 export default {
