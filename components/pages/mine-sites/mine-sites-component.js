@@ -29,7 +29,12 @@ class MineSite extends PureComponent {
     this.props.setFilters({ country: ISO_A3 });
   };
 
-  handleOpenTooltip = ({ id }) => { this.props.setFilters({ selectedCompany: +id }); }
+  handleOpenTooltip = ({ id }) => {
+    this.props.setFilters({
+      selectedCompany: +id,
+      selectedMineSite: null
+    });
+  }
 
   handleCloseTooltip = () => { this.props.setFilters({ selectedCompany: null }); };
 

@@ -2,6 +2,7 @@
 import { createSelector } from 'reselect';
 
 const mineSites = state => state.mineSites.list;
+const selectedMineSite = state => state.mineSitesPage.filters.selectedMineSite;
 
 export const parseMineSites = createSelector(
   [mineSites],
@@ -9,5 +10,20 @@ export const parseMineSites = createSelector(
     .map(mineSite => ({ label: mineSite.name, value: mineSite.id }))
 );
 
+export const geCurrentMineSiteOption = createSelector(
+  [mineSites, selectedMineSite],
+  (_mineSites = [], _selectedMineSite) => {
+    const currentOption = _mineSites.find(mineSite => mineSite.id === _selectedMineSite) || {};
 
-export default { parseMineSites };
+    return {
+      label: currentOption.name,
+      value: currentOption.id
+    };
+  }
+);
+
+
+export default {
+  parseMineSites,
+  geCurrentMineSiteOption
+};
