@@ -21,7 +21,9 @@ class SelectComponent extends PureComponent {
       PropTypes.string, PropTypes.number
     ]),
     className: PropTypes.string,
-    placeholder: PropTypes.string,
+    placeholder: PropTypes.oneOfType([
+      PropTypes.string, PropTypes.number
+    ]),
     multiple: PropTypes.bool,
     theme: PropTypes.oneOf([
       'light', 'dark'

@@ -6,7 +6,7 @@ export default {
   pagination: {
     page: 1,
     size: 0,
-    limit: 8
+    limit: 10
   }
 };
 
