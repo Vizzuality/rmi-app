@@ -45,6 +45,10 @@
     font-family: $font-family-2;
     font-size: $font-size-huge;
     line-height: 1.42;
+
+    &.-small {
+      font-size: $font-size-big;
+    }
   }
 
   .subtitle {
