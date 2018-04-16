@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'routes';
 
 class MineSitesDetailSidebar extends PureComponent {
   static propTypes = { mineSite: PropTypes.object.isRequired }
@@ -58,7 +59,14 @@ class MineSitesDetailSidebar extends PureComponent {
             <div className="col-xs-12 col-md-6">
               <div className="definition-item">
                 <div className="definition-key">Company:</div>
-                <div className="definition-value">{company || '-'}</div>
+                <div className="definition-value">
+                  <Link
+                    route="companies"
+                    params={{ company: company.id }}
+                  >
+                    {company.name || '-'}
+                  </Link>
+                </div>
               </div>
             </div>
             <div className="col-xs-12 col-md-6">

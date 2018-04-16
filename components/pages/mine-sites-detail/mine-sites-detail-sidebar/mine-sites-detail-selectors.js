@@ -11,7 +11,7 @@ export const parseMineSite = createSelector(
     products: _mineSite.commodities.map(commodity => commodity.name).join(', '),
     openingYear: _mineSite['opening-year'],
     acquisitionYear: _mineSite['acquisition-year'],
-    company: (_mineSite.company || {}).name,
+    company: _mineSite.company,
     companyShare: _mineSite['company-share']
   })
 );
