@@ -85,4 +85,11 @@ $bar-height: 40px;
       transform: translate(-100%, 0)
     }
   }
+
+  > .score-bar > .score-min {
+    > .legend {
+      padding: 0 10px 0 0;
+      transform: translate(-100%, 0)
+    }
+  }
 }
