@@ -45,6 +45,7 @@
 
           :global(.date) {
             font-style: italic;
+            font-weight: $font-weight-regular;
           }
 
           &:last-child {
