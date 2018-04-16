@@ -11,7 +11,8 @@ import FoundationHomepage from './foundation-homepage-component';
 export default connect(
   state => ({
     modalOpen: state.app.modal.open,
-    content: state.staticContent.content
+    content: state.staticContent.content,
+    news: state.staticContent.content.news
   }),
   {
     toggleModal,
