@@ -15,44 +15,59 @@ export const MINE_SITE_TABLE_COLUMNS = [
             <a>{name}</a>
           </Link>
         )
-      ]
+      ],
+      props: { style: { color: '#000' } }
     },
-    props: { style: { width: 150 } }
+    props: { style: { color: '#bf3132' } }
   },
   {
     property: 'localProcurment',
-    header: { label: 'Local Procurement (score /6.00)' }
+    header: { formatters: [() => (<span>Local Procurement <span style={{ display: 'block', whiteSpace: 'pre' }}>(score /6.00)</span></span>)] },
+    props: { style: { color: '#bf3132' } },
+    cell: { props: { style: { color: '#000' } } }
   },
   {
     property: 'localEmployment',
-    header: { label: 'Local Employment (score /6.00)' }
+    header: { formatters: [() => (<span>Local Employment <span style={{ display: 'block', whiteSpace: 'pre' }}>(score /6.00)</span></span>)] },
+    props: { style: { color: '#bf3132' } },
+    cell: { props: { style: { color: '#000' } } }
   },
   {
     property: 'communityGrievance',
-    header: { label: 'Community grievance mechanism (score /6.00)' }
+    header: {
+      formatters: [() =>
+        (<span>Community grievance mechanism <span style={{ display: 'block', whiteSpace: 'pre' }}>(score /6.00)</span></span>)]
+    },
+    props: { style: { color: '#bf3132' } },
+    cell: { props: { style: { color: '#000' } } }
   },
   {
     property: 'workersGrievance',
-    header: { label: 'Workers grievance mechanism (score /6.00)' }
+    header: { formatters: [() => (<span>Workers grievance mechanism <span style={{ display: 'block', whiteSpace: 'pre' }}>(score /6.00)</span></span>)] },
+    props: { style: { color: '#bf3132' } },
+    cell: { props: { style: { color: '#000' } } }
   },
   {
     property: 'waterQuality',
-    header: { label: 'Water quality and quantity (score /6.00)' }
+    header: { formatters: [() => (<span>Water quality and quantity <span style={{ display: 'block', whiteSpace: 'pre' }}>(score /6.00)</span></span>)] },
+    props: { style: { color: '#bf3132' } },
+    cell: { props: { style: { color: '#000' } } }
   },
   {
     property: 'biodiversity',
-    header: { label: 'Biodiversity management (score /6.00)' }
+    header: { formatters: [() => (<span>Biodiversity management <span style={{ display: 'block', whiteSpace: 'pre' }}>(score /6.00)</span></span>)] },
+    props: { style: { color: '#bf3132' } },
+    cell: { props: { style: { color: '#000' } } }
   },
   {
     property: 'overall',
-    header: { label: 'Mine site (score /6.00)' },
+    header: { formatters: [() => (<span>Mine site <span style={{ display: 'block', whiteSpace: 'pre' }}>(score /6.00)</span></span>)] },
     props: {
       style: {
-        backgroundColor: '#3b3a40',
         paddingRight: 15,
-        color: '#fff',
+        backgroundColor: '#3b3a40',
         textAlign: 'right',
-        width: 115
+        color: '#fff'
       }
     }
   }
@@ -81,42 +96,48 @@ export const TAX_JURISDICTIONS_COLUMNS = [
   {
     cell: {
       formatters: [
-        (countryName, { rowData }) => (rowData.jurisdiction1 || {}).country && rowData.jurisdiction1.country.name
+        (countryName, { rowData }) =>
+          (rowData.jurisdiction1 || {}).country && rowData.jurisdiction1.country.name
       ]
     }
   },
   {
     cell: {
       formatters: [
-        (countryName, { rowData }) => (rowData.jurisdiction2 || {}).country && rowData.jurisdiction2.country.name
+        (countryName, { rowData }) =>
+          (rowData.jurisdiction2 || {}).country && rowData.jurisdiction2.country.name
       ]
     }
   },
   {
     cell: {
       formatters: [
-        (countryName, { rowData }) => (rowData.jurisdiction3 || {}).country && rowData.jurisdiction3.country.name
+        (countryName, { rowData }) =>
+          (rowData.jurisdiction3 || {}).country && rowData.jurisdiction3.country.name
       ]
     }
   },
   {
     cell: {
       formatters: [
-        (countryName, { rowData }) => (rowData.jurisdiction4 || {}).country && rowData.jurisdiction4.country.name
+        (countryName, { rowData }) =>
+          (rowData.jurisdiction4 || {}).country && rowData.jurisdiction4.country.name
       ]
     }
   },
   {
     cell: {
       formatters: [
-        (countryName, { rowData }) => (rowData.jurisdiction5 || {}).country && rowData.jurisdiction5.country.name
+        (countryName, { rowData }) =>
+          (rowData.jurisdiction5 || {}).country && rowData.jurisdiction5.country.name
       ]
     }
   },
   {
     cell: {
       formatters: [
-        (countryName, { rowData }) => (rowData.jurisdiction6 || {}).country && rowData.jurisdiction6.country.name
+        (countryName, { rowData }) =>
+          (rowData.jurisdiction6 || {}).country && rowData.jurisdiction6.country.name
       ]
     }
   }
