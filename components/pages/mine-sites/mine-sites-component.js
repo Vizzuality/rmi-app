@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 // components
 import Map from 'components/common/map';
 import CompaniesList from 'components/common/companies-list';
-
+import MineSitesFilters from 'components/pages/mine-sites/mine-sites-filters';
 // constants
 import { MAP_LEGEND } from './mine-sites-constants';
+
 // helpers
 import { getCompanyCountryColor } from './mine-sites-helpers';
 
@@ -70,6 +71,7 @@ class MineSite extends PureComponent {
                   />
                 </div>
                 <div className="col-md-8">
+                  <MineSitesFilters />
                   <div className="map-container">
                     <Map
                       paths={paths}
