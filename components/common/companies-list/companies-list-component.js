@@ -17,17 +17,27 @@ class CompaniesList extends PureComponent {
     loading: PropTypes.bool.isRequired,
     isCompanyPage: PropTypes.bool,
     onMouseEnter: PropTypes.func,
-    onMouseLeave: PropTypes.func
+    onMouseLeave: PropTypes.func,
+    onOpenTooltip: PropTypes.func,
+    onCloseTooltip: PropTypes.func
   }
 
   static defaultProps = {
     isCompanyPage: true,
     onMouseEnter: () => {},
-    onMouseLeave: () => {}
+    onMouseLeave: () => {},
+    onOpenTooltip: null,
+    onCloseTooltip: null
   };
 
   renderCompaniesRow(companies, key) {
-    const { isCompanyPage, onMouseEnter, onMouseLeave } = this.props;
+    const {
+      isCompanyPage,
+      onMouseEnter,
+      onMouseLeave,
+      onOpenTooltip,
+      onCloseTooltip
+    } = this.props;
 
     return (
       <Fragment key={key} >
@@ -41,6 +51,8 @@ class CompaniesList extends PureComponent {
                 onMouseEnter={onMouseEnter}
                 onMouseLeave={onMouseLeave}
                 isCompanyPage={isCompanyPage}
+                onOpenTooltip={onOpenTooltip}
+                onCloseTooltip={onCloseTooltip}
               />
             </div>
           ))}

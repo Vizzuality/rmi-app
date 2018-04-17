@@ -6,8 +6,12 @@ import flatten from 'lodash/flatten';
 // constants
 import { EXCLUDED_COUNTRIES } from 'constants/map';
 
+// helpers
+import { mineSiteFilter } from './mine-sites-helpers';
+
 const countries = state => state.countries.list;
 const companies = state => state.companies.list;
+const filters = state => state.mineSitesPage.filters;
 
 export const getUpdatedPaths = createSelector(
   countries,
@@ -23,7 +27,8 @@ export const getUpdatedPaths = createSelector(
           properties: {
             ...geography.properties,
             id: index,
-            isHome: !!((country.companies || []).length || (country.secondaryCompanies || []).length),
+            isHome: !!((country.companies || []).length ||
+              (country.secondaryCompanies || []).length),
             isProducing: !!((country.producingCompanies || []).length)
           }
         };
@@ -31,16 +36,16 @@ export const getUpdatedPaths = createSelector(
 );
 
 export const getMarkers = createSelector(
-  companies,
-  (_companies = []) =>
+  [companies, filters],
+  (_companies = [], _filters) =>
     flatten(_companies.map(company =>
-      (company['selected-mine-sites'] || []).map(mineSite => ({
-        id: mineSite.id,
-        name: mineSite.name,
-        coordinates: [mineSite['coord-y'], mineSite['coord-x']]
-      }))
-    )
-  )
+      (company['selected-mine-sites'] || [])
+        .filter(mineSite => mineSiteFilter(mineSite, _filters))
+        .map(ms => ({
+          id: ms.id,
+          name: ms.name,
+          coordinates: [ms['coord-y'], ms['coord-x']]
+        }))))
 );
 
 export default {

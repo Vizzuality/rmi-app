@@ -1,6 +1,6 @@
 
 import * as actions from './mine-sites-actions';
-import { initialState } from './mine-sites-initial-state';
+import initialState from './mine-sites-initial-state';
 
 export default {
   [actions.setFilters]: (state, { payload }) => ({

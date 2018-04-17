@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 // components
 import Map from 'components/common/map';
 import CompaniesList from 'components/common/companies-list';
-
+import MineSitesFilters from 'components/pages/mine-sites/mine-sites-filters';
 // constants
 import { MAP_LEGEND } from './mine-sites-constants';
+
 // helpers
 import { getCompanyCountryColor } from './mine-sites-helpers';
 
@@ -13,15 +14,29 @@ class MineSite extends PureComponent {
   static propTypes = {
     paths: PropTypes.array.isRequired,
     markers: PropTypes.array.isRequired,
-    setFilters: PropTypes.func.isRequired
+    setFilters: PropTypes.func.isRequired,
+    resetFilters: PropTypes.func.isRequired
   }
 
   static setCountryColor = geographyProperties => getCompanyCountryColor(geographyProperties);
+
+  componentWillUnmount() {
+    this.props.resetFilters();
+  }
 
   handleClickGeography = (geography) => {
     const { ISO_A3 } = geography.properties;
     this.props.setFilters({ country: ISO_A3 });
   };
+
+  handleOpenTooltip = ({ id }) => {
+    this.props.setFilters({
+      selectedCompany: +id,
+      selectedMineSite: null
+    });
+  }
+
+  handleCloseTooltip = () => { this.props.setFilters({ selectedCompany: null }); };
 
   render() {
     const { paths, markers } = this.props;
@@ -53,12 +68,15 @@ class MineSite extends PureComponent {
           <div className="section -dark">
             <div className="l-layout">
               <div className="row">
-                <div className="col-md-5">
+                <div className="col-md-4">
                   <CompaniesList
                     isCompanyPage={false}
+                    onOpenTooltip={this.handleOpenTooltip}
+                    onCloseTooltip={this.handleCloseTooltip}
                   />
                 </div>
-                <div className="col-md-7">
+                <div className="col-md-8">
+                  <MineSitesFilters />
                   <div className="map-container">
                     <Map
                       paths={paths}
