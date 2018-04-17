@@ -63,7 +63,7 @@
     "redux": "3.7.2",
     "redux-devtools-extension": "2.13.2",
     "redux-thunk": "2.2.0",
-    "redux-tools": "github:vectorsize/redux-tools#v3.2.0",
+    "redux-tools": "github:vizzuality/redux-tools",
     "reselect": "3.0.1",
     "sass-loader": "6.0.6",
     "style-loader": "^0.20.1",
