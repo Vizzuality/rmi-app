@@ -3,11 +3,12 @@ import PropTypes from 'prop-types';
 
 // components
 import Table from 'components/common/table';
+import Select from 'components/common/select';
 import Paginator from 'components/common/paginator';
 import Spinner from 'components/common/spinner';
 
 // constants
-import { DOCUMENTS_TABLE_COLUMNS } from './library-table-constants';
+import { DOCUMENTS_TABLE_COLUMNS, TABLE_SIZE_VALUES } from './library-table-constants';
 
 // styles
 import styles from './library-table-styles.scss';
@@ -17,10 +18,25 @@ class LibraryTable extends PureComponent {
     data: PropTypes.array.isRequired,
     pagination: PropTypes.object.isRequired,
     loading: PropTypes.bool.isRequired,
-    setPaginationPage: PropTypes.func.isRequired
+    setPaginationPage: PropTypes.func.isRequired,
+    setPaginationLimit: PropTypes.func.isRequired,
+    resetPagination: PropTypes.func.isRequired
+  }
+
+  componentWillUnmount() {
+    this.props.resetPagination();
   }
 
   handlePagination = nextPage => this.props.setPaginationPage(nextPage);
+
+  handleSize = ({ value }) => {
+    if (value == null) {
+      this.props.resetPagination();
+    } else {
+      this.props.setPaginationLimit(value);
+      this.props.setPaginationPage(1);
+    }
+  }
 
   render() {
     const { data, pagination, loading } = this.props;
@@ -34,6 +50,14 @@ class LibraryTable extends PureComponent {
           <Table
             columns={DOCUMENTS_TABLE_COLUMNS}
             rows={data}
+          />
+        </div>
+
+        <div className="pagination-filter">
+          <Select
+            placeholder={limit}
+            options={TABLE_SIZE_VALUES}
+            onChange={this.handleSize}
           />
         </div>
 

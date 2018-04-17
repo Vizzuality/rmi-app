@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import isEqual from 'lodash/isEqual';
 
 // actions
-import { setPaginationPage, getDocuments } from 'modules/documents/documents-actions';
+import { setPaginationPage, setPaginationLimit, resetPagination, getDocuments } from 'modules/documents/documents-actions';
 
 // selectors
 import { parseDocuments } from './library-table-selectors';
@@ -54,6 +54,8 @@ export default connect(
   }),
   {
     getDocuments,
-    setPaginationPage
+    setPaginationPage,
+    setPaginationLimit,
+    resetPagination
   }
 )(LibrayTableContainer);
