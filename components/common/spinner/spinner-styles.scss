@@ -26,6 +26,15 @@
       animation: rotate $animation-time infinite $ease-in-out-sine;
     }
   }
+
+  &.-small {
+    .spinner-box {
+      .icon {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
 }
 
  @-webkit-keyframes rotate {

@@ -1,4 +1,8 @@
 // default language is English
-const initialState = { current: 'en' };
+const initialState = {
+  list: [],
+  current: 'en',
+  loading: true
+};
 
 export default initialState;

@@ -4,7 +4,6 @@ import isEqual from 'lodash/isEqual';
 
 // actions
 import { setRoute } from 'modules/routes/routes-actions';
-import { setLanguage } from 'modules/language/languages-actions';
 import { mobileParser } from 'react-responsive-redux';
 import { setMobileDetect } from 'modules/responsive/responsive-actions';
 import { getResultsTree, getAboutTree } from 'modules/navigation/navigation-actions';
@@ -14,6 +13,8 @@ import { getIndicators } from 'modules/indicators/indicators-actions';
 import { trackPage } from 'helpers/analytics';
 
 class Page extends PureComponent {
+  static propTypes = { routes: PropTypes.object.isRequired }
+
   static async getInitialProps({ pathname, query, store, req, isServer }) {
     const isFoundation = pathname.includes('foundation');
     const { routes } = store.getState();
@@ -41,9 +42,6 @@ class Page extends PureComponent {
     if (isFoundation) {
       await store.dispatch(getAboutTree({ include: ['about-sections'].join(',') }));
     }
-
-    // sets page language
-    if (query.language) store.dispatch(setLanguage(query.language));
 
     return { routes };
   }

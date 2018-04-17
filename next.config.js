@@ -27,7 +27,8 @@ module.exports = {
       'process.env.API_URL': JSON.stringify(process.env.API_URL),
       'process.env.API_TOKEN': JSON.stringify(process.env.API_TOKEN),
       'process.env.GOOGLE_MAPS_API_KEY': JSON.stringify(process.env.GOOGLE_MAPS_API_KEY),
-      'process.env.ANALYTICS_URL': JSON.stringify(process.env.ANALYTICS_URL)
+      'process.env.ANALYTICS_URL': JSON.stringify(process.env.ANALYTICS_URL),
+      'process.env.TRANSIFEX_API_KEY': JSON.stringify(process.env.TRANSIFEX_API_KEY)
     }));
 
     return config;
