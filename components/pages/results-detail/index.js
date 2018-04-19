@@ -17,7 +17,8 @@ export default connect(
   state => ({
     issueAreas: parseIssueAreas(state),
     selectedArea: getIssueArea(state),
-    currentLanguage: state.language.current
+    currentLanguage: state.language.current,
+    responsive: state.responsive
   }),
   {}
 )(ResultsDetail);

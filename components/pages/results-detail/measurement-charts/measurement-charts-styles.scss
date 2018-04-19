@@ -1,5 +1,15 @@
 @import 'css/settings';
 
 .c-measurement-charts {
-  margin: 55px 0 0;
+  :global(.c-measurement-chart-item) {
+    margin: 25px 0 0;
+
+    @media #{$mq-md} {
+      margin: 0;
+    }
+  }
+
+  @media #{$mq-md} {
+    margin: 55px 0 0;
+  }
 }

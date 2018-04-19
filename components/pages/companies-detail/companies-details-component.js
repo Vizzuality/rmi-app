@@ -45,7 +45,7 @@ class CompaniesDetail extends PureComponent {
             <div className="l-layout">
               <div className="companies-detail-preview">
                 <div className="row">
-                  <div className="col-md-5">
+                  <div className="col-xs-12 col-md-5">
                     <CompaniesDetailSidebar />
                   </div>
 
@@ -67,7 +67,7 @@ class CompaniesDetail extends PureComponent {
           <div className="section">
             <div className="l-layout">
               <div className="row">
-                <div className="col-sm-12">
+                <div className="col-xs-12">
                   <Disclaimer />
                 </div>
               </div>

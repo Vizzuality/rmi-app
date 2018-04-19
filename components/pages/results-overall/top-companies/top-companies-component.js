@@ -1,12 +1,9 @@
-import React, { PureComponent, Fragment } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
 // components
 import Spinner from 'components/common/spinner';
 import TopCompany from './top-companies-item';
-
-// constants
-import { TOPS_PER_ROW } from './top-companies-constants';
 
 // styles
 import styles from './top-companies-styles.scss';
@@ -17,51 +14,29 @@ class TopCompanies extends PureComponent {
     currentLanguage: PropTypes.string.isRequired
   }
 
-  renderGraphRow(tops, key) {
-    const { currentLanguage } = this.props;
-    return (
-      <Fragment key={key} >
-        <style jsx>{styles}</style>
-        <div className="row">
-          {tops.map(top => (
-            <div key={top.id} className="col-xs-12 col-md-4">
-              <TopCompany
-                currentLanguage={currentLanguage}
-                data={top}
-              />
-            </div>
-          ))}
-        </div>
-      </Fragment>
-    );
-  }
-
-  renderTops() {
-    const { data } = this.props;
-    const totalRows = (data.length / TOPS_PER_ROW) > parseInt(data.length / TOPS_PER_ROW, 10) ?
-      parseInt(data.length / TOPS_PER_ROW, 10) + 1 : parseInt(data.length / TOPS_PER_ROW, 10);
-    const graphs = [];
-
-    for (let i = 0; i < totalRows; i++) {
-      const limit = ((i * TOPS_PER_ROW) + TOPS_PER_ROW);
-      const slicedGraphs = data.slice(i * TOPS_PER_ROW, limit);
-      graphs.push(this.renderGraphRow(slicedGraphs, i));
-    }
-
-    return graphs;
-  }
-
   render() {
-    const topCompanies = this.renderTops();
+    const { data, currentLanguage } = this.props;
 
     return (
       <div className="c-top-companies">
         <style jsx>{styles}</style>
-        {!topCompanies.length && <Spinner />}
-        {!!topCompanies.length &&
+        {!data.length && <Spinner />}
+        {!!data.length &&
           <div className="companies-container">
             <h2 className="title">Companies achieving the ten best scores for each thematic area</h2>
-            {topCompanies}
+            <div className="row">
+              {data.map(top => (
+                <div
+                  key={top.id}
+                  className="col-xs-12 col-sm-6 col-md-4"
+                >
+                  <TopCompany
+                    currentLanguage={currentLanguage}
+                    data={top}
+                  />
+                </div>
+              ))}
+            </div>
           </div>}
       </div>
     );

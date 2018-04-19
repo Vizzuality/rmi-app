@@ -10,25 +10,41 @@ import { BARS } from './overall-chart-constants';
 class OverallChart extends PureComponent {
   static propTypes = {
     data: PropTypes.object.isRequired,
-    config: PropTypes.object.isRequired
+    config: PropTypes.object.isRequired,
+    responsive: PropTypes.object.isRequired
   }
 
   componentWillMount() {
-    const { data, config } = this.props;
+    const { data, config, responsive } = this.props;
     const { bestPracticeScore } = data;
+    const { mobile, tablet } = responsive;
+
     this.chartConfig = {
       ...config,
+      ...(mobile && !tablet) && {
+        xAxisInterval: 'preserveEnd',
+        xAxisTextAnchor: 'end'
+      },
       yReferenceLine: bestPracticeScore
     };
   }
 
   componentWillReceiveProps(nextProps) {
-    const { data: nextData, config: nextConfig } = nextProps;
+    const {
+      data: nextData,
+      config: nextConfig,
+      responsive: nextResponsive
+    } = nextProps;
     const { bestPracticeScore } = nextData;
+    const { mobile, tablet } = nextResponsive;
 
     this.chartConfig = {
       ...this.chartConfig,
       ...nextConfig,
+      ...(mobile && !tablet) && {
+        xAxisInterval: 'preserveEnd',
+        xAxisTextAnchor: 'end'
+      },
       yReferenceLine: bestPracticeScore
     };
   }

@@ -46,7 +46,7 @@ class CompaniesList extends PureComponent {
         <style jsx>{styles}</style>
         <div className="row -equal-height">
           {companies.map(_company => (
-            <div key={_company.id} className="col-md-4">
+            <div key={_company.id} className="col-xs-12 col-md-4">
               <CompaniesListItem
                 key={_company.id}
                 company={_company}
@@ -80,9 +80,17 @@ class CompaniesList extends PureComponent {
   }
 
   render() {
-    const { loading } = this.props;
-    const companies = this.renderCompanies();
-
+    const {
+      companies,
+      loading,
+      isCompanyPage,
+      currentLanguage,
+      onMouseEnter,
+      onMouseLeave,
+      onOpenTooltip,
+      onCloseTooltip
+    } = this.props;
+    // const companies = this.renderCompanies();
 
     return (
       <div className="c-companies-list">
@@ -94,7 +102,25 @@ class CompaniesList extends PureComponent {
             <div className="not-found">
               <span>No companies found under this criteria</span>
             </div>}
-          {companies}
+
+          <div className="row -equal-height">
+            {companies.map(company => (
+              <div
+                key={company.id}
+                className="col-xs-6 col-sm-4"
+              >
+                <CompaniesListItem
+                  company={company}
+                  currentLanguage={currentLanguage}
+                  onMouseEnter={onMouseEnter}
+                  onMouseLeave={onMouseLeave}
+                  isCompanyPage={isCompanyPage}
+                  onOpenTooltip={onOpenTooltip}
+                  onCloseTooltip={onCloseTooltip}
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     );

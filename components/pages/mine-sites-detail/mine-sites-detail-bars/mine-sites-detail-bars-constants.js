@@ -5,7 +5,7 @@ export const CHART_CONFIG = {
   domain: [0, 6],
   // xAxis
   xAxisKey: 'label',
-  xAxisHeight: 125,
+  xAxisHeight: 85,
   xAxisTick: { width: 125, fill: '#f2f2f2' },
   xAxisInterval: 0,
   // y Axis

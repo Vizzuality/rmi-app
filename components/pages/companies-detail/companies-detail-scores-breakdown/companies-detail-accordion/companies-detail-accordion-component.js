@@ -30,11 +30,11 @@ class CompaniesDetailAccordion extends PureComponent {
       data.map(d => (
         <div key={d.slug} className="category-block">
           <style jsx>{styles}</style>
-          <div className="row between-md">
-            <div className="col-md-8">
+          <div className="row center-sm between-md -no-text-align">
+            <div className="col-xs-12 col-md-8">
               <h4 className="block-title">{d.name}</h4>
             </div>
-            <div className="col-md-3">
+            <div className="col-xs-12 col-sm-6 col-md-3">
               <ScoreComparison
                 data={{
                   avg: d.avg,
@@ -56,13 +56,13 @@ class CompaniesDetailAccordion extends PureComponent {
       <div className="c-companies-detail-accordion">
         <style jsx>{styles}</style>
         <div className="row">
-          <div className="col-md-1">
+          <div className="col-xs-12 col-md-1">
             <IssueAreasBar
               selectedissueArea={selectedIssueArea}
               setIssueArea={setIssueArea}
             />
           </div>
-          <div className="col-md-11">
+          <div className="col-xs-12 col-md-11">
             <h2 className="parent-category-title">{issueAreaTree.name}</h2>
             <Accordion
               data={issueAreaTree.data}

@@ -5,8 +5,21 @@
 
   .filters-container {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     margin: 35px 0 25px;
+
+    :global(.c-select) {
+      margin: 15px 0 0;
+    }
+
+    @media #{$mq-sm} {
+      flex-direction: row;
+      justify-content: space-between;
+
+      :global(.c-select) {
+        margin: 0;
+      }
+    }
   }
 
   .paginator-container {

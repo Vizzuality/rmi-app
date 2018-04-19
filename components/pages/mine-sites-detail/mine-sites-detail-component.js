@@ -24,10 +24,10 @@ class MineSitesDetail extends PureComponent {
             <div className="l-layout">
               <div className="mine-sites-detail-preview">
                 <div className="row">
-                  <div className="col-md-5">
+                  <div className="col-xs-12 col-md-5">
                     <MineSitesDetailSidebar />
                   </div>
-                  <div className="col-md-7">
+                  <div className="col-xs-12 col-md-7">
                     <div className="map-container" id="mine-site-satellite-view">
                       <MineSiteSatelliteView
                         containerElement={<div style={{ height: '400px' }} />}

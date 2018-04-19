@@ -28,7 +28,7 @@ class LeadingPracticesCardList extends PureComponent {
       <div className="leading-practices-card-list">
         <div className="row -equal-height">
           {leadingPractices.map(leadingPractice => (
-            <div className="col-md-4" key={leadingPractice.id}>
+            <div className="col-xs-12 col-sm-6 col-md-4" key={leadingPractice.id}>
               <LeadingPracticeCard
                 currentLanguage={currentLanguage}
                 leadingPractice={leadingPractice}

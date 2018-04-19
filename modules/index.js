@@ -1,8 +1,5 @@
 import { handleModule } from 'redux-tools';
 
-// library modules
-import { reducer as toastrReducer } from 'react-redux-toastr';
-
 // common modules
 import appModule from 'modules/app';
 import routesModule from 'modules/routes';
@@ -33,7 +30,6 @@ import * as ResultsOverallPageModule from 'components/pages/results-overall';
 import * as ResultsDetailPageModule from 'components/pages/results-detail';
 
 export default {
-  toastr: toastrReducer,
   app: handleModule(appModule),
   responsive: handleModule(responsiveModule),
   routes: handleModule(routesModule),
