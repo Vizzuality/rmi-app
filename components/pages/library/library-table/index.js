@@ -33,7 +33,10 @@ class LibrayTableContainer extends PureComponent {
     const filtersChanged = !isEqual(filters, nextFilters);
 
     if (searchChanged || paginationChanged || filtersChanged) {
-      this.props.getDocuments({ include: ['company', 'mine-sites'].join(',') });
+      this.props.getDocuments({
+        include: ['company', 'mine-sites'].join(','),
+        sort: 'name'
+      });
     }
   }
 

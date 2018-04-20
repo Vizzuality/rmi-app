@@ -18,7 +18,10 @@ class LibraryPage extends Page {
     const props = await super.getInitialProps(context);
 
     // gets documents
-    await context.store.dispatch(getDocuments({ include: ['company', 'mine-sites'].join(',') }));
+    await context.store.dispatch(getDocuments({
+      include: ['company', 'mine-sites'].join(','),
+      sort: 'name'
+    }));
 
     // gets companies
     await context.store.dispatch(getCompanies({ sort: 'name' }));
