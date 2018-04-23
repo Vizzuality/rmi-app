@@ -44,6 +44,7 @@ export const getMarkers = createSelector(
         .map(ms => ({
           id: ms.id,
           name: ms.name,
+          country: ms.country.name,
           coordinates: [ms['coord-y'], ms['coord-x']]
         }))))
 );
