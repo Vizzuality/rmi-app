@@ -91,7 +91,8 @@ class Head extends PureComponent {
             __html: `
               window.liveSettings={
                 api_key: "${process.env.TRANSIFEX_API_KEY}",
-                detectlang: true
+                detectlang: true,
+                staging: ${process.env.TRANSIFEX_STAGING || false}
               }`
           }}
         />
