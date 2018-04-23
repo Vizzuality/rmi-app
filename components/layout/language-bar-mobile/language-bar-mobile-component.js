@@ -5,19 +5,22 @@ import classnames from 'classnames';
 // styles
 import styles from './language-bar-mobile-styles.scss';
 
-// constants
-import { LANGUAGES } from './language-bar-mobile-constants';
-
 class LanguageBar extends PureComponent {
-  static propTypes = { language: PropTypes.string.isRequired }
+  static propTypes = {
+    languages: PropTypes.array.isRequired,
+    currentLanguage: PropTypes.string.isRequired
+  }
 
   getLanguageClass(languageItem) {
-    const { language } = this.props;
-
     return classnames({
       'languages-item': true,
-      '-selected': languageItem.value === language
+      '-selected': languageItem.code === this.props.currentLanguage
     });
+  }
+
+  handleClickLanguage = (e) => {
+    const code = e.currentTarget.getAttribute('data-code');
+    Transifex.live.translateTo(code);
   }
 
   render() {
@@ -25,12 +28,18 @@ class LanguageBar extends PureComponent {
       <div className="c-language-bar">
         <style jsx>{styles}</style>
         <ul className="languages-list">
-          {LANGUAGES.map(languageItem => (
+          {this.props.languages.map(languageItem => (
             <li
               className={this.getLanguageClass(languageItem)}
-              key={languageItem.id}
+              key={languageItem.code}
             >
-              <a href="#">{languageItem.label}</a>
+              <button
+                type="button"
+                data-code={languageItem.code}
+                onClick={this.handleClickLanguage}
+              >
+                {languageItem.name}
+              </button>
             </li>))}
         </ul>
       </div>

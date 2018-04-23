@@ -2,35 +2,47 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
+// components
+import Spinner from 'components/common/spinner';
+
 // styles
 import styles from './language-bar-styles.scss';
 
-// constants
-import { LANGUAGES } from './language-bar-constants';
-
 class LanguageBar extends PureComponent {
-  static propTypes = { language: PropTypes.string }
+  static propTypes = {
+    languages: PropTypes.array.isRequired,
+    loading: PropTypes.bool.isRequired,
+    currentLanguage: PropTypes.string.isRequired,
+    onClickLanguage: PropTypes.func.isRequired
+  }
 
   getLanguageClass(languageItem) {
-    const { language } = this.props;
-
     return classnames({
       'languages-item': true,
-      '-selected': languageItem.value === language
+      '-selected': languageItem.code === this.props.currentLanguage
     });
   }
 
   render() {
+    const { languages, loading, onClickLanguage } = this.props;
+
     return (
       <div className="c-language-bar">
         <style jsx>{styles}</style>
-        <ul className="languages-list">
-          {LANGUAGES.map(languageItem => (
+        {loading && <Spinner className="-small" />}
+        <ul className="languages-list" id="language-list">
+          {languages.map(languageItem => (
             <li
               className={this.getLanguageClass(languageItem)}
-              key={languageItem.id}
+              key={languageItem.code}
             >
-              <a href="#">{languageItem.label}</a>
+              <button
+                type="button"
+                data-code={languageItem.code}
+                onClick={onClickLanguage}
+              >
+                {languageItem.name}
+              </button>
             </li>))}
         </ul>
       </div>
