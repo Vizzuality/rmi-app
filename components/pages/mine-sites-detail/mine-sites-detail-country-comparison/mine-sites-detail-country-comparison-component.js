@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import { Link } from 'routes';
 
 // styles
 import styles from './mine-sites-detail-country-comparison-styles.scss';
@@ -59,6 +60,9 @@ class MineSitesDetailCountryComparison extends PureComponent {
             ))}
           </tbody>
         </table>
+        <Link route="sources">
+          <a className="sources-link">Sources</a>
+        </Link>
       </div>
     );
   }

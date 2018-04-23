@@ -5,18 +5,18 @@ import PropTypes from 'prop-types';
 import Spinner from 'components/common/spinner';
 import CustomContent from 'components/common/custom-content';
 
-class MineSite extends PureComponent {
+class DownloadsPage extends PureComponent {
   static propTypes = {
-    data: PropTypes.object.isRequired,
+    content: PropTypes.object.isRequired,
     loading: PropTypes.bool.isRequired
   }
 
   render() {
-    const { data, loading } = this.props;
-    const { title, text } = data;
+    const { content, loading } = this.props;
+    const { title, text } = content;
 
     return (
-      <div className="c-methodology-page">
+      <div className="c-static-page">
         {loading ? <Spinner /> :
         <section className="section -gray">
           <div className="l-layout">
@@ -35,4 +35,4 @@ class MineSite extends PureComponent {
   }
 }
 
-export default MineSite;
+export default DownloadsPage;

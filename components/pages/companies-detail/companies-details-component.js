@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 
 // components
 import Map from 'components/common/map';
+import Disclaimer from 'components/common/disclaimer';
 import CompanyDetailHeader from './companies-detail-header';
 import CompaniesDetailSidebar from './companies-detail-sidebar';
 import CompaniesDetailScoresBreakDown from './companies-detail-scores-breakdown';
-import Disclaimer from 'components/common/disclaimer';
 
 // constants
 import { MAP_LEGEND } from './companies-details-constants';

@@ -40,13 +40,14 @@ class IndexPage extends PureComponent {
             <div className="row">
               <div className="col-xs-12">
                 <div className="download-button-container">
-                  <a
-                    href="/resources/RMI_2018_report-WEB.pdf"
-                    className="summary-link"
-                    download
-                  >
-                    Download Summary
-                  </a>
+                  <Link route="downloads">
+                    <a
+                      className="summary-link"
+                      download
+                    >
+                      Download Summary
+                    </a>
+                  </Link>
                 </div>
               </div>
             </div>

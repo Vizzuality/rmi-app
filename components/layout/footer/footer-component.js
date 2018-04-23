@@ -53,7 +53,7 @@ class Footer extends PureComponent {
                       </li>
                       <li className="footer-nav-links-item">
                         <Link
-                          route="results"
+                          route="scoring-framework"
                           params={{ language: currentLanguage }}
                         >
                           <a>Scoring Framework</a>
@@ -61,7 +61,7 @@ class Footer extends PureComponent {
                       </li>
                       <li className="footer-nav-links-item">
                         <Link
-                          route="results"
+                          route="methodology"
                           params={{ language: currentLanguage }}
                         >
                           <a>Application of Methodology</a>
