@@ -22,7 +22,7 @@ class CompaniesDetailHeader extends PureComponent {
         <style jsx>{styles}</style>
         <div className="l-layout">
           <div className="row">
-            <div className="col-md-6">
+            <div className="col-xs-12 col-sm-6">
               <div className="left-side">
                 <Link
                   route="companies"
@@ -37,7 +37,7 @@ class CompaniesDetailHeader extends PureComponent {
                 </Link>
               </div>
             </div>
-            <div className="col-md-6">
+            <div className="col-xs-12 col-sm-6">
               <div className="right-side">
                 <div className="company-listing">
                   {parsedListings.map((list, index) => (
