@@ -125,13 +125,29 @@ class NavBar extends PureComponent {
             <li
               className={this.getTabClass(tab)}
             >
-              <span
-                className="submenu-literal"
-                onMouseEnter={() => this.debouncedHandleHoverTab(tab.id, true)}
-                onMouseLeave={() => this.debouncedHandleHoverTab(tab.id, false)}
-              >
-                {tab.label}
-              </span>
+              {!tab.noLink ?
+                (
+                  <Link
+                    route={tab.query.route}
+                    params={tab.query.params}
+                  >
+                    <a
+                      className="submenu-literal"
+                      onMouseEnter={() => this.debouncedHandleHoverTab(tab.id, true)}
+                      onMouseLeave={() => this.debouncedHandleHoverTab(tab.id, false)}
+                    >
+                      {tab.label}
+                    </a>
+                  </Link>)
+                : (
+                  <span
+                    className="submenu-literal"
+                    onMouseEnter={() => this.debouncedHandleHoverTab(tab.id, true)}
+                    onMouseLeave={() => this.debouncedHandleHoverTab(tab.id, false)}
+                  >
+                    {tab.label}
+                  </span>
+                )}
             </li>
             {this.state[tab.id] && submenuContent}
           </Tether>

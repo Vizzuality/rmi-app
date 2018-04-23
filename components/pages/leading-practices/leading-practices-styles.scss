@@ -1,3 +1,5 @@
+@import 'css/settings';
+
 .c-leading-practices-page {
   .leading-practices-container {
     position: relative;
@@ -6,6 +8,16 @@
       display: flex;
       justify-content: flex-end;
       margin: 0 0 25px;
+
+      :global(.c-select) {
+        min-width: 340px;
+
+        :global(.react-selectize-placeholder),
+        :global(.value-wrapper) {
+          font-size: $font-size-big;
+          color: $color-8;
+        }
+      }
     }
 
     .paginator-container {

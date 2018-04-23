@@ -79,7 +79,7 @@ class MineSitesDetailAssessmentsTable extends PureComponent {
             </div>
           </div> :
           <div className="no-data">
-            No documents available
+            No documents
           </div>}
         {loading && <Spinner />}
       </div>

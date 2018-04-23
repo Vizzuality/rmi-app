@@ -27,7 +27,12 @@ export const TOOLTIP_TABLE_COLUMNS = [
           </Link>
         )
       ],
-      props: { style: { paddingLeft: 15 } }
+      props: {
+        style: {
+          paddingLeft: 15,
+          color: '#bf3132'
+        }
+      }
     }
   },
   {

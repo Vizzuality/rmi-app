@@ -3,12 +3,17 @@ import PropTypes from 'prop-types';
 import { ComposableMap, ZoomableGroup, Geographies, Geography, Markers } from 'react-simple-maps';
 import { PatternLines } from '@vx/pattern';
 import tooltip from 'wsdm-tooltip';
+import debounce from 'lodash/debounce';
 
 // components
+import Icon from 'components/common/icon';
 import Legend from './legend';
 
 // helpers
 import { createMarker } from './map-helpers';
+
+// constants
+import { MAP_DEFAULT_OPTIONS } from './map-constants';
 
 // styles
 import styles from './map-styles.scss';
@@ -27,6 +32,19 @@ class Map extends PureComponent {
     onClickGeography: () => {}
   }
 
+  constructor(props) {
+    super(props);
+
+    const { zoom, center } = MAP_DEFAULT_OPTIONS;
+
+    this.state = {
+      zoom,
+      center
+    };
+
+    this.debouncedHandleMovedEnd = debounce(this.handleMoveEnd, 300);
+  }
+
   componentDidMount() {
     this.tip = tooltip();
     this.tip.create();
@@ -35,6 +53,8 @@ class Map extends PureComponent {
   handleMove = (geography, evt) => {
     const x = evt.clientX;
     const y = evt.clientY + window.pageYOffset;
+
+    if (!geography.properties.isClickable) return;
 
     this.tip.show(`<div>${geography.properties.NAME}</div>`);
     this.tip.position({ pageX: x, pageY: y });
@@ -50,6 +70,17 @@ class Map extends PureComponent {
 
   handleLeave = () => { this.tip.hide(); }
 
+  handleZoomIn = () => { this.setState({ zoom: this.state.zoom + 1 }); }
+
+  handleResetZoom = () => {
+    const { zoom, center } = MAP_DEFAULT_OPTIONS;
+    this.setState({ zoom, center });
+  }
+
+  handleZoomOut = () => { this.setState({ zoom: this.state.zoom - 1 }); }
+
+  handleMoveEnd = (center) => { this.setState({ center }); };
+
   renderMarkers() {
     return this.props.markers.map(marker =>
       createMarker(marker, this.handleMoveMarker, this.handleLeave));
@@ -57,11 +88,26 @@ class Map extends PureComponent {
 
   render() {
     const { paths, legend, setCountryColor, onClickGeography } = this.props;
+    const { minZoom, maxZoom } = MAP_DEFAULT_OPTIONS;
+    const { zoom, center } = this.state;
     const markers = this.renderMarkers();
+    const isZoomInDisabled = zoom === maxZoom;
+    const isZoomOutDisabled = zoom === minZoom;
 
     return (
       <div className="c-map">
         <style jsx>{styles}</style>
+        <div className="zoom-controls">
+          <button onClick={this.handleZoomIn} disabled={isZoomInDisabled}>
+            <Icon name="zoom-in" className="-small" />
+          </button>
+          <button onClick={this.handleZoomOut} disabled={isZoomOutDisabled}>
+            <Icon name="zoom-out" className="-small" />
+          </button>
+          <button onClick={this.handleResetZoom}>
+            <Icon name="reset" className="-small" />
+          </button>
+        </div>
         <ComposableMap
           projection="winkel3"
           defs={
@@ -76,7 +122,11 @@ class Map extends PureComponent {
             />
           }
         >
-          <ZoomableGroup disablePanning zoom={1.13}>
+          <ZoomableGroup
+            center={center}
+            zoom={zoom}
+            onMoveEnd={this.debouncedHandleMovedEnd}
+          >
             <Geographies geography={paths} disableOptimization>
               {(geographies, projection) => geographies.map(geography => (
                 <Geography

@@ -13,7 +13,7 @@ import MineSiteDetailPageComponent from 'components/pages/mine-sites-detail';
 // actions
 import { getCompanies } from 'modules/companies/companies-actions';
 import { getCountries } from 'modules/countries/countries-actions';
-import { getMineSite } from 'modules/mine-sites/mine-sites-actions';
+import { getMineSite, getMineSites } from 'modules/mine-sites/mine-sites-actions';
 import { getIndicators } from 'modules/indicators/indicators-actions';
 import { getDocumentMineSites } from 'modules/document-mine-sites/document-mine-sites-actions';
 
@@ -49,6 +49,11 @@ class MineSitesPage extends Page {
       await context.store.dispatch(getCountries({
         include: ['producing-companies', 'companies', 'secondary-companies'].join(','),
         'fields[countries]': ['name', 'code', 'producing-companies', 'companies', 'secondary-companies'].join(','),
+        'page[size]': 1000
+      }));
+
+      await context.store.dispatch(getMineSites({
+        sort: 'name',
         'page[size]': 1000
       }));
     }

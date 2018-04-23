@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import isEqual from 'lodash/isEqual';
 
 // actions
-import { setPaginationPage, getDocuments } from 'modules/documents/documents-actions';
+import { setPaginationPage, setPaginationLimit, resetPagination, getDocuments } from 'modules/documents/documents-actions';
 
 // selectors
 import { parseDocuments } from './library-table-selectors';
@@ -33,7 +33,10 @@ class LibrayTableContainer extends PureComponent {
     const filtersChanged = !isEqual(filters, nextFilters);
 
     if (searchChanged || paginationChanged || filtersChanged) {
-      this.props.getDocuments({ include: ['company', 'mine-sites'].join(',') });
+      this.props.getDocuments({
+        include: ['company', 'mine-sites'].join(','),
+        sort: 'name'
+      });
     }
   }
 
@@ -54,6 +57,8 @@ export default connect(
   }),
   {
     getDocuments,
-    setPaginationPage
+    setPaginationPage,
+    setPaginationLimit,
+    resetPagination
   }
 )(LibrayTableContainer);

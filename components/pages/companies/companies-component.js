@@ -25,6 +25,10 @@ class Companies extends PureComponent {
 
   static setCountryColor = geographyProperties => getCompanyCountryColor(geographyProperties);
 
+  componentWillUnmount() {
+    this.props.resetSelectedCompany();
+  }
+
   handleClickGeography = (geography) => {
     const { countryId } = geography.properties;
     this.props.setFilters({ country: countryId });
@@ -66,13 +70,13 @@ class Companies extends PureComponent {
           <div className="section -dark">
             <div className="l-layout">
               <div className="row">
-                <div className="col-md-5">
+                <div className="col-md-4">
                   <CompaniesList
                     onMouseEnter={({ id }) => { setSelectedCompany(id); }}
                     onMouseLeave={() => { resetSelectedCompany(); }}
                   />
                 </div>
-                <div className="col-md-7">
+                <div className="col-md-8">
                   <CompaniesFilters />
                   <div className="map-container">
                     <Map

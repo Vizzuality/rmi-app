@@ -5,13 +5,11 @@ export const CHART_CONFIG = {
   domain: [0, 6],
   // xAxis
   xAxisKey: 'label',
-  xAxisTick: true,
   xAxisHeight: 125,
-  xAxisTick: { angle: -45, width: 125, fill: '#f2f2f2' },
+  xAxisTick: { width: 125, fill: '#f2f2f2' },
   xAxisInterval: 0,
-  xAxisTextAnchor: 'end',
   // y Axis
-  YAxisTicks: ['0.0', '1.0', '2.0', '3.0', '4.0', '5.0', '6.0'],
+  YAxisTicks: ['0.00', '1.00', '2.00', '3.00', '4.00', '5.00', '6.00'],
   YAxisTick: { fill: '#f2f2f2' }
 };
 
