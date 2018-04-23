@@ -1,5 +1,11 @@
 import { createAction } from 'redux-tools';
 
-export const setLanguage = createAction('languages/setLanguage');
+export const setLanguages = createAction('languages/setLanguages');
+export const setLanguagesLoading = createAction('languages/setLanguagesLoading');
+export const setCurrentLanguage = createAction('languages/setCurrentLanguage');
 
-export default { setLanguage };
+export default {
+  setLanguages,
+  setLanguagesLoading,
+  setCurrentLanguage
+};
