@@ -1,8 +1,11 @@
 import { connect } from 'react-redux';
 
+// selectors
+import { getCurrentPage } from './static-result-selectors';
+
 // component
 import StaticResult from './static-result-component';
 
 export default connect(
-  state => ({ data: ((state.staticContent.content || [])[0] || {}) })
+  state => ({ data: getCurrentPage(state) })
 )(StaticResult);

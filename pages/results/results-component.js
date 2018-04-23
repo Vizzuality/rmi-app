@@ -25,6 +25,7 @@ class ResultsPage extends Page {
 
   static async getInitialProps(context) {
     const props = await super.getInitialProps(context);
+    const state = context.store.getState();
 
     const isOverallPage = context.query.section === 'overall';
     const isThematicPage = context.query.section === 'thematic';
@@ -69,7 +70,7 @@ class ResultsPage extends Page {
       }));
     }
 
-    if (isStaticPage) {
+    if (isStaticPage && !state.staticContent.content.length) {
       await context.store.dispatch(getResultSection({ 'filter[slug]': context.query.id }));
     }
 
