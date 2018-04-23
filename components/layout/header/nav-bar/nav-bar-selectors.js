@@ -24,7 +24,7 @@ export const getNavigation = createSelector(
         label: resultChildren.title,
         query: {
           route: 'results',
-          params: { id: resultChildren.slug }
+          params: { section: resultChildren.slug }
         }
       }));
 
@@ -73,7 +73,7 @@ export const getNavigation = createSelector(
 
       mainNav[currentTreeIndex].children[subTreeIndex] = subtreeWithChildren;
 
-      firstStaticPages.reverse().forEach(sp => {
+      firstStaticPages.reverse().forEach((sp) => {
         mainNav[currentTreeIndex].children.unshift(sp);
       });
     }

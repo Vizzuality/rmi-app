@@ -5,7 +5,9 @@ import PropTypes from 'prop-types';
 import CustomContent from 'components/common/custom-content';
 
 class StaticResult extends PureComponent {
-  static propTypes = { data: PropTypes.object.isRequired }
+  static propTypes = { data: PropTypes.object }
+
+  static defaultProps = { data: {} };
 
   render() {
     const { data } = this.props;

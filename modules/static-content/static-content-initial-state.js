@@ -1,5 +1,5 @@
 const initialState = {
-  content: {},
+  content: [],
   loading: false,
   errors: null,
   resourceId: null
