@@ -48,14 +48,14 @@ class Footer extends PureComponent {
                       </li>
                       <li className="footer-nav-links-item">
                         <Link
-                          route="results"
+                          route="scoring-framework"
                         >
                           <a>Scoring Framework</a>
                         </Link>
                       </li>
                       <li className="footer-nav-links-item">
                         <Link
-                          route="results"
+                          route="methodology"
                         >
                           <a>Application of Methodology</a>
                         </Link>

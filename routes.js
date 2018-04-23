@@ -11,6 +11,7 @@ routes.add('about', '/about/:section?', 'foundation-pages/about');
 routes.add('media', '/media/:section?', 'foundation-pages/media');
 routes.add('contact', '/foundation/contact', 'foundation-pages/contact');
 routes.add('methodology', '/methodology/:year?', 'foundation-pages/methodology');
+routes.add('scoring-framework', '/scoring-framework/:year?', 'foundation-pages/scoring-framework');
 
 // Index routes
 routes.add('companies', '/companies/:company?', 'companies');
