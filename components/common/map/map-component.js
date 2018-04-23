@@ -54,7 +54,9 @@ class Map extends PureComponent {
     const x = evt.clientX;
     const y = evt.clientY + window.pageYOffset;
 
-    if (!geography.properties.isClickable) return;
+    const { isClickable, isProducing } = geography.properties;
+
+    if (!isClickable && !isProducing) return;
 
     this.tip.show(`<div>${geography.properties.NAME}</div>`);
     this.tip.position({ pageX: x, pageY: y });
@@ -64,7 +66,12 @@ class Map extends PureComponent {
     const x = evt.clientX;
     const y = evt.clientY + window.pageYOffset;
 
-    this.tip.show(`<div>${marker.name}</div>`);
+    const markerStyles = 'text-align:center;font-size:18px;';
+
+    this.tip.show(`<div style=${markerStyles}>
+      ${marker.name}
+      <p className="country-name">[${marker.country}]</p>
+    </div>`);
     this.tip.position({ pageX: x, pageY: y });
   }
 
