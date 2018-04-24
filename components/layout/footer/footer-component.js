@@ -28,7 +28,7 @@ class Footer extends PureComponent {
                     route={root}
                   >
                     <a href="">
-                      <img src={`/static/logos/${logo}.png`} alt="Responsible Mining Index" />
+                      <img src={`/static/logos/${logo}.svg`} alt="Responsible Mining Index" />
                     </a>
                   </Link>
                 </div>
