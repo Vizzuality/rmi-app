@@ -75,6 +75,7 @@ export const getMarkers = createSelector(
     (_company['selected-mine-sites'] || []).map(mineSite => ({
       id: mineSite.id,
       name: mineSite.name,
+      country: mineSite.country.name,
       coordinates: [mineSite['coord-y'], mineSite['coord-x']]
     }))
 );

@@ -28,7 +28,7 @@ class Footer extends PureComponent {
                     route={root}
                   >
                     <a href="">
-                      <img src={`/static/logos/${logo}.png`} alt="Responsible Mining Index" />
+                      <img src={`/static/logos/${logo}.svg`} alt="Responsible Mining Index" />
                     </a>
                   </Link>
                 </div>
@@ -112,7 +112,7 @@ class Footer extends PureComponent {
                       rel="noreferrer noopener"
                       target="_blank"
                     >
-                      <img src="/static/logos/Vizz_Index_WHITE.png" alt="Vizzuality" />
+                      <img src="/static/logos/Vizz_Index_WHITE.svg" alt="Vizzuality" />
                     </a>
                   </span>
                 </div>
