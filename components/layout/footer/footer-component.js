@@ -67,16 +67,28 @@ class Footer extends PureComponent {
                           <a>Application of Methodology</a>
                         </Link>
                       </li>
-
                       <li className="footer-nav-links-item">
                         <Link
-                          route="foundation"
+                          route="downloads"
                           params={{ language: currentLanguage }}
                         >
-                          <a>Responsible Mining FOUNDATION</a>
+                          <a>Corrigenda</a>
+                        </Link>
+                      </li>
+                      <li className="footer-nav-links-item">
+                        <Link
+                          route="sources"
+                          params={{ language: currentLanguage }}
+                        >
+                          <a>Sources</a>
                         </Link>
                       </li>
                     </ul>
+                    <Link
+                      route="foundation"
+                    >
+                      <a className="foundation-link">Responsible Mining FOUNDATION</a>
+                    </Link>
                   </div>}
                 {!isFoundation &&
                   <div className="footer-section">

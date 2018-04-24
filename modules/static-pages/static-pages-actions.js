@@ -13,7 +13,7 @@ export const getStaticPage = createThunkAction('static-pages/getStaticPage', (_o
     return new Promise((resolve, reject) => {
       dispatch(setPageContentLoading({ key, loading: true }));
 
-      StaticPagesService.getResultsTree(queryParams)
+      StaticPagesService.getStaticPage(queryParams)
         .then((data) => {
           const parsedData = new Jsona().deserialize(data);
           dispatch(setPageContentLoading({ key, loading: false }));

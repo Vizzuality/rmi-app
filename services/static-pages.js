@@ -5,7 +5,7 @@ class StaticPagesService {
    * Retrieve static page content
    * @param {*} options contains endpoint and queryparams
    */
-  static getTopics(options = {}) {
+  static getStaticPage(options = {}) {
     const { endpoint, qParams } = options;
     const queryParams = queryString.stringify(qParams);
 
