@@ -112,7 +112,7 @@ class Footer extends PureComponent {
                       rel="noreferrer noopener"
                       target="_blank"
                     >
-                      <img src="/static/logos/Vizz_Index_WHITE.png" alt="Vizzuality" />
+                      <img src="/static/logos/Vizz_Index_WHITE.svg" alt="Vizzuality" />
                     </a>
                   </span>
                 </div>
