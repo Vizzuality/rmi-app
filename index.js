@@ -44,13 +44,15 @@ app.prepare()
     }
 
     // Configuring next routes with express
-    const handleUrl = (req, res) => {
-      const parsedUrl = parse(req.url, true);
-      return handle(req, res, parsedUrl);
-    };
+    // const handleUrl = (req, res) => {
+    //   const parsedUrl = parse(req.url, true);
+    //   return handle(req, res, parsedUrl);
+    // };
 
     // Home doesn`t require authentication
-    server.get('/', handleUrl);
+    server.get('/', (req, res) => {
+      res.redirect('/en');
+    });
     server.use(handle);
 
     server.listen(port, (err) => {

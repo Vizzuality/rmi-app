@@ -16,6 +16,7 @@ class CompaniesListItem extends PureComponent {
   static propTypes = {
     company: PropTypes.object.isRequired,
     isCompanyPage: PropTypes.bool.isRequired,
+    currentLanguage: PropTypes.string.isRequired,
     onMouseEnter: PropTypes.func,
     onMouseLeave: PropTypes.func,
     onOpenTooltip: PropTypes.func,
@@ -61,7 +62,7 @@ class CompaniesListItem extends PureComponent {
   }
 
   render() {
-    const { isCompanyPage, company, onMouseEnter, onMouseLeave } = this.props;
+    const { isCompanyPage, currentLanguage, company, onMouseEnter, onMouseLeave } = this.props;
     const { name, id, 'selected-mine-sites': mineSites } = company;
     const { visibility } = this.state;
 
@@ -77,7 +78,10 @@ class CompaniesListItem extends PureComponent {
           >
             <Link
               route="companies"
-              params={{ company: id }}
+              params={{
+                language: currentLanguage,
+                company: id
+              }}
             >
               <a className="company-name">{name}</a>
             </Link>
@@ -109,6 +113,7 @@ class CompaniesListItem extends PureComponent {
             <CompaniesListTooltip
               mineSites={mineSites}
               company={this.props.company}
+              currentLanguage={currentLanguage}
             />}
         </Tether>
         {visibility &&

@@ -7,6 +7,9 @@ import { getTopCompanies } from './top-companies-selectors';
 import TopCompanies from './top-companies-component';
 
 export default connect(
-  state => ({ data: getTopCompanies(state) }),
-  {}
+  state => ({
+    data: getTopCompanies(state),
+    currentLanguage: state.language.current
+  }),
+  null
 )(TopCompanies);

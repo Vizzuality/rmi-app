@@ -16,6 +16,7 @@ class Sidebar extends Component {
   static propTypes = {
     open: PropTypes.bool.isRequired,
     routes: PropTypes.object.isRequired,
+    currentLanguage: PropTypes.string.isRequired,
     toggleSidebar: PropTypes.func.isRequired
   }
 
@@ -33,7 +34,7 @@ class Sidebar extends Component {
   }
 
   render() {
-    const { open, routes } = this.props;
+    const { open, routes, currentLanguage } = this.props;
     const { root } = routes;
 
     const sidebarClasses = classnames({
@@ -54,6 +55,7 @@ class Sidebar extends Component {
             <div className="sidebar-menu">
               <Link
                 route={root}
+                params={{ language: currentLanguage }}
               >
                 <a className="app-logo"><img src={`/static/logos/${logo}.svg`} alt="RMI logo" /></a>
               </Link>

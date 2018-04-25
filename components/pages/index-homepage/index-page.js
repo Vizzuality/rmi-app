@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'routes';
 // components
 import Button from 'components/common/button';
@@ -7,10 +8,13 @@ import Button from 'components/common/button';
 import styles from './index-page-styles.scss';
 
 class IndexPage extends PureComponent {
+  static propTypes = { currentLanguage: PropTypes.string.isRequired }
+
   // TO-DO
   handleDownloadSummary = () => {}
 
   render() {
+    const { currentLanguage } = this.props;
     return (
       <div className="c-index-page">
         <style jsx>{styles}</style>
@@ -147,7 +151,10 @@ class IndexPage extends PureComponent {
                   <Button className="-red -round">
                     <Link
                       route="results"
-                      params={{ section: 'overall' }}
+                      params={{
+                        language: currentLanguage,
+                        section: 'overall'
+                      }}
                     >
                       <a>Go to Results</a>
                     </Link>

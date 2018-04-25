@@ -9,10 +9,14 @@ import Icon from 'components/common/icon';
 import styles from './mine-sites-detail-header-styles.scss';
 
 class MineSitesDetailHeader extends PureComponent {
-  static propTypes = { mineSite: PropTypes.object.isRequired }
+  static propTypes = {
+    mineSite: PropTypes.object.isRequired,
+    currentLanguage: PropTypes.string.isRequired
+  }
 
   render() {
-    const { name, country } = this.props.mineSite;
+    const { currentLanguage, mineSite } = this.props;
+    const { name, country } = mineSite;
     const { name: countryName } = country;
 
     return (
@@ -24,6 +28,7 @@ class MineSitesDetailHeader extends PureComponent {
               <div className="left-side">
                 <Link
                   route="mine-sites"
+                  params={{ language: currentLanguage }}
                 >
                   <a className="go-back-link">
                     <Icon

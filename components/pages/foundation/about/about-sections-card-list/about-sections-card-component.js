@@ -12,20 +12,25 @@ class AboutSectionCard extends PureComponent {
       title: PropTypes.string.isRequired,
       slug: PropTypes.string.isRequired,
       summary: PropTypes.string
-    })
+    }),
+    currentLanguage: PropTypes.string.isRequired
   }
 
   render() {
-    const { title, slug, summary } = this.props.aboutSection;
+    const { currentLanguage, aboutSection } = this.props;
+    const { title, slug, summary } = aboutSection;
 
     return (
       <div className="c-about-section-card">
         <style jsx>{styles}</style>
         <Link
           route="about"
-          params={{ section: slug }}
+          params={{
+            language: currentLanguage,
+            section: slug
+          }}
         >
-          <a href="" className="link-container" />
+          <a className="link-container" />
         </Link>
 
         <h3 className="title">{title}</h3>

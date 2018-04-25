@@ -9,7 +9,8 @@ import HeaderMobile from './header-mobile-component';
 export default connect(
   state => ({
     root: state.routes.root,
-    sidebarVisibility: state.app.sidebar.open
+    sidebarVisibility: state.app.sidebar.open,
+    currentLanguage: state.language.current
   }),
   { toggleSidebar }
 )(HeaderMobile);

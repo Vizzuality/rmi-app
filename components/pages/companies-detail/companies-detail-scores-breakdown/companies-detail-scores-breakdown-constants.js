@@ -10,7 +10,10 @@ export const MINE_SITE_TABLE_COLUMNS = [
         (name, { rowData }) => (
           <Link
             route="mine-sites"
-            params={{ mineSite: rowData.id }}
+            params={{
+              language: rowData.language,
+              mineSite: rowData.id
+            }}
           >
             <a>{name}</a>
           </Link>

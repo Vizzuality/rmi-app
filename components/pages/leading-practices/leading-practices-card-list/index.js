@@ -13,7 +13,8 @@ import LeadingPracticesCardList from './leading-practices-card-list-component';
 export default connect(
   state => ({
     leadingPractices: parseLeadingPractices(state),
-    loading: state.leadingPracticesPage.leadingPractices.loading
+    loading: state.leadingPracticesPage.leadingPractices.loading,
+    currentLanguage: state.language.current
   }),
   {
     toggleModal,

@@ -17,7 +17,8 @@ class NavBar extends PureComponent {
         params: PropTypes.object
       })
     })).isRequired,
-    routes: PropTypes.object.isRequired
+    routes: PropTypes.object.isRequired,
+    currentLanguage: PropTypes.string.isRequired
   };
 
   constructor(props) {
@@ -163,7 +164,7 @@ class NavBar extends PureComponent {
   }
 
   render() {
-    const { routes } = this.props;
+    const { routes, currentLanguage } = this.props;
     const { root } = routes;
 
     const logo = root === 'index' ?
@@ -181,6 +182,7 @@ class NavBar extends PureComponent {
         <div className="logo">
           <Link
             route={root}
+            params={{ language: currentLanguage }}
           >
             <a><img className="logo-img" src={`/static/logos/${logo}.svg`} alt="RMI logo" /></a>
           </Link>

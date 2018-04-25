@@ -12,16 +12,23 @@ import { TOPS_PER_ROW } from './top-companies-constants';
 import styles from './top-companies-styles.scss';
 
 class TopCompanies extends PureComponent {
-  static propTypes = { data: PropTypes.array.isRequired }
+  static propTypes = {
+    data: PropTypes.array.isRequired,
+    currentLanguage: PropTypes.string.isRequired
+  }
 
-  static renderGraphRow(tops, key) {
+  renderGraphRow(tops, key) {
+    const { currentLanguage } = this.props;
     return (
       <Fragment key={key} >
         <style jsx>{styles}</style>
         <div className="row">
           {tops.map(top => (
             <div key={top.id} className="col-xs-12 col-md-4">
-              <TopCompany data={top} />
+              <TopCompany
+                currentLanguage={currentLanguage}
+                data={top}
+              />
             </div>
           ))}
         </div>
@@ -38,7 +45,7 @@ class TopCompanies extends PureComponent {
     for (let i = 0; i < totalRows; i++) {
       const limit = ((i * TOPS_PER_ROW) + TOPS_PER_ROW);
       const slicedGraphs = data.slice(i * TOPS_PER_ROW, limit);
-      graphs.push(TopCompanies.renderGraphRow(slicedGraphs, i));
+      graphs.push(this.renderGraphRow(slicedGraphs, i));
     }
 
     return graphs;

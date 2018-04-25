@@ -19,6 +19,7 @@ class LeadingPracticesCard extends PureComponent {
       })),
       description: PropTypes.string
     }),
+    currentLanguage: PropTypes.string.isRequired,
     onClick: PropTypes.func.isRequired
   }
 
@@ -34,7 +35,7 @@ class LeadingPracticesCard extends PureComponent {
   }
 
   render() {
-    const { leadingPractice } = this.props;
+    const { leadingPractice, currentLanguage } = this.props;
     const { title, companies, description } = leadingPractice;
 
     return (
@@ -47,7 +48,10 @@ class LeadingPracticesCard extends PureComponent {
           <h4 key={company.id} className="company">
             <Link
               route="companies"
-              params={{ company: company.id }}
+              params={{
+                language: currentLanguage,
+                company: company.id
+              }}
             >
               <a>{company.name}</a>
             </Link>

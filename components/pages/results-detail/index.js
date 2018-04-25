@@ -16,7 +16,8 @@ export { actions, reducers, initialState };
 export default connect(
   state => ({
     issueAreas: parseIssueAreas(state),
-    selectedArea: getIssueArea(state)
+    selectedArea: getIssueArea(state),
+    currentLanguage: state.language.current
   }),
   {}
 )(ResultsDetail);

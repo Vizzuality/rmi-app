@@ -3,9 +3,13 @@ import PropTypes from 'prop-types';
 import { Link } from 'routes';
 
 class MineSitesDetailSidebar extends PureComponent {
-  static propTypes = { mineSite: PropTypes.object.isRequired }
+  static propTypes = {
+    mineSite: PropTypes.object.isRequired,
+    currentLanguage: PropTypes.string.isRequired
+  }
 
   render() {
+    const { currentLanguage, mineSite } = this.props;
     const {
       aliases,
       miningType,
@@ -14,7 +18,7 @@ class MineSitesDetailSidebar extends PureComponent {
       acquisitionYear,
       company,
       companyShare
-    } = this.props.mineSite;
+    } = mineSite;
 
     return (
       <div className="c-detail-sidebar">
@@ -62,7 +66,10 @@ class MineSitesDetailSidebar extends PureComponent {
                 <div className="definition-value">
                   <Link
                     route="companies"
-                    params={{ company: company.id }}
+                    params={{
+                      language: currentLanguage,
+                      company: company.id
+                    }}
                   >
                     {company.name || '-'}
                   </Link>

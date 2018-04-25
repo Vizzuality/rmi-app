@@ -19,6 +19,7 @@ class FoundationHomepagePage extends PureComponent {
     news: PropTypes.array.isRequired,
     setResourceId: PropTypes.func.isRequired,
     modalOpen: PropTypes.bool.isRequired,
+    currentLanguage: PropTypes.string.isRequired,
     toggleModal: PropTypes.func.isRequired
   }
 
@@ -28,7 +29,7 @@ class FoundationHomepagePage extends PureComponent {
   }
 
   render() {
-    const { content, news, modalOpen } = this.props;
+    const { content, news, modalOpen, currentLanguage } = this.props;
     const {
       'home-title': homeTitle,
       'home-subtitle': homeSubtitle,
@@ -105,6 +106,7 @@ class FoundationHomepagePage extends PureComponent {
                           >
                             <Link
                               route="index"
+                              params={{ language: currentLanguage }}
                             >
                               <a>Go to Index 2018</a>
                             </Link>
