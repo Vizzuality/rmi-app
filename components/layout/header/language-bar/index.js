@@ -1,8 +1,12 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+
 // actions
 import { setLanguages, setCurrentLanguage } from 'modules/language/languages-actions';
+
+// selectors
+import { parseLanguages } from './language-bar-selectors';
 
 // component
 import LanguageBar from './language-bar-component';
@@ -30,7 +34,7 @@ class LanguageBarContainer extends PureComponent {
 
 export default connect(
   state => ({
-    languages: state.language.list,
+    languages: parseLanguages(state),
     currentLanguage: state.language.current,
     loading: state.language.loading
   }),
