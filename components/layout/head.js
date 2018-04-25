@@ -23,7 +23,7 @@ class Head extends PureComponent {
         this.props.setLanguages(languages);
         this.props.setLanguagesLoading(false);
       });
-      Transifex.live.onTranslatePage(languageCode => this.props.setCurrentLanguage(languageCode));
+      // Transifex.live.onTranslatePage(languageCode => this.props.setCurrentLanguage(languageCode));
       window.Transifex.live.getAllLanguages();
     };
     script.src = '//cdn.transifex.com/live.js';

@@ -8,10 +8,11 @@ import { INDEX_NAVIGATION, FOUNDATION_NAVIGATION } from './nav-bar-constants';
 const routeRoot = state => state.routes.root;
 const navChildren = state => state.navigation;
 const indicators = state => state.indicators.list;
+const currentLanguage = state => state.language.current;
 
 export const getNavigation = createSelector(
-  [routeRoot, navChildren, indicators],
-  (_routeRoot, _navChildren, _indicators) => {
+  [routeRoot, navChildren, indicators, currentLanguage],
+  (_routeRoot, _navChildren, _indicators, _currentLanguage) => {
     const isFoundation = _routeRoot === 'foundation';
     const { resultsChildren, aboutChildren } = _navChildren;
     const mainNav = isFoundation ? [...FOUNDATION_NAVIGATION] : [...INDEX_NAVIGATION];
@@ -56,6 +57,7 @@ export const getNavigation = createSelector(
         query: {
           route: 'results',
           params: {
+            language: _currentLanguage,
             section: 'thematic',
             id: indicatorChild.id
           }
@@ -85,7 +87,10 @@ export const getNavigation = createSelector(
         label: aboutChild.title,
         query: {
           route: 'about',
-          params: { section: aboutChild.slug }
+          params: {
+            language: _currentLanguage,
+            section: aboutChild.slug
+          }
         }
       }));
 
@@ -96,6 +101,33 @@ export const getNavigation = createSelector(
 
       mainNav[currentTreeIndex] = treeWithChildren;
     }
+
+    // sets language
+    mainNav.forEach((item, index) => {
+      mainNav[index] = {
+        ...mainNav[index],
+        query: {
+          ...mainNav[index].query,
+          params: {
+            ...mainNav[index].query.params,
+            language: _currentLanguage
+          }
+        }
+      };
+
+      (mainNav[index].children || []).forEach((child, childIndex) => {
+        mainNav[index].children[childIndex] = {
+          ...mainNav[index].children[childIndex],
+          query: {
+            ...mainNav[index].children[childIndex].query,
+            params: {
+              ...mainNav[index].children[childIndex].query.params,
+              language: _currentLanguage
+            }
+          }
+        };
+      });
+    });
 
     return mainNav;
   }

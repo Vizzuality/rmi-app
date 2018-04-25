@@ -6,7 +6,10 @@ import MineSitesDetail from './mine-sites-detail-sidebar-component';
 import { parseMineSite } from './mine-sites-detail-selectors';
 
 export default connect(
-  state => ({ mineSite: parseMineSite(state) }),
+  state => ({
+    mineSite: parseMineSite(state),
+    currentLanguage: state.language.current
+  }),
   {}
 )(MineSitesDetail);
 

@@ -6,6 +6,7 @@ import { valueParser, fixedValue } from 'utils/value-parser'
 
 const scores = state => (state.companies.list[0] || {}).scores;
 const selectedMineSites = state => (state.companies.list[0] || {})['selected-mine-sites'];
+const currentLanguage = state => state.language.current;
 const shareholders = state => (state.companies.list[0] || {}).shareholders;
 const investmentDisputes = state => (state.companies.list[0] || {})['investment-disputes'];
 const knownTaxJurisdictions = state =>
@@ -22,8 +23,8 @@ export const parseInvestmentDisputes = createSelector(
 )
 
 export const parseMineSitesScores = createSelector(
-  [selectedMineSites],
-  (_selectedMineSites = []) =>
+  [selectedMineSites, currentLanguage],
+  (_selectedMineSites = [], _currentLanguage) =>
     orderBy(_selectedMineSites.map(mineSite => ({
       id: mineSite.id,
       name: mineSite.name,
@@ -33,7 +34,8 @@ export const parseMineSitesScores = createSelector(
       workersGrievance: ((mineSite.scores || []).find(score => score.slug.includes('ms-04-1')) || {}).value,
       waterQuality: ((mineSite.scores || []).find(score => score.slug.includes('ms-05-1')) || {}).value,
       biodiversity: ((mineSite.scores || []).find(score => score.slug.includes('ms-06-1')) || {}).value,
-      overall: fixedValue(valueParser(((mineSite.scores || []).find(score => score.kind === 'overal_mine_site') || {}).value))
+      overall: fixedValue(valueParser(((mineSite.scores || []).find(score => score.kind === 'overal_mine_site') || {}).value)),
+      language: _currentLanguage
     })), 'name', ['asc'])
 );
 

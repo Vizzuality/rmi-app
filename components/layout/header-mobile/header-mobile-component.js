@@ -14,6 +14,7 @@ class HeaderMobile extends PureComponent {
   static propTypes = {
     root: PropTypes.string.isRequired,
     sidebarVisibility: PropTypes.bool.isRequired,
+    currentLanguage: PropTypes.string.isRequired,
     toggleSidebar: PropTypes.func.isRequired
   }
 
@@ -24,7 +25,7 @@ class HeaderMobile extends PureComponent {
   }
 
   render() {
-    const { root } = this.props;
+    const { root, currentLanguage } = this.props;
 
     const headerClass = classnames({
       'c-header-mobile': true,
@@ -42,6 +43,7 @@ class HeaderMobile extends PureComponent {
           <div className="header-mobile-container">
             <Link
               route={root}
+              params={{ language: currentLanguage }}
             >
               <a className="app-logo"><img src={`/static/logos/${logo}.svg`} alt="RMI logo" /></a>
             </Link>

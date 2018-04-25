@@ -21,7 +21,6 @@ class FoundationPage extends Page {
     return { ...props };
   }
 
-
   render() {
     return (
       <Layout

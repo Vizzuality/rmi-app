@@ -9,6 +9,7 @@ class LeadingPracticesCardList extends PureComponent {
   static propTypes = {
     leadingPractices: PropTypes.array.isRequired,
     loading: PropTypes.bool.isRequired,
+    currentLanguage: PropTypes.string.isRequired,
     toggleModal: PropTypes.func.isRequired,
     setSelectedLeadingPractice: PropTypes.func.isRequired
   };
@@ -21,7 +22,7 @@ class LeadingPracticesCardList extends PureComponent {
   handleClick = leadingPractice => this.openModal(leadingPractice)
 
   render() {
-    const { leadingPractices, loading } = this.props;
+    const { leadingPractices, loading, currentLanguage } = this.props;
 
     return (
       <div className="leading-practices-card-list">
@@ -29,6 +30,7 @@ class LeadingPracticesCardList extends PureComponent {
           {leadingPractices.map(leadingPractice => (
             <div className="col-md-4" key={leadingPractice.id}>
               <LeadingPracticeCard
+                currentLanguage={currentLanguage}
                 leadingPractice={leadingPractice}
                 onClick={this.handleClick}
               />

@@ -1,8 +1,5 @@
 import { connect } from 'react-redux';
 
-// actions
-import { setCurrentLanguage } from 'modules/language/languages-actions';
-
 // selectors
 import { parseLanguages } from './language-bar-mobile-selectors';
 
@@ -14,5 +11,5 @@ export default connect(
     languages: parseLanguages(state),
     currentLanguage: state.language.current
   }),
-  { setCurrentLanguage }
+  null
 )(LanguageBarMobile);

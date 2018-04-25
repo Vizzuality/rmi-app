@@ -6,10 +6,13 @@ import { Link } from 'routes';
 import styles from './footer-styles.scss';
 
 class Footer extends PureComponent {
-  static propTypes = { root: PropTypes.string.isRequired }
+  static propTypes = {
+    root: PropTypes.string.isRequired,
+    currentLanguage: PropTypes.string.isRequired
+  }
 
   render() {
-    const { root } = this.props;
+    const { root, currentLanguage } = this.props;
 
     const isFoundation = root !== 'index';
 
@@ -26,6 +29,7 @@ class Footer extends PureComponent {
                 <div className="footer-section">
                   <Link
                     route={root}
+                    params={{ language: currentLanguage }}
                   >
                     <a href="">
                       <img src={`/static/logos/${logo}.svg`} alt="Responsible Mining Index" />
@@ -42,6 +46,7 @@ class Footer extends PureComponent {
                       <li className="footer-nav-links-item">
                         <Link
                           route="library"
+                          params={{ language: currentLanguage }}
                         >
                           <a>Document Library</a>
                         </Link>
@@ -49,6 +54,7 @@ class Footer extends PureComponent {
                       <li className="footer-nav-links-item">
                         <Link
                           route="results"
+                          params={{ language: currentLanguage }}
                         >
                           <a>Scoring Framework</a>
                         </Link>
@@ -56,6 +62,7 @@ class Footer extends PureComponent {
                       <li className="footer-nav-links-item">
                         <Link
                           route="results"
+                          params={{ language: currentLanguage }}
                         >
                           <a>Application of Methodology</a>
                         </Link>
@@ -64,6 +71,7 @@ class Footer extends PureComponent {
                       <li className="footer-nav-links-item">
                         <Link
                           route="foundation"
+                          params={{ language: currentLanguage }}
                         >
                           <a>Responsible Mining FOUNDATION</a>
                         </Link>

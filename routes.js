@@ -5,22 +5,22 @@ const routes = nextRoutes();
 
 // ========================= APP ROUTES =====================
 // Foundation routes
-routes.add('foundation', '/foundation', 'foundation');
-routes.add('context', '/foundation/context', 'foundation-pages/mining-society');
-routes.add('about', '/about/:section?', 'foundation-pages/about');
-routes.add('media', '/media/:section?', 'foundation-pages/media');
-routes.add('contact', '/foundation/contact', 'foundation-pages/contact');
-routes.add('methodology', '/methodology/:year?', 'foundation-pages/methodology');
+routes.add('foundation', '/:language/foundation', 'foundation');
+routes.add('context', '/:language/foundation/context', 'foundation-pages/mining-society');
+routes.add('about', '/:language/about/:section?', 'foundation-pages/about');
+routes.add('media', '/:language/media/:section?', 'foundation-pages/media');
+routes.add('contact', '/:language/foundation/contact', 'foundation-pages/contact');
+routes.add('methodology', '/:language/methodology/:year?', 'foundation-pages/methodology');
 
-// Index routes
-routes.add('companies', '/companies/:company?', 'companies');
-routes.add('mine-sites', '/mine-sites/:mineSite?', 'mine-sites');
-routes.add('results', '/results/:section?/:id?', 'results');
-// routes.add('results-overall', '/:language?/results/overall', 'results-overall');
-// routes.add('results-detail', '/:language?/results/thematic/:id', 'results-detail');
+// // Index routes
+routes.add('companies', '/:language/companies/:company?', 'companies');
+routes.add('mine-sites', '/:language/mine-sites/:mineSite?', 'mine-sites');
+routes.add('results', '/:language/results/:section?/:id?', 'results');
+// // routes.add('results-overall', '/:language?/results/overall', 'results-overall');
+// // routes.add('results-detail', '/:language?/results/thematic/:id', 'results-detail');
 // routes.add('static-results', '/:language?/results/:id?', 'static-results');
-routes.add('leading-practices', '/:year?/leading-practices', 'leading-practices');
-routes.add('library', '/:language?/library', 'library');
-routes.add('index', '/:language?', 'index');
+routes.add('leading-practices', '/:language/leading-practices', 'leading-practices');
+routes.add('library', '/:language/library', 'library');
+routes.add('index', '/:language', 'index');
 
 module.exports = routes;

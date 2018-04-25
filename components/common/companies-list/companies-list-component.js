@@ -16,6 +16,7 @@ class CompaniesList extends PureComponent {
     companies: PropTypes.array.isRequired,
     loading: PropTypes.bool.isRequired,
     isCompanyPage: PropTypes.bool,
+    currentLanguage: PropTypes.string.isRequired,
     onMouseEnter: PropTypes.func,
     onMouseLeave: PropTypes.func,
     onOpenTooltip: PropTypes.func,
@@ -33,6 +34,7 @@ class CompaniesList extends PureComponent {
   renderCompaniesRow(companies, key) {
     const {
       isCompanyPage,
+      currentLanguage,
       onMouseEnter,
       onMouseLeave,
       onOpenTooltip,
@@ -51,6 +53,7 @@ class CompaniesList extends PureComponent {
                 onMouseEnter={onMouseEnter}
                 onMouseLeave={onMouseLeave}
                 isCompanyPage={isCompanyPage}
+                currentLanguage={currentLanguage}
                 onOpenTooltip={onOpenTooltip}
                 onCloseTooltip={onCloseTooltip}
               />
