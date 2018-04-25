@@ -11,10 +11,13 @@ import { AREA_ISSUE_COLOURS } from 'constants/graph-colors';
 import styles from './top-companies-styles.scss';
 
 class OverallGraphs extends PureComponent {
-  static propTypes = { data: PropTypes.object.isRequired }
+  static propTypes = {
+    data: PropTypes.object.isRequired,
+    currentLanguage: PropTypes.string.isRequired
+  }
 
   render() {
-    const { data } = this.props;
+    const { data, currentLanguage } = this.props;
     const { label, companies, id } = data;
 
     return (
@@ -42,7 +45,10 @@ class OverallGraphs extends PureComponent {
               <div className="company-container" style={{ backgroundColor: company.color }}>
                 <Link
                   route="companies"
-                  params={{ company: company.id }}
+                  params={{
+                    language: currentLanguage,
+                    company: company.id
+                  }}
                 >
                   <a className="company-name">{company.name}</a>
                 </Link>

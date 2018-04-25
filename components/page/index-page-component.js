@@ -6,6 +6,7 @@ import isEqual from 'lodash/isEqual';
 import { setRoute } from 'modules/routes/routes-actions';
 import { mobileParser } from 'react-responsive-redux';
 import { setMobileDetect } from 'modules/responsive/responsive-actions';
+import { setCurrentLanguage } from 'modules/language/languages-actions';
 import { getResultsTree, getAboutTree } from 'modules/navigation/navigation-actions';
 import { getIndicators } from 'modules/indicators/indicators-actions';
 
@@ -18,6 +19,7 @@ class Page extends PureComponent {
   static async getInitialProps({ pathname, query, store, req, isServer }) {
     const isFoundation = pathname.includes('foundation');
     const { routes } = store.getState();
+    const { language } = query;
     // sets routing
     store.dispatch(setRoute({
       root: isFoundation ? 'foundation' : 'index',
@@ -31,6 +33,9 @@ class Page extends PureComponent {
       const mobileDetect = mobileParser(req);
       store.dispatch(setMobileDetect(mobileDetect));
     }
+
+    // stores language
+    if (language) store.dispatch(setCurrentLanguage(language));
 
     // retrieve resuls tree to populate navigation
     if (!isFoundation) {

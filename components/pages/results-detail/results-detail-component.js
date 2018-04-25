@@ -17,6 +17,7 @@ import styles from './results-detail-styles.scss';
 class ResultsDetail extends PureComponent {
   static propTypes = {
     selectedArea: PropTypes.object.isRequired,
+    currentLanguage: PropTypes.string.isRequired,
     issueAreas: PropTypes.array.isRequired
   }
 
@@ -25,7 +26,11 @@ class ResultsDetail extends PureComponent {
     Router.pushRoute(route, params);
   }
 
-  handleArea = areaId => Router.pushRoute('results', { section: 'thematic', id: areaId })
+  handleArea = areaId => Router.pushRoute('results', {
+    language: this.props.currentLanguage,
+    section: 'thematic',
+    id: areaId
+  })
 
   render() {
     const { issueAreas, selectedArea } = this.props;

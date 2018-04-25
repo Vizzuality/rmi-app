@@ -5,10 +5,11 @@ import { createSelector } from 'reselect';
 import BREADCRUMBS_LABELS from './breadcrumbs-constants';
 
 const routes = state => state.routes;
+const currentLanguage = state => state.language.current;
 
 export const getBreadcrumbs = createSelector(
-  routes,
-  (_routes) => {
+  [routes, currentLanguage],
+  (_routes, _currentLanguage) => {
     const breadcrumbs = [];
     const { root, tab, query } = _routes;
     const { section } = query;
@@ -16,14 +17,16 @@ export const getBreadcrumbs = createSelector(
     breadcrumbs.push({
       id: 1,
       label: 'Home',
-      route: root
+      route: root,
+      params: { language: _currentLanguage }
     });
 
     if (tab) {
       breadcrumbs.push({
         id: 2,
         label: BREADCRUMBS_LABELS[tab],
-        route: tab
+        route: tab,
+        params: { language: _currentLanguage }
       });
     }
 
@@ -32,7 +35,10 @@ export const getBreadcrumbs = createSelector(
         id: 3,
         label: BREADCRUMBS_LABELS[section],
         route: tab,
-        params: { section }
+        params: {
+          language: _currentLanguage,
+          section
+        }
       });
     }
 

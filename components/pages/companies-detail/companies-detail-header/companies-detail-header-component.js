@@ -9,10 +9,13 @@ import Icon from 'components/common/icon';
 import styles from './companies-detail-header-styles.scss';
 
 class CompaniesDetailHeader extends PureComponent {
-  static propTypes = { company: PropTypes.array.isRequired }
+  static propTypes = {
+    company: PropTypes.array.isRequired,
+    currentLanguage: PropTypes.string.isRequired
+  }
 
   render() {
-    const { company } = this.props;
+    const { company, currentLanguage } = this.props;
     const { name, listings } = company[0] || {};
     const parsedListings = (listings || '').split(' - ')
       .map(list => list.split(':'));
@@ -26,6 +29,7 @@ class CompaniesDetailHeader extends PureComponent {
               <div className="left-side">
                 <Link
                   route="companies"
+                  params={{ language: currentLanguage }}
                 >
                   <a className="go-back-link">
                     <Icon

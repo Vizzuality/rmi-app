@@ -34,7 +34,8 @@ export default connect(
   state => ({
     companies: state.companies.list,
     filters: state.companiesPage.filters,
-    loading: state.companies.loading
+    loading: state.companies.loading,
+    currentLanguage: state.language.current
   }),
   { getCompanies }
 )(CompaniesListContainer);
