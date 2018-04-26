@@ -33,14 +33,15 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
     investmentDisputes: PropTypes.array.isRequired,
     knownTaxJurisdictions: PropTypes.array.isRequired,
     company: PropTypes.array.isRequired,
-    responsive: PropTypes.object.isRequired
+    responsive: PropTypes.object.isRequired,
+    currentLanguage: PropTypes.string.isRequired
   }
 
   render() {
     const {
       company, breakdownScores, mineSites,
       shareholders, investmentDisputes, knownTaxJurisdictions,
-      responsive
+      responsive, currentLanguage
     } = this.props;
     const {
       'shareholders-date': shareholdersDate,
@@ -194,7 +195,10 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
                 /> : <Unknowndata asOf={false} text="No case" />}
               </div>
             </div>
-            <Link route="sources">
+            <Link
+              route="sources"
+              params={{ language: currentLanguage }}
+            >
               <a className="sources-link -black">Sources</a>
             </Link>
           </div>

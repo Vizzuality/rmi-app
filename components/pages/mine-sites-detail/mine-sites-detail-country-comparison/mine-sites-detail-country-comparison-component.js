@@ -9,7 +9,8 @@ import styles from './mine-sites-detail-country-comparison-styles.scss';
 class MineSitesDetailCountryComparison extends PureComponent {
   static propTypes = {
     countries: PropTypes.object.isRequired,
-    data: PropTypes.array.isRequired
+    data: PropTypes.array.isRequired,
+    currentLanguage: PropTypes.string.isRequired
   }
 
   static getRowClass(groupSize, currentIndex) {
@@ -20,7 +21,7 @@ class MineSitesDetailCountryComparison extends PureComponent {
   }
 
   render() {
-    const { countries, data } = this.props;
+    const { countries, data, currentLanguage } = this.props;
     const { producingCountryName } = countries;
 
     return (
@@ -60,7 +61,10 @@ class MineSitesDetailCountryComparison extends PureComponent {
             ))}
           </tbody>
         </table>
-        <Link route="sources">
+        <Link
+          route="sources"
+          params={{ language: currentLanguage }}
+        >
           <a className="sources-link">Sources</a>
         </Link>
       </div>

@@ -17,7 +17,8 @@ export default connect(
     investmentDisputes: parseInvestmentDisputes(state),
     knownTaxJurisdictions: parseKnownTaxJurisdictions(state),
     company: state.companies.list,
-    responsive: state.responsive
+    responsive: state.responsive,
+    currentLanguage: state.language.current
   }),
   {}
 )(CompaniesDetailScoresBreakdown);
