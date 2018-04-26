@@ -14,6 +14,8 @@ class CompaniesDetailHeader extends PureComponent {
     currentLanguage: PropTypes.string.isRequired
   }
 
+  handlePrint = () => window.print();
+
   render() {
     const { company, currentLanguage } = this.props;
     const { name, listings } = company[0] || {};
@@ -51,19 +53,19 @@ class CompaniesDetailHeader extends PureComponent {
                     </div>
                   ))}
                 </div>
-                {/* <div className="pdf-print">
-                  <a
-                    href="/documents/RMI_2018_report-WEB.pdf"
-                    className="print-link"
-                    download
+
+                <div className="pdf-print">
+                  <button
+                    className="print-btn"
+                    onClick={this.handlePrint}
                   >
                     <Icon
                       name="download"
                       className="-big -download -reverse"
                     />
                     Download in PDF
-                  </a>
-                </div> */}
+                  </button>
+                </div>
               </div>
             </div>
           </div>

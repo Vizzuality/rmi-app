@@ -17,8 +17,9 @@ import styles from './results-detail-styles.scss';
 class ResultsDetail extends PureComponent {
   static propTypes = {
     selectedArea: PropTypes.object.isRequired,
+    issueAreas: PropTypes.array.isRequired,
     currentLanguage: PropTypes.string.isRequired,
-    issueAreas: PropTypes.array.isRequired
+    responsive: PropTypes.object.isRequired
   }
 
   handleAreaSelection = ({ query }) => {
@@ -33,7 +34,7 @@ class ResultsDetail extends PureComponent {
   })
 
   render() {
-    const { issueAreas, selectedArea } = this.props;
+    const { issueAreas, selectedArea, responsive } = this.props;
     const { observation, slug, id, summary } = selectedArea || {};
 
     return (
@@ -42,7 +43,7 @@ class ResultsDetail extends PureComponent {
         <div className="page-intro">
           <div className="l-layout">
             <div className="row">
-              <div className="col-md-6">
+              <div className="col-xs-12 col-sm-6 col-md-6">
                 <h2 className="title">Results</h2>
                 <Select
                   onChange={this.handleAreaSelection}
@@ -52,9 +53,12 @@ class ResultsDetail extends PureComponent {
                   className="-underline"
                 />
               </div>
-              <div className="col-md-6">
+              <div className="col-xs-12 col-sm-8 col-md-6">
                 {observation &&
-                  <div dangerouslySetInnerHTML={{ __html: observation }} />}
+                  <div
+                    className="thematic-description"
+                    dangerouslySetInnerHTML={{ __html: observation }}
+                  />}
               </div>
             </div>
           </div>
@@ -64,7 +68,7 @@ class ResultsDetail extends PureComponent {
           <section className="section -dark">
             <div className="l-layout">
               <div className="row">
-                <div className="col-md-1">
+                <div className="col-xs-12 col-md-1">
                   <IssueAreasBar
                     selectedissueArea={id}
                     setIssueArea={this.handleArea}
@@ -72,7 +76,7 @@ class ResultsDetail extends PureComponent {
                 </div>
                 {!Object.keys(selectedArea).length && <Spinner />}
                 {!!Object.keys(selectedArea).length &&
-                  <div className="col-md-11">
+                  <div className="col-xs-12 col-md-11">
                     <OverallChart />
                     <MeasurementCharts />
                     <div className="explanation">

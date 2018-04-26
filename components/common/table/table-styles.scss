@@ -53,9 +53,17 @@
     :global(> tbody) {
       :global(> tr) {
         &:not(:last-child) {
-          border-bottom: 1px solid rgba($color-7, .2)
+          border-bottom: 1px solid rgba($color-7, .2);
+
+          @media print {
+            border-bottom: 1px solid $color-1;
+          }
         }
       }
     }
+  }
+
+  @media print {
+    color: $color-1 !important;
   }
 }

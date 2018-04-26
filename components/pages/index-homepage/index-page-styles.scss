@@ -91,7 +91,7 @@
         }
       }
 
-      @media #{$mq-md} {
+      @media #{$mq-lg} {
         flex-direction: row;
         justify-content: space-between;
         padding: 0 25px;
@@ -119,9 +119,15 @@
   .summary-link {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     padding: 10px 35px;
+    margin: 15px 0 0;
     border-radius: 100px;
     background: $color-7;
     color: $color-1;
+
+    @media #{$mq-lg} {
+      margin: 0;
+    }
   }
 }

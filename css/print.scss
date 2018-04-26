@@ -1,0 +1,8 @@
+@media print {
+  color: $color-1;
+
+  :global(.c-paginator),
+  :global(.c-search) {
+    display: none;
+  }
+}

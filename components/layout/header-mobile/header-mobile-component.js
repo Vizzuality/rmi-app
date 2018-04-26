@@ -50,6 +50,7 @@ class HeaderMobile extends PureComponent {
             <Button
               padding={false}
               onClick={this.handleToggleSidebar}
+              onTouchStart={this.handleToggleSidebar}
             >
               <Icon
                 name="burger-menu"

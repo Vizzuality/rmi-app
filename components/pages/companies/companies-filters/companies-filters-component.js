@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 
 // components
 import Select from 'components/common/select';
@@ -12,9 +13,13 @@ class CompaniesFilters extends PureComponent {
     countries: PropTypes.array.isRequired,
     commodities: PropTypes.array.isRequired,
     filters: PropTypes.object.isRequired,
+    responsive: PropTypes.object.isRequired,
+    className: PropTypes.string,
     setFilters: PropTypes.func.isRequired,
     resetFilters: PropTypes.func.isRequired
   }
+
+  static defaultProps = { className: null }
 
   componentWillUnmount() {
     this.props.resetFilters();
@@ -30,16 +35,25 @@ class CompaniesFilters extends PureComponent {
   }
 
   render() {
-    const { countries, commodities, filters } = this.props;
+    const { countries, commodities, filters, responsive, className } = this.props;
     const { country } = filters;
+    const { mobile, tablet } = responsive;
+
+    const componentClass = classnames({
+      'c-companies-filters': true,
+      [className]: !!className
+    });
+
+    const filtersClass = classnames({ '-underline': mobile && !tablet });
 
     return (
-      <div className="c-companies-filters">
+      <div className={componentClass}>
         <style jsx>{styles}</style>
         <Select
           placeholder="Select a home country"
           options={countries}
           theme="light"
+          className={filtersClass}
           selectedValue={country}
           onChange={this.handleCountry}
         />
@@ -48,6 +62,7 @@ class CompaniesFilters extends PureComponent {
           options={commodities}
           multiple
           theme="light"
+          className={filtersClass}
           onChange={this.handleCommodities}
         />
       </div>

@@ -14,7 +14,21 @@ import styles from './mine-sites-detail-bars-styles.scss';
 class MineSitesDetailBars extends PureComponent {
   static propTypes = {
     overallScore: PropTypes.number.isRequired,
-    data: PropTypes.array.isRequired
+    data: PropTypes.array.isRequired,
+    responsive: PropTypes.object.isRequired
+  }
+
+  componentWillMount() {
+    const { mobile, tablet } = this.props.responsive;
+    this.chartConfig = {
+      ...CHART_CONFIG,
+      ...(mobile || tablet) && {
+        xAxisTick: { angle: -45, fill: '#f2f2f2' },
+        xAxisInterval: 0,
+        xAxisTextAnchor: 'end',
+        xAxisHeight: 165
+      }
+    };
   }
 
   render() {
@@ -36,7 +50,7 @@ class MineSitesDetailBars extends PureComponent {
             <div className="score-bars-container">
               <Bars
                 data={data}
-                config={CHART_CONFIG}
+                config={this.chartConfig}
               />
             </div>
           </div>

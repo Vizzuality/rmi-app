@@ -18,13 +18,13 @@ $circle-size: 10px;
 
     > .legend-item-color {
       display: inline-block;
-      width: 25px;
-      height: 10px;
+      min-width: 25px;
+      min-height: 10px;
 
       &.-circle {
         position: relative;
-        width: $circle-size;
-        height: $circle-size;
+        min-width: $circle-size;
+        min-height: $circle-size;
         margin: 0 7px;
         border-radius: 50%;
         border: 2px solid rgba($color-1, .5);

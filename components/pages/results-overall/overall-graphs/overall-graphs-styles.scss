@@ -28,8 +28,10 @@
   .chart-legend {
     display: flex;
     align-items: center;
+    justify-content: center;
 
     @media #{$mq-md} {
+      justify-content: flex-start;
       margin: 0 0 0 65px;
     }
 

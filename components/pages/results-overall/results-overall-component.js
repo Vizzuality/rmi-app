@@ -22,7 +22,7 @@ class ResultsOverall extends PureComponent {
         <div className="page-intro">
           <div className="l-layout">
             <div className="row">
-              <div className="col-md-6">
+              <div className="col-xs-12 col-sm-6 col-md-6">
                 <h2 className="title">Results</h2>
                 <Select
                   onChange={this.handleAreaSelection}
@@ -31,8 +31,8 @@ class ResultsOverall extends PureComponent {
                   className="-underline"
                 />
               </div>
-              <div className="col-md-6">
-                <p>Performances of the 30 companies vary widely within each of the
+              <div className="col-xs-12 col-sm-8 col-md-6">
+                <p className="thematic-description">Performances of the 30 companies vary widely within each of the
                   thematic areas of the Index. Many companies are performing relatively
                   well in certain areas and leading practices are found even on issues
                   for which performances are generally weak. At the same time, performance

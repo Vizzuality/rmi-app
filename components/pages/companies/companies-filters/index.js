@@ -19,7 +19,8 @@ export default connect(
   state => ({
     countries: parseCountries(state),
     commodities: parseCommodities(state),
-    filters: state.companiesPage.filters
+    filters: state.companiesPage.filters,
+    responsive: state.responsive
   }),
   {
     setFilters,

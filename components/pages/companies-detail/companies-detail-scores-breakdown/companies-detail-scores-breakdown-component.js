@@ -32,25 +32,28 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
     shareholders: PropTypes.array.isRequired,
     investmentDisputes: PropTypes.array.isRequired,
     knownTaxJurisdictions: PropTypes.array.isRequired,
-    company: PropTypes.array.isRequired
+    company: PropTypes.array.isRequired,
+    responsive: PropTypes.object.isRequired
   }
 
   render() {
     const {
       company, breakdownScores, mineSites,
-      shareholders, investmentDisputes, knownTaxJurisdictions
+      shareholders, investmentDisputes, knownTaxJurisdictions,
+      responsive
     } = this.props;
     const {
       'shareholders-date': shareholdersDate,
-      'subsidiaries-date': subsidiariesDate,
       summary
     } = company[0] || {};
+
+    const { mobile } = responsive;
 
     return (
       <div className="c-companies-detail-scores-breakdown">
         <style jsx>{styles}</style>
         <div className="l-layout">
-          {summary && <Summary content={summary}/>}
+          {summary && <Summary content={summary} />}
           <section className="section measurement-scores-container">
             <div className="row center-md -no-text-align">
               <div className="col-xs-12 col-md-10">
@@ -101,7 +104,7 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
         <div className="accordion-header">
           <div className="l-layout">
             <div className="row">
-              <div className="col-md-12">
+              <div className="col-xs-12">
                 <h2>
                   Indicator-by-indicator results
                 </h2>
@@ -125,7 +128,9 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
             <div className="row center-md">
               <div className="col-xs-12">
                 <h2 className="title">Selected Mine sites results</h2>
-                <h3 className="subtitle">Mine sites individually assessed but not included<br/> in the overall company score</h3>
+                <h3 className="subtitle">Mine sites individually assessed but not included
+                  {!mobile && <br />} in the overall company score
+                </h3>
                 <Table
                   columns={MINE_SITE_TABLE_COLUMNS}
                   rows={mineSites}
@@ -172,7 +177,7 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
             </div>
 
             <div className="row">
-              <div className="col-sm-12">
+              <div className="col-xs-12">
                 <h3 className="title">Known Tax Jurisdictions</h3>
                 {knownTaxJurisdictions.length ? <Table
                   columns={TAX_JURISDICTIONS_COLUMNS}
@@ -181,7 +186,7 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
               </div>
             </div>
             <div className="row">
-              <div className="col-sm-12">
+              <div className="col-xs-12">
                 <h3 className="title -small">Recent involvements in Investor/State investment disputes (since 2014)</h3>
                 {investmentDisputes.length ? <Table
                   columns={INVESTMENT_DISPUTES_COLUMNS}

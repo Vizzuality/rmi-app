@@ -1,6 +1,11 @@
 
 .page-intro {
-  padding: 75px 0;
+  padding: 30px 0;
+
+  @media #{$mq-md} {
+    padding: 75px 0;
+  }
+
 
   .c-breadcrumbs + .title {
     margin: 25px 0 0;
@@ -28,6 +33,14 @@
     font-weight: $font-weight-light;
     line-height: 1.66;
   }
+
+  .thematic-description {
+    margin: 15px 0 0;
+
+    @media #{$mq-md} {
+      margin: 0;
+    }
+  }
 }
 
 .section {
@@ -35,10 +48,18 @@
 
   &.-dark {
     background: $color-2;
+
+    @media print {
+      background: none;
+    }
   }
 
   &.-gray {
     background: $color-6;
+
+    @media print {
+      background: none;
+    }
   }
 
   .title {

@@ -26,6 +26,14 @@
     padding: 25px 0;
   }
 
+  .stacked-bars-container {
+    @media print {
+      :global(.c-stacked-bars) {
+        page-break-inside: avoid;
+      }
+    }
+  }
+
   .overall-measurement-container {
     border-top: 1px solid black;
     padding: 35px 0 75px;

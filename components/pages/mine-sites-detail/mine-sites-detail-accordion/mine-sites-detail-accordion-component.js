@@ -23,11 +23,11 @@ class MineSitesDetailAccordion extends PureComponent {
     return (
       data.map(d => (
         <div key={d.slug} className="category-block">
-          <div className="row between-md">
-            <div className="col-md-8">
+          <div className="row center-sm  between-md -no-text-align">
+            <div className="col-xs-12 col-md-8">
               <h4 className="block-title">{d.name}</h4>
             </div>
-            <div className="col-md-3">
+            <div className="col-xs-12 col-sm-6 col-md-3">
               <ScoreComparison
                 data={{
                   avg: d.avg,
