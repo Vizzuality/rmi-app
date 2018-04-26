@@ -3,6 +3,9 @@
 $bar-height: 40px;
 
 .c-score-comparison {
+  padding: 35px;
+  margin: 25px 0;
+
 
   > .score-bar {
     position: relative;
@@ -91,5 +94,10 @@ $bar-height: 40px;
       padding: 0 10px 0 0;
       transform: translate(-100%, 0)
     }
+  }
+
+  @media #{$mq-md} {
+    padding: 0;
+    margin: 0;
   }
 }

@@ -16,7 +16,7 @@ class MeasurementCharts extends PureComponent {
     return (
       <div className="row">
         {measurements.map((measurement, index) => (
-          <div key={measurement.id} className="col-xs-4">
+          <div key={measurement.id} className="col-xs-12 col-md-4">
             <MeasurementChartsItem
               data={measurement}
               actionPosition={index}

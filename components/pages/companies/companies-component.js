@@ -1,5 +1,9 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import MediaQuery from 'react-responsive';
+
+// utils
+import breakpoints from 'utils/responsive';
 
 // components
 import Map from 'components/common/map';
@@ -12,12 +16,10 @@ import { MAP_LEGEND } from './companies-constants';
 // helpers
 import { getCompanyCountryColor } from './companies-helpers';
 
-// styles
-import styles from './companies-styles.scss';
-
 class Companies extends PureComponent {
   static propTypes = {
     paths: PropTypes.array.isRequired,
+    responsive: PropTypes.object.isRequired,
     setFilters: PropTypes.func.isRequired,
     setSelectedCompany: PropTypes.func.isRequired,
     resetSelectedCompany: PropTypes.func.isRequired
@@ -37,20 +39,20 @@ class Companies extends PureComponent {
   render() {
     const {
       paths,
+      responsive,
       setSelectedCompany,
       resetSelectedCompany
     } = this.props;
 
     return (
       <div className="c-companies-page">
-        <style jsx>{styles}</style>
         <div className="page-intro">
           <div className="l-layout">
             <div className="row">
-              <div className="col-lg-5">
+              <div className="col-xs-12 col-lg-5">
                 <h2 className="title">Companies</h2>
               </div>
-              <div className="col-lg-7">
+              <div className="col-xs-12 col-sm-7">
                 <p>
                   This first Index, RMI 2018, covers 30 companies
                   from 16 home countries, including publicly-listed,
@@ -70,14 +72,15 @@ class Companies extends PureComponent {
           <div className="section -dark">
             <div className="l-layout">
               <div className="row">
-                <div className="col-md-4">
+                <div className="col-xs-12 col-md-4">
+                  <CompaniesFilters className="-no-tablet" />
                   <CompaniesList
                     onMouseEnter={({ id }) => { setSelectedCompany(id); }}
                     onMouseLeave={() => { resetSelectedCompany(); }}
                   />
                 </div>
-                <div className="col-md-8">
-                  <CompaniesFilters />
+                <div className="col-xs-12 col-md-8">
+                  <CompaniesFilters className="-no-mobile" />
                   <div className="map-container">
                     <Map
                       paths={paths}

@@ -33,7 +33,7 @@ class CompaniesDetailSidebar extends PureComponent {
         {Object.keys(company).length &&
           <div className="definitions-container">
             <div className="row">
-              <div className="col-xs-12 col-md-6">
+              <div className="col-xs-6">
                 {!!countryName &&
                   <div className="definition-item">
                     <div className="definition-key">Headquarters:</div>
@@ -42,7 +42,7 @@ class CompaniesDetailSidebar extends PureComponent {
                       <div className="definition-value">{secondaryCountryName}</div>}
                   </div>}
               </div>
-              <div className="col-xs-12 col-md-6">
+              <div className="col-xs-6">
                 {!!sector &&
                   <div className="definition-item">
                     <div className="definition-key">Sector:</div>
@@ -51,14 +51,14 @@ class CompaniesDetailSidebar extends PureComponent {
               </div>
             </div>
             <div className="row">
-              <div className="col-xs-12 col-md-6">
+              <div className="col-xs-6">
                 {governmentOwnership !== null &&
                   <div className="definition-item">
                     <div className="definition-key">Government Ownership:</div>
                     <div className="definition-value">{governmentOwnership}</div>
                   </div>}
               </div>
-              <div className="col-xs-12 col-md-6">
+              <div className="col-xs-6">
                 {preTaxRevenuesBusd !== null &&
                   <div className="definition-item">
                     <div className="definition-key">Pre-tax Revenues (in BUSD):</div>
@@ -70,7 +70,7 @@ class CompaniesDetailSidebar extends PureComponent {
               </div>
             </div>
             <div className="row">
-              <div className="col-xs-12 col-md-6">
+              <div className="col-xs-6">
                 {employees !== null &&
                   <div className="definition-item">
                     <div className="definition-key">Number of employees:</div>
@@ -80,7 +80,7 @@ class CompaniesDetailSidebar extends PureComponent {
                     </div>
                   </div>}
               </div>
-              <div className="col-xs-12 col-md-6">
+              <div className="col-xs-6">
                 {workers !== null &&
                   <div className="definition-item">
                     <div className="definition-key">Number of workers <br />(employees + contract workers):</div>

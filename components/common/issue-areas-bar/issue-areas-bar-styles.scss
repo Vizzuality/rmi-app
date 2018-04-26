@@ -1,15 +1,24 @@
 @import 'css/settings';
 
 .c-issue-areas-bar {
+  position: relative;
+  top: -25px;
+  left: -20px;
+  display: flex;
+  width: calc(100% + 40px);
+  border-top: 1px solid $color-6;
   background: $color-3;
-  height: calc(100% + 130px);
-  max-width: 54px;
-  transform: translate(0, -55px);
+
+  ul {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+  }
 
   ul > li  {
-    &:not(:first-child) {
-      margin: 10px 0 0;
-    }
+    display: flex;
+    align-items: center;
+    height: 100%;
 
     > span {
       display: inline-block;
@@ -30,6 +39,27 @@
       > :global(svg) {
         fill: $color-7;
         stroke: $color-7;
+      }
+    }
+
+    @media #{$mq-md} {
+      &:not(:first-child) {
+        margin: 10px 0 0;
+      }
+    }
+  }
+
+  @media #{$mq-md} {
+    height: calc(100% + 130px);
+    max-width: 54px;
+    border-top: 0;
+    transform: translate(0, -30px);
+
+    ul {
+      display: inline-block;
+
+      > li {
+        height: auto;
       }
     }
   }

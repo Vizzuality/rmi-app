@@ -48,7 +48,7 @@ class Sidebar extends Component {
       'RMI_Index_Color' : 'RMI_Foundation_Color';
 
     return (
-      <div className={sidebarClasses} ref={(e) => { this.sidebar = e; }}>
+      <div className={sidebarClasses}>
         <style jsx>{styles}</style>
         <div className="sidebar-container">
           <div className="l-layout">

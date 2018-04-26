@@ -14,6 +14,8 @@ class MineSitesDetailHeader extends PureComponent {
     currentLanguage: PropTypes.string.isRequired
   }
 
+  handlePrint = () => window.print();
+
   render() {
     const { currentLanguage, mineSite } = this.props;
     const { name, country } = mineSite;
@@ -24,7 +26,7 @@ class MineSitesDetailHeader extends PureComponent {
         <style jsx>{styles}</style>
         <div className="l-layout">
           <div className="row">
-            <div className="col-md-10">
+            <div className="col-xs-12 col-sm-6">
               <div className="left-side">
                 <Link
                   route="mine-sites"
@@ -43,23 +45,22 @@ class MineSitesDetailHeader extends PureComponent {
                 </span>
               </div>
             </div>
-            {/* <div className="col-md-2">
+            <div className="col-xs-12 col-sm-6">
               <div className="right-side">
                 <div className="pdf-print">
-                  <a
-                    href="/documents/RMI_2018_report-WEB.pdf"
-                    className="print-link"
-                    download
+                  <button
+                    className="print-btn"
+                    onClick={this.handlePrint}
                   >
                     <Icon
                       name="download"
                       className="-big -download -reverse"
                     />
                     Download in PDF
-                  </a>
+                  </button>
                 </div>
               </div>
-            </div> */}
+            </div>
           </div>
         </div>
       </div>

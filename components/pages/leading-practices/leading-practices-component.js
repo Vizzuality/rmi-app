@@ -78,15 +78,19 @@ class LeadingPracticesPage extends PureComponent {
         <div className="section -dark">
           <div className="l-layout">
             <div className="leading-practices-container">
-              <div className="filters-container">
-                <Select
-                  onChange={this.handleTopic}
-                  options={topics}
-                  placeholder="Select a topic"
-                  theme="light"
-                  selectedValue={topic}
-                  className="-underline"
-                />
+              <div className="row end-sm">
+                <div className="col-xs-12 col-sm-6">
+                  <div className="filters-container">
+                    <Select
+                      onChange={this.handleTopic}
+                      options={topics}
+                      placeholder="Select a topic"
+                      theme="light"
+                      selectedValue={topic}
+                      className="-underline"
+                    />
+                  </div>
+                </div>
               </div>
               <LeadingPracticesCardList />
               <div className="paginator-container">

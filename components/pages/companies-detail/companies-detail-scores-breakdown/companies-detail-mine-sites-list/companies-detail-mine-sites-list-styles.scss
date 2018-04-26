@@ -23,6 +23,10 @@
       &.-red {
         color: $color-8;
       }
+
+      @media print {
+        color: $color-1;
+      }
     }
 
     .mine-site-list-disclaimer {

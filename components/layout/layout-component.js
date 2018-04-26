@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import ReduxToastr from 'react-redux-toastr';
 import MediaQuery from 'react-responsive';
 import { Router } from 'routes';
 
@@ -40,6 +39,7 @@ class Layout extends PureComponent {
 
     return (
       <div className="app">
+        <style jsx global>{styles}</style>
         <Head
           title={title}
           description={description}
@@ -47,29 +47,31 @@ class Layout extends PureComponent {
         {/* Icons */}
         <Icons />
 
-        {/* header */}
-        <MediaQuery
-          maxDeviceWidth={breakpoints.md - 1}
-          values={{ deviceWidth: responsive.fakeWidth }}
-        >
-          <HeaderMobile />
-        </MediaQuery>
-
-        <MediaQuery
-          minDeviceWidth={breakpoints.md}
-          values={{ deviceWidth: responsive.fakeWidth }}
-        >
-          <Header />
-        </MediaQuery>
-
         {/* mobile sidebar */}
         <MediaQuery
-          maxDeviceWidth={breakpoints.md - 1}
+          minDeviceWidth={breakpoints.sm}
+          maxDeviceWidth={breakpoints.lg - 1}
           values={{ deviceWidth: responsive.fakeWidth }}
         >
           <Sidebar />
         </MediaQuery>
 
+        {/* header mobile */}
+        <MediaQuery
+          minDeviceWidth={breakpoints.sm}
+          maxDeviceWidth={breakpoints.lg - 1}
+          values={{ deviceWidth: responsive.fakeWidth }}
+        >
+          <HeaderMobile />
+        </MediaQuery>
+
+        {/* header */}
+        <MediaQuery
+          minDeviceWidth={breakpoints.lg}
+          values={{ deviceWidth: responsive.fakeWidth }}
+        >
+          <Header />
+        </MediaQuery>
 
         {/* content */}
         <div className="layout-content">
@@ -79,13 +81,6 @@ class Layout extends PureComponent {
         {/* footer */}
         {footer && <Footer />}
 
-        <ReduxToastr
-          preventDuplicates={false}
-          transitionIn="fadeIn"
-          transitionOut="fadeOut"
-        />
-
-        <style jsx global>{styles}</style>
       </div>);
   }
 }

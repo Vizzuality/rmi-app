@@ -1,5 +1,10 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import MediaQuery from 'react-responsive';
+
+// utils
+import breakpoints from 'utils/responsive';
+
 // components
 import Map from 'components/common/map';
 import CompaniesList from 'components/common/companies-list';
@@ -14,6 +19,7 @@ class MineSite extends PureComponent {
   static propTypes = {
     paths: PropTypes.array.isRequired,
     markers: PropTypes.array.isRequired,
+    responsive: PropTypes.object.isRequired,
     setFilters: PropTypes.func.isRequired,
     resetFilters: PropTypes.func.isRequired
   }
@@ -39,7 +45,7 @@ class MineSite extends PureComponent {
   handleCloseTooltip = () => { this.props.setFilters({ selectedCompany: null }); };
 
   render() {
-    const { paths, markers } = this.props;
+    const { paths, markers, responsive } = this.props;
 
     return (
       <div className="c-mine-site-page">
@@ -69,6 +75,12 @@ class MineSite extends PureComponent {
             <div className="l-layout">
               <div className="row">
                 <div className="col-md-4">
+                  <MediaQuery
+                    maxDeviceWidth={breakpoints.md - 1}
+                    values={{ deviceWidth: responsive.fakeWidth }}
+                  >
+                    <MineSitesFilters />
+                  </MediaQuery>
                   <CompaniesList
                     isCompanyPage={false}
                     onOpenTooltip={this.handleOpenTooltip}
@@ -76,7 +88,13 @@ class MineSite extends PureComponent {
                   />
                 </div>
                 <div className="col-md-8">
-                  <MineSitesFilters />
+                  <MediaQuery
+                    minDeviceWidth={breakpoints.md}
+                    values={{ deviceWidth: responsive.fakeWidth }}
+                  >
+                    <MineSitesFilters />
+                  </MediaQuery>
+
                   <div className="map-container">
                     <Map
                       paths={paths}

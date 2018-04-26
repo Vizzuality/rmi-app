@@ -53,3 +53,16 @@ button {
 button {
   cursor: pointer;
 }
+
+.table-container {
+  overflow-x: auto;
+}
+
+.map-container {
+  margin: 35px 0 0;
+  background: $color-2;
+
+  @media #{$mq-md} {
+    margin: 0;
+  }
+}

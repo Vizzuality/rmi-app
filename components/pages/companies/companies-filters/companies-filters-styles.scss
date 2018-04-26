@@ -1,5 +1,46 @@
+@import 'css/settings';
 
 .c-companies-filters {
   display: flex;
-  justify-content: flex-end;
+  flex-direction: column;
+  margin: 0 0 35px;
+
+  :global(.c-select) {
+    max-width: none;
+  }
+
+  :global(.c-select + .c-select) {
+    margin: 15px 0 0;
+  }
+
+  @media #{$mq-sm} {
+    flex-direction: row;
+    margin: 0;
+
+    :global(.c-select + .c-select) {
+      margin: 0 0 0 15px;
+    }
+  }
+
+  @media #{$mq-sm} {
+    margin: 0 0 15px;
+  }
+
+  @media #{$mq-md} {
+    justify-content: flex-end;
+  }
+
+  &.-no-mobile {
+    display: none;
+
+    @media #{$mq-md} {
+      display: flex;
+    }
+  }
+
+  &.-no-tablet {
+    @media #{$mq-md} {
+      display: none;
+    }
+  }
 }

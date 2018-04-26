@@ -101,6 +101,10 @@ class CompaniesListItem extends PureComponent {
           constraints={[{
             to: 'target',
             attachment: 'together'
+          }, {
+            to: 'window',
+            attachment: 'target',
+            pin: true
           }]}
         >
           <div

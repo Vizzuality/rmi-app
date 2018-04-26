@@ -14,7 +14,8 @@ export { actions, reducers, initialState };
 export default connect(
   state => ({
     paths: getUpdatedPaths(state),
-    markers: getMarkers(state)
+    markers: getMarkers(state),
+    responsive: state.responsive
   }),
   { ...actions }
 )(MineSites);

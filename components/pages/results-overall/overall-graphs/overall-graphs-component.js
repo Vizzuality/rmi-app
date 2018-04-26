@@ -19,7 +19,7 @@ class OverallGraphs extends PureComponent {
         <style jsx>{styles}</style>
         <div className="row">
           {graphs.map(graph => (
-            <div key={graph.id} className="col-md-4">
+            <div key={graph.id} className="col-xs-12 col-md-4">
               <OverallGraphsItem data={graph} />
             </div>
           ))}

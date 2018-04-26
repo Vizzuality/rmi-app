@@ -1,6 +1,3 @@
-
-export const TOPS_PER_ROW = 3;
-
 const generateRandomColour = () => `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 
 export const COMPANIES_COLOURS = {
@@ -25,10 +22,6 @@ export const COMPANIES_COLOURS = {
   antofagasta: '#c77e70',
   bhp: '#4b5c70',
   'barrick-gold-corp': '#60988b'
-
 };
 
-export default {
-  TOPS_PER_ROW,
-  COMPANIES_COLOURS
-};
+export default { COMPANIES_COLOURS };
