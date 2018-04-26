@@ -26,7 +26,7 @@ class DownloadPage extends Page {
       await context.store.dispatch(getStaticPage({
         key: 'downloads',
         queryParams: {
-          endpoint: 'downloads',
+          endpoint: 'foundation/download',
           qParams: {}
         }
       }));

@@ -72,6 +72,14 @@ class Footer extends PureComponent {
                           route="downloads"
                           params={{ language: currentLanguage }}
                         >
+                          <a>Downloads</a>
+                        </Link>
+                      </li>
+                      <li className="footer-nav-links-item">
+                        <Link
+                          route="corrigenda"
+                          params={{ language: currentLanguage }}
+                        >
                           <a>Corrigenda</a>
                         </Link>
                       </li>
@@ -86,6 +94,7 @@ class Footer extends PureComponent {
                     </ul>
                     <Link
                       route="foundation"
+                      params={{ language: currentLanguage }}
                     >
                       <a className="foundation-link">Responsible Mining FOUNDATION</a>
                     </Link>

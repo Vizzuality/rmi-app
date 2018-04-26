@@ -26,7 +26,7 @@ class CorrigendaPage extends Page {
       await context.store.dispatch(getStaticPage({
         key: 'corrigenda',
         queryParams: {
-          endpoint: 'corrigenda',
+          endpoint: 'foundation/corrigenda',
           qParams: {}
         }
       }));

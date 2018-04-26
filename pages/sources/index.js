@@ -26,7 +26,7 @@ class SourcesPage extends Page {
       await context.store.dispatch(getStaticPage({
         key: 'sources',
         queryParams: {
-          endpoint: 'sources',
+          endpoint: 'foundation/source',
           qParams: {}
         }
       }));

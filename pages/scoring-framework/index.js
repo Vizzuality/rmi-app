@@ -26,7 +26,7 @@ class ScoringFrameworkPage extends Page {
       await context.store.dispatch(getStaticPage({
         key: 'scoringFramework',
         queryParams: {
-          endpoint: 'scoring-framework',
+          endpoint: 'foundation/framework',
           qParams: {}
         }
       }));

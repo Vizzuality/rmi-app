@@ -40,7 +40,10 @@ class IndexPage extends PureComponent {
             <div className="row">
               <div className="col-xs-12">
                 <div className="download-button-container">
-                  <Link route="downloads">
+                  <Link
+                    route="downloads"
+                    params={{ language: currentLanguage }}
+                  >
                     <a
                       className="summary-link"
                       download
