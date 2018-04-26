@@ -19,12 +19,12 @@ import documentsModule from 'modules/documents';
 import scoresModule from 'modules/scores';
 import documentMineSitesModule from 'modules/document-mine-sites';
 import subsidiariesModule from 'modules/subsidiaries';
+import staticPagesModule from 'modules/static-pages';
 
 // components modules
 import * as CompaniesFiltersModule from 'components/pages/companies/companies-filters';
 
 // pages modules
-import * as MethodologyModule from 'components/pages/foundation/methodology';
 import * as LeadingPracticesModule from 'components/pages/leading-practices';
 import * as CompaniesModule from 'components/pages/companies';
 import * as CompaniesDetailModule from 'components/pages/companies-detail';
@@ -56,5 +56,5 @@ export default {
   resultsOverallPage: handleModule(ResultsOverallPageModule),
   resultsDetailPage: handleModule(ResultsDetailPageModule),
   staticContent: handleModule(staticContentModule),
-  methodologyPage: handleModule(MethodologyModule)
+  staticPages: handleModule(staticPagesModule)
 };

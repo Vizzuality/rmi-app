@@ -1,11 +1,11 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'routes';
 
 // global constants
 import { measurementColors } from 'constants/graph-colors';
 
 // components
-import SpiderChart from 'components/charts/spiderchart';
 import StackedBars from 'components/charts/stacked-bars';
 import Table from 'components/common/table';
 import Summary from 'components/common/summary';
@@ -189,6 +189,9 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
                 /> : <Unknowndata asOf={false} text="No case" />}
               </div>
             </div>
+            <Link route="sources">
+              <a className="sources-link -black">Sources</a>
+            </Link>
           </div>
         </section>
       </div>
