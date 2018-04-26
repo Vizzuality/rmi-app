@@ -20,7 +20,10 @@ export const createMarker = (data = {}, onMouseEnter, onMouseLeave) => (
     marker={data}
     onMouseEnter={onMouseEnter}
     onMouseLeave={onMouseLeave}
-    onClick={() => Router.pushRoute('mine-sites', { mineSite: data.id })}
+    onClick={() => Router.pushRoute('mine-sites', {
+      mineSite: data.id,
+      language: data.language
+    })}
     style={MARKER_STYLES}
   >
     <circle cx={0} cy={0} r={6} fill="#bf3132" stroke="rgba(0, 0, 0, .5)" strokeWidth={3} />

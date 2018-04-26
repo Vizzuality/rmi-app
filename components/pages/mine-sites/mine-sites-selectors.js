@@ -12,6 +12,7 @@ import { mineSiteFilter } from './mine-sites-helpers';
 const countries = state => state.countries.list;
 const companies = state => state.companies.list;
 const filters = state => state.mineSitesPage.filters;
+const currentLanguage = state => state.language.current;
 
 export const getUpdatedPaths = createSelector(
   countries,
@@ -36,8 +37,8 @@ export const getUpdatedPaths = createSelector(
 );
 
 export const getMarkers = createSelector(
-  [companies, filters],
-  (_companies = [], _filters) =>
+  [companies, filters, currentLanguage],
+  (_companies = [], _filters, _currentLanguage) =>
     flatten(_companies.map(company =>
       (company['selected-mine-sites'] || [])
         .filter(mineSite => mineSiteFilter(mineSite, _filters))
@@ -45,7 +46,8 @@ export const getMarkers = createSelector(
           id: ms.id,
           name: ms.name,
           country: ms.country.name,
-          coordinates: [ms['coord-y'], ms['coord-x']]
+          coordinates: [ms['coord-y'], ms['coord-x']],
+          language: _currentLanguage
         }))))
 );
 

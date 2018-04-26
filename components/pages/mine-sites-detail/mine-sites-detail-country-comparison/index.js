@@ -9,7 +9,8 @@ import MineSitesDetailComparisonCountry from './mine-sites-detail-country-compar
 export default connect(
   state => ({
     countries: getCountries(state),
-    data: parseCountries(state)
+    data: parseCountries(state),
+    currentLanguage: state.language.current
   }),
   {}
 )(MineSitesDetailComparisonCountry);
