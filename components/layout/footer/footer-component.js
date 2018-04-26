@@ -53,7 +53,7 @@ class Footer extends PureComponent {
                       </li>
                       <li className="footer-nav-links-item">
                         <Link
-                          route="results"
+                          route="scoring-framework"
                           params={{ language: currentLanguage }}
                         >
                           <a>Scoring Framework</a>
@@ -61,22 +61,43 @@ class Footer extends PureComponent {
                       </li>
                       <li className="footer-nav-links-item">
                         <Link
-                          route="results"
+                          route="methodology"
                           params={{ language: currentLanguage }}
                         >
                           <a>Application of Methodology</a>
                         </Link>
                       </li>
-
                       <li className="footer-nav-links-item">
                         <Link
-                          route="foundation"
+                          route="downloads"
                           params={{ language: currentLanguage }}
                         >
-                          <a>Responsible Mining FOUNDATION</a>
+                          <a>Downloads</a>
+                        </Link>
+                      </li>
+                      <li className="footer-nav-links-item">
+                        <Link
+                          route="corrigenda"
+                          params={{ language: currentLanguage }}
+                        >
+                          <a>Corrigenda</a>
+                        </Link>
+                      </li>
+                      <li className="footer-nav-links-item">
+                        <Link
+                          route="sources"
+                          params={{ language: currentLanguage }}
+                        >
+                          <a>Sources</a>
                         </Link>
                       </li>
                     </ul>
+                    <Link
+                      route="foundation"
+                      params={{ language: currentLanguage }}
+                    >
+                      <a className="foundation-link">Responsible Mining FOUNDATION</a>
+                    </Link>
                   </div>}
                 {!isFoundation &&
                   <div className="footer-section">

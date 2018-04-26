@@ -1,0 +1,11 @@
+.sources-link {
+  display: inline-block;
+  margin: 15px 0 0;
+
+  color: $color-7;
+  font-style: italic;
+
+  &.-black {
+    color: $color-1;
+  }
+}
