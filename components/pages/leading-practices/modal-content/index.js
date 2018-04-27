@@ -11,7 +11,10 @@ import ModalContent from './modal-content-component';
 import { getLeadingPractice } from './modal-content-selectors';
 
 export default connect(
-  state => ({ leadingPractice: getLeadingPractice(state) }),
+  state => ({
+    leadingPractice: getLeadingPractice(state),
+    currentLanguage: state.language.current
+  }),
   {
     toggleModal,
     setSelectedLeadingPractice
