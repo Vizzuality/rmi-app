@@ -50,6 +50,7 @@
     "react-google-maps": "^9.4.5",
     "react-modal": "3.3.2",
     "react-redux": "5.0.6",
+    "react-redux-loading-bar": "4.0.4",
     "react-responsive": "4.1.0",
     "react-responsive-carousel": "3.1.33",
     "react-responsive-redux": "0.5.0",

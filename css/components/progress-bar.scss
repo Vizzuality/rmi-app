@@ -1,0 +1,29 @@
+.c-progress-bar {
+  z-index: 666;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  border-radius: 0 5px 5px 0;
+  background: linear-gradient(-45deg, $color-8, darken($color-8, 5%), darken($color-8, 10%), darken($color-8, 15%));
+  background-size: 200% 200%;
+  animation: Gradient 1s ease infinite;
+}
+
+@-webkit-keyframes Gradient {
+  0% { background-position: 0% 50% }
+  50% { background-position: 100% 50% }
+  100% { background-position: 0% 50% }
+}
+
+@-moz-keyframes Gradient {
+  0% { background-position: 0% 50% }
+  50% { background-position: 100% 50% }
+  100% { background-position: 0% 50% }
+}
+
+@keyframes Gradient {
+  0% { background-position: 0% 50% }
+  50% { background-position: 100% 50% }
+  100% { background-position: 0% 50% }
+}
