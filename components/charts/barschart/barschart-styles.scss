@@ -4,5 +4,18 @@
 
   text > tspan {
     fill: $color-7;
+
+  }
+
+  @media print {
+    margin: 35px 0 0;
+
+    :global(text) {
+      fill: $color-1 !important;
+    }
+
+    :global(line) {
+      stroke: $color-1 !important;
+    }
   }
 }

@@ -4,9 +4,21 @@
 
   .mine-sites-detail-intro {
     background: $color-3;
+
+    @media print {
+      background: $color-7;
+
+      .col-xs-12 {
+        flex-basis: 50%;
+      }
+    }
   }
 
   .mine-sites-detail-preview {
     padding: calc(#{$header-company-detail-height} + 35px) 0 35px;
+
+    @media print {
+      padding: 0 0 35px;
+    }
   }
 }

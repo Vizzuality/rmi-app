@@ -11,6 +11,10 @@
     > .overall-score-value {
       font-size: $font-size-big;
       color: $color-7;
+
+      @media print {
+        color: $color-1;
+      }
     }
 
     > .overall-score-title {

@@ -6,12 +6,16 @@ $bar-height: 40px;
   padding: 35px;
   margin: 25px 0;
 
-
   > .score-bar {
     position: relative;
     width: 100%;
     height: $bar-height;
     border: 1px solid $color-5;
+
+    @media print {
+      page-break-inside: avoid;
+      border: 1px dashed $color-1;
+    }
   }
 
   > .score-bar > .score-value {
@@ -39,6 +43,10 @@ $bar-height: 40px;
     top: -#{$bar-height - 1px};
     height: #{(($bar-height * 2) - 1px)};
     border-left: 1px dashed $color-7;
+
+    @media print {
+      border-left: 1px dashed $color-1;
+    }
   }
 
   > .score-bar > .score-avg,
@@ -78,6 +86,10 @@ $bar-height: 40px;
     top: 0;
     height: #{(($bar-height * 2) - 1px)};
     border-left: 1px dashed $color-7;
+
+    @media print {
+      border-left: 1px dashed $color-1;
+    }
   }
 
   > .score-bar > .score-max {
@@ -99,5 +111,9 @@ $bar-height: 40px;
   @media #{$mq-md} {
     padding: 0;
     margin: 0;
+  }
+
+  @media print {
+    page-break-inside: avoid;
   }
 }

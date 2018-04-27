@@ -65,4 +65,8 @@ button {
   @media #{$mq-md} {
     margin: 0;
   }
+
+  @media print {
+    background: $color-7;
+  }
 }

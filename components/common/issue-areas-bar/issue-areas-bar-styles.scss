@@ -9,6 +9,11 @@
   border-top: 1px solid $color-6;
   background: $color-3;
 
+  @media print {
+    border-top: 0;
+    background: $color-7;
+  }
+
   ul {
     display: flex;
     justify-content: space-around;
@@ -39,6 +44,11 @@
       > :global(svg) {
         fill: $color-7;
         stroke: $color-7;
+
+        @media print {
+          fill: $color-1;
+          stroke: $color-1;
+        }
       }
     }
 

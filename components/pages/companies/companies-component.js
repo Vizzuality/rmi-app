@@ -1,9 +1,5 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import MediaQuery from 'react-responsive';
-
-// utils
-import breakpoints from 'utils/responsive';
 
 // components
 import Map from 'components/common/map';
@@ -19,7 +15,6 @@ import { getCompanyCountryColor } from './companies-helpers';
 class Companies extends PureComponent {
   static propTypes = {
     paths: PropTypes.array.isRequired,
-    responsive: PropTypes.object.isRequired,
     setFilters: PropTypes.func.isRequired,
     setSelectedCompany: PropTypes.func.isRequired,
     resetSelectedCompany: PropTypes.func.isRequired
@@ -39,7 +34,6 @@ class Companies extends PureComponent {
   render() {
     const {
       paths,
-      responsive,
       setSelectedCompany,
       resetSelectedCompany
     } = this.props;

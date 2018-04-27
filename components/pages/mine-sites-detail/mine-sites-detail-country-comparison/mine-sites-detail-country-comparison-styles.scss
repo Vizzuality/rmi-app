@@ -5,6 +5,10 @@
   .explanation {
     color: $color-7;
     font-style: italic;
+
+    @media print {
+      color: $color-1;
+    }
   }
 
   .country-comparison-table {
@@ -25,6 +29,10 @@
           font-size: $font-size-big;
           font-weight: $font-weight-bold;
           text-transform: uppercase;
+
+          @media print {
+            color: $color-1;
+          }
         }
       }
     }
@@ -38,6 +46,11 @@
 
         &:not(.first-from-group) {
           border-top: 1px solid $color-5;
+
+
+          @media print {
+            border-top: 1px solid $color-1;
+          }
         }
 
         > td {
@@ -52,6 +65,11 @@
             text-align: center;
             color: $color-7;
             font-weight: 700;
+
+            @media print {
+              font-weight: $font-weight-regular;
+              color: $color-1;
+            }
           }
         }
       }
@@ -63,6 +81,10 @@
           }
         }
       }
+    }
+
+    @media print {
+      color: $color-1;
     }
   }
 }
