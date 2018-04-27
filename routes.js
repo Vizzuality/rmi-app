@@ -24,4 +24,7 @@ routes.add('corrigenda', '/:language/corrigenda', 'corrigenda');
 routes.add('sources', '/:language/sources', 'sources');
 routes.add('index', '/:language', 'index');
 
+// 404
+routes.add('notFound', '*', '404');
+
 module.exports = routes;
