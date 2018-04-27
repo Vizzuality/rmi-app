@@ -19,9 +19,9 @@
   }
 
   .left-side {
-
     font-weight: $font-weight-light;
     color: $color-7;
+
     .go-back-link {
       font-size: $font-size-huge;
 
@@ -39,6 +39,10 @@
       margin: 0 0 0 35px;
       border-left: 1px solid rgba($color-7, .2);
       font-size: $font-size-huge;
+    }
+
+    @media print {
+      color: $color-1;
     }
   }
 
@@ -77,5 +81,7 @@
 
   @media print {
     position: initial;
+    background: $color-7;
+    box-shadow: none;
   }
 }

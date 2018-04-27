@@ -8,6 +8,7 @@ import styles from './modal-content-styles.scss';
 class ModalContent extends PureComponent {
   static propTypes = {
     leadingPractice: PropTypes.object,
+    currentLanguage: PropTypes.string.isRequired,
     toggleModal: PropTypes.func.isRequired,
     setSelectedLeadingPractice: PropTypes.func.isRequired
   }
@@ -20,7 +21,8 @@ class ModalContent extends PureComponent {
   }
 
   render() {
-    const { name, companies, description } = this.props.leadingPractice;
+    const { leadingPractice, currentLanguage } = this.props;
+    const { name, companies, description } = leadingPractice;
 
     return (
       <div className="c-modal-content">
@@ -35,7 +37,10 @@ class ModalContent extends PureComponent {
           >
             <Link
               route="companies"
-              params={{ company: company.id }}
+              params={{
+                company: company.id,
+                language: currentLanguage
+              }}
             >
               <a>{company.name}</a>
             </Link>

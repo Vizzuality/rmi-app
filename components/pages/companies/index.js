@@ -14,8 +14,7 @@ export { actions, reducers, initialState };
 export default connect(
   state => ({
     countries: state.countries.list,
-    paths: getUpdatedPaths(state),
-    responsive: state.responsive
+    paths: getUpdatedPaths(state)
   }),
   { ...actions }
 )(Companies);

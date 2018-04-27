@@ -199,7 +199,7 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
               route="sources"
               params={{ language: currentLanguage }}
             >
-              <a className="sources-link -black">Sources</a>
+              <a className="sources-link -black">See list of sources</a>
             </Link>
           </div>
         </section>

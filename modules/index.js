@@ -1,5 +1,8 @@
 import { handleModule } from 'redux-tools';
 
+// third-party
+import { loadingBarReducer } from 'react-redux-loading-bar';
+
 // common modules
 import appModule from 'modules/app';
 import routesModule from 'modules/routes';
@@ -31,6 +34,7 @@ import * as ResultsDetailPageModule from 'components/pages/results-detail';
 
 export default {
   app: handleModule(appModule),
+  loadingBar: loadingBarReducer,
   responsive: handleModule(responsiveModule),
   routes: handleModule(routesModule),
   language: handleModule(languageModule),

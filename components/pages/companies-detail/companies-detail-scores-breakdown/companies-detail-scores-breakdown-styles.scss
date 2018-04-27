@@ -77,5 +77,10 @@
     color: $color-7;
     font-size: $font-size-bigger;
     font-family: $font-family-2;
+
+    @media print {
+      background: $color-7;
+      color: $color-1;
+    }
   }
 }
