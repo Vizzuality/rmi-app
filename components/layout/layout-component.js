@@ -4,6 +4,7 @@ import MediaQuery from 'react-responsive';
 import { Router } from 'routes';
 
 // components
+import LoadingBar from 'react-redux-loading-bar';
 import Head from 'components/layout/head';
 import Icons from 'components/layout/icons';
 import Header from 'components/layout/header';
@@ -23,14 +24,21 @@ class Layout extends PureComponent {
     children: PropTypes.any.isRequired,
     footer: PropTypes.bool,
     responsive: PropTypes.object.isRequired,
-    toggleSidebar: PropTypes.func.isRequired
+    toggleSidebar: PropTypes.func.isRequired,
+    showLoading: PropTypes.func.isRequired,
+    hideLoading: PropTypes.func.isRequired
   }
 
   static defaultProps = { footer: true }
 
   componentDidMount() {
     Router.onRouteChangeStart = () => {
+      this.props.showLoading();
       this.props.toggleSidebar(false);
+    };
+
+    Router.onRouteChangeComplete = () => {
+      this.props.hideLoading();
     };
   }
 
@@ -46,6 +54,9 @@ class Layout extends PureComponent {
         />
         {/* Icons */}
         <Icons />
+
+        {/* progress bar */}
+        <LoadingBar className="c-progress-bar" />
 
         {/* mobile sidebar */}
         <MediaQuery
