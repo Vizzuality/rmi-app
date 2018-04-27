@@ -65,7 +65,7 @@ class MineSitesDetailCountryComparison extends PureComponent {
           route="sources"
           params={{ language: currentLanguage }}
         >
-          <a className="sources-link">Sources</a>
+          <a className="sources-link">See list of sources</a>
         </Link>
       </div>
     );

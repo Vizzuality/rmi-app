@@ -29,6 +29,11 @@ $circle-size: 10px;
         border-radius: 50%;
         border: 2px solid rgba($color-1, .5);
       }
+
+      @media print {
+        display: block;
+        page-break-inside: avoid;
+      }
     }
 
     > .legend-item-name {
@@ -37,6 +42,18 @@ $circle-size: 10px;
       font-size: $font-size-small;
       font-weight: $font-weight-light;
       color: $color-7;
+
+      @media print {
+        color: $color-1;
+      }
     }
+
+    @media print {
+      page-break-inside: avoid;
+    }
+  }
+
+  @media print {
+    page-break-inside: avoid;
   }
 }

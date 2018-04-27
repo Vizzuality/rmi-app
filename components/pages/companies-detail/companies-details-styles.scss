@@ -4,6 +4,10 @@
 
   .companies-detail-intro {
     background: $color-2;
+
+    @media print {
+      background: $color-7;
+    }
   }
 
   .companies-detail-preview {
@@ -18,7 +22,7 @@
     }
 
     @media print {
-      padding: calc(#{$header-company-detail-height}) 0 35px;
+      padding: 0 0 35px;
     }
   }
 }

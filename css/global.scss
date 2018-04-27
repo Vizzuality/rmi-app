@@ -4,8 +4,13 @@
 
   color: $color-7;
   font-style: italic;
+  text-decoration: underline;
 
   &.-black {
     color: $color-1;
+  }
+
+  @media print {
+    display: none;
   }
 }

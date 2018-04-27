@@ -17,6 +17,10 @@
       &:last-child {
         padding-right: 0;
       }
+
+      @media print {
+        color: $color-1 !important;
+      }
     }
   }
 
