@@ -83,14 +83,6 @@ class Footer extends PureComponent {
                           <a>Corrigenda</a>
                         </Link>
                       </li>
-                      <li className="footer-nav-links-item">
-                        <Link
-                          route="sources"
-                          params={{ language: currentLanguage }}
-                        >
-                          <a>Sources</a>
-                        </Link>
-                      </li>
                     </ul>
                     <Link
                       route="foundation"

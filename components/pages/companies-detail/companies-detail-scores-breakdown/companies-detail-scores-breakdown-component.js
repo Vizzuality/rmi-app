@@ -195,12 +195,6 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
                 /> : <Unknowndata asOf={false} text="No case" />}
               </div>
             </div>
-            <Link
-              route="sources"
-              params={{ language: currentLanguage }}
-            >
-              <a className="sources-link -black">See list of sources</a>
-            </Link>
           </div>
         </section>
       </div>
