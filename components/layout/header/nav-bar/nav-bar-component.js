@@ -119,8 +119,8 @@ class NavBar extends PureComponent {
             key={tab.id}
             classPrefix="nav-submenu"
             constraints={[{
-              to: 'target',
-              attachment: 'together'
+              to: 'window',
+              pin: true
             }]}
           >
             <li

@@ -9,6 +9,7 @@ import Page from 'components/page';
 import Layout from 'components/layout';
 import MineSitePageComponent from 'components/pages/mine-sites';
 import MineSiteDetailPageComponent from 'components/pages/mine-sites-detail';
+import ErrorPage from 'pages/_error';
 
 // actions
 import { getCompanies } from 'modules/companies/companies-actions';
@@ -62,6 +63,7 @@ class MineSitesPage extends Page {
   }
 
   render() {
+    const { allowedMineSite } = this.props;
     const { mineSite } = this.props.url.query;
 
     return (
@@ -69,8 +71,9 @@ class MineSitesPage extends Page {
         title="Mine sites"
         description="Welcome to RMI | Mine sites"
       >
-        {mineSite ?
-          <MineSiteDetailPageComponent /> : <MineSitePageComponent />}
+        {mineSite && allowedMineSite && <MineSiteDetailPageComponent />}
+        {mineSite && !allowedMineSite && <ErrorPage />}
+        {!mineSite && <MineSitePageComponent />}
       </Layout>
     );
   }
@@ -78,6 +81,6 @@ class MineSitesPage extends Page {
 
 export default withRedux(
   initStore,
-  () => ({}),
+  state => ({ allowedMineSite: (state.mineSites.list[0] || {})['selected-for-mine-site-indicators'] }),
   {}
 )(MineSitesPage);

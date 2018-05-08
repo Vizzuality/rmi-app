@@ -74,7 +74,7 @@ class MineSite extends PureComponent {
           <div className="section -dark">
             <div className="l-layout">
               <div className="row">
-                <div className="col-md-4">
+                <div className="col-md-3">
                   <MediaQuery
                     maxDeviceWidth={breakpoints.md - 1}
                     values={{ deviceWidth: responsive.fakeWidth }}
@@ -87,7 +87,7 @@ class MineSite extends PureComponent {
                     onCloseTooltip={this.handleCloseTooltip}
                   />
                 </div>
-                <div className="col-md-8">
+                <div className="col-md-9">
                   <MediaQuery
                     minDeviceWidth={breakpoints.md}
                     values={{ deviceWidth: responsive.fakeWidth }}

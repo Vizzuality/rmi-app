@@ -6,6 +6,7 @@ import CompaniesService from 'services/companies';
 import ScoresService from 'services/scores';
 
 export const setCompanies = createAction('companies/setCompanies');
+export const resetCompanies = createAction('companies/resetCompanies');
 export const setCompaniesLoading = createAction('companies/setCompaniesLoading');
 export const setCompaniesScores = createAction('companies/setCompaniesScores');
 export const setCompaniesError = createAction('companies/setCompaniesError');
