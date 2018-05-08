@@ -11,9 +11,9 @@ class Head extends PureComponent {
   static propTypes = {
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
+    originalUrl: PropTypes.string.isRequired,
     setLanguages: PropTypes.func.isRequired,
-    setLanguagesLoading: PropTypes.func.isRequired,
-    setCurrentLanguage: PropTypes.func.isRequired
+    setLanguagesLoading: PropTypes.func.isRequired
   }
 
   componentDidMount() {
@@ -23,7 +23,7 @@ class Head extends PureComponent {
         this.props.setLanguages(languages);
         this.props.setLanguagesLoading(false);
       });
-      // Transifex.live.onTranslatePage(languageCode => this.props.setCurrentLanguage(languageCode));
+
       window.Transifex.live.getAllLanguages();
     };
     script.src = '//cdn.transifex.com/live.js';
@@ -31,7 +31,7 @@ class Head extends PureComponent {
   }
 
   render() {
-    const { title, description } = this.props;
+    const { title, description, originalUrl } = this.props;
 
     return (
       <HeadNext>
@@ -60,6 +60,12 @@ class Head extends PureComponent {
         <meta name="msapplication-TileColor" content="#ffffff" />
         <meta name="msapplication-TileImage" content="/static/favicon/ms-icon-144x144.png" />
         <meta name="theme-color" content="#ffffff" />
+
+        {/* Social media sharing  */}
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:url" content={originalUrl} />
+        <meta property="og:image" content="" />
 
         {/* Styles and scripts */}
         <link href="https://fonts.googleapis.com/css?family=Yantramanav:300,400,500" rel="stylesheet" />
@@ -104,7 +110,7 @@ class Head extends PureComponent {
 }
 
 export default connect(
-  null,
+  state => ({ originalUrl: state.routes.originalUrl }),
   {
     setLanguages,
     setLanguagesLoading,
