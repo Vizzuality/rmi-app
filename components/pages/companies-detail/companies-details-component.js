@@ -22,7 +22,8 @@ class CompaniesDetail extends PureComponent {
     paths: PropTypes.array.isRequired,
     issueAreas: PropTypes.array.isRequired,
     mineSites: PropTypes.array.isRequired,
-    setIssueArea: PropTypes.func.isRequired
+    setIssueArea: PropTypes.func.isRequired,
+    resetCompanies: PropTypes.func.isRequired
   }
 
   static setCountryColor = geographyProperties => getCompanyCountryColor(geographyProperties);
@@ -30,6 +31,10 @@ class CompaniesDetail extends PureComponent {
   componentWillMount() {
     const initialIssueArea = (this.props.issueAreas[0] || {}).id;
     this.props.setIssueArea(initialIssueArea);
+  }
+
+  componentWillUnmount() {
+    this.props.resetCompanies();
   }
 
   render() {

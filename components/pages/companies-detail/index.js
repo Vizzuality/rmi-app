@@ -1,4 +1,8 @@
 import { connect } from 'react-redux';
+
+// actions
+import { resetCompanies } from 'modules/companies/companies-actions';
+
 import CompaniesDetailPage from './companies-details-component';
 
 // selectors
@@ -16,6 +20,9 @@ export default connect(
     issueAreas: getIssueAreas(state),
     mineSites: getMarkers(state)
   }),
-  { setIssueArea: actions.setIssueArea }
+  {
+    setIssueArea: actions.setIssueArea,
+    resetCompanies
+  }
 )(CompaniesDetailPage);
 
