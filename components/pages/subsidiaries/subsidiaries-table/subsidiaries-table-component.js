@@ -8,12 +8,12 @@ import Paginator from 'components/common/paginator';
 import Spinner from 'components/common/spinner';
 
 // constants
-import { DOCUMENTS_TABLE_COLUMNS, TABLE_SIZE_VALUES } from './library-table-constants';
+import { SUBSIDIARIES_TABLE_COLUMNS, TABLE_SIZE_VALUES } from './subsidiaries-table-constants';
 
 // styles
-import styles from './library-table-styles.scss';
+import styles from './subsidiaries-table-styles.scss';
 
-class LibraryTable extends PureComponent {
+class SubsidiariesTable extends PureComponent {
   static propTypes = {
     data: PropTypes.array.isRequired,
     pagination: PropTypes.object.isRequired,
@@ -45,12 +45,12 @@ class LibraryTable extends PureComponent {
     const { size, page, limit } = pagination;
 
     return (
-      <div className="c-library-table">
+      <div className="c-subsidiaries-table">
         <style jsx>{styles}</style>
         <div className="table-container">
           {loading && <Spinner />}
           <Table
-            columns={DOCUMENTS_TABLE_COLUMNS}
+            columns={SUBSIDIARIES_TABLE_COLUMNS}
             rows={data}
           />
         </div>
@@ -79,4 +79,4 @@ class LibraryTable extends PureComponent {
   }
 }
 
-export default LibraryTable;
+export default SubsidiariesTable;
