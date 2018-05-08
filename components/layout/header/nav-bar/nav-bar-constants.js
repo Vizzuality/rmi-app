@@ -105,7 +105,7 @@ export const FOUNDATION_NAVIGATION = [{
     label: 'Methodology 2017',
     slug: 'methodology-2017',
     query: {
-      route: 'methodology-2017',
+      route: 'methodology-year',
       params: {}
     }
   }]
