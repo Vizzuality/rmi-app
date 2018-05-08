@@ -46,7 +46,6 @@ class IndexPage extends PureComponent {
                   >
                     <a
                       className="summary-link"
-                      download
                     >
                       Download Summary
                     </a>
@@ -164,13 +163,16 @@ class IndexPage extends PureComponent {
                     </Link>
                   </Button>
 
-                  <a
-                    href="/resources/RMI_2018_report-WEB.pdf"
-                    className="summary-link"
-                    download
+                  <Link
+                    route="downloads"
+                    params={{ language: currentLanguage }}
                   >
-                    Download Summary
-                  </a>
+                    <a
+                      className="summary-link"
+                    >
+                      Download Summary
+                    </a>
+                  </Link>
                 </div>
               </div>
             </div>
