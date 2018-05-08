@@ -50,6 +50,8 @@ class Map extends PureComponent {
     this.tip.create();
   }
 
+  componentWillUnmount() { this.tip.hide(); }
+
   handleMove = (geography, evt) => {
     const x = evt.clientX;
     const y = evt.clientY + window.pageYOffset;
