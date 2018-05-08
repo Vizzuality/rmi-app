@@ -7,7 +7,10 @@ class Error extends Component {
     return (
       <div className="c-error-page">
         <style jsx global>{styles}</style>
-        <p>I am the error page! Give me some love!</p>
+
+        <span className="code">404</span>
+        <p className="description">This page doesn&apos;t exist. Please, go back to <a href="/">Resource Mining Index</a>.
+        </p>
       </div>
     );
   }
