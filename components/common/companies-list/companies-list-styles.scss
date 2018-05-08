@@ -9,6 +9,8 @@
     margin: -10px 0 0;
 
     .row.-equal-height div[class*=col] {
+      margin-top: 10px;
+
       padding-left: 5px;
       padding-right: 5px;
     }
