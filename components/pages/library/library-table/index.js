@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import isEqual from 'lodash/isEqual';
 
 // actions
-import { setPaginationPage, setPaginationLimit, resetPagination, getDocuments } from 'modules/documents/documents-actions';
+import { setPaginationPage, setPaginationLimit, resetPagination, getDocuments, resetSearch } from 'modules/documents/documents-actions';
 
 // selectors
 import { parseDocuments } from './library-table-selectors';
@@ -17,7 +17,8 @@ class LibrayTableContainer extends PureComponent {
     search: PropTypes.string.isRequired,
     pagination: PropTypes.object.isRequired,
     filters: PropTypes.object.isRequired,
-    getDocuments: PropTypes.func.isRequired
+    getDocuments: PropTypes.func.isRequired,
+    resetSearch: PropTypes.func.isRequired
   }
 
   componentWillReceiveProps(nextProps) {
@@ -59,6 +60,7 @@ export default connect(
     getDocuments,
     setPaginationPage,
     setPaginationLimit,
-    resetPagination
+    resetPagination,
+    resetSearch
   }
 )(LibrayTableContainer);
