@@ -53,4 +53,8 @@
   :global(i) {
     font-style: italic;
   }
+
+  :global(a) {
+    color: $color-8;
+  }
 }
