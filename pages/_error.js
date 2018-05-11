@@ -1,19 +1,29 @@
-import React, { Component } from 'react';
+import React from 'react';
 
+// components
+import Page from 'components/page';
+import Layout from 'components/layout';
+
+// styles
 import styles from 'css/pages/error.scss';
 
-class Error extends Component {
+class ErrorPage extends Page {
   render() {
     return (
-      <div className="c-error-page">
+      <Layout
+        title="Error"
+        description="Welcome to RMI | This page does not exist"
+      >
         <style jsx global>{styles}</style>
-
-        <span className="code">404</span>
-        <p className="description">This page doesn&apos;t exist. Please, go back to <a href="/">Resource Mining Index</a>.
-        </p>
-      </div>
+        <div className="c-error-page">
+          <span className="code">404</span>
+          <p className="description">This page does not exist. Please, go back to&nbsp;
+            <a href="/">Resource Mining Index</a>.
+          </p>
+        </div>
+      </Layout>
     );
   }
 }
 
-export default Error;
+export default ErrorPage;
