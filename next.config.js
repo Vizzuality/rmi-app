@@ -29,7 +29,8 @@ module.exports = {
       'process.env.GOOGLE_MAPS_API_KEY': JSON.stringify(process.env.GOOGLE_MAPS_API_KEY),
       'process.env.ANALYTICS_URL': JSON.stringify(process.env.ANALYTICS_URL),
       'process.env.TRANSIFEX_API_KEY': JSON.stringify(process.env.TRANSIFEX_API_KEY),
-      'process.env.TRANSIFEX_STAGING': JSON.stringify(process.env.TRANSIFEX_STAGING)
+      'process.env.TRANSIFEX_STAGING': JSON.stringify(process.env.TRANSIFEX_STAGING),
+      'process.env.STAGING': JSON.stringify(process.env.STAGING)
     }));
 
     return config;

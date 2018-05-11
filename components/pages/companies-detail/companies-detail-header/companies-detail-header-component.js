@@ -54,18 +54,19 @@ class CompaniesDetailHeader extends PureComponent {
                   ))}
                 </div>
 
-                <div className="pdf-print">
-                  <button
-                    className="print-btn"
-                    onClick={this.handlePrint}
-                  >
-                    <Icon
-                      name="download"
-                      className="-big -download -reverse"
-                    />
-                    Download in PDF
-                  </button>
-                </div>
+                {process.env.STAGING &&
+                  <div className="pdf-print">
+                    <button
+                      className="print-btn"
+                      onClick={this.handlePrint}
+                    >
+                      <Icon
+                        name="download"
+                        className="-big -download -reverse"
+                      />
+                      Download in PDF
+                    </button>
+                </div>}
               </div>
             </div>
           </div>
