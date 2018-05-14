@@ -71,10 +71,7 @@ class OverallChartContainer extends PureComponent {
 }
 
 export default connect(
-  state => ({
-    data: parseScores(state),
-    responsive: state.responsive
-  }),
+  state => ({ data: parseScores(state) }),
   {
     setSelectedCompany,
     resetSelectedCompany
