@@ -12,9 +12,14 @@
 
     .title {
       font-family: $font-family-2;
-      font-size: $font-size-giant;
+      font-size: $font-size-bigger;
+
       color: $color-7;
       line-height: 1.2;
+
+      @media #{$mq-md} {
+        font-size: $font-size-giant;
+      }
     }
 
     .subtitle {
