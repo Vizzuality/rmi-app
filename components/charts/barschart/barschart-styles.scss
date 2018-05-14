@@ -2,9 +2,13 @@
 
 .c-barchart {
 
-  text > tspan {
+  :global(text > tspan) {
+    font-size: 12px;
     fill: $color-7;
 
+    @media #{$mq-md} {
+      font-size: $font-size-regular;
+    }
   }
 
   @media print {
