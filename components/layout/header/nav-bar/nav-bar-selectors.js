@@ -14,7 +14,7 @@ export const getNavigation = createSelector(
   [routeRoot, navChildren, indicators, currentLanguage],
   (_routeRoot, _navChildren, _indicators, _currentLanguage) => {
     const isFoundation = _routeRoot === 'foundation';
-    const { resultsChildren, aboutChildren } = _navChildren;
+    const { resultsChildren, aboutChildren, indexChildren } = _navChildren;
     const mainNav = isFoundation ? [...FOUNDATION_NAVIGATION] : [...INDEX_NAVIGATION];
     let firstStaticPages = [];
 
@@ -98,6 +98,34 @@ export const getNavigation = createSelector(
       if (currentTreeIndex === -1) return mainNav;
       const currentTree = mainNav[currentTreeIndex];
       const treeWithChildren = Object.assign({}, currentTree, { children });
+
+      mainNav[currentTreeIndex] = treeWithChildren;
+    }
+
+    // index tree
+    if (isFoundation && indexChildren) {
+      const children = indexChildren.map(indexChild => ({
+        id: indexChild.id,
+        label: indexChild.title,
+        query: {
+          route: 'foundation-indexes',
+          params: {
+            language: _currentLanguage,
+            section: indexChild.slug
+          }
+        }
+      }));
+
+      const currentTreeIndex = mainNav.findIndex(tree => tree.query.route === 'index');
+      if (currentTreeIndex === -1) return mainNav;
+      const currentTree = mainNav[currentTreeIndex];
+      const treeWithChildren = {
+        ...currentTree,
+        children: [
+          ...currentTree.children,
+          ...children
+        ]
+      };
 
       mainNav[currentTreeIndex] = treeWithChildren;
     }

@@ -4,6 +4,7 @@ import Jsona from 'jsona';
 // services
 import AboutService from 'services/foundation/about';
 import ResultsSectionService from 'services/results-section';
+import IndexService from 'services/foundation/index';
 
 export const setContent = createAction('navigation/setContent');
 
@@ -34,8 +35,21 @@ export const getAboutTree = createThunkAction('navigation/getAboutTree', (_optio
         .catch(errors => reject(errors));
     }));
 
+export const getIndexTree = createThunkAction('navigation/getIndexTree', (_options = {}) =>
+  dispatch =>
+    new Promise((resolve, reject) => {
+      IndexService.getIndexes(_options)
+        .then((data) => {
+          const parsedData = new Jsona().deserialize(data);
+          resolve(parsedData);
+          dispatch(setContent({ indexChildren: parsedData }));
+        })
+        .catch(errors => reject(errors));
+    }));
+
 export default {
   setContent,
   getResultsTree,
-  getAboutTree
+  getAboutTree,
+  getIndexTree
 };

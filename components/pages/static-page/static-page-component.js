@@ -5,11 +5,13 @@ import PropTypes from 'prop-types';
 import Spinner from 'components/common/spinner';
 import CustomContent from 'components/common/custom-content';
 
-class DownloadsPage extends PureComponent {
+class StaticPage extends PureComponent {
   static propTypes = {
     content: PropTypes.object.isRequired,
-    loading: PropTypes.bool.isRequired
+    loading: PropTypes.bool
   }
+
+  static defaultProps = { loading: false }
 
   render() {
     const { content, loading } = this.props;
@@ -18,7 +20,7 @@ class DownloadsPage extends PureComponent {
     return (
       <div className="c-static-page">
         {loading ? <Spinner /> :
-        <section className="section -gray">
+        <section className="section">
           <div className="l-layout">
             <div className="row">
               <div className="col-xs-12">
@@ -35,4 +37,4 @@ class DownloadsPage extends PureComponent {
   }
 }
 
-export default DownloadsPage;
+export default StaticPage;
