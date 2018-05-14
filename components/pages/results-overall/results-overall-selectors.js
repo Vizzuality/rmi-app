@@ -2,17 +2,21 @@
 import { createSelector } from 'reselect';
 
 const issueAreas = state => state.indicators.list;
+const currentLanguage = state => state.language.current;
 
 export const parseIssueAreas = createSelector(
-  [issueAreas],
-  (_issueAreas = []) => {
+  [issueAreas, currentLanguage],
+  (_issueAreas = [], _currentLanguage) => {
     const overallOption = [{
       id: 0,
       label: 'Overall',
       value: 'overall',
       query: {
         route: 'results',
-        params: { section: 'overall' }
+        params: {
+          section: 'overall',
+          language: _currentLanguage
+        }
       }
     }];
 
@@ -24,7 +28,8 @@ export const parseIssueAreas = createSelector(
         route: 'results',
         params: {
           section: 'thematic',
-          id: issueArea.id
+          id: issueArea.id,
+          language: _currentLanguage
         }
       }
     }));
