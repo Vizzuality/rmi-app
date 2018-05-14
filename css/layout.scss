@@ -10,10 +10,9 @@
 }
 
 .layout-content {
-
   padding: $header-height-mobile 0 0;
 
-  @media #{$mq-sm} {
+  @media #{$mq-md} {
     padding: $header-height 0 0;
   }
 }

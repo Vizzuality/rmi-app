@@ -24,6 +24,7 @@ class Map extends PureComponent {
     markers: PropTypes.array,
     setCountryColor: PropTypes.func.isRequired,
     legend: PropTypes.array.isRequired,
+    responsive: PropTypes.object.isRequired,
     onClickGeography: PropTypes.func
   }
 
@@ -96,8 +97,9 @@ class Map extends PureComponent {
   }
 
   render() {
-    const { paths, legend, setCountryColor, onClickGeography } = this.props;
+    const { paths, legend, setCountryColor, onClickGeography, responsive } = this.props;
     const { minZoom, maxZoom } = MAP_DEFAULT_OPTIONS;
+    const { mobile } = responsive;
     const { zoom, center } = this.state;
     const markers = this.renderMarkers();
     const isZoomInDisabled = zoom === maxZoom;
@@ -119,6 +121,7 @@ class Map extends PureComponent {
         </div>
         <ComposableMap
           projection="winkel3"
+          {...mobile && { height: 250 }}
           defs={
             <PatternLines
               id="lines"
