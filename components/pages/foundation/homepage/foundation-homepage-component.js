@@ -61,7 +61,7 @@ class FoundationHomepagePage extends PureComponent {
         <section className="section -mining-society -gray">
           <div className="l-layout">
             <div className="row center-xs">
-              <div className="col-md-10">
+              <div className="col-xs-12 col-md-10">
                 <h4 className="title">{societyTitle}</h4>
                 <p className="subtitle">{societySummary}</p>
                 <div className="button-box">
@@ -83,21 +83,21 @@ class FoundationHomepagePage extends PureComponent {
           <section className="section -index">
             <div className="l-layout">
               <div className="row center-xs -no-text-align">
-                <div className="col-md-10">
+                <div className="col-xs-12 col-md-10">
                   <div className="row">
                     <div className="col-xs-12">
                       <h4 className="title">{indexTitle}</h4>
                     </div>
                   </div>
                   <div className="row">
-                    <div className="col-md-6">
+                    <div className="col-xs-12 col-md-6">
                       <div className="highlight">
                         <CustomContent>
                           <div className="content" dangerouslySetInnerHTML={{ __html: indexText }} />
                         </CustomContent>
                       </div>
                     </div>
-                    <div className="col-md-5 col-md-offset-1">
+                    <div className="col-xs-12 col-md-5 col-md-offset-1">
                       <div className="sidenote">
                         <div className="sidenote-content" dangerouslySetInnerHTML={{ __html: indexSidenote }} />
                         <div className="button-box">
@@ -124,7 +124,7 @@ class FoundationHomepagePage extends PureComponent {
             <section className="section">
               <div className="l-layout">
                 <div className="row center-xs -no-text-align">
-                  <div className="col-md-10">
+                  <div className="col-xs-12 col-md-10">
                     {!isEmpty(roadmapTitle) &&
                       <h4 className="title">{roadmapTitle}</h4>}
                     {!isEmpty(roadmapText) &&

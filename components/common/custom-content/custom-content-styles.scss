@@ -8,7 +8,11 @@
   }
 
   :global(.content) {
-    margin: 55px 0 0;
+    margin: 15px 0 0;
+
+    @media #{$mq-md} {
+      margin: 55px 0 0;
+    }
   }
 
   :global(.section-title) {
