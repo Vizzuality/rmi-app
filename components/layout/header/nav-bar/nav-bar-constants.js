@@ -100,14 +100,6 @@ export const FOUNDATION_NAVIGATION = [{
       route: 'index',
       params: {}
     }
-  }, {
-    id: '9-2',
-    label: 'Methodology 2017',
-    slug: 'methodology-2017',
-    query: {
-      route: 'methodology-year',
-      params: {}
-    }
   }]
 }];
 

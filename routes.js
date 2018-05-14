@@ -9,7 +9,6 @@ routes.add('context', '/:language/foundation/context', 'foundation-pages/mining-
 routes.add('about', '/:language/foundation/about/:section?', 'foundation-pages/about');
 routes.add('media', '/:language/foundation/media/:section?', 'foundation-pages/media');
 routes.add('contact', '/:language/foundation/contact', 'foundation-pages/contact');
-routes.add('methodology-year', '/:language/foundation/methodology-2017', 'foundation-pages/methodology-year');
 routes.add('foundation-indexes', '/:language/foundation/index/:section', 'foundation-pages/indexes');
 routes.add('foundation', '/:language/foundation', 'foundation');
 
