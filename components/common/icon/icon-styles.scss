@@ -24,8 +24,12 @@
   }
 
   &.-large-arrow {
-    width: 53px;
+    width: 33px;
     height: 16px;
+
+    @media #{$mq-md} {
+      width: 53px;
+    }
   }
 
   &.-download {

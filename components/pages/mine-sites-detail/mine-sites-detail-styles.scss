@@ -15,7 +15,11 @@
   }
 
   .mine-sites-detail-preview {
-    padding: calc(#{$header-company-detail-height} + 35px) 0 35px;
+    padding: calc(#{$header-company-detail-height} + 75px) 0 35px;
+
+    @media #{$mq-sm} {
+      padding: calc(#{$header-company-detail-height} + 35px) 0 35px;
+    }
 
     @media print {
       padding: 0 0 35px;
