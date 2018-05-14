@@ -7,7 +7,7 @@ import { setRoute } from 'modules/routes/routes-actions';
 import { mobileParser } from 'react-responsive-redux';
 import { setMobileDetect } from 'modules/responsive/responsive-actions';
 import { setCurrentLanguage } from 'modules/language/languages-actions';
-import { getResultsTree, getAboutTree } from 'modules/navigation/navigation-actions';
+import { getResultsTree, getAboutTree, getIndexTree } from 'modules/navigation/navigation-actions';
 import { getIndicators } from 'modules/indicators/indicators-actions';
 
 // helpers
@@ -43,9 +43,10 @@ class Page extends PureComponent {
       await store.dispatch(getResultsTree({ sort: 'position' }));
     }
 
-    // retrieves about tree to populate navigation
+    // retrieves about and index tree to populate navigation
     if (isFoundation) {
       await store.dispatch(getAboutTree({ include: ['about-sections'].join(',') }));
+      await store.dispatch(getIndexTree({ sort: 'position' }));
     }
 
     return { routes };
