@@ -24,17 +24,25 @@
     margin: 25px 0 0;
 
     font-family: $font-family-1;
-    font-size: $font-size-huge;
+    font-size: $font-size-big;
     font-weight: $font-weight-light;
     line-height: 1.21;
+
+    @media #{$mq-md} {
+      font-size: $font-size-huge;
+    }
   }
 
   .summary {
     margin: 75px 0 0;
 
-    font-size: $font-size-bigger;
+    font-size: $font-size-big;
     font-weight: $font-weight-light;
     line-height: 1.66;
+
+    @media #{$mq-md} {
+      font-size: $font-size-huge;
+    }
   }
 
   .thematic-description {
