@@ -10,7 +10,7 @@ import styles from './companies-detail-header-styles.scss';
 
 class CompaniesDetailHeader extends PureComponent {
   static propTypes = {
-    company: PropTypes.array.isRequired,
+    company: PropTypes.object.isRequired,
     currentLanguage: PropTypes.string.isRequired
   }
 
@@ -18,7 +18,7 @@ class CompaniesDetailHeader extends PureComponent {
 
   render() {
     const { company, currentLanguage } = this.props;
-    const { name, listings } = company[0] || {};
+    const { name, listings } = company;
     const parsedListings = (listings || '').split(' - ')
       .map(list => list.split(':'));
 
@@ -66,7 +66,7 @@ class CompaniesDetailHeader extends PureComponent {
                       />
                       Download in PDF
                     </button>
-                </div>}
+                  </div>}
               </div>
             </div>
           </div>

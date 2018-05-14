@@ -5,9 +5,7 @@ import PropTypes from 'prop-types';
 import Spinner from 'components/common/spinner';
 
 class CompaniesDetailSidebar extends PureComponent {
-  static propTypes = { company: PropTypes.object }
-
-  static defaultProps = { company: {} }
+  static propTypes = { company: PropTypes.object.isRequired }
 
   render() {
     const { company } = this.props;
@@ -104,7 +102,10 @@ class CompaniesDetailSidebar extends PureComponent {
                             {fatalityReport.workers !== null
                               && <span>Workers: {fatalityReport.workers.toLocaleString()}</span>}
                             {fatalityReport.workers === null
-                              && <span>Employees: {fatalityReport.employees.toLocaleString()}</span>}
+                              &&
+                                <span>
+                                  Employees: {fatalityReport.employees.toLocaleString()}
+                                </span>}
                             {fatalityReport.workers === null
                               &&
                                 <span>

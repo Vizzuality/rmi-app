@@ -1,7 +1,11 @@
 import { connect } from 'react-redux';
+
+// selectors
+import { getCompany } from './companies-detail-sidebar-selectors';
+
 import CompaniesDetailSidebar from './companies-detail-sidebar-component';
 
 export default connect(
-  state => ({ company: state.companies.list[0] }),
-  {}
+  state => ({ company: getCompany(state) }),
+  null
 )(CompaniesDetailSidebar);
