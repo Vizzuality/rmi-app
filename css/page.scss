@@ -6,15 +6,18 @@
     padding: 75px 0;
   }
 
-
   .c-breadcrumbs + .title {
     margin: 25px 0 0;
   }
 
   .title {
     font-family: $font-family-2;
-    font-size: $font-size-giant;
+    font-size: $font-size-bigger;
     line-height: 1.33;
+
+    @media #{$mq-md} {
+      font-size: $font-size-giant;
+    }
   }
 
   .subtitle {
