@@ -6,6 +6,7 @@ import styles from './custom-content-styles.scss';
 
 class CustomContent extends PureComponent {
   static propTypes = { children: PropTypes.any.isRequired }
+
   render() {
     return (
       <div className="c-custom-content">

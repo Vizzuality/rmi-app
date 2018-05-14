@@ -3,16 +3,20 @@
 .c-map {
   position: relative;
 
-  > :global(.rsm-svg) {
+  :global(.rsm-svg) {
     width: 100%;
   }
 
   .zoom-controls {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    display: flex;
-    flex-direction: column;
+    display: none;
+
+    @media #{$mq-sm} {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 15px;
+      right: 15px;
+    }
 
     > button {
       display: flex;
@@ -30,8 +34,10 @@
         cursor: default;
       }
 
-      & + button {
-        margin: 5px 0 0;
+      @media #{$mq-sm} {
+        & + button {
+          margin: 5px 0 0;
+        }
       }
     }
 

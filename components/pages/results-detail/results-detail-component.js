@@ -18,8 +18,7 @@ class ResultsDetail extends PureComponent {
   static propTypes = {
     selectedArea: PropTypes.object.isRequired,
     issueAreas: PropTypes.array.isRequired,
-    currentLanguage: PropTypes.string.isRequired,
-    responsive: PropTypes.object.isRequired
+    currentLanguage: PropTypes.string.isRequired
   }
 
   handleAreaSelection = ({ query }) => {
@@ -34,7 +33,7 @@ class ResultsDetail extends PureComponent {
   })
 
   render() {
-    const { issueAreas, selectedArea, responsive } = this.props;
+    const { issueAreas, selectedArea } = this.props;
     const { observation, slug, id, summary } = selectedArea || {};
 
     return (

@@ -7,14 +7,19 @@
 
     background-image: url('/static/images/homepage_background.jpg');
     background-size: cover;
-    background-position: bottom center;
+    background-position: 50% 75%;
     background-repeat: no-repeat;
 
     .title {
       font-family: $font-family-2;
-      font-size: $font-size-giant;
+      font-size: $font-size-bigger;
+
       color: $color-7;
       line-height: 1.2;
+
+      @media #{$mq-md} {
+        font-size: $font-size-giant;
+      }
     }
 
     .subtitle {

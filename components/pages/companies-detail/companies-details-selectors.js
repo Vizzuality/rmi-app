@@ -6,25 +6,21 @@ import compact from 'lodash/compact';
 import { EXCLUDED_COUNTRIES } from 'constants/map';
 
 const countries = state => state.countries.list;
-const company = state => state.companies.list[0];
-const indicators = state => state.indicators.list;
+const companies = state => state.companies.list;
 const companyId = state => state.routes.query.company;
+const indicators = state => state.indicators.list;
+
+export const getCompany = createSelector(
+  [companies, companyId],
+  (_companies, _companyId) => _companies.find(comp => comp.id === _companyId) || {}
+);
 
 export const getUpdatedPaths = createSelector(
-  [countries, company, companyId],
-  (_countries = [], _company = {}, _companyId) => {
-
-    if(_company.id !== _companyId) {
-      return paths.map((geography, index) => ({
-        ...geography,
-        properties: {
-          ...geography.properties,
-          id: index
-        }
-      }));
-    }
-
-    if(!Object.keys(_company).length) {
+  [countries, getCompany],
+  (_countries = [], _company = {}) => {
+    // if the company is not found yet or countries are not loaded,
+    // return the map without any country filled
+    if (!_countries.length && !Object.keys(_company).length) {
       return paths.map((geography, index) => ({
         ...geography,
         properties: {
@@ -40,7 +36,6 @@ export const getUpdatedPaths = createSelector(
           country: companyCountry,
           'secondary-country': companySecondaryCountry,
           'producing-countries': companyProducingCountries
-
         } = _company;
         const homeCountries = [(companyCountry || {}).code, (companySecondaryCountry || {}).code];
         const producingCountries = (companyProducingCountries || []).map(country => country.code);
@@ -58,7 +53,7 @@ export const getUpdatedPaths = createSelector(
             isProducing: producingCountries.includes((country || {}).code)
           }
         };
-      })
+      });
   }
 
 );
@@ -70,7 +65,7 @@ export const getIssueAreas = createSelector(
 );
 
 export const getMarkers = createSelector(
-  company,
+  getCompany,
   (_company = {}) =>
     (_company['selected-mine-sites'] || []).map(mineSite => ({
       id: mineSite.id,
