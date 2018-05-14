@@ -13,7 +13,7 @@
 
   padding: $header-height-mobile 0 0;
 
-  @media #{$mq-md} {
+  @media #{$mq-sm} {
     padding: $header-height 0 0;
   }
 }
