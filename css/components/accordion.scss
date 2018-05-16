@@ -74,7 +74,26 @@
     }
 
     @media print {
-      color: $color-1;
+      color: $color-1 !important;
+
+      :global(.row) {
+        :global(.col-xs-12:first-child) {
+          flex-basis: 75%;
+          max-width: 75%;
+        }
+
+        :global(.col-xs-12:last-child) {
+          flex-basis: 25%;
+          max-width: 25%;
+        }
+      }
+    }
+
+
+    @media print {
+      :global(.block-title) {
+        color: $color-1 !important;
+      }
     }
   }
 
@@ -82,6 +101,11 @@
     display: none;
     opacity: 0;
     animation: fadein .35s ease-in;
+
+    // @media print {
+    //   opacity: 1;
+    //   display: block;
+    // }
   }
 
   &:first-child {

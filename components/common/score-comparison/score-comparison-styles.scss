@@ -30,6 +30,11 @@ $bar-height: 40px;
 
     > .score-value-string {
       font-size: $font-size-big;
+      color: $color-7;
+
+      @media print {
+        color: $color-1;
+      }
     }
 
     > .zero-value {
@@ -60,6 +65,11 @@ $bar-height: 40px;
       span {
         display: block;
         line-height: 1.1;
+        color: $color-7;
+
+        @media print {
+          color: $color-1;
+        }
 
         &:last-child {
           text-align: right;
@@ -114,6 +124,8 @@ $bar-height: 40px;
   }
 
   @media print {
+    page-break-before: avoid;
     page-break-inside: avoid;
+    page-break-after: avoid;
   }
 }

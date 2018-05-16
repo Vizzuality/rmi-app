@@ -11,10 +11,14 @@ import styles from './mine-sites-detail-header-styles.scss';
 class MineSitesDetailHeader extends PureComponent {
   static propTypes = {
     mineSite: PropTypes.object.isRequired,
-    currentLanguage: PropTypes.string.isRequired
+    currentLanguage: PropTypes.string.isRequired,
+    togglePrintable: PropTypes.func.isRequired
   }
 
-  handlePrint = () => window.print();
+  handlePrint = () => {
+    this.props.togglePrintable(true);
+    // window.setTimeout(window.print(), 1000);
+  };
 
   render() {
     const { currentLanguage, mineSite } = this.props;

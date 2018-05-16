@@ -1,4 +1,5 @@
 @media print {
+  -webkit-print-color-adjust: exact;
   color: $color-1;
 
   :global(.c-paginator),

@@ -9,7 +9,10 @@ import ScoreComparison from 'components/common/score-comparison';
 import { SCORE_COMPARISON_CONFIG } from 'components/common/score-comparison/score-comparison-constants';
 
 class MineSitesDetailAccordion extends PureComponent {
-  static propTypes = { data: PropTypes.array.isRequired }
+  static propTypes = {
+    data: PropTypes.array.isRequired,
+    printable: PropTypes.bool.isRequired
+  }
 
   static renderContent(data = []) {
     if (!data.length) {
@@ -43,11 +46,12 @@ class MineSitesDetailAccordion extends PureComponent {
   }
 
   render() {
-    const { data } = this.props;
+    const { data, printable } = this.props;
 
     return (
       <div className="c-mine-sites-detail-accordion">
         <Accordion
+          accordion={!printable}
           data={data}
           contentRenderer={MineSitesDetailAccordion.renderContent}
         />

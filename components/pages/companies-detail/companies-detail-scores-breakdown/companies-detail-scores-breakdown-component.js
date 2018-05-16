@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'routes';
+import classnames from 'classnames';
 
 // global constants
 import { measurementColors } from 'constants/graph-colors';
@@ -11,6 +11,7 @@ import Table from 'components/common/table';
 import Summary from 'components/common/summary';
 import CompaniesDetailMineSitesList from './companies-detail-mine-sites-list';
 import CompaniesDetailAccordion from './companies-detail-accordion';
+import PrintableIssueAreas from './printable-issue-areas';
 import CompaniesDetailOverallMeasurements from './companies-detail-overall-measurements';
 import SubsidiariesTable from './subsidiaries-table';
 import Unknowndata from './unknown-data';
@@ -34,14 +35,16 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
     knownTaxJurisdictions: PropTypes.array.isRequired,
     company: PropTypes.array.isRequired,
     responsive: PropTypes.object.isRequired,
-    currentLanguage: PropTypes.string.isRequired
+    printable: PropTypes.bool
   }
+
+  static defaultProps = { printable: false }
 
   render() {
     const {
       company, breakdownScores, mineSites,
       shareholders, investmentDisputes, knownTaxJurisdictions,
-      responsive, currentLanguage
+      responsive, printable
     } = this.props;
     const {
       'shareholders-date': shareholdersDate,
@@ -49,6 +52,12 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
     } = company[0] || {};
 
     const { mobile } = responsive;
+
+    const sectionClass = classnames({
+      section: true,
+      'indicators-accordion': true,
+      '-dark': !printable
+    });
 
     return (
       <div className="c-companies-detail-scores-breakdown">
@@ -114,11 +123,11 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
           </div>
         </div>
 
-        <section className="section -dark indicators-accordion">
+        <section className={sectionClass}>
           <div className="l-layout">
             <div className="row">
               <div className="col-xs-12">
-                <CompaniesDetailAccordion />
+                {!printable ? <CompaniesDetailAccordion /> : <PrintableIssueAreas />}
               </div>
             </div>
           </div>
@@ -163,10 +172,12 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
                     {
                       property: 'percent-shares',
                       header: { label: 'Shares (%)' },
-                      props: { style: {
+                      props: {
+                        style: {
                           textAlign: 'right',
                           minWidth: 90
-                      } }
+                        }
+                      }
                     }
                   ]}
                   rows={shareholders}

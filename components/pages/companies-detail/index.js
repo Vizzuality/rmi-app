@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 
 // actions
 import { resetCompanies } from 'modules/companies/companies-actions';
+import { togglePrintable } from 'modules/app/app-actions';
 
 import CompaniesDetailPage from './companies-details-component';
 
@@ -18,11 +19,13 @@ export default connect(
   state => ({
     paths: getUpdatedPaths(state),
     issueAreas: getIssueAreas(state),
-    mineSites: getMarkers(state)
+    mineSites: getMarkers(state),
+    printable: state.app.printable
   }),
   {
     setIssueArea: actions.setIssueArea,
-    resetCompanies
+    resetCompanies,
+    togglePrintable
   }
 )(CompaniesDetailPage);
 

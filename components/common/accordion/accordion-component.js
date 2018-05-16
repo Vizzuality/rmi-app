@@ -13,15 +13,18 @@ import styles from './accordion-styles.scss';
 class CompaniesDetailAccordion extends PureComponent {
   static propTypes = {
     data: PropTypes.array.isRequired,
+    accordion: PropTypes.bool,
     contentRenderer: PropTypes.func.isRequired
   }
 
+  static defaultProps = { accordion: true }
+
   renderAccordionItem(data) {
     const { name, id } = data || {};
-    const { contentRenderer } = this.props;
+    const { contentRenderer, accordion } = this.props;
 
     return (
-      <AccordionItem key={id}>
+      <AccordionItem key={id} expanded={!accordion}>
         <style jsx>{styles}</style>
         <AccordionItemTitle>
           <h3 className="category-name">{name}</h3>
@@ -33,10 +36,10 @@ class CompaniesDetailAccordion extends PureComponent {
     );
   }
   render() {
-    const { data } = this.props;
+    const { data, accordion } = this.props;
 
     return (
-      <div className="c-accordion">
+      <div className="c-accordion" accordion={accordion}>
         <style jsx>{styles}</style>
         <Accordion accordion={false}>
           {data.map(d => this.renderAccordionItem(d))}
