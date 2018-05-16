@@ -45,10 +45,26 @@ class Footer extends PureComponent {
                     <ul className="footer-nav-links-list">
                       <li className="footer-nav-links-item">
                         <Link
+                          route="subsidiaries"
+                          params={{ language: currentLanguage }}
+                        >
+                          <a>Search by subsidiary</a>
+                        </Link>
+                      </li>
+                      <li className="footer-nav-links-item">
+                        <Link
                           route="library"
                           params={{ language: currentLanguage }}
                         >
                           <a>Document Library</a>
+                        </Link>
+                      </li>
+                      <li className="footer-nav-links-item">
+                        <Link
+                          route="downloads"
+                          params={{ language: currentLanguage }}
+                        >
+                          <a>Downloads</a>
                         </Link>
                       </li>
                       <li className="footer-nav-links-item">
@@ -64,15 +80,7 @@ class Footer extends PureComponent {
                           route="methodology"
                           params={{ language: currentLanguage }}
                         >
-                          <a>Application of Methodology</a>
-                        </Link>
-                      </li>
-                      <li className="footer-nav-links-item">
-                        <Link
-                          route="downloads"
-                          params={{ language: currentLanguage }}
-                        >
-                          <a>Downloads</a>
+                          <a>Methodology</a>
                         </Link>
                       </li>
                       <li className="footer-nav-links-item">
@@ -83,14 +91,7 @@ class Footer extends PureComponent {
                           <a>Corrigenda</a>
                         </Link>
                       </li>
-                      <li className="footer-nav-links-item">
-                        <Link
-                          route="subsidiaries"
-                          params={{ language: currentLanguage }}
-                        >
-                          <a>Search by subsidiary</a>
-                        </Link>
-                      </li>
+
                     </ul>
                     <Link
                       route="foundation"
