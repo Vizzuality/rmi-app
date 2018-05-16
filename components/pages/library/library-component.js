@@ -20,10 +20,10 @@ class Library extends PureComponent {
               </div>
               <div className="col-xs-12 col-md-7">
                 <p>
-                  This searchable document library includes
-                  approximately 2,000 source documents, which
-                  have been used in the assessment of the 30
-                  companies and 127 mine sites.
+                  This searchable document library includes approximately 2,000 source documents,
+                  which have been used in the assessment of the 30 companies and 127 mine sites.
+                  This library contains documents from mid-2015 to mid-2017, the assessment
+                  period covered in the RMI 2018 research.
                 </p>
               </div>
             </div>
