@@ -1,0 +1,103 @@
+@import 'css/settings';
+@import 'css/mixins';
+
+.c-printable-issue-areas {
+
+  .issue-area-list {
+    .issue-area-header {
+      display: flex;
+      align-items: center;
+      margin: 0 0 35px;
+
+      :global(.c-icon) {
+        fill: $color-7;
+      }
+
+      > .issue-area-title {
+        margin: 0 0 0 25px;
+        font-size: $font-size-bigger;
+        font-weight: $font-weight-light;
+        color: $color-1;
+      }
+    }
+  }
+
+  .issue-areas-indicators-list {
+    .issue-areas-indicators-header {
+      padding: 0 0 35px;
+      border-bottom: 1px solid rgba($color-1, .2);
+
+      .issue-areas-indicators-title {
+        position: relative;
+        padding: 0 0 0 50px;
+        color: $color-1;
+        text-transform: uppercase;
+        line-height: 1.25;
+
+        &:before {
+          content: '';
+          display: inline-block;
+          position: absolute;
+          top: 50%;
+          left: 0;
+          @include arrow(14px, 1px, rgba($color-1, .2), 'right');
+          transform: translate(0, -50%) rotate(45deg);
+
+          @media print {
+            @include arrow(14px, 1px, $color-1, 'right');
+          }
+        }
+      }
+    }
+  }
+
+  .issue-areas-indicators-children-list {
+    padding: 0 0 45px;
+
+    .indicator-child-block {
+      margin: 45px 0;
+      padding: 30px 0;
+
+      @media print {
+        page-break-before: avoid;
+        page-break-inside: avoid;
+        page-break-after: avoid;
+      }
+
+      .indicator-child-title {
+        color: $color-1;
+        line-height: 1.25;
+      }
+
+      :global(.row) {
+        :global(.col-xs-12:first-child) {
+          flex-basis: 75%;
+          max-width: 75%;
+        }
+
+        :global(.col-xs-12:last-child) {
+          flex-basis: 25%;
+          max-width: 25%;
+        }
+      }
+
+      :global(.c-score-comparison) {
+        color: $color-1;
+
+        :global(.score-value-string) {
+          color: $color-1 !important;
+        }
+
+        :global(.score-avg),
+        :global(.score-max),
+        :global(.score-min) {
+          border-color: $color-1 !important;
+
+          :global(span) {
+            color: $color-1 !important;
+          }
+        }
+      }
+    }
+  }
+}

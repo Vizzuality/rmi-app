@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 
 // components
 import Disclaimer from 'components/common/disclaimer';
@@ -14,6 +15,19 @@ import MineSitesDetailCountryComparison from './mine-sites-detail-country-compar
 import styles from './mine-sites-detail-styles.scss';
 
 class MineSitesDetail extends PureComponent {
+  static propTypes = {
+    printable: PropTypes.bool.isRequired,
+    togglePrintable: PropTypes.func.isRequired
+  }
+
+  componentDidUpdate(prevProps) {
+    const printableChanged = this.props.printable !== prevProps.printable;
+    if (this.props.printable && printableChanged) {
+      window.setTimeout(() => window.print(), 500);
+      window.setTimeout(() => this.props.togglePrintable(false), 500);
+    }
+  }
+
   render() {
     return (
       <div className="c-mine-sites-detail-page">

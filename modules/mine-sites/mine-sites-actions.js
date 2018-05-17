@@ -5,6 +5,7 @@ import Jsona from 'jsona';
 import MineSitesService from 'services/mine-sites';
 
 export const setMineSites = createAction('mine-sites/setMineSites');
+export const setMineSitesError = createAction('mine-sites/setMineSitesError');
 
 export const getMineSites = createThunkAction('mine-sites/getMineSites', _options =>
   dispatch =>
@@ -16,7 +17,10 @@ export const getMineSites = createThunkAction('mine-sites/getMineSites', _option
           resolve(parsedData);
           dispatch(setMineSites(parsedData));
         })
-        .catch(errors => reject(errors));
+        .catch(({ errors }) => {
+          dispatch(setMineSitesError(errors));
+          reject(errors);
+        });
     }));
 
 export const getMineSite = createThunkAction('mine-sites/getMineSite', _options =>
@@ -28,10 +32,13 @@ export const getMineSite = createThunkAction('mine-sites/getMineSite', _options 
         .then((data) => {
           const parsedData = new Jsona().deserialize(data);
 
-          resolve([parsedData]);
           dispatch(setMineSites([parsedData]));
+          resolve([parsedData]);
         })
-        .catch(errors => reject(errors));
+        .catch(({ errors }) => {
+          dispatch(setMineSitesError(errors));
+          reject(errors);
+        });
     });
   });
 

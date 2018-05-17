@@ -18,7 +18,7 @@ export default connect(
     knownTaxJurisdictions: parseKnownTaxJurisdictions(state),
     company: state.companies.list,
     responsive: state.responsive,
-    currentLanguage: state.language.current
+    printable: state.app.printable
   }),
   {}
 )(CompaniesDetailScoresBreakdown);

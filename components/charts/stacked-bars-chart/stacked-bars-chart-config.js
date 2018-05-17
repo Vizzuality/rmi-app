@@ -27,7 +27,6 @@ export default {
   strokeReferenceLine: '#bf3132',
   strokeDasharrayReferenceLine: '8',
   strokeWidth: 4,
-  labelReferenceLine: 'Current Best Practice',
   // tooltip config
   customTooltip: true
 };

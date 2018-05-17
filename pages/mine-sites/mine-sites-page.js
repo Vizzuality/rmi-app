@@ -24,7 +24,7 @@ class MineSitesPage extends Page {
 
     if (context.query.mineSite) {
       // gets mine site info and relationships
-      await context.store.dispatch(getMineSite({
+      context.store.dispatch(getMineSite({
         mineSiteId: context.query.mineSite,
         queryParams: {
           include: ['company', 'company.country', 'country',
@@ -63,8 +63,10 @@ class MineSitesPage extends Page {
   }
 
   render() {
-    const { allowedMineSite } = this.props;
+    const { allowedMineSite, mineSiteError } = this.props;
     const { mineSite } = this.props.url.query;
+
+    if ((mineSite && !allowedMineSite) || mineSiteError) return (<ErrorPage />);
 
     return (
       <Layout
@@ -72,7 +74,6 @@ class MineSitesPage extends Page {
         description="Welcome to RMI | Mine sites"
       >
         {mineSite && allowedMineSite && <MineSiteDetailPageComponent />}
-        {mineSite && !allowedMineSite && <ErrorPage />}
         {!mineSite && <MineSitePageComponent />}
       </Layout>
     );
@@ -81,6 +82,9 @@ class MineSitesPage extends Page {
 
 export default withRedux(
   initStore,
-  state => ({ allowedMineSite: (state.mineSites.list[0] || {})['selected-for-mine-site-indicators'] }),
-  {}
+  state => ({
+    allowedMineSite: (state.mineSites.list[0] || {})['selected-for-mine-site-indicators'],
+    mineSiteError: state.mineSites.error
+  }),
+  null
 )(MineSitesPage);

@@ -56,7 +56,8 @@ class MineSitesService {
               details: statusText
             }
           };
-          throw errorObject;
+
+          throw new Error(errorObject);
         })
         .then(data => resolve(data))
         .catch(errors => reject(errors));

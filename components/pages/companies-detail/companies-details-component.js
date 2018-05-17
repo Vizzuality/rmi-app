@@ -22,6 +22,7 @@ class CompaniesDetail extends PureComponent {
     paths: PropTypes.array.isRequired,
     issueAreas: PropTypes.array.isRequired,
     mineSites: PropTypes.array.isRequired,
+    printable: PropTypes.bool.isRequired,
     setIssueArea: PropTypes.func.isRequired,
     resetCompanies: PropTypes.func.isRequired
   }
@@ -31,6 +32,14 @@ class CompaniesDetail extends PureComponent {
   componentWillMount() {
     const initialIssueArea = (this.props.issueAreas[0] || {}).id;
     this.props.setIssueArea(initialIssueArea);
+  }
+
+  componentDidUpdate(prevProps) {
+    const printableChanged = this.props.printable !== prevProps.printable;
+    if (this.props.printable && printableChanged) {
+      window.setTimeout(() => window.print(), 500);
+      window.setTimeout(() => this.props.togglePrintable(false), 500);
+    }
   }
 
   componentWillUnmount() {
