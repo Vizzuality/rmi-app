@@ -151,7 +151,7 @@ class Footer extends PureComponent {
             <div className="col-xs-12 col-sm-6">
               <div className="right-side">
                 <div className="footer-section">
-                  <h4 className="subscribe-title">Subscribe to newsletter and updates</h4>
+                  <h4 className="subscribe-title">Subscribe to updates</h4>
                   <form
                     className="subscribe-form"
                     action="https://responsibleminingindex.us13.list-manage.com/subscribe/post?u=acc420b06d58d1313623a848e&amp;id=dfa95db630"
