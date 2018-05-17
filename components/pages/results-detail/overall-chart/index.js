@@ -19,26 +19,30 @@ import OverallChart from './overall-chart-component';
 class OverallChartContainer extends PureComponent {
   static propTypes = {
     data: PropTypes.object.isRequired,
+    responsive: PropTypes.object.isRequired,
     setSelectedCompany: PropTypes.func.isRequired,
     resetSelectedCompany: PropTypes.func.isRequired
   }
 
   componentWillMount() {
-    const { data } = this.props;
+    const { data, responsive } = this.props;
     const { slug } = data;
+    const { phone } = responsive;
 
     this.chartConfig = {
       ...CHART_CONFIG,
       setBarFill: ({ dataKey, selected }) =>
         (selected ? HOVER_COLOUR : STACKED_BAR_COLOURS[slug][dataKey]),
       barOnMouseOver: this.onMouseOver,
-      barChartOnMouseLeave: this.onMouseOut
+      barChartOnMouseLeave: this.onMouseOut,
+      width: phone ? 730 : '100%'
     };
   }
 
   componentWillReceiveProps(nextProps) {
-    const { data } = this.props;
+    const { data, responsive } = this.props;
     const { data: nextData } = nextProps;
+    const { phone } = responsive;
 
     const dataChanged = !isEqual(data, nextData);
 
@@ -48,7 +52,8 @@ class OverallChartContainer extends PureComponent {
       this.chartConfig = {
         ...this.chartConfig,
         setBarFill: ({ dataKey, selected }) =>
-          (selected ? HOVER_COLOUR : STACKED_BAR_COLOURS[slug][dataKey])
+          (selected ? HOVER_COLOUR : STACKED_BAR_COLOURS[slug][dataKey]),
+        width: phone ? 730 : '100%'
       };
     }
   }
@@ -71,7 +76,10 @@ class OverallChartContainer extends PureComponent {
 }
 
 export default connect(
-  state => ({ data: parseScores(state) }),
+  state => ({
+    data: parseScores(state),
+    responsive: state.responsive
+  }),
   {
     setSelectedCompany,
     resetSelectedCompany
