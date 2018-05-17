@@ -82,8 +82,11 @@ class Head extends PureComponent {
                 performance of mining companies, highlighting leading practice and supporting learning"
             />
             <meta property="og:image" content="/static/images/rmf-social-og.png" />
+
           </Fragment>
         }
+
+        <meta name="twitter:card" content="summary_large_image" />
         <meta property="og:url" content={originalUrl} />
 
         {/* Styles and scripts */}
