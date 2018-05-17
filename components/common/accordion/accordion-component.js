@@ -36,10 +36,10 @@ class CompaniesDetailAccordion extends PureComponent {
     );
   }
   render() {
-    const { data, accordion } = this.props;
+    const { data } = this.props;
 
     return (
-      <div className="c-accordion" accordion={accordion}>
+      <div className="c-accordion">
         <style jsx>{styles}</style>
         <Accordion accordion={false}>
           {data.map(d => this.renderAccordionItem(d))}

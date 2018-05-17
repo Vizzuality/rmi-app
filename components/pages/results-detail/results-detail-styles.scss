@@ -27,6 +27,8 @@
   }
 
   :global(.c-overall-chart) {
+    overflow-x: auto;
+    overflow-y: hidden;
     margin: 35px 0 0;
   }
 }

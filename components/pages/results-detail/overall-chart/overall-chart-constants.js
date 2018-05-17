@@ -1,4 +1,5 @@
 export const CHART_CONFIG = {
+  width: 730,
   height: 425,
   // xAxis
   xAxisTick: { angle: -45, fill: '#f2f2f2' },
