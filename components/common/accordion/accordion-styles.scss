@@ -12,11 +12,16 @@
 
   :global(.category-block) {
     &:not(:first-child) {
-      margin: 155px 0 0;
+      margin: 55px 0 0;
+
+      @media #{$mq-md} {
+        margin: 155px 0 0;
+      }
     }
   }
 
   :global(.block-section) {
+    margin: 35px 0 0;
     color: $color-5;
 
     &:not(:first-child) {
@@ -29,6 +34,10 @@
       color: $color-7;
       font-weight: $font-weight-bold;
       font-style: italic;
+    }
+
+    @media #{$mq-md} {
+      margin: 0;
     }
   }
 }

@@ -7,6 +7,9 @@ import { parseIndicators } from './accordion-selectors';
 import ResultsDetailAccordion from './accordion-component';
 
 export default connect(
-  state => ({ data: parseIndicators(state) }),
-  {}
+  state => ({
+    data: parseIndicators(state),
+    responsive: state.responsive
+  }),
+  null
 )(ResultsDetailAccordion);
