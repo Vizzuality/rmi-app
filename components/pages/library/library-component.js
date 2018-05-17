@@ -27,11 +27,6 @@ class Library extends PureComponent {
                 </p>
               </div>
             </div>
-            <div className="row end-md">
-              <div className="col-xs-12">
-                <a className="download-link" href="#">Download list of mine sites</a>
-              </div>
-            </div>
           </div>
         </div>
 
