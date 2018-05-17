@@ -15,7 +15,7 @@ export const ASSESSMENTS_TABLE_COLUMNS = [
     header: { label: 'Select File' },
     cell: {
       formatters: [
-        (downloadLink, { rowData }) => (downloadLink ? <a href={downloadLink} download><Icon name="download-file" /></a> : '-')
+        (downloadLink, { rowData }) => (downloadLink ? <a href={downloadLink} download={rowData.name}><Icon name="download-file" /></a> : '-')
       ]
     },
     props: {
