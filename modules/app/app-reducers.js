@@ -15,5 +15,6 @@ export default {
       ...state.modal,
       open: payload
     }
-  })
+  }),
+  [actions.togglePrintable]: (state, { payload }) => ({ ...state, printable: payload })
 };

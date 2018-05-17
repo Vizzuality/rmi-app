@@ -14,7 +14,8 @@
   @media print {
     margin: 35px 0 0;
 
-    :global(text) {
+    :global(text),
+    :global(tspan) {
       fill: $color-1 !important;
     }
 

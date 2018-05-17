@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'routes';
+import { Router, Link } from 'routes';
 
 // components
 import Icon from 'components/common/icon';
@@ -11,10 +11,11 @@ import styles from './companies-detail-header-styles.scss';
 class CompaniesDetailHeader extends PureComponent {
   static propTypes = {
     company: PropTypes.object.isRequired,
-    currentLanguage: PropTypes.string.isRequired
+    currentLanguage: PropTypes.string.isRequired,
+    togglePrintable: PropTypes.func.isRequired
   }
 
-  handlePrint = () => window.print();
+  handlePrint = () => { this.props.togglePrintable(true); };
 
   render() {
     const { company, currentLanguage } = this.props;

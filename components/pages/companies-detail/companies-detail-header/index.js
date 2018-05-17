@@ -1,6 +1,9 @@
 
 import { connect } from 'react-redux';
 
+// actions
+import { togglePrintable } from 'modules/app/app-actions';
+
 // selectors
 import { getCompany } from './companies-detail-header-selectors';
 
@@ -11,5 +14,5 @@ export default connect(
     company: getCompany(state),
     currentLanguage: state.language.current
   }),
-  {}
+  { togglePrintable }
 )(CompanyDetailHeader);

@@ -81,8 +81,10 @@
     }
 
     > .pdf-print {
+      position: relative;
       display: flex;
       align-items: center;
+      min-width: 115px;
 
       > .print-btn {
         display: flex;

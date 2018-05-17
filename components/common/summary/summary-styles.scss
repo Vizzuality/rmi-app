@@ -22,6 +22,10 @@
   &.light {
     background: $color-7;
     box-shadow: 0 4px 16px 0 rgba($color-1, .1);
+
+    @media print {
+      box-shadow: none;
+    }
   }
 
   &.dark {

@@ -7,7 +7,10 @@ import { getMineSiteIndicatorsTree } from './mine-sites-detail-accordion-selecto
 import MineSitesDetailAccordion from './mine-sites-detail-accordion-component';
 
 export default connect(
-  state => ({ data: getMineSiteIndicatorsTree(state) }),
+  state => ({
+    data: getMineSiteIndicatorsTree(state),
+    printable: state.app.printable
+  }),
   {}
 )(MineSitesDetailAccordion);
 
