@@ -1,5 +1,5 @@
 
-const { _paq } = typeof window !== 'undefined' ? window : {};
+const { _paq } = typeof window !== 'undefined' ? window : { _paq: [] };
 
 export const trackPage = () => {
   _paq.push(['setDocumentTitle', document.title]);
