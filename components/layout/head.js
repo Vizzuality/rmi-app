@@ -68,7 +68,7 @@ class Head extends PureComponent {
           <Fragment>
             <meta property="og:title" content={`${title} | RMI - Responsible Mining Index 2018`} />
             <meta property="og:description" content={description} />
-            <meta property="og:image" content="/static/images/homepage_background.jpg" />
+            <meta property="og:image" content="http://rmi.vizzuality.com/static/images/homepage_background.jpg" />
           </Fragment>
         }
 
@@ -81,7 +81,7 @@ class Head extends PureComponent {
                 responsible mining in the minerals and metals industry by transparently assessing the
                 performance of mining companies, highlighting leading practice and supporting learning"
             />
-            <meta property="og:image" content="/static/images/rmf-social-og.png" />
+            <meta property="og:image" content="http://rmi.vizzuality.com/static/images/rmf-social-og.png" />
 
           </Fragment>
         }
