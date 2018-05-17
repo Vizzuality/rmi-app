@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import HeadNext from 'next/head';
@@ -12,6 +12,7 @@ class Head extends PureComponent {
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     originalUrl: PropTypes.string.isRequired,
+    root: PropTypes.string.isRequired,
     setLanguages: PropTypes.func.isRequired,
     setLanguagesLoading: PropTypes.func.isRequired
   }
@@ -31,7 +32,8 @@ class Head extends PureComponent {
   }
 
   render() {
-    const { title, description, originalUrl } = this.props;
+    const { title, description, originalUrl, root } = this.props;
+    const isFoundation = root !== 'index';
 
     return (
       <HeadNext>
@@ -62,10 +64,27 @@ class Head extends PureComponent {
         <meta name="theme-color" content="#ffffff" />
 
         {/* Social media sharing  */}
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content={description} />
+        {!isFoundation &&
+          <Fragment>
+            <meta property="og:title" content={`${title} | RMI - Responsible Mining Index 2018`} />
+            <meta property="og:description" content={description} />
+            <meta property="og:image" content="/static/images/homepage_background.jpg" />
+          </Fragment>
+        }
+
+        {isFoundation &&
+          <Fragment>
+            <meta property="og:title" content={title} />
+            <meta
+              property="og:description"
+              content="Encouraging continuous improvement in
+                responsible mining in the minerals and metals industry by transparently assessing the
+                performance of mining companies, highlighting leading practice and supporting learning"
+            />
+            <meta property="og:image" content="/static/images/rmf-social-og.png" />
+          </Fragment>
+        }
         <meta property="og:url" content={originalUrl} />
-        <meta property="og:image" content="" />
 
         {/* Styles and scripts */}
         <link href="https://fonts.googleapis.com/css?family=Yantramanav:300,400,500" rel="stylesheet" />
@@ -110,7 +129,10 @@ class Head extends PureComponent {
 }
 
 export default connect(
-  state => ({ originalUrl: state.routes.originalUrl }),
+  state => ({
+    originalUrl: state.routes.originalUrl,
+    root: state.routes.root
+  }),
   {
     setLanguages,
     setLanguagesLoading,
