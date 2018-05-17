@@ -18,14 +18,17 @@ class Page extends PureComponent {
 
   static async getInitialProps({ pathname, query, store, req, isServer }) {
     const isFoundation = pathname.includes('foundation');
+    const { originalUrl } = req;
     const { routes } = store.getState();
     const { language } = query;
+
     // sets routing
     store.dispatch(setRoute({
       root: isFoundation ? 'foundation' : 'index',
       pathname: pathname.split('/')[1],
       tab: pathname.split('/')[2],
-      query
+      query,
+      originalUrl
     }));
 
     // Mobile detection
