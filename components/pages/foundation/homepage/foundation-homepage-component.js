@@ -69,7 +69,8 @@ class FoundationHomepagePage extends PureComponent {
                     className="-big -round -gray"
                   >
                     <Link
-                      route="mining-society"
+                      route="context"
+                      params={{ language: currentLanguage }}
                     >
                       <a>Show more</a>
                     </Link>
