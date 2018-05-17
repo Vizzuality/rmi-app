@@ -11,11 +11,13 @@ class Head extends PureComponent {
   static propTypes = {
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
-    originalUrl: PropTypes.string.isRequired,
+    originalUrl: PropTypes.string,
     root: PropTypes.string.isRequired,
     setLanguages: PropTypes.func.isRequired,
     setLanguagesLoading: PropTypes.func.isRequired
   }
+
+  static defaultProps = { originalUrl: null }
 
   componentDidMount() {
     const script = document.createElement('script');
@@ -32,8 +34,9 @@ class Head extends PureComponent {
   }
 
   render() {
-    const { title, description, originalUrl, root } = this.props;
+    const { title, description, root } = this.props;
     const isFoundation = root !== 'index';
+    const originalUrl = this.props.originalUrl || window.location.pathname;
 
     return (
       <HeadNext>

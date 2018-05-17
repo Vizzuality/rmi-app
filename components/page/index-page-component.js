@@ -18,7 +18,7 @@ class Page extends PureComponent {
 
   static async getInitialProps({ pathname, query, store, req, isServer }) {
     const isFoundation = pathname.includes('foundation');
-    const { originalUrl } = req;
+    const { originalUrl } = req || {};
     const { routes } = store.getState();
     const { language } = query;
 
