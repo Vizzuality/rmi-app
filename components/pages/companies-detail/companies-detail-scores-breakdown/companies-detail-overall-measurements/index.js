@@ -7,6 +7,9 @@ import { getOverallMeasurementsScores } from './companies-detail-overall-measure
 import CompaniesDetailOverallMeasurements from './companies-detail-overall-measurements-component';
 
 export default connect(
-  state => ({ data: getOverallMeasurementsScores(state) }),
+  state => ({
+    data: getOverallMeasurementsScores(state),
+    printable: state.app.printable
+  }),
   {}
 )(CompaniesDetailOverallMeasurements);

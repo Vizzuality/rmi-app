@@ -64,6 +64,7 @@ class BarsChart extends PureComponent {
       barDataKey,
       YAxisTicks,
       YAxisTick,
+      YAxisHide,
       YaxisLine,
       strokeDasharray,
       barSize,
@@ -85,6 +86,7 @@ class BarsChart extends PureComponent {
               tickLine={false}
               axisLine={YaxisLine}
               interval={0}
+              hide={YAxisHide}
             />
             <XAxis
               dataKey={xAxisKey}
