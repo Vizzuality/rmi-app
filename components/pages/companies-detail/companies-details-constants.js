@@ -8,11 +8,11 @@ export const MAP_COLORS = {
 
 export const MAP_LEGEND = [
   {
-    label: 'Home countries, where companies are headquartered',
+    label: 'Home countries, where the company is headquartered',
     color: MAP_COLORS.color1
   },
   {
-    label: 'Producing countries, where companies have mining operations',
+    label: 'Producing countries, where the company has mining operations',
     color: MAP_COLORS.color2
   },
   {
