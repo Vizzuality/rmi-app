@@ -18,7 +18,7 @@ class ErrorPage extends Page {
         <div className="c-error-page">
           <span className="code">404</span>
           <p className="description">This page does not exist. Please, go back to&nbsp;
-            <a href="/">Resource Mining Index</a>.
+            <a href="/">Responsible Mining Index</a>.
           </p>
         </div>
       </Layout>
