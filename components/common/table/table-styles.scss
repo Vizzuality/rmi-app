@@ -16,10 +16,16 @@
 
       &:last-child {
         padding-right: 0;
+
+        @media print {
+          color: $color-7 !important;
+        }
       }
 
       @media print {
+        font-size: 12px;
         color: $color-1 !important;
+        padding: 15px 5px;
       }
     }
   }
@@ -31,7 +37,7 @@
       }
 
       :global(> td) {
-        padding: 15px 15px;
+        padding: 15px;
         font-size: $font-size-regular;
         text-align: left;
 
@@ -41,6 +47,11 @@
 
         &:last-child {
           padding-right: 0;
+        }
+
+        @media print {
+          width: 11%;
+          padding: 15px 5px;
         }
       }
 
@@ -69,5 +80,6 @@
 
   @media print {
     color: $color-1 !important;
+    page-break-after: always;
   }
 }

@@ -53,6 +53,10 @@
           }
         }
       }
+
+      @media print {
+        color: $color-1;
+      }
     }
   }
 }

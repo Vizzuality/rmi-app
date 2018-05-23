@@ -1,12 +1,17 @@
 @import 'css/settings';
 
 .c-companies-detail-overall-measurements {
-
   :global(.c-barchart) {
     margin: 25px 0 0;
 
     @media #{$mq-md} {
       margin: 0;
+    }
+
+    :global(.yAxis) {
+      @media print {
+        display: none;
+      }
     }
   }
 
@@ -32,7 +37,11 @@
       font-family: $font-family-1;
       font-size: $font-size-bigger;
       font-weight: $font-weight-light;
-      text-align: center;
+      text-align: left;
+
+      @media print {
+        font-size: $font-size-big;
+      }
     }
   }
 

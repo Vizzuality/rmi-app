@@ -30,6 +30,7 @@ class PrintableIssueAreas extends PureComponent {
                 key={issueArea.id}
               >
                 <li>
+                  <div className="page-break" />
                   <div className="issue-area-header">
                     <button style={{ background: AREA_ISSUE_COLOURS[issueArea.id] }}>
                       <Icon

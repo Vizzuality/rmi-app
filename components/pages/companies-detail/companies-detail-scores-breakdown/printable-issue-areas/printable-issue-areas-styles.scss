@@ -7,7 +7,7 @@
     .issue-area-header {
       display: flex;
       align-items: center;
-      margin: 0 0 35px;
+      margin: 35px 0;
 
       :global(.c-icon) {
         fill: $color-7;
@@ -15,7 +15,7 @@
 
       > .issue-area-title {
         margin: 0 0 0 25px;
-        font-size: $font-size-bigger;
+        font-size: $font-size-big;
         font-weight: $font-weight-light;
         color: $color-1;
       }
@@ -24,7 +24,7 @@
 
   .issue-areas-indicators-list {
     .issue-areas-indicators-header {
-      padding: 0 0 35px;
+      padding: 0 0 25px;
       border-bottom: 1px solid rgba($color-1, .2);
 
       .issue-areas-indicators-title {
@@ -52,11 +52,11 @@
   }
 
   .issue-areas-indicators-children-list {
-    padding: 0 0 45px;
+    padding: 0 0 15px;
 
     .indicator-child-block {
-      margin: 45px 0;
-      padding: 30px 0;
+      margin: 25px 0;
+      padding: 15px 0;
 
       @media print {
         page-break-before: avoid;
@@ -71,13 +71,13 @@
 
       :global(.row) {
         :global(.col-xs-12:first-child) {
-          flex-basis: 75%;
-          max-width: 75%;
+          flex-basis: 60%;
+          max-width: 60%;
         }
 
         :global(.col-xs-12:last-child) {
-          flex-basis: 25%;
-          max-width: 25%;
+          flex-basis: 40%;
+          max-width: 40%;
         }
       }
 

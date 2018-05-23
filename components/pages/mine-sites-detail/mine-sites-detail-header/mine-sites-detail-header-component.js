@@ -15,10 +15,7 @@ class MineSitesDetailHeader extends PureComponent {
     togglePrintable: PropTypes.func.isRequired
   }
 
-  handlePrint = () => {
-    this.props.togglePrintable(true);
-    // window.setTimeout(window.print(), 1000);
-  };
+  handlePrint = () => { this.props.togglePrintable(true); };
 
   render() {
     const { currentLanguage, mineSite } = this.props;
@@ -29,6 +26,10 @@ class MineSitesDetailHeader extends PureComponent {
       <div className="c-mine-sites-detail-header">
         <style jsx>{styles}</style>
         <div className="l-layout">
+          <div className="print-logo">
+            <h2 className="print-page-title">Mine Site Report</h2>
+            <img className="logo-img" src="/static/logos/RMIndex_vector.svg" alt="RMI logo" />
+          </div>
           <div className="row">
             <div className="col-xs-12 col-sm-6">
               <div className="left-side">

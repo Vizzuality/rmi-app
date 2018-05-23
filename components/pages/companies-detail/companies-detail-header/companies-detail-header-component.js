@@ -27,6 +27,10 @@ class CompaniesDetailHeader extends PureComponent {
       <div className="c-companies-detail-header">
         <style jsx>{styles}</style>
         <div className="l-layout">
+          <div className="print-logo">
+            <h2 className="print-page-title">Company report</h2>
+            <img className="logo-img" src="/static/logos/RMIndex_vector.svg" alt="RMI logo" />
+          </div>
           <div className="row">
             <div className="col-xs-12 col-sm-6">
               <div className="left-side">
