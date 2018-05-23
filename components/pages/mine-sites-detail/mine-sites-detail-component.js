@@ -101,6 +101,7 @@ class MineSitesDetail extends PureComponent {
           </section>
 
           {/* Disclaimer */}
+          <div className="page-break" />
           <section className="section disclaimer">
             <div className="l-layout">
               <div className="row">

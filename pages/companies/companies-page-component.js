@@ -20,7 +20,12 @@ import { getIndicators } from 'modules/indicators/indicators-actions';
 import { getSubsidiaries } from 'modules/subsidiaries/subsidiaries-actions';
 
 class CompaniesPage extends Page {
-  static propTypes = { companyId: PropTypes.string }
+  static propTypes = {
+    companyId: PropTypes.string,
+    company: PropTypes.object
+  }
+
+  static defaultProps = { company: {} }
 
   static async getInitialProps(context) {
     const props = await super.getInitialProps(context);
@@ -90,11 +95,14 @@ class CompaniesPage extends Page {
   }
 
   render() {
-    const { companyId } = this.props;
+    const { companyId, company } = this.props;
+    const { name } = company;
+
+    const customTitle = !company ? 'Companies' : `${name} - Company report`;
 
     return (
       <Layout
-        title="Companies"
+        title={customTitle}
         description="Welcome to RMI | Companies"
       >
         {companyId ?
@@ -106,6 +114,9 @@ class CompaniesPage extends Page {
 
 export default withRedux(
   initStore,
-  state => ({ companyId: state.routes.query.company }),
-  {}
+  state => ({
+    companyId: state.routes.query.company,
+    company: state.companies.list[0]
+  }),
+  null
 )(CompaniesPage);

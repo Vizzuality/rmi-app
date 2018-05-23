@@ -24,7 +24,8 @@ class CompaniesDetail extends PureComponent {
     mineSites: PropTypes.array.isRequired,
     printable: PropTypes.bool.isRequired,
     setIssueArea: PropTypes.func.isRequired,
-    resetCompanies: PropTypes.func.isRequired
+    resetCompanies: PropTypes.func.isRequired,
+    togglePrintable: PropTypes.func.isRequired
   }
 
   static setCountryColor = geographyProperties => getCompanyCountryColor(geographyProperties);
@@ -78,6 +79,7 @@ class CompaniesDetail extends PureComponent {
             </div>
           </div>
           <CompaniesDetailScoresBreakDown />
+          <div className="page-break" />
           <div className="section">
             <div className="l-layout">
               <div className="row">

@@ -2,8 +2,23 @@
 
 .c-companies-detail-scores-breakdown {
 
+  .summary-print-title {
+    display: none;
+
+    @media print {
+      display: block;
+
+      font-size: $font-size-big;
+      color: $color-1;
+    }
+  }
+
   :global(.c-summary) {
     transform: translate(0, -25px);
+
+    @media print {
+      transform: none;
+    }
   }
 
   .mine-sites-results {
@@ -43,6 +58,10 @@
       justify-content: space-between;
       width: 100%;
       margin: 50px 0 0;
+    }
+
+    @media print {
+      border-top: 0;
     }
   }
 

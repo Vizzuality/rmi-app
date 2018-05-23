@@ -63,14 +63,21 @@ class MineSitesPage extends Page {
   }
 
   render() {
-    const { allowedMineSite, mineSiteError } = this.props;
+    const { currentMineSite, mineSiteError } = this.props;
     const { mineSite } = this.props.url.query;
+    const {
+      'selected-for-mine-site-indicators': allowedMineSite,
+      name
+    } = currentMineSite;
 
     if ((mineSite && !allowedMineSite) || mineSiteError) return (<ErrorPage />);
 
+    const customTitle = !mineSite ? 'Mine Sites' :
+      `${name} - Mine site report`;
+
     return (
       <Layout
-        title="Mine sites"
+        title={customTitle}
         description="Welcome to RMI | Mine sites"
       >
         {mineSite && allowedMineSite && <MineSiteDetailPageComponent />}
@@ -83,7 +90,7 @@ class MineSitesPage extends Page {
 export default withRedux(
   initStore,
   state => ({
-    allowedMineSite: (state.mineSites.list[0] || {})['selected-for-mine-site-indicators'],
+    currentMineSite: (state.mineSites.list[0] || {}),
     mineSiteError: state.mineSites.error
   }),
   null

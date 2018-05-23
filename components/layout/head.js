@@ -40,7 +40,7 @@ class Head extends PureComponent {
 
     return (
       <HeadNext>
-        <title>{title} | RMI - Responsible Mining Index</title>
+        <title>{title} | RMI - Responsible Mining Index 2018</title>
 
         <meta name="description" content={description} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />

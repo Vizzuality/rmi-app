@@ -7,3 +7,36 @@
     display: none;
   }
 }
+
+.print-logo {
+  display: none;
+
+  > .print-page-title {
+    display: block;
+
+    font-size: $font-size-huge;
+  }
+
+  > img {
+    height: 38px;
+  }
+
+  @media print {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 25px;
+  }
+}
+
+
+.page-break {
+  @media all {
+    display: none;
+  }
+
+  @media print {
+    display: block;
+    page-break-before: always;
+  }
+}
