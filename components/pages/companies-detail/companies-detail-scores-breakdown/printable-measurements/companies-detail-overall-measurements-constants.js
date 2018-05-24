@@ -1,5 +1,5 @@
 export const CHART_CONFIG = {
-  width: '100%',
+  width: 225,
   xAxis: false,
   xAxisHeight: 5,
   YAxisHide: true,
