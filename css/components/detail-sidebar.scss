@@ -29,6 +29,15 @@
         font-weight: $font-weight-light;
       }
     }
+
+    @media print {
+      margin: 15px 0 0;
+
+      > .definition-key,
+      > .definition-value {
+        font-size: $font-size-small;
+      }
+    }
   }
 
   .definition-sublist {
