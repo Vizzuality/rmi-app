@@ -32,11 +32,6 @@
   .overflow-container {
     overflow-x: auto;
     overflow-y: hidden;
-
-    // @media #{$mq-md} {
-    //   overflow-x: visible;
-    //   overflow-y: visible;
-    // }
   }
 
   .component-container {
@@ -60,6 +55,13 @@
 
     &:after {
       background: linear-gradient(to right, rgba($color-6, 0), $color-6);
+    }
+  }
+
+  @media print {
+    &:before,
+    &:after {
+      display: none;
     }
   }
 }
