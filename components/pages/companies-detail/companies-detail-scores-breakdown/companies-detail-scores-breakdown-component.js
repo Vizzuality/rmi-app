@@ -14,6 +14,8 @@ import CompaniesDetailMineSitesList from './companies-detail-mine-sites-list';
 import CompaniesDetailAccordion from './companies-detail-accordion';
 import PrintableIssueAreas from './printable-issue-areas';
 import CompaniesDetailOverallMeasurements from './companies-detail-overall-measurements';
+import PrintableMeasurements from './printable-measurements';
+import Slider from './slider';
 import SubsidiariesTable from './subsidiaries-table';
 import Unknowndata from './unknown-data';
 
@@ -52,7 +54,7 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
       summary
     } = company[0] || {};
 
-    const { mobile } = responsive;
+    const { mobile, phone } = responsive;
 
     const sectionClass = classnames({
       section: true,
@@ -108,7 +110,9 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
           <div className="l-layout">
             <div className="row">
               <div className="col-xs-12">
-                <CompaniesDetailOverallMeasurements />
+                {!printable && phone && <Slider />}
+                {printable && <PrintableMeasurements />}
+                {!printable && !phone && <CompaniesDetailOverallMeasurements />}
               </div>
             </div>
           </div>

@@ -16,18 +16,6 @@ class CompaniesDetailOverallMeasurements extends PureComponent {
     data: PropTypes.array.isRequired,
     printable: PropTypes.bool.isRequired
   }
-
-  constructor(props) {
-    super(props);
-
-    const { printable } = this.props;
-
-    this.chartConfig = {
-      ...CHART_CONFIG,
-      ...printable && { width: 225 }
-    };
-  }
-
   render() {
     const { data, printable } = this.props;
 
@@ -42,7 +30,7 @@ class CompaniesDetailOverallMeasurements extends PureComponent {
         <style jsx>{styles}</style>
         <div className="row">
           <div className="col-xs-12">
-            <h3 className="title">Relative company performance</h3>
+            <h3 className="title">Relative company performance (print)</h3>
           </div>
         </div>
         <div className="charts-container">
@@ -50,7 +38,7 @@ class CompaniesDetailOverallMeasurements extends PureComponent {
             {data.map(d => (
               <div key={d.id} className={columnClass}>
                 <Bars
-                  config={this.chartConfig}
+                  config={CHART_CONFIG}
                   data={d.children}
                   customTooltip
                 />

@@ -1,3 +1,9 @@
+export const SLIDER_OPTIONS = [
+  { label: 'Commitment', value: 0 },
+  { label: 'Action', value: 1 },
+  { label: 'Effectiveness', value: 2 }
+];
+
 export const CHART_CONFIG = {
   width: '100%',
   xAxis: false,
@@ -14,7 +20,4 @@ export const OVERALL_CHARTS_TITLES = {
   'Overall effectiveness': 'Effectiveness (21 indicators)'
 };
 
-export default {
-  CHART_CONFIG,
-  OVERALL_CHARTS_TITLES
-};
+export default { SLIDER_OPTIONS, CHART_CONFIG, OVERALL_CHARTS_TITLES };

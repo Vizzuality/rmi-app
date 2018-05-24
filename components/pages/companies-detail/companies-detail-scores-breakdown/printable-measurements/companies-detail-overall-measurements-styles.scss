@@ -1,0 +1,55 @@
+@import 'css/settings';
+
+.c-companies-detail-overall-measurements {
+  :global(.c-barchart) {
+    margin: 25px 0 0;
+
+    @media #{$mq-md} {
+      margin: 0;
+    }
+
+    :global(.yAxis) {
+      @media print {
+        display: none;
+      }
+    }
+  }
+
+  .charts-container {
+    margin: 25px 0 0;
+  }
+
+  .title {
+    text-align: center;
+    font-size: $font-size-bigger;
+  }
+
+  .overall-legend {
+    margin-top: 25px;
+    font-size: $font-size-regular;
+    font-weight: $font-weight-light;
+    line-height: 1.8;
+    font-style: italic;
+  }
+
+  .chart-legend {
+    > .title {
+      font-family: $font-family-1;
+      font-size: $font-size-bigger;
+      font-weight: $font-weight-light;
+      text-align: left;
+
+      @media print {
+        font-size: $font-size-big;
+      }
+    }
+  }
+
+  @media print {
+    :global(.charts-container) {
+      page-break-after: avoid;
+      page-break-inside : avoid;
+      page-break-before: avoid;
+    }
+  }
+}
