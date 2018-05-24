@@ -27,8 +27,52 @@
   }
 
   :global(.c-overall-chart) {
-    overflow-x: auto;
-    overflow-y: hidden;
-    margin: 35px 0 0;
+    position: relative;
+    margin: 35px -20px 0;
+
+    &:before {
+      content: '';
+      z-index: 1;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 25px;
+      height: 100%;
+      background: linear-gradient(to left, rgba($color-2, 0), $color-2);
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 25px;
+      height: 100%;
+      background: linear-gradient(to right, rgba($color-2, 0), $color-2);
+    }
+
+    :global(.c-stacked-bars-chart) {
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+
+    :global(.recharts-responsive-container) {
+      box-sizing: content-box;
+      padding: 0 20px;
+    }
+
+    @media #{$mq-md} {
+      margin: 35px 0 0;
+
+      &:before,
+      &:after {
+        content: none;
+      }
+
+      :global(.recharts-responsive-container) {
+        box-sizing: border-box;
+        padding: 0;
+      }
+    }
   }
 }

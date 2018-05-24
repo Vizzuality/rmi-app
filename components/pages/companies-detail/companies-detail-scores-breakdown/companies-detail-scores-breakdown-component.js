@@ -9,6 +9,7 @@ import { measurementColors } from 'constants/graph-colors';
 import StackedBars from 'components/charts/stacked-bars';
 import Table from 'components/common/table';
 import Summary from 'components/common/summary';
+import Gradient from 'components/common/gradient';
 import CompaniesDetailMineSitesList from './companies-detail-mine-sites-list';
 import CompaniesDetailAccordion from './companies-detail-accordion';
 import PrintableIssueAreas from './printable-issue-areas';
@@ -144,10 +145,12 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
                 <h3 className="subtitle">Mine sites individually assessed but not included
                   {!mobile && <br />} in the overall company score
                 </h3>
-                <Table
-                  columns={MINE_SITE_TABLE_COLUMNS}
-                  rows={mineSites}
-                />
+                <div className="table-container">
+                  <Table
+                    columns={MINE_SITE_TABLE_COLUMNS}
+                    rows={mineSites}
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -166,25 +169,26 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
             <div className="row between-md">
               <div className="col-xs-12 col-md-5">
                 <h3 className="title">Main Shareholders</h3>
-                {shareholders.length ? <Table
-                  columns={[
-                    {
-                      property: 'name',
-                      header: { label: `As of: ${shareholdersDate || 'unknown'}` }
-                    },
-                    {
-                      property: 'percent-shares',
-                      header: { label: 'Shares (%)' },
-                      props: {
-                        style: {
-                          textAlign: 'right',
-                          minWidth: 90
+                {shareholders.length ?
+                  <Table
+                    columns={[
+                      {
+                        property: 'name',
+                        header: { label: `As of: ${shareholdersDate || 'unknown'}` }
+                      },
+                      {
+                        property: 'percent-shares',
+                        header: { label: 'Shares (%)' },
+                        props: {
+                          style: {
+                            textAlign: 'right',
+                            minWidth: 90
+                          }
                         }
                       }
-                    }
-                  ]}
-                  rows={shareholders}
-                /> : <Unknowndata />}
+                    ]}
+                    rows={shareholders}
+                  /> : <Unknowndata />}
               </div>
               <div className="col-xs-12 col-md-5">
                 <SubsidiariesTable />
@@ -194,19 +198,25 @@ class CompaniesDetailScoresBreakDown extends PureComponent {
             <div className="row">
               <div className="col-xs-12">
                 <h3 className="title">Known Tax Jurisdictions</h3>
-                {knownTaxJurisdictions.length ? <Table
-                  columns={TAX_JURISDICTIONS_COLUMNS}
-                  rows={knownTaxJurisdictions}
-                /> : <Unknowndata asOf={false} />}
+                {knownTaxJurisdictions.length ?
+                  <Gradient className="-gray">
+                    <Table
+                      columns={TAX_JURISDICTIONS_COLUMNS}
+                      rows={knownTaxJurisdictions}
+                    />
+                  </Gradient> : <Unknowndata asOf={false} />}
               </div>
             </div>
             <div className="row">
               <div className="col-xs-12">
                 <h3 className="title -small">Recent involvements in Investor/State investment disputes (since 2014)</h3>
-                {investmentDisputes.length ? <Table
-                  columns={INVESTMENT_DISPUTES_COLUMNS}
-                  rows={investmentDisputes}
-                /> : <Unknowndata asOf={false} text="No case" />}
+                {investmentDisputes.length ?
+                  <Gradient className="-gray">
+                    <Table
+                      columns={INVESTMENT_DISPUTES_COLUMNS}
+                      rows={investmentDisputes}
+                    />
+                  </Gradient> : <Unknowndata asOf={false} text="No case" />}
               </div>
             </div>
           </div>
