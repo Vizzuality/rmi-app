@@ -29,24 +29,9 @@
 
       .issue-areas-indicators-title {
         position: relative;
-        padding: 0 0 0 50px;
         color: $color-1;
         text-transform: uppercase;
         line-height: 1.25;
-
-        &:before {
-          content: '';
-          display: inline-block;
-          position: absolute;
-          top: 50%;
-          left: 0;
-          @include arrow(14px, 1px, rgba($color-1, .2), 'right');
-          transform: translate(0, -50%) rotate(45deg);
-
-          @media print {
-            @include arrow(14px, 1px, $color-1, 'right');
-          }
-        }
       }
     }
   }

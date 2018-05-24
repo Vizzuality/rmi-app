@@ -46,7 +46,11 @@
         }
 
         &:last-child {
-          padding-right: 0;
+          padding-right: 20px;
+
+          @media #{$mq-md} {
+            padding-right: 0;
+          }
         }
 
         @media print {

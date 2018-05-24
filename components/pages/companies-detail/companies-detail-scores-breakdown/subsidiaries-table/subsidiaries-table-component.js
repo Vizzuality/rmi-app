@@ -5,13 +5,22 @@ import PropTypes from 'prop-types';
 import Table from 'components/common/table';
 import Paginator from 'components/common/paginator';
 import Search from 'components/common/search';
-import Unknowndata from '../unknown-data'
+import Unknowndata from '../unknown-data';
 
 
 // styles
 import styles from './subsidiaries-table-styles.scss';
 
 class SubsidiariesTable extends PureComponent {
+  static propTypes = {
+    subsidiaries: PropTypes.array,
+    subsidiariesDate: PropTypes.string.isRequired,
+    pagination: PropTypes.object.isRequired,
+    setPaginationPage: PropTypes.func.isRequired,
+    setSearch: PropTypes.func.isRequired
+  }
+
+  static defaultProps = { subsidiaries: [] }
 
   static renderUnknown = () => (
     <div className="unknown-container">
@@ -22,7 +31,7 @@ class SubsidiariesTable extends PureComponent {
 
   handlePagination = nextPage => this.props.setPaginationPage(nextPage);
 
-  handleSearch = value => {
+  handleSearch = (value) => {
     this.props.setPaginationPage(1);
     this.props.setSearch(value);
   }

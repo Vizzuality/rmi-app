@@ -11,5 +11,5 @@ export default connect(
     data: getOverallMeasurementsScores(state),
     printable: state.app.printable
   }),
-  {}
+  null
 )(CompaniesDetailOverallMeasurements);

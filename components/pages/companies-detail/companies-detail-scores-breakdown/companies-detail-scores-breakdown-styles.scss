@@ -102,4 +102,9 @@
       color: $color-1;
     }
   }
+
+  .table-container {
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
 }
