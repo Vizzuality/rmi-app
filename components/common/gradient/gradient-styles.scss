@@ -1,0 +1,67 @@
+@import 'css/settings';
+
+.c-gradient {
+  position: relative;
+  margin: 0 -20px;
+
+  @media #{$mq-sm} {
+    margin: 0;
+  }
+
+  &:before {
+    content: '';
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 25px;
+    height: 100%;
+    background: linear-gradient(to left, rgba($color-7, 0), $color-7);
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 25px;
+    height: 100%;
+    background: linear-gradient(to right, rgba($color-7, 0), $color-7);
+  }
+
+  .overflow-container {
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  .component-container {
+    padding: 0 20px;
+  }
+
+  &.-dark {
+    &:before {
+      background: linear-gradient(to left, rgba($color-2, 0), $color-2);
+    }
+
+    &:after {
+      background: linear-gradient(to right, rgba($color-2, 0), $color-2);
+    }
+  }
+
+  &.-gray {
+    &:before {
+      background: linear-gradient(to left, rgba($color-6, 0), $color-6);
+    }
+
+    &:after {
+      background: linear-gradient(to right, rgba($color-6, 0), $color-6);
+    }
+  }
+
+  @media print {
+    &:before,
+    &:after {
+      display: none;
+    }
+  }
+}

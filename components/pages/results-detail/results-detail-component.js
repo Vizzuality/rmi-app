@@ -10,6 +10,7 @@ import IssueAreasBar from 'components/common/issue-areas-bar';
 import Accordion from './accordion';
 import OverallChart from './overall-chart';
 import MeasurementCharts from './measurement-charts';
+import Slider from './slider';
 
 // styles
 import styles from './results-detail-styles.scss';
@@ -18,7 +19,8 @@ class ResultsDetail extends PureComponent {
   static propTypes = {
     selectedArea: PropTypes.object.isRequired,
     issueAreas: PropTypes.array.isRequired,
-    currentLanguage: PropTypes.string.isRequired
+    currentLanguage: PropTypes.string.isRequired,
+    responsive: PropTypes.object.isRequired
   }
 
   handleAreaSelection = ({ query }) => {
@@ -33,8 +35,9 @@ class ResultsDetail extends PureComponent {
   })
 
   render() {
-    const { issueAreas, selectedArea } = this.props;
+    const { issueAreas, selectedArea, responsive } = this.props;
     const { observation, slug, id, summary } = selectedArea || {};
+    const { phone } = responsive;
 
     return (
       <div className="c-results-detail-page">
@@ -77,7 +80,7 @@ class ResultsDetail extends PureComponent {
                 {!!Object.keys(selectedArea).length &&
                   <div className="col-xs-12 col-md-11">
                     <OverallChart />
-                    <MeasurementCharts />
+                    {phone ? <Slider /> : <MeasurementCharts />}
                     <div className="explanation">
                       <p><span className="aggregation-line" />Current Best Practice: Aggregation of best scores for all indicators in the given thematic area.</p>
                       <p>The &apos;Current Best Practice&apos; value represents the aggregation of best

@@ -29,13 +29,21 @@
         transform: translate(0, -50%) rotate(45deg);
 
         @media print {
-          @include arrow(14px, 1px, $color-1, 'right');
+          display: none;
         }
       }
 
       @media print {
+        padding: 0;
+
+        font-size: $font-size-small;
         color: $color-1;
       }
+    }
+
+    @media print {
+      padding: 15px 0;
+      color: $color-1;
     }
 
     &[aria-expanded=true] {
@@ -45,7 +53,7 @@
           @include arrow(14px, 1px, rgba($color-7, .2), 'down');
 
           @media print {
-            @include arrow(14px, 1px, $color-1, 'down');
+            display: none;
           }
         }
       }
@@ -74,6 +82,7 @@
     }
 
     @media print {
+      padding: 0 20px 10px;
       color: $color-1 !important;
 
       :global(.row) {
@@ -101,11 +110,6 @@
     display: none;
     opacity: 0;
     animation: fadein .35s ease-in;
-
-    // @media print {
-    //   opacity: 1;
-    //   display: block;
-    // }
   }
 
   &:first-child {

@@ -8,6 +8,10 @@
   background: linear-gradient(-45deg, $color-8, darken($color-8, 5%), darken($color-8, 10%), darken($color-8, 15%));
   background-size: 200% 200%;
   animation: Gradient 1s ease infinite;
+
+  @media print {
+    display: none;
+  }
 }
 
 @-webkit-keyframes Gradient {

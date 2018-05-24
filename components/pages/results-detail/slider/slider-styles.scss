@@ -1,0 +1,15 @@
+.c-slider {
+  :global(.slider-wrapper) {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .select-container {
+    margin: 15px 0 0;
+
+    :global(.c-select) {
+      max-width: 100%;
+    }
+  }
+}

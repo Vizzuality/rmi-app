@@ -8,12 +8,19 @@ import { Carousel } from 'react-responsive-carousel';
 import styles from './carousel-styles.scss';
 
 class CarouselComponent extends PureComponent {
-  static propTypes = { children: PropTypes.any.isRequired };
+  static propTypes = {
+    showArrows: PropTypes.bool,
+    selectedItem: PropTypes.number,
+    children: PropTypes.any.isRequired
+  };
 
-  static defaultProps = {};
+  static defaultProps = {
+    showArrows: true,
+    selectedItem: 0
+  };
 
   render() {
-    const { children } = this.props;
+    const { children, selectedItem, showArrows } = this.props;
 
     return (
       <div className="c-carousel">
@@ -23,6 +30,8 @@ class CarouselComponent extends PureComponent {
           showStatus={false}
           showIndicators={false}
           infiniteLoop
+          showArrows={showArrows}
+          selectedItem={selectedItem}
         >
           {children}
         </Carousel>
