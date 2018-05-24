@@ -62,6 +62,7 @@
 
     @media print {
       border-top: 0;
+      padding: 35px 0 0;
     }
   }
 
@@ -71,6 +72,15 @@
     font-weight: $font-weight-light;
     line-height: 1.8;
     font-style: italic;
+
+    @media print {
+      margin: 0;
+
+      > p {
+        font-size: $font-size-small;
+        line-height: 1.25;
+      }
+    }
   }
 
   .contextual-table {
