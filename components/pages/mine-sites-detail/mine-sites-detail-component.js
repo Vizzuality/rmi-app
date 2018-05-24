@@ -68,6 +68,7 @@ class MineSitesDetail extends PureComponent {
           </section>
 
           {/* Accordion */}
+          <div className="page-break" />
           <section className="section -dark">
             <div className="l-layout">
               <div className="row">
