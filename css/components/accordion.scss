@@ -68,8 +68,6 @@
     display: block;
     animation: fadein .35s ease-in;
     padding: 15px 20px 35px;
-
-    font-size: $font-size-small;
     font-weight: $font-weight-bold;
     line-height: 1.5;
     color: $color-7;
@@ -84,6 +82,8 @@
 
     @media print {
       padding: 0 20px 5px;
+
+      font-size: $font-size-small;
       color: $color-1 !important;
 
       :global(.row) {
