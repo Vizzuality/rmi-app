@@ -4,10 +4,13 @@
 
   :global(text > tspan) {
     font-size: 12px;
-    fill: $color-1;
 
     @media #{$mq-md} {
       font-size: $font-size-regular;
+    }
+
+    @media print {
+      fill: $color-1;
     }
   }
 
