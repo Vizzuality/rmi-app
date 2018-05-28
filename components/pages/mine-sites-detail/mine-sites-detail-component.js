@@ -80,6 +80,7 @@ class MineSitesDetail extends PureComponent {
           </section>
 
           {/* Mine Site Assessments */}
+          <div className="page-break" />
           <section className="section">
             <div className="l-layout">
               <div className="row center-xs">

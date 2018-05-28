@@ -98,7 +98,8 @@ class CompaniesPage extends Page {
     const { companyId, company } = this.props;
     const { name } = company;
 
-    const customTitle = !company ? 'Companies' : `${name} - Company report`;
+    const customTitle = !companyId ?
+      'Companies' : `${name} - Company report`;
 
     return (
       <Layout
