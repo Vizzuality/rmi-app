@@ -10,7 +10,13 @@ export const CHART_CONFIG = {
   // yAxis
   YAxisTick: { fill: '#f2f2f2' },
   // bar
-  barSize: 15
+  barSize: 15,
+  // reference line config
+  showReferenceLine: true,
+  yReferenceLine: 0,
+  strokeReferenceLine: 'red',
+  strokeDasharrayReferenceLine: '3 5',
+  labelReferenceLine: 'Current Best Practice'
 };
 export const BARS = [
   { dataKey: 'commitment' },

@@ -51,7 +51,13 @@ export const STACKED_BAR_COLOURS = {
 export const BAR_CONFIG = {
   // x axis config
   xAxisTick: false,
-  xAxisHeight: 10
+  xAxisHeight: 10,
+  // reference line config
+  showReferenceLine: true,
+  yReferenceLine: 0,
+  strokeReferenceLine: 'red',
+  strokeDasharrayReferenceLine: '3 5',
+  labelReferenceLine: 'Current Best Practice'
 };
 
 export default {

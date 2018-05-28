@@ -8,7 +8,13 @@ export const CHART_CONFIG = {
   // yAxis
   YAxisTick: { fill: '#f2f2f2' },
   // bar
-  barSize: 5
+  barSize: 5,
+  // reference line config
+  showReferenceLine: true,
+  yReferenceLine: 0,
+  strokeReferenceLine: 'red',
+  strokeDasharrayReferenceLine: '3 5',
+  labelReferenceLine: 'Current Best Practice'
 };
 
 export const MEASUREMENT_AREAS_COLOURS = {
