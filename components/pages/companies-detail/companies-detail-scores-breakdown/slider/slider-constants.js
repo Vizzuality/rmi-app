@@ -8,7 +8,7 @@ export const CHART_CONFIG = {
   width: '100%',
   xAxis: false,
   xAxisHeight: 5,
-  YAxisHide: true,
+  YAxisHide: false,
   domain: [0, 1],
   YAxisTicks: ['0.00', '0.20', '0.40', '0.60', '0.80', '1.00'],
   setBarFill: item => (item.currentCompany ? '#272626' : '#9c9aa2')
