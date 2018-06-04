@@ -69,7 +69,7 @@ class CompaniesDetailHeader extends PureComponent {
                         name="download"
                         className="-big -download -reverse"
                       />
-                      Download in PDF
+                      Print Report
                     </button>
                   </div>}
               </div>
