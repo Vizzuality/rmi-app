@@ -53,7 +53,7 @@ class Companies extends PureComponent {
                   state-owned and private companies.
                 </p>
                 <p>
-                  These companies operate in more than 700 sites in
+                  These companies operate in more than 850 sites in
                   over 40 producing countries, and the assessment covers
                   most mined commodities, excluding oil and gas.
                 </p>

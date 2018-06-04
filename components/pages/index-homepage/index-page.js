@@ -97,7 +97,7 @@ class IndexPage extends PureComponent {
                   <p>
                     This first Index, RMI 2018, covers 30 companies from 16 home countries,
                     including publicly-listed, state-owned and private companies. These companies
-                    operate more than 700 sites in over 40 producing countries, and the assessment
+                    operate more than 850 sites in over 40 producing countries, and the assessment
                     covers most mined commodities, excluding oil and gas. The Index focuses largely
                     on company-wide behaviour, while also looking at site-level actions at 127 mine
                     sites, in order to provide a snapshot of information disaggregated to the level
