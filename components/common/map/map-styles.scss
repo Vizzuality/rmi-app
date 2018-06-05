@@ -27,7 +27,6 @@
       background: $color-6;
       border-radius: 3px;
       font-size: $font-size-big;
-      text-align: center;
       cursor: pointer;
 
       &[disabled] {
@@ -39,6 +38,10 @@
         & + button {
           margin: 5px 0 0;
         }
+      }
+
+      > :global(svg) {
+        margin: 0 auto;
       }
     }
 
