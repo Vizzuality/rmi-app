@@ -52,19 +52,18 @@ class MineSitesDetailHeader extends PureComponent {
             </div>
             <div className="col-xs-12 col-sm-6">
               <div className="right-side">
-                {process.env.STAGING &&
-                  <div className="pdf-print">
-                    <button
-                      className="print-btn"
-                      onClick={this.handlePrint}
-                    >
-                      <Icon
-                        name="download"
-                        className="-big -download -reverse"
-                      />
-                      Print Report
-                    </button>
-                  </div>}
+                <div className="pdf-print">
+                  <button
+                    className="print-btn"
+                    onClick={this.handlePrint}
+                  >
+                    <Icon
+                      name="download"
+                      className="-big -download -reverse"
+                    />
+                    Print Report
+                  </button>
+                </div>
               </div>
             </div>
           </div>
