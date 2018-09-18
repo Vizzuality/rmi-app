@@ -31,8 +31,8 @@ class MineSite extends PureComponent {
   }
 
   handleClickGeography = (geography) => {
-    const { ISO_A3 } = geography.properties;
-    this.props.setFilters({ country: ISO_A3 });
+    const { iso_a3 } = geography.properties;
+    this.props.setFilters({ country: iso_a3 });
   };
 
   handleOpenTooltip = ({ id }) => {

@@ -30,7 +30,7 @@ export const getUpdatedPaths = createSelector(
       }));
     }
 
-    return paths.filter(p => !EXCLUDED_COUNTRIES.includes(p.properties.ISO_A3))
+    return paths.filter(p => !EXCLUDED_COUNTRIES.includes(p.properties.iso_a3))
       .map((geography, index) => {
         const {
           country: companyCountry,
@@ -39,7 +39,7 @@ export const getUpdatedPaths = createSelector(
         } = _company;
         const homeCountries = [(companyCountry || {}).code, (companySecondaryCountry || {}).code];
         const producingCountries = (companyProducingCountries || []).map(country => country.code);
-        const { ISO_A3: iso } = geography.properties;
+        const { iso_a3: iso } = geography.properties;
         const country = _countries.find(_country => _country.code === iso) || {};
 
         if (!country) return false;
