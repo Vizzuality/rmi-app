@@ -61,7 +61,7 @@ class Map extends PureComponent {
 
     if (!isClickable && !isProducing) return;
 
-    this.tip.show(`<div>${geography.properties.NAME}</div>`);
+    this.tip.show(`<div>${geography.properties.name}</div>`);
     this.tip.position({ pageX: x, pageY: y });
   }
 

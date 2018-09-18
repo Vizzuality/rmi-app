@@ -21,7 +21,7 @@ export const getSelectedCompany = createSelector(
 export const getUpdatedPaths = createSelector(
   [countries, countriesWithCompanies, filters, getSelectedCompany],
   (_countries = [], _countriesWithCompanies, _filters, _company = {}) =>
-    paths.filter(p => !EXCLUDED_COUNTRIES.includes(p.properties.ISO_A3))
+    paths.filter(p => !EXCLUDED_COUNTRIES.includes(p.properties.iso_a3))
       .map((geography, index) => {
         const { country: countrySelected } = _filters;
         const {
@@ -35,7 +35,7 @@ export const getUpdatedPaths = createSelector(
           (companySecondaryCountry || {}).code
         ]);
 
-        const iso = geography.properties.ISO_A3;
+        const iso = geography.properties.iso_a3;
         const country = _countries.find(_country => _country.code === iso) || {};
         const isClickable = !!(_countriesWithCompanies.find(c => c.code === iso));
         const isSelected = countrySelected ? country.id === countrySelected : false;

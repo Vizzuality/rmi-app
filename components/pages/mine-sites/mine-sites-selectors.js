@@ -17,10 +17,10 @@ const currentLanguage = state => state.language.current;
 export const getUpdatedPaths = createSelector(
   countries,
   (_countries = []) =>
-    paths.filter(p => !EXCLUDED_COUNTRIES.includes(p.properties.ISO_A3))
+    paths.filter(p => !EXCLUDED_COUNTRIES.includes(p.properties.iso_a3))
       .map((geography, index) => {
         const geographyProperties = geography.properties;
-        const iso = geographyProperties.ISO_A3;
+        const iso = geographyProperties.iso_a3;
         const country = _countries.find(_country => _country.code === iso) || {};
 
         return {
